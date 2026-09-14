@@ -1,0 +1,56 @@
+[
+  {
+    "name": "drewmax",
+    "width": 1280,
+    "height": 720,
+    "seconds": 8,
+    "fps": 30,
+    "mp4Bytes": 799753,
+    "webmBytes": 532286
+  },
+  {
+    "name": "hiker-film",
+    "width": 960,
+    "height": 540,
+    "seconds": 8,
+    "fps": 30,
+    "mp4Bytes": 594968,
+    "webmBytes": 268251
+  },
+  {
+    "name": "best",
+    "width": 960,
+    "height": 720,
+    "seconds": 8,
+    "fps": 30,
+    "mp4Bytes": 329503,
+    "webmBytes": 283170
+  },
+  {
+    "name": "hiker-brand",
+    "width": 960,
+    "height": 720,
+    "seconds": 8,
+    "fps": 30,
+    "mp4Bytes": 445028,
+    "webmBytes": 406718
+  },
+  {
+    "name": "drew-art",
+    "width": 1000,
+    "height": 700,
+    "seconds": 8,
+    "fps": 30,
+    "mp4Bytes": 627935,
+    "webmBytes": 571020
+  },
+  {
+    "name": "jd",
+    "width": 1000,
+    "height": 700,
+    "seconds": 8,
+    "fps": 30,
+    "mp4Bytes": 183041,
+    "webmBytes": 175741
+  }
+]

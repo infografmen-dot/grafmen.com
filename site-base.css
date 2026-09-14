@@ -1,0 +1,98 @@
+
+  :root{
+    --orange:#ff6400;
+    --ink:#09090b;
+    --muted:#747b88;
+    --muted2:#9aa1ad;
+    --line:#d7dbe1;
+    --paper:#fff;
+    --radius:12px;
+    --max:1280px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden}
+  .wrap{width:min(var(--max),calc(100% - 96px));margin:0 auto}
+  header{height:104px;display:grid;grid-template-columns:190px 1fr auto;align-items:center;gap:28px}
+  .logo{display:block;width:142px;height:auto}
+  nav{display:flex;justify-content:center;gap:36px;align-items:center;font-size:14px;font-weight:500;white-space:nowrap}
+  nav a{color:var(--ink);text-decoration:none;position:relative;padding:14px 0}
+  nav a.active:after{content:"";position:absolute;height:2px;width:28px;left:50%;bottom:4px;transform:translateX(-50%);background:#aab0b9;border-radius:2px}
+  .tools{display:flex;align-items:center;gap:20px;font-size:13px;font-weight:600;white-space:nowrap}
+  .tools .sep{width:1px;height:30px;background:#cfd3d8}
+  .quote{height:52px;padding:0 24px;border:0;border-radius:8px;background:#0b0b0d;color:#fff;font:600 14px/1 Inter,"Segoe UI",Arial,sans-serif;display:inline-flex;align-items:center;gap:24px}
+  .hero{position:relative;min-height:784px;padding-top:72px;isolation:isolate}
+  .hero::after{display:none}
+  /* Subtle 2–3-column echo in the outer left margin, using the same relief.
+     Keep the original lighting direction; do not mirror the image. */
+  .hero::before{
+    content:"";
+    position:absolute;
+    z-index:0;
+    top:0;
+    bottom:0;
+    left:calc(50% - 50vw);
+    width:clamp(0px,calc((100vw - 1280px) / 2 - 56px),280px);
+    pointer-events:none;
+    opacity:.48;
+    background-image:url("assets/cubes-bg.png");
+    background-repeat:no-repeat;
+    background-position:right bottom;
+    background-size:auto calc(100% + 104px);
+    -webkit-mask-image:linear-gradient(to right,#000 0%,#000 18%,rgba(0,0,0,.65) 48%,transparent 100%),linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
+    mask-image:linear-gradient(to right,#000 0%,#000 18%,rgba(0,0,0,.65) 48%,transparent 100%),linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
+    -webkit-mask-composite:source-in;
+    mask-composite:intersect;
+  }
+  @media(max-width:1392px){.hero::before{display:none}}
+  /* Background extracted from the approved hero reference. Keep its aspect ratio. */
+  .cube-field{
+    position:absolute;
+    z-index:0;
+    top:0;
+    bottom:0;
+    left:50%;
+    width:100vw;
+    transform:translateX(-50%);
+    pointer-events:none;
+    background-image:url("assets/cubes-bg.png");
+    background-repeat:no-repeat;
+    background-position:right bottom;
+    background-size:auto calc(100% + 104px);
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 4%,#000 calc(100% - 28px),transparent),linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
+    mask-image:linear-gradient(to right,transparent,#000 4%,#000 calc(100% - 28px),transparent),linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
+    -webkit-mask-composite:source-in;
+    mask-composite:intersect;
+  }
+  .hero > :not(.cube-field){position:relative;z-index:1}
+  .eyebrow{font-size:13px;color:#858d9a;letter-spacing:.01em;margin-bottom:58px;display:flex;gap:12px;align-items:center}
+  .eyebrow .dot{font-size:10px;color:#7e8794}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,930px) 220px;justify-content:space-between;gap:48px}
+  h1{font-family:"Inter Display",Inter,"Segoe UI",Arial,sans-serif;font-weight:750;letter-spacing:-.050em;line-height:.94;font-size:clamp(66px,6.05vw,92px);margin:0;max-width:960px}
+  .uword{position:relative;display:inline-block}
+  .uword::after{content:"";position:absolute;left:2px;bottom:-2px;width:160px;height:6px;background:var(--orange)}
+  .terminal{display:inline-block;width:.17em;height:.17em;background:var(--orange);margin-left:.08em;vertical-align:baseline}
+  .lead{margin:38px 0 0;color:#6f7886;font-size:21px;line-height:1.45;max-width:690px;font-weight:400}
+  .actions{display:flex;gap:18px;margin-top:32px}
+  .btn{height:56px;padding:0 30px;border-radius:8px;font-size:16px;font-weight:500;display:inline-flex;align-items:center;gap:30px;text-decoration:none}
+  .btn.dark{background:#0b0b0d;color:#fff}
+  .btn.light{color:#111;border:1px solid #d4d8de;background:rgba(255,255,255,.78)}
+  .meta01{padding-top:4px;color:#6f7888;font-size:13px;letter-spacing:.22em;text-transform:uppercase;line-height:1.72}
+  .meta01-top{display:flex;align-items:center;gap:26px;margin-bottom:18px;color:#9299a4;letter-spacing:0}
+  .meta01-top::before{content:"";width:42px;height:2px;background:var(--orange)}
+  .hero > .hero-bottom{position:absolute;left:0;right:0;bottom:-40px;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;color:#78818f;font-size:11px;letter-spacing:.19em;text-transform:uppercase;font-weight:600}
+  .mini{display:flex;align-items:flex-start;gap:18px;line-height:1.55}
+  .mini::before{content:"";width:28px;height:1px;background:#959daa;margin-top:8px;flex:0 0 auto}
+  .hero-bottom .center{text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .mouse{width:22px;height:34px;border:1.5px solid #333;border-radius:12px;position:relative}
+  .mouse::after{content:"";width:3px;height:3px;border-radius:50%;background:#222;position:absolute;left:50%;top:8px;transform:translateX(-50%)}
+  .arrowdown{font-size:18px;letter-spacing:0;color:#718091}
+  .hero-bottom .right{justify-self:end}
+
+  @media(prefers-reduced-motion:reduce){
+    .media,.media img,.arr{transition:none!important}
+    .work:hover .media,.work:hover .media img,.work:hover .arr{transform:none!important}
+  }
+  @media(max-width:900px){
+    .wrap{width:calc(100% - 40px)} header{height:84px;grid-template-columns:1fr auto}.logo{width:118px}nav{display:none}.hero{min-height:auto;padding:52px 0 72px}.hero-grid{grid-template-columns:1fr}.meta01{display:none}.cube-field{display:none}h1{font-size:clamp(46px,12vw,66px)}.lead{font-size:18px}.hero > .hero-bottom{display:none}.portfolio{padding-top:72px}.portfolio-head{grid-template-columns:1fr;gap:24px;margin-bottom:56px}h2{font-size:44px}.stage{height:auto;display:grid;grid-template-columns:1fr;gap:64px}.work{position:static!important;width:100%!important}.media{height:auto!important;aspect-ratio:1.35/1}
+  }

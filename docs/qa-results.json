@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-13",
+  "checked_html_pages": 8,
+  "checked_local_references": 241,
+  "decoded_portfolio_images": 19,
+  "unique_portfolio_projects": 18,
+  "sitemap_urls": 7,
+  "errors": [],
+  "blog_functional_checks": [
+    "publish",
+    "unpublish",
+    "escape_html",
+    "reject_invalid_slug",
+    "reject_duplicate_slug"
+  ],
+  "visual_render": "NOT VERIFIED: remote localhost blocked; local Chromium unavailable",
+  "hero_and_home_portfolio": "unchanged compared to final2.zip",
+  "css_syntax": "PASS (all 5 CSS files parsed)",
+  "javascript_syntax": "PASS (both scripts checked)"
+}

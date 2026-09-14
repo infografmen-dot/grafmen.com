@@ -1,0 +1,13 @@
+{
+  "videoFiles": 12,
+  "allVideos8Seconds": true,
+  "fps": 30,
+  "audioTracks": 0,
+  "sixHomepagePlayers": true,
+  "build": "PASS",
+  "sourceLoopSeams": "first and last source frame identical",
+  "playbackLogic": "lazy load, visibility, pause/resume, reduced motion, Save-Data, autoplay failure PASS",
+  "visualReview": "contact sheet and rendered frames inspected; live deployment review pending",
+  "totalMp4Bytes": 2980228,
+  "totalWebmBytes": 2237186
+}

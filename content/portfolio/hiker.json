@@ -1,0 +1,53 @@
+{
+  "slug": "hiker",
+  "title": "Hiker",
+  "description": "Logo i identyfikacja wizualna marki outdoorowej. Od konstrukcji znaku po materiały firmowe i ruch.",
+  "category": "Logo / branding / motion",
+  "year": "",
+  "cover": "assets/portfolio/hiker.webp",
+  "cover_alt": "Identyfikacja Hiker na materiałach firmowych",
+  "brief_title": "Marka blisko natury.",
+  "brief": [
+    "Hiker to marka odzieży i sprzętu turystycznego. Potrzebowała spójnej identyfikacji, która nawiązuje do natury, swobody i aktywności w terenie.",
+    "Projekt miał łączyć czytelny znak z możliwością zastosowania go w druku, internecie i materiałach filmowych."
+  ],
+  "deliverables": [
+    "Projekt logo i jego konstrukcji.",
+    "Paleta kolorów oraz warianty znaku.",
+    "Zastosowania identyfikacji na materiałach firmowych.",
+    "Animacja logo i film reklamowy."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/hiker/Hiker_construction.webp",
+      "alt": "Konstrukcja znaku Hiker",
+      "caption": "Konstrukcja logo i relacje między elementami znaku.",
+      "width": 1400,
+      "height": 800
+    },
+    {
+      "src": "assets/portfolio/hiker/Hiker_brand.webp",
+      "alt": "Paleta kolorów i typografia marki Hiker",
+      "caption": "Paleta kolorów i typografia identyfikacji.",
+      "width": 1400,
+      "height": 800
+    },
+    {
+      "src": "assets/portfolio/hiker/branding_Hiker.webp",
+      "alt": "Logo Hiker na materiałach firmowych",
+      "caption": "Spójne zastosowanie znaku na materiałach firmowych.",
+      "width": 1400,
+      "height": 920
+    }
+  ],
+  "result_title": "Spójna identyfikacja i jej zastosowania.",
+  "result": [
+    "Powstał zestaw elementów wizualnych do wykorzystania w materiałach marki. Logo, kolorystyka i animacja tworzą wspólny język komunikacji."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "https://www.youtube.com/watch?v=WOaOxbPIIhs",
+  "external_label": "Zobacz film reklamowy Hiker",
+  "next_url": "https://grafmen.com/logo_jd-ubezpieczenia/",
+  "next_title": "JD Ubezpieczenia"
+}

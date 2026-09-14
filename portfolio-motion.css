@@ -1,0 +1,11 @@
+/* Same dimensions and links as approved portfolio; video is decorative. */
+.portfolio-loop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:1}
+.portfolio-loop.is-playing{opacity:1}
+.portfolio .project-action,.portfolio .play-mark{z-index:2}
+.motion-controls{display:flex;justify-content:flex-end;margin:-32px 0 32px}
+.motion-toggle{font:500 13px/1.3 Inter,"Segoe UI",sans-serif;border:1px solid var(--line,#d7dbe1);background:#fff;color:#464f5c;padding:10px 15px;border-radius:24px;cursor:pointer}
+.motion-toggle:hover{border-color:#09090b;color:#09090b}
+.motion-toggle:focus-visible{outline:2px solid #ff6400;outline-offset:4px}
+.motion-toggle[hidden]{display:none}
+@media(max-width:900px){.motion-controls{justify-content:flex-start;margin:-20px 0 28px}}
+@media(prefers-reduced-motion:reduce){.portfolio-loop{transition:none}}

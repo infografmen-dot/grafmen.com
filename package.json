@@ -1,0 +1,12 @@
+{
+  "name": "grafmen-home-preview",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node node_modules/vite/bin/vite.js",
+    "build": "node scripts/build-site.mjs"
+  },
+  "devDependencies": {
+    "vite": "8.0.13"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "slug": "przykladowy-wpis",
+  "title": "Tytuł artykułu pojawi się tutaj",
+  "description": "W tym miejscu znajdzie się krótkie wprowadzenie do artykułu: problem czytelnika i zapowiedź tego, czego dowie się z tekstu.",
+  "category": "Strony WWW",
+  "date": "2026-09-13",
+  "published": false,
+  "body": [
+    {"type": "paragraph", "text": "To podgląd układu wpisu, a nie opublikowany artykuł. Pokazuje szerokość kolumny tekstowej, odstępy między akapitami i hierarchię nagłówków."},
+    {"type": "heading", "text": "Śródtytuł prowadzący przez temat"},
+    {"type": "paragraph", "text": "Tutaj znajdzie się rozwinięcie tematu. Akapity mają wygodną długość wiersza, a tekst na telefonie dopasowuje się do szerokości ekranu."},
+    {"type": "list", "items": ["Pierwsza istotna informacja.", "Druga informacja lub praktyczny przykład.", "Trzeci punkt, który porządkuje dalsze kroki."]},
+    {"type": "heading", "text": "Przykład i wnioski"},
+    {"type": "paragraph", "text": "W gotowym artykule ten fragment zawiera konkretny przykład i wskazówki dla czytelnika. Pod tekstem pozostaje powrót do listy artykułów i link do oferty stron WWW."}
+  ]
+}
