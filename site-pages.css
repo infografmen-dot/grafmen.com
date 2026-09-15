@@ -41,12 +41,39 @@
 .service-page .portfolio .stage{padding-bottom:40px}
 .portfolio-full .portfolio{width:100%;}
 .portfolio-full .stage{grid-template-columns:repeat(12,minmax(0,1fr));row-gap:88px}
-.portfolio-full .full-card{grid-column:span 4;grid-row:auto;align-self:start;margin-top:0}
-.portfolio-full .full-card .media{aspect-ratio:4 / 3}
+.portfolio-full .full-card{align-self:start}
 .portfolio-full .full-card .caption{min-height:132px}
-.portfolio-full .full-card:nth-child(3n + 1){grid-column:1 / span 5}
-.portfolio-full .full-card:nth-child(3n + 2){grid-column:7 / span 6;margin-top:48px}
-.portfolio-full .full-card:nth-child(3n){grid-column:4 / span 5;margin-top:-24px}
+.portfolio-full .p7{grid-column:1 / span 5;grid-row:4;align-self:start;margin-top:0}
+.portfolio-full .p7 .media{aspect-ratio:1 / 1}
+.portfolio-full .p8{grid-column:7 / span 6;grid-row:4;align-self:start;margin-top:56px}
+.portfolio-full .p8 .media{aspect-ratio:16 / 10}
+.portfolio-full .p9{grid-column:1 / span 4;grid-row:5;align-self:start;margin-top:24px}
+.portfolio-full .p9 .media{aspect-ratio:1 / 1}
+.portfolio-full .p10{grid-column:6 / span 7;grid-row:5;align-self:start;margin-top:-24px}
+.portfolio-full .p10 .media{aspect-ratio:10 / 7}
+.portfolio-full .p11{grid-column:1 / span 5;grid-row:6;align-self:start;margin-top:48px}
+.portfolio-full .p11 .media{aspect-ratio:4 / 3}
+.portfolio-full .p12{grid-column:7 / span 6;grid-row:6;align-self:start;margin-top:0}
+.portfolio-full .p12 .media{aspect-ratio:16 / 10}
+.portfolio-full .p13{grid-column:1 / span 5;grid-row:7;align-self:start;margin-top:0}
+.portfolio-full .p13 .media{aspect-ratio:4 / 3;background:#fff}
+.portfolio-full .p13 .project-image{object-fit:contain}
+.portfolio-full .p14{grid-column:7 / span 6;grid-row:7;align-self:start;margin-top:64px}
+.portfolio-full .p14 .media{aspect-ratio:16 / 10}
+.portfolio-full .p15{grid-column:1 / span 5;grid-row:8;align-self:start;margin-top:32px}
+.portfolio-full .p15 .media{aspect-ratio:4 / 3}
+.portfolio-full .p16{grid-column:6 / span 7;grid-row:8;align-self:start;margin-top:-16px}
+.portfolio-full .p16 .media{aspect-ratio:10 / 7}
+.portfolio-full .p17{grid-column:1 / span 6;grid-row:9;align-self:start;margin-top:0}
+.portfolio-full .p17 .media{aspect-ratio:10 / 7}
+.portfolio-full .p18{grid-column:8 / span 5;grid-row:9;align-self:start;margin-top:56px}
+.portfolio-full .p18 .media{aspect-ratio:4 / 3}
+.portfolio-full .p19{grid-column:1 / span 5;grid-row:10;align-self:start;margin-top:24px}
+.portfolio-full .p19 .media{aspect-ratio:4 / 3}
+.portfolio-full .p20{grid-column:7 / span 6;grid-row:10;align-self:start;margin-top:-16px}
+.portfolio-full .p20 .media{aspect-ratio:10 / 7}
+.portfolio-full .p21{grid-column:1 / span 6;grid-row:11;align-self:start;margin-top:32px}
+.portfolio-full .p21 .media{aspect-ratio:16 / 10}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b84400;outline-offset:5px}
 @media(max-width:1100px){header{gap:16px;grid-template-columns:150px 1fr auto}header nav{gap:20px}.tools{gap:12px}.quote{padding:0 16px;gap:16px}.logo{width:130px}}
 @media(max-width:900px){
@@ -69,7 +96,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b8
  .portfolio-full .stage{display:grid;grid-template-columns:1fr;row-gap:56px}
  /* Reset desktop placement on ALL cards, including the six featured projects. */
  .portfolio-full .stage > .work{grid-column:1 / -1;grid-row:auto;margin-top:0}
- .portfolio-full .full-card,.portfolio-full .full-card:nth-child(3n + 1),.portfolio-full .full-card:nth-child(3n + 2),.portfolio-full .full-card:nth-child(3n){grid-column:auto;margin-top:0}
+ .portfolio-full .full-card{grid-column:1 / -1;grid-row:auto;margin-top:0}
 }
 .bio-copy{max-width:760px}
 .bio-copy p{color:#62626b;line-height:1.7}
@@ -78,10 +105,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b8
 .testimonials-section .home-inner{display:block}
 .testimonials-section .testimonials-intro{max-width:760px;margin-bottom:48px}
 .testimonials-section .testimonial-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.testimonial-card blockquote{margin:0 0 28px;font-family:PortfolioOutfit,Outfit,Arial,sans-serif;font-size:26px;line-height:1.35;letter-spacing:-.015em}
-.testimonial-card blockquote p{font-size:26px;line-height:1.35;margin:0;color:var(--ink)}
-.testimonial-card .quote-label{font-size:12px;letter-spacing:.08em;color:#62626b;text-transform:uppercase;margin:0 0 20px}
-.testimonial-card .review-source{font-size:14px;line-height:1.5;color:#62626b;margin-top:16px;text-underline-offset:4px}
+.testimonial-card blockquote{margin:0 0 24px;font-family:PortfolioOutfit,Outfit,Arial,sans-serif;font-size:20px;line-height:1.45;letter-spacing:-.01em}
+.testimonial-card blockquote p{font-size:20px;line-height:1.45;margin:0;color:var(--ink)}
 .blog-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;list-style:none;padding:0;margin:0}
 .blog-card{border-top:1px solid #cacacf;padding-top:24px}
 .blog-card h2{font-size:32px;line-height:1.15;margin:20px 0}
@@ -177,12 +202,11 @@ section[id]{scroll-margin-top:var(--sticky-header-offset)}
 .back-to-top[hidden]{display:none}
 .back-to-top:hover{background:#303030}
 .back-to-top:focus-visible{outline:3px solid #ff6400;outline-offset:4px}
-.about-hero-grid{display:grid;grid-template-columns:minmax(0,8fr) minmax(240px,3fr);gap:clamp(40px,6vw,96px);align-items:center}
+.about-hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(280px,4fr);gap:clamp(32px,5vw,72px);align-items:center}
 .about-hero h1{font-size:clamp(44px,4.7vw,68px)}
-.about-hero .home-lead{margin-top:40px}
-.about-portrait{margin:0;width:100%;max-width:340px;justify-self:end}
-.portrait-placeholder,.about-portrait img{display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;background:#f2f2f4;border:1px solid #e5e5e8;border-radius:16px}
-.about-portrait figcaption{font-size:13px;color:#62626b;margin-top:16px;line-height:1.5}
+.about-hero .home-lead{margin-top:32px}
+.about-portrait{margin:0;width:100%;max-width:440px;justify-self:end}
+.about-portrait img{display:block;width:100%;height:auto;object-fit:contain;background:transparent;border:none;border-radius:0;box-shadow:none}
 .branding-hero h1{max-width:1150px;font-size:clamp(44px,5.1vw,72px);line-height:1.08}
 .branding-introduction{max-width:920px;font-size:22px!important;line-height:1.6!important;color:#62626b;margin:0 0 80px}
 .branding-services h3{font-size:28px;line-height:1.2}
@@ -192,8 +216,8 @@ section[id]{scroll-margin-top:var(--sticky-header-offset)}
 @media(min-width:901px){.packages-intro h2+.home-lead,.compact-grid>h2+p{margin-top:0}}
 @media(max-width:900px){
  :root{--section-heading-gap:32px;--sticky-header-offset:104px}
- .about-hero-grid{grid-template-columns:1fr;gap:40px}
- .about-portrait{justify-self:start;max-width:360px}
+ .about-hero-grid{grid-template-columns:1fr;gap:32px}
+ .about-portrait{justify-self:center;max-width:320px;margin:0 auto}
  .branding-introduction{font-size:20px!important;margin-bottom:56px}
  .branding-examples{margin-top:56px}
  .back-to-top{right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:44px;height:44px}

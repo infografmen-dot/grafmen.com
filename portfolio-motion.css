@@ -3,4 +3,6 @@
 .portfolio-loop.is-playing{opacity:1}
 .portfolio .project-action{z-index:2}
 .motion-controls{display:none}
-@media(prefers-reduced-motion:reduce){.portfolio-loop{transition:none}}
+@media (prefers-reduced-motion: reduce) { .portfolio-loop { transition: none; } }
+@media (max-width: 900px), (hover: none), (pointer: coarse) { .portfolio-loop { display: none !important; } }
+

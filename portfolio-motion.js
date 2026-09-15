@@ -27,7 +27,9 @@
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
-          video.classList.add('is-playing');
+          if (!video.paused) {
+            video.classList.add('is-playing');
+          }
         })
         .catch(() => {
           video.classList.remove('is-playing');
