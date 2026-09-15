@@ -1,6 +1,6 @@
 /* Same dimensions and links as approved portfolio; video is decorative. */
 .portfolio-loop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:1}
 .portfolio-loop.is-playing{opacity:1}
-.portfolio .project-action,.portfolio .play-mark{z-index:2}
+.portfolio .project-action{z-index:2}
 .motion-controls{display:none}
 @media(prefers-reduced-motion:reduce){.portfolio-loop{transition:none}}

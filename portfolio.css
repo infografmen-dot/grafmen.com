@@ -26,7 +26,6 @@
 .portfolio .project-logo{position:absolute;left:32px;top:32px;width:150px;height:auto;filter:drop-shadow(0 1px 4px #0008)}
 .portfolio .p2 .media{aspect-ratio:16 / 9}
 .portfolio .p2 .project-image{object-fit:contain;background:#fff}
-.portfolio .play-mark{position:absolute;inset:0;margin:auto;display:grid;place-items:center;padding-left:3px;width:56px;height:56px;border-radius:50%;background:#09090bcc;border:1px solid #ffffffa0;color:#fff;font-size:17px;transform:translateY(66px)}
 .portfolio .p3 .media{aspect-ratio:4 / 3;background:transparent;padding:0}
 .portfolio .site-preview{height:100%;overflow:hidden;border-radius:0;box-shadow:none;background:transparent}
 /* Display the top 960 px of the supplied 1902×1080 screenshot.
@@ -58,7 +57,6 @@
  .portfolio .p3 .media{padding:0}
  .portfolio .title{font-size:26px}
  .portfolio .caption{margin-top:20px}
- .portfolio .play-mark{transform:translateY(40px);width:48px;height:48px;font-size:15px}
 }
 @media(hover:none){.portfolio .project-action{display:none}}
 @media(prefers-reduced-motion:reduce){.portfolio .project-action{transition:none;transform:none}}
