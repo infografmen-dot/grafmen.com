@@ -59,8 +59,10 @@
 .packages-intro h2{grid-column:1}
 .packages-intro .home-lead{grid-column:2;max-width:430px}
 .package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:72px}
-.package-card{display:flex;flex-direction:column;min-height:620px;padding:32px;border:1px solid #cacacf;border-radius:16px;background:#fff}
+.package-card{display:flex;flex-direction:column;min-height:620px;padding:32px;border:1px solid #cacacf;border-radius:16px;background:#fff;transition:border-color .28s ease,box-shadow .28s ease}
+.package-card:hover{border-color:#9aa1ad}
 .package-card.package-featured{border-color:#09090b;background:#09090b;color:#fff;transform:translateY(-16px)}
+.package-card.package-featured:hover{border-color:#3b3b42;box-shadow:0 0 0 1px #3b3b42}
 .package-index{margin:0 0 48px;color:#767676;font-size:13px!important;letter-spacing:.08em;text-transform:uppercase}
 .package-featured .package-index{color:#ff7a29}
 .package-card h3{margin:0;font-family:PortfolioOutfit,Outfit,Arial,sans-serif;font-size:32px;line-height:1.1;font-weight:600;letter-spacing:-.02em}
@@ -76,7 +78,7 @@
 .package-link{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:18px;border-top:1px solid #e2e2e5;color:#09090b;text-decoration:none;font-size:15px;font-weight:500}
 .package-featured .package-link{border-top-color:#3b3b42;color:#fff}
 .package-link span{font-size:20px;transition:transform 420ms cubic-bezier(.22,1,.36,1)}
-.package-link:hover span{transform:translateX(4px)}
+.package-link:hover span,.package-card:hover .package-link span{transform:translateX(4px)}
 .testimonials-section{background:#f6f6f7}
 .testimonials-section .home-inner{display:grid;grid-template-columns:5fr 7fr;gap:100px;align-items:start}
 .testimonials-intro{max-width:440px}
@@ -152,5 +154,6 @@
  .footer-bottom{flex-direction:column;gap:10px}
 }
 @media(prefers-reduced-motion:reduce){
- .package-link span,.cta-button span{transition:none}
+ .package-card,.package-link span,.cta-button span{transition:none}
+ .package-card:hover .package-link span{transform:none}
 }

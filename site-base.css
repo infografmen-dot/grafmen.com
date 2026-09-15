@@ -96,3 +96,18 @@
   @media(max-width:900px){
     .wrap{width:calc(100% - 40px)} header{height:84px;grid-template-columns:1fr auto}.logo{width:118px}nav{display:none}.hero{min-height:auto;padding:52px 0 72px}.hero-grid{grid-template-columns:1fr}.meta01{display:none}.cube-field{display:none}h1{font-size:clamp(46px,12vw,66px)}.lead{font-size:18px}.hero > .hero-bottom{display:none}.portfolio{padding-top:72px}.portfolio-head{grid-template-columns:1fr;gap:24px;margin-bottom:56px}h2{font-size:44px}.stage{height:auto;display:grid;grid-template-columns:1fr;gap:64px}.work{position:static!important;width:100%!important}.media{height:auto!important;aspect-ratio:1.35/1}
   }
+
+/* Subtle section scroll reveal */
+@media (prefers-reduced-motion: no-preference) {
+  html.js-reveal-enabled .reveal-section {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 500ms ease-out, transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  html.js-reveal-enabled .reveal-section.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+  }
+}
