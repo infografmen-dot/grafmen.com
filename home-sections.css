@@ -31,11 +31,39 @@
 .proof-number{display:block;color:#ff6400;font-size:14px;margin-bottom:32px}
 .proof-item h3{margin:0 0 12px;color:#fff;font-family:PortfolioOutfit,Outfit,Arial,sans-serif;font-size:26px;line-height:1.12;font-weight:600;letter-spacing:-.015em}
 .proof-item p{margin:0;color:#aaaab1}
+/* Packages section layering */
 .packages-section{background:#fff;position:relative;overflow:hidden;isolation:isolate}
 .packages-section .home-inner{position:relative;z-index:1}
-.display-word{position:absolute;pointer-events:none;user-select:none;z-index:0;font-family:"Inter Display",Inter,Outfit,Arial,sans-serif;font-weight:800;line-height:.82;letter-spacing:-.045em;color:rgba(9,9,11,.032);text-transform:uppercase;white-space:nowrap;top:120px;left:50%;transform:translateX(-50%);font-size:clamp(120px,21vw,290px)}
-@media(max-width:900px){.display-word{font-size:clamp(56px,16vw,110px);top:90px;opacity:.6}}
-@media(max-width:480px){.display-word{display:none}}
+.packages-grid-wrap{position:relative;margin-top:72px}
+.packages-grid-wrap .display-word{position:absolute;pointer-events:none;user-select:none;z-index:1;font-family:"Inter Display",Inter,Outfit,Arial,sans-serif;font-weight:800;line-height:.82;letter-spacing:-.045em;color:rgba(9,9,11,.06);text-transform:uppercase;white-space:nowrap;top:-218px;left:50%;transform:translateX(-50%);font-size:clamp(135px,21vw,300px);mask-image:linear-gradient(180deg,rgba(0,0,0,1) 0%,rgba(0,0,0,.85) 45%,rgba(0,0,0,.25) 80%,rgba(0,0,0,0) 100%);-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,1) 0%,rgba(0,0,0,.85) 45%,rgba(0,0,0,.25) 80%,rgba(0,0,0,0) 100%)}
+.packages-grid-wrap .package-grid{margin-top:0;position:relative;z-index:2}
+.package-card{position:relative;z-index:2;background:#fff}
+.package-card.package-featured{background:#09090b}
+@media(max-width:900px){
+  .packages-grid-wrap{margin-top:48px}
+  .packages-grid-wrap .display-word{font-size:clamp(75px,16vw,155px);top:-115px;opacity:.8}
+}
+@media(max-width:580px){.packages-grid-wrap .display-word{display:none}}
+
+/* Logo Cloud Section - Compact Cinematic Trust Bar */
+.logo-cloud-section{background:#fff;padding:36px 0 40px;border-top:1px solid #f0f0f2}
+.logo-cloud-kicker{margin:0 0 20px;text-align:center;color:#888890;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.logo-cloud{position:relative;width:100%}
+.logo-cloud--cinematic{overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%)}
+.logo-marquee-track{display:flex;width:max-content}
+.logo-track-group{display:flex;align-items:center;gap:96px;padding-right:96px;animation:logoDrift 48s linear infinite}
+.logo-marquee-track:hover .logo-track-group{animation-play-state:paused}
+@keyframes logoDrift{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.logo-item{display:flex;align-items:center;justify-content:center;height:80px;min-width:180px}
+.logo-item img{max-height:70px;max-width:240px;width:auto;height:auto;object-fit:contain;filter:grayscale(100%);opacity:.42;transition:opacity .25s ease,filter .25s ease,transform .25s ease}
+.logo-item:hover img{opacity:.95;filter:grayscale(0%);transform:scale(1.05)}
+@media(prefers-reduced-motion:reduce){.logo-track-group{animation:none!important}}
+@media(max-width:768px){
+  .logo-cloud-section{padding:26px 0 30px}
+  .logo-track-group{gap:54px;padding-right:54px}
+  .logo-item{height:56px;min-width:130px}
+  .logo-item img{max-height:48px;max-width:160px}
+}
 .process-section{background:#f6f6f7;scroll-margin-top:32px}
 .process-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(48px,7vw,112px);align-items:start}
 .process-intro{position:sticky;top:40px}

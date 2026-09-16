@@ -1,221 +1,204 @@
-/* Fluid Glass Menu - Lightweight Floating Dock & Mobile Glass Panel for Grafmen.com
-   Inspired by fluid.glass & 21st.dev/components/fluid-menu
-   Vanilla CSS + Vanilla JS · zero external dependencies */
+/* Fluid Glass Mini Menu - Grafmen.com
+ * Lightweight, accessible, high-performance floating navigation
+ * Inspired by fluid.glass
+ */
 
-.fluid-glass-dock {
+:root {
+  --fg-bg: rgba(18, 18, 22, 0.88);
+  --fg-bg-solid: #121216;
+  --fg-border: rgba(255, 255, 255, 0.12);
+  --fg-border-hover: rgba(255, 255, 255, 0.22);
+  --fg-text: #f0f0f3;
+  --fg-text-muted: #9e9ea7;
+  --fg-accent: #ff6400;
+  --fg-radius: 12px;
+  --fg-width: 240px;
+}
+
+/* Base floating container */
+.fg-menu {
+  display: block !important;
   position: fixed;
   bottom: 24px;
   left: 50%;
-  transform: translateX(-50%) translateY(24px);
-  z-index: 950;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 6px 8px;
-  background: rgba(255, 255, 255, 0.94); /* Fallback when backdrop-filter is unsupported */
-  border: 1px solid rgba(215, 219, 225, 0.8);
-  border-radius: 9999px;
-  box-shadow: 0 10px 30px rgba(9, 9, 11, 0.08), 0 1px 3px rgba(9, 9, 11, 0.04);
+  transform: translate(-50%, 20px);
+  width: var(--fg-width);
+  max-width: calc(100vw - 32px);
+  z-index: 999;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity .32s cubic-bezier(.16, 1, .3, 1),
-              transform .32s cubic-bezier(.16, 1, .3, 1),
-              visibility .32s;
-  user-select: none;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-@supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
-  .fluid-glass-dock {
-    background: rgba(255, 255, 255, 0.76);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 0 12px 36px rgba(9, 9, 11, 0.08),
-                0 2px 6px rgba(9, 9, 11, 0.03),
-                inset 0 1px 1px rgba(255, 255, 255, 0.95);
-  }
-}
-
-.fluid-glass-dock.is-visible {
+.fg-menu.is-visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+  transform: translate(-50%, 0);
 }
 
-.fluid-glass-dock.is-hidden-footer {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateX(-50%) translateY(16px);
+.fg-menu.is-hidden-footer {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translate(-50%, 20px) !important;
 }
 
-.fluid-glass-nav {
+/* Closed state bar */
+.fg-bar {
   display: flex;
   align-items: center;
-  gap: 2px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  justify-content: space-between;
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  background: var(--fg-bg);
+  background-color: var(--fg-bg-solid);
+  border: 1px solid var(--fg-border);
+  border-radius: var(--fg-radius);
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+  user-select: none;
+  position: relative;
+  z-index: 2;
 }
 
-.fluid-glass-item {
-  display: block;
+@supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
+  .fg-bar {
+    background: var(--fg-bg);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+  }
 }
 
-.fluid-glass-link {
+.fg-menu:hover .fg-bar {
+  border-color: var(--fg-border-hover);
+  box-shadow: 0 14px 36px -4px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* HOME button / link */
+.fg-home {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--fg-text);
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  padding: 8px 14px;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: #4a5160;
-  text-decoration: none;
-  border-radius: 9999px;
-  white-space: nowrap;
-  transition: color .18s ease, background-color .18s ease, transform .18s ease;
-  line-height: 1.2;
+  height: 100%;
+  padding: 0 4px;
+  border-radius: 4px;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
-.fluid-glass-link:hover {
-  color: #09090b;
-  background: rgba(9, 9, 11, 0.05);
+.fg-home:hover {
+  color: #fff;
+  opacity: 0.9;
 }
 
-.fluid-glass-link:focus-visible {
-  outline: 2px solid #ff6400;
+.fg-home:focus-visible {
+  outline: 2px solid var(--fg-accent);
   outline-offset: 2px;
 }
 
-.fluid-glass-link.is-active {
-  color: #ff6400;
-  font-weight: 600;
-  background: rgba(255, 100, 0, 0.08);
-}
-
-/* Mobile & Tablet floating trigger & compact glass panel */
-.fluid-glass-mobile-trigger {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 950;
+/* Hamburger toggle */
+.fg-toggle {
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  font-family: Inter, sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  color: #09090b;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(215, 219, 225, 0.85);
-  border-radius: 9999px;
-  box-shadow: 0 8px 24px rgba(9, 9, 11, 0.12), 0 2px 4px rgba(9, 9, 11, 0.04);
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(16px);
-  transition: opacity .3s ease, transform .3s ease, visibility .3s, background .2s ease;
+  color: var(--fg-text);
+  transition: background-color 0.18s ease;
 }
 
-@supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
-  .fluid-glass-mobile-trigger {
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 10px 30px rgba(9, 9, 11, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.95);
-  }
+.fg-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
-.fluid-glass-mobile-trigger.is-visible {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
+.fg-toggle:focus-visible {
+  outline: 2px solid var(--fg-accent);
+  outline-offset: 2px;
 }
 
-.fluid-glass-mobile-trigger.is-hidden-footer {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(16px);
-}
-
-.fluid-glass-mobile-trigger:focus-visible {
-  outline: 3px solid #ff6400;
-  outline-offset: 3px;
-}
-
-.fluid-glass-trigger-icon {
-  width: 14px;
-  height: 10px;
+/* 3-line hamburger morphing to X */
+.fg-burger {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 17px;
+  height: 12px;
 }
 
-.fluid-glass-trigger-icon span {
+.fg-line {
   display: block;
-  height: 1.5px;
   width: 100%;
-  background: #09090b;
-  border-radius: 2px;
-  transition: transform .25s ease, opacity .25s ease;
+  height: 1.5px;
+  background-color: #ffffff;
+  border-radius: 1px;
+  transform-origin: center;
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.2s ease;
 }
 
-.fluid-glass-mobile-trigger[aria-expanded="true"] .fluid-glass-trigger-icon span:first-child {
-  transform: translateY(4.25px) rotate(45deg);
+.fg-menu.is-open .fg-line--1 {
+  transform: translateY(5.25px) rotate(45deg);
 }
 
-.fluid-glass-mobile-trigger[aria-expanded="true"] .fluid-glass-trigger-icon span:last-child {
-  transform: translateY(-4.25px) rotate(-45deg);
+.fg-menu.is-open .fg-line--2 {
+  opacity: 0;
+  transform: scaleX(0);
 }
 
-.fluid-glass-mobile-panel {
-  display: none;
-  position: fixed;
-  bottom: 74px;
-  right: 20px;
-  width: 200px;
-  max-width: calc(100vw - 40px);
-  z-index: 951;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(215, 219, 225, 0.9);
-  border-radius: 18px;
+.fg-menu.is-open .fg-line--3 {
+  transform: translateY(-5.25px) rotate(-45deg);
+}
+
+/* Expanded Popover Panel */
+.fg-panel {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: var(--fg-bg);
+  background-color: var(--fg-bg-solid);
+  border: 1px solid var(--fg-border);
+  border-radius: var(--fg-radius);
+  box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.04);
   padding: 8px;
-  box-shadow: 0 16px 44px rgba(9, 9, 11, 0.16), 0 2px 6px rgba(9, 9, 11, 0.05);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: scale(0.92) translateY(12px);
-  transform-origin: bottom right;
-  transition: opacity .25s cubic-bezier(.16, 1, .3, 1),
-              transform .25s cubic-bezier(.16, 1, .3, 1),
-              visibility .25s;
+  transform: translateY(12px) scale(0.96);
+  transform-origin: bottom center;
+  transition: opacity 0.24s cubic-bezier(0.16, 1, 0.3, 1), transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.24s;
+  z-index: 1;
 }
 
 @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
-  .fluid-glass-mobile-panel {
-    background: rgba(255, 255, 255, 0.86);
-    backdrop-filter: blur(24px) saturate(190%);
-    -webkit-backdrop-filter: blur(24px) saturate(190%);
-    border: 1px solid rgba(255, 255, 255, 0.95);
-    box-shadow: 0 20px 48px rgba(9, 9, 11, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  .fg-panel {
+    background: var(--fg-bg);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
   }
 }
 
-.fluid-glass-mobile-panel.is-open {
+.fg-menu.is-open .fg-panel {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: scale(1) translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-.fluid-glass-mobile-nav {
+/* Links inside panel */
+.fg-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -224,55 +207,96 @@
   gap: 2px;
 }
 
-.fluid-glass-mobile-link {
+.fg-item {
+  margin: 0;
+  padding: 0;
+}
+
+.fg-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 14px;
-  font-family: Inter, sans-serif;
-  font-size: 14px;
+  padding: 8px 12px;
+  font-size: 13.5px;
   font-weight: 500;
-  color: #1a1b1e;
+  color: var(--fg-text-muted);
   text-decoration: none;
-  border-radius: 12px;
-  transition: background .15s ease, color .15s ease;
+  border-radius: 8px;
+  transition: background-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
 }
 
-.fluid-glass-mobile-link:hover {
-  background: rgba(9, 9, 11, 0.06);
+.fg-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 
-.fluid-glass-mobile-link.is-active {
-  color: #ff6400;
-  font-weight: 600;
-  background: rgba(255, 100, 0, 0.08);
-}
-
-.fluid-glass-mobile-link:focus-visible {
-  outline: 2px solid #ff6400;
+.fg-link:focus-visible {
+  outline: 2px solid var(--fg-accent);
   outline-offset: 1px;
 }
 
-/* Breakpoints */
-@media (max-width: 900px) {
-  .fluid-glass-dock {
-    display: none !important;
+.fg-link.is-active {
+  color: #ffffff;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.fg-link.is-active::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--fg-accent);
+}
+
+/* Staggered entrance animation for items when open */
+.fg-menu.is-open .fg-item {
+  animation: fgItemFade 0.22s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i, 0) * 0.022s) both;
+}
+
+@keyframes fgItemFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
   }
-  .fluid-glass-mobile-trigger {
-    display: inline-flex;
-  }
-  .fluid-glass-mobile-panel {
-    display: block;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Reduced motion support */
+/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
-  .fluid-glass-dock,
-  .fluid-glass-mobile-trigger,
-  .fluid-glass-mobile-panel,
-  .fluid-glass-link,
-  .fluid-glass-trigger-icon span {
+  .fg-menu,
+  .fg-panel,
+  .fg-line,
+  .fg-link {
     transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  .fg-menu.is-visible {
+    transform: translate(-50%, 0) !important;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  :root {
+    --fg-width: 210px;
+  }
+  .fg-menu {
+    bottom: 18px;
+  }
+  .fg-bar {
+    height: 42px;
+    padding: 0 14px;
+  }
+  .fg-home {
+    font-size: 12.5px;
+  }
+  .fg-link {
+    padding: 7.5px 10px;
+    font-size: 13px;
   }
 }
