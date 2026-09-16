@@ -1,0 +1,53 @@
+{
+  "slug": "gazetka-drewmar",
+  "title": "Gazetka Drewmar",
+  "description": "Promocyjny materiał drukowany prezentujący produkty i sezonową ofertę firmy.",
+  "category": "Druk",
+  "year": "2018",
+  "cover": "assets/portfolio/full/gazetka_Drewmar_2018_8-1.webp",
+  "cover_alt": "Gazetka promocyjna dla firmy Drewmar",
+  "brief_title": "Sezonowa dynamika i czytelność promocji.",
+  "brief": [
+    "Przygotowanie cyklicznej gazetki promocyjnej prezentującej sezonowe promocje, nowości produktowe oraz bestsellery firmy Drewmar.",
+    "Układ musiał łączyć dużą gęstość informacji handlowych z dynamiczną, czytelną kompozycją przyciągającą wzrok odbiorcy."
+  ],
+  "deliverables": [
+    "Opracowanie koncepcji graficznej i siatki modułowej gazetki promocyjnej.",
+    "Wyszparowanie i retusz kilkudziesięciu zdjęć produktów w wysokiej rozdzielczości.",
+    "Wyraziste wyeksponowanie cen promocyjnych, rabatów i wyróżników jakościowych.",
+    "Kompletny skład DTP z przygotowaniem plików do druku wysokonakładowego."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_8-1.webp",
+      "alt": "Okładka gazetki Drewmar",
+      "caption": "Okładka gazetki promocyjnej z ekspozycją nowości.",
+      "width": 1000,
+      "height": 700
+    },
+    {
+      "src": "assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7.jpg",
+      "alt": "Rozkładówka z ofertą",
+      "caption": "Przejrzysty układ stron z rabatami i zestawami promocyjnymi.",
+      "width": 1000,
+      "height": 700
+    },
+    {
+      "src": "assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_6.jpg",
+      "alt": "Materiały drukowane Drewmar",
+      "caption": "Prezentacja asortymentu szczotek w formacie gazetkowym.",
+      "width": 1000,
+      "height": 700
+    }
+  ],
+  "result_title": "Wsparcie akcji promocyjnych.",
+  "result": [
+    "Powstał dynamiczny, przejrzysty materiał handlowy, który skutecznie wsparł kwartalną sprzedaż promocyjną w sieci dystrybucji klienta."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../self-invest/index.html",
+  "next_title": "Self Invest"
+}

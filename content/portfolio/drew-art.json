@@ -1,0 +1,39 @@
+{
+  "slug": "drew-art",
+  "title": "Drew-Art",
+  "description": "Propozycja strony dla firmy z branży drzewnej. Układ porządkuje ofertę i pokazuje produkty w nowoczesnym kontekście sprzedażowym.",
+  "category": "Strona WWW",
+  "year": "2023",
+  "cover": "assets/portfolio/drew-art.webp",
+  "cover_alt": "Projekt strony internetowej Drew-Art",
+  "brief_title": "Prezentacja tradycji w nowoczesnej formie.",
+  "brief": [
+    "Firma Drew-Art działa w branży drzewnej, produkując wysokiej jakości wyroby z drewna i artykuły gospodarstwa domowego.",
+    "Celem projektu było uporządkowanie szerokiej oferty asortymentowej w funkcjonalnym, estetycznym układzie prezentującym walory naturalnego drewna."
+  ],
+  "deliverables": [
+    "Analiza i brief z klientem: cele wizerunkowe, kluczowe produkty i grupy odbiorców.",
+    "UX/UI design: projekt strony głównej, katalogu produktów oraz modułu kontaktu.",
+    "Wdrożenie w oparciu o system WordPress z pełną wersją mobilną i desktopową.",
+    "Spójna typografia i akcenty graficzne dopasowane do charakteru marki."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem.webp",
+      "alt": "Materiały produktowe Drew-Art",
+      "caption": "Prezentacja linii produktowej z naturalnego drewna.",
+      "width": 1400,
+      "height": 4436
+    }
+  ],
+  "result_title": "Spójna prezentacja oferty produktowej.",
+  "result": [
+    "Powstał uporządkowany projekt strony internetowej, który eksponuje detale rzemieślniczej produkcji i wzmacnia wizerunek Drew-Art w kontaktach handlowych."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../jd-ubezpieczenia/index.html",
+  "next_title": "JD Ubezpieczenia"
+}

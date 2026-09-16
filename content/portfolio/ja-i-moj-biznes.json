@@ -1,0 +1,46 @@
+{
+  "slug": "ja-i-moj-biznes",
+  "title": "Ja i mój biznes",
+  "description": "Strona internetowa uporządkowana wokół oferty i pierwszego kontaktu z klientem.",
+  "category": "Strona WWW",
+  "year": "",
+  "cover": "assets/portfolio/full/screen_site-1000x700-1.webp",
+  "cover_alt": "Strona WWW Ja i mój biznes",
+  "brief_title": "Przejrzysty serwis doradztwa biznesowego.",
+  "brief": [
+    "Projekt witryny internetowej dla inicjatywy szkoleniowo-doradczej „Ja i mój biznes”.",
+    "Głównym celem było stworzenie wiarygodnego, profesjonalnego punktu pierwszego kontaktu dla przedsiębiorców szukających wsparcia w rozwoju własnej działalności."
+  ],
+  "deliverables": [
+    "Projekt struktury strony skupiony na prezentacji modułów szkoleniowych.",
+    "Nowoczesny interfejs graficzny budujący autorytet i profesjonalizm.",
+    "Wdrożenie modułów kontaktu, zapisów oraz sekcji pytań i odpowiedzi.",
+    "Pełna responsywność i dostosowanie do wyświetlania na urządzeniach mobilnych."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/ja-i-moj-biznes/screen_site-1000x700-1.webp",
+      "alt": "Strona WWW Ja i mój biznes",
+      "caption": "Projekt strony głównej z ofertą programów wsparcia biznesu.",
+      "width": 1000,
+      "height": 700
+    },
+    {
+      "src": "assets/portfolio/ja-i-moj-biznes/site-4.jpg",
+      "alt": "Pełny układ serwisu",
+      "caption": "Długi landing page porządkujący poszczególne etapy doradztwa.",
+      "width": 476,
+      "height": 2048
+    }
+  ],
+  "result_title": "Skuteczna platforma prezentacji oferty.",
+  "result": [
+    "Dostarczono funkcjonalny serwis internetowy, który w jasny sposób komunikuje korzyści ze współpracy i skutecznie konwertuje odwiedzających na zapytania ofertowe."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../gazetka-drewmar/index.html",
+  "next_title": "Gazetka Drewmar"
+}

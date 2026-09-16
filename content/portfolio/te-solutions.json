@@ -1,0 +1,53 @@
+{
+  "slug": "te-solutions",
+  "title": "TE Solutions",
+  "description": "Materiały identyfikacji wizualnej: logotyp, papeteria firmowa oraz materiały biurowe przygotowane dla marki TE Solutions.",
+  "category": "Identyfikacja / branding",
+  "year": "",
+  "cover": "assets/portfolio/full/te-solutions.webp",
+  "cover_alt": "Materiały identyfikacji wizualnej dla firmy TE Solutions",
+  "brief_title": "Zaawansowana inżynieria w minimalistycznym znaku.",
+  "brief": [
+    "TE Solutions Sp. z o.o. to wyspecjalizowana firma inżynierska zajmująca się analizami technicznymi, wytrzymałościowymi, kriogeniką i technologiami kosmicznymi.",
+    "Projekt wymagał stworzenia wysoce profesjonalnego, technicznego języka wizualnego, który w minimalistycznej formie odda precyzję, wiedzę i rygor naukowy."
+  ],
+  "deliverables": [
+    "Projekt logotypu opartego na czystych podziałach geometrycznych.",
+    "Kompletna papeteria firmowa: wizytówki, papier korespondencyjny, teczki ofertowe.",
+    "Księga znaku z precyzyjnymi wytycznymi dotyczącymi typografii technicznej.",
+    "Materiały identyfikacyjne zoptymalizowane pod kątem prezentacji międzynarodowych."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/te-solutions/Stationery-branding-www_1000x700.webp",
+      "alt": "Branding TE Solutions",
+      "caption": "Materiały identyfikacji wizualnej i papeteria firmowa.",
+      "width": 1000,
+      "height": 700
+    },
+    {
+      "src": "assets/portfolio/te-solutions/te_solutions-www.jpg",
+      "alt": "Znak TE Solutions",
+      "caption": "Znak graficzny w wersji achromatycznej i kolorystycznej.",
+      "width": 801,
+      "height": 601
+    },
+    {
+      "src": "assets/portfolio/te-solutions/Business-card-www.jpg",
+      "alt": "Wizytówki inżynierskie TE Solutions",
+      "caption": "Precyzyjny projekt wizytówek dla kadry inżynierskiej.",
+      "width": 880,
+      "height": 707
+    }
+  ],
+  "result_title": "Precyzja i prestiż w kontaktach międzynarodowych.",
+  "result": [
+    "Opracowano elegancką, zaawansowaną tożsamość wizualną, która doskonale harmonizuje ze specjalistycznym profilem działalności firmy w branży technologii kosmicznych."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../kancelaria-lampa/index.html",
+  "next_title": "Kancelaria Lampa"
+}

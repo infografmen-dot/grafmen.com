@@ -1,0 +1,39 @@
+{
+  "slug": "szkola-best",
+  "title": "szkola.best",
+  "description": "Strona szkoły języka angielskiego dla dzieci i młodzieży. Porządkuje ofertę kursów i prowadzi rodzica od pierwszego kontaktu do zapisu.",
+  "category": "Strona WWW",
+  "year": "2023",
+  "cover": "assets/portfolio/szkola-best.png",
+  "cover_alt": "Projekt strony Best English z ofertą kursów języka angielskiego",
+  "brief_title": "Angielski, który otwiera drzwi.",
+  "brief": [
+    "Best English to szkoła językowa specjalizująca się w nauczaniu dzieci, młodzieży i dorosłych na Podkarpaciu.",
+    "Potrzebny był przejrzysty serwis internetowy, który w przyjazny sposób prezentuje metodykę nauczania, harmonogramy kursów oraz umożliwia szybki zapis online."
+  ],
+  "deliverables": [
+    "Projekt struktury oferty i ścieżki zapisu dla rodziców.",
+    "Dedykowana szata graficzna zoptymalizowana pod kątem czytelności i zaufania.",
+    "Wdrożenie formularza zapisu i integracja z mediami społecznościowymi.",
+    "Optymalizacja mobilna pod kątem szybkiego przeglądania na telefonach."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/szkola-best/szkola-best.png",
+      "alt": "Strona główna szkola.best",
+      "caption": "Strona główna z prezentacją oferty kursów językowych.",
+      "width": 1902,
+      "height": 1080
+    }
+  ],
+  "result_title": "Przejrzysta ścieżka zapisu dla rodziców.",
+  "result": [
+    "Nowa witryna w jasny sposób porządkuje bogatą ofertę szkoły, ułatwiając rodzicom wybór odpowiedniej grupy oraz bezpośredni kontakt z sekretariatem."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "https://szkola.best/",
+  "external_label": "Otwórz stronę szkola.best",
+  "next_url": "../drew-art/index.html",
+  "next_title": "Drew-Art"
+}

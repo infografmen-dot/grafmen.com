@@ -1,0 +1,53 @@
+{
+  "slug": "katalog-drew-art",
+  "title": "Katalog Drew-Art",
+  "description": "Katalog produktowy, który porządkuje ofertę i prowadzi odbiorcę przez najważniejsze grupy produktów.",
+  "category": "Katalog",
+  "year": "",
+  "cover": "assets/portfolio/full/Mockup_Brochure_21x21_1.webp",
+  "cover_alt": "Katalog promocyjny dla firmy Drew-Art",
+  "brief_title": "Kwadratowy format, maksymalna przejrzystość.",
+  "brief": [
+    "Firma Drew-Art potrzebowała eleganckiego katalogu drukowanego w formacie 21×21 cm do dystrybucji na spotkaniach handlowych i targach branżowych.",
+    "Głównym zadaniem było przejrzyste sklasyfikowanie dziesiątek wyrobów drewnianych oraz pokazanie ich naturalnej faktury i estetyki wykonania."
+  ],
+  "deliverables": [
+    "Opracowanie makiety i layoutu stron w kwadratowym formacie 210×210 mm.",
+    "Przygotowanie siatki modułowej dla zdjęć produktów, opisów i tabel wymiarowych.",
+    "Skład DTP z precyzyjnym przygotowaniem plików produkcyjnych do druku offsetowego.",
+    "Wizualizacje 3D katalogu do prezentacji w materiałach cyfrowych."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_1.webp",
+      "alt": "Okładka katalogu Drew-Art",
+      "caption": "Okładka katalogu promocyjnego w formacie 21×21 cm.",
+      "width": 1750,
+      "height": 1750
+    },
+    {
+      "src": "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2.webp",
+      "alt": "Rozkładówka katalogu Drew-Art",
+      "caption": "Przejrzysta rozkładówka z podziałem na kategorie asortymentowe.",
+      "width": 1750,
+      "height": 1750
+    },
+    {
+      "src": "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4.webp",
+      "alt": "Prezentacja produktów w katalogu",
+      "caption": "Wizualizacja produktów w naturalnym otoczeniu.",
+      "width": 2266,
+      "height": 1750
+    }
+  ],
+  "result_title": "Efektywne narzędzie sprzedaży bezpośredniej.",
+  "result": [
+    "Dostarczono gotowy do druku katalog produktowy, który porządkuje asortyment firmy i znacząco ułatwia kontrahentom składanie zamówień hurtowych."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../montessori/index.html",
+  "next_title": "Montessori.com.pl"
+}

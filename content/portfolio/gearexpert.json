@@ -1,0 +1,53 @@
+{
+  "slug": "gearexpert",
+  "title": "GearExpert",
+  "description": "Identyfikacja wizualna obejmująca logo i materiały firmowe.",
+  "category": "Logo / branding",
+  "year": "",
+  "cover": "assets/portfolio/full/gearExpert_2-www.webp",
+  "cover_alt": "Identyfikacja wizualna GearExpert",
+  "brief_title": "Precyzja mechaniki w dynamicznym znaku.",
+  "brief": [
+    "Marka GearExpert specjalizuje się w diagnostyce, regeneracji i serwisie skrzyń biegów oraz precyzyjnych przekładni mechanicznych.",
+    "Wymagana była wyrazista tożsamość wizualna nawiązująca do mechaniki kół zębatych, nowoczesnej technologii i najwyższych standardów serwisowych."
+  ],
+  "deliverables": [
+    "Projekt logotypu łączącego symbolikę koła zębatego z dynamicznym liternictwem.",
+    "Paleta barw oparta na technicznych kontrastach i precyzyjnej geometrii.",
+    "Projekt materiałów warsztatowych i biurowych: wizytówki, formularze przyjęć, naklejki.",
+    "Wizualizacje oznakowania serwisu i elementów identyfikacji pojazdów."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/gearexpert/gearExpert_2-www.webp",
+      "alt": "Logo GearExpert",
+      "caption": "Główny znak firmowy marki GearExpert.",
+      "width": 1000,
+      "height": 700
+    },
+    {
+      "src": "assets/portfolio/gearexpert/gearExpert_4-www.jpg",
+      "alt": "Zastosowanie logo na ciemnym tle",
+      "caption": "Wariant znaku dostosowany do ciemnych powierzchni i oznakowań.",
+      "width": 1000,
+      "height": 563
+    },
+    {
+      "src": "assets/portfolio/gearexpert/gearExpert_1-www.jpg",
+      "alt": "Materiały firmowe serwisu",
+      "caption": "Akcydensy i elementy komunikacji warsztatowej.",
+      "width": 1000,
+      "height": 563
+    }
+  ],
+  "result_title": "Wyrazista obecność w branży motoryzacyjnej.",
+  "result": [
+    "Stworzono nowoczesną, energiczną identyfikację, która natychmiast kojarzy się ze specjalistyczną wiedzą inżynieryjną i profesjonalizmem serwisowym."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../katalog-targowy-drewmar/index.html",
+  "next_title": "Katalog targowy Drewmar"
+}

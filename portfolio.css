@@ -19,6 +19,8 @@
 .portfolio .p5{grid-column:1 / span 4;grid-row:3;align-self:start}
 .portfolio .p6{grid-column:7 / span 6;grid-row:3;margin-top:-88px}
 .portfolio .project-link{color:inherit;text-decoration:none;display:block;border-radius:16px}
+.portfolio .project-card{display:block;color:inherit;text-decoration:none;border-radius:16px;position:relative}
+.portfolio .media-link{display:block;width:100%;height:100%;color:inherit;text-decoration:none;border-radius:16px}
 .portfolio .media{position:relative;aspect-ratio:4 / 3;width:100%;overflow:hidden;border-radius:16px;background:#f0f0f2;isolation:isolate}
 .portfolio .project-image{display:block;width:100%;height:100%;object-fit:cover}
 .portfolio .p1 .media{background:transparent;padding:0;display:block;aspect-ratio:16 / 9}
@@ -36,12 +38,20 @@
 .portfolio .p5 .media,.portfolio .p6 .media{aspect-ratio:10 / 7}
 .portfolio .p5 .project-image,.portfolio .p6 .project-image{object-fit:contain}
 .portfolio .caption{display:flex;justify-content:space-between;gap:20px;margin-top:24px}
+.portfolio .caption-copy{flex:1;min-width:0}
 .portfolio .cat{font-size:16px;line-height:1.6;letter-spacing:0;text-transform:none;color:#62626b;margin:0 0 8px}
 .portfolio .title{font-family:PortfolioOutfit,Outfit,sans-serif;font-size:28px;line-height:1.15;font-weight:600;letter-spacing:-.02em;margin:0 0 8px}
+.portfolio .title-link{color:inherit;text-decoration:none;transition:color 160ms ease}
+.portfolio .title-link:hover,.portfolio .work:hover .title-link{color:#ff6400}
 .portfolio .project-description{font-size:16px;line-height:1.6;color:#62626b;margin:0;max-width:440px}
-.portfolio .arr{font-size:24px;line-height:1.2;margin-top:26px;flex:none}
+.portfolio .project-ext-action{margin-top:12px}
+.portfolio .project-ext-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:#ff6400;text-decoration:none;transition:color 150ms ease}
+.portfolio .project-ext-link:hover{color:#d14d00;text-decoration:underline}
+.portfolio .arr{font-size:24px;line-height:1.2;margin-top:26px;flex:none;transition:color 160ms ease}
+.portfolio .arr-link{color:inherit;text-decoration:none;display:inline-flex;align-self:flex-start}
+.portfolio .arr-link:hover .arr,.portfolio .work:hover .arr{color:#ff6400}
 .portfolio .project-action{position:absolute;bottom:24px;right:24px;display:flex;gap:20px;align-items:center;background:#09090b;color:#fff;border-radius:8px;padding:14px 18px;font-size:16px;opacity:0;transform:translateY(8px);transition:opacity 420ms ease,transform 420ms cubic-bezier(.22,1,.36,1)}
-.portfolio .project-link:hover .project-action,.portfolio .project-link:focus-visible .project-action{opacity:1;transform:translateY(0)}
+.portfolio .work:hover .project-action,.portfolio .media-link:focus-visible .project-action,.portfolio .project-link:hover .project-action,.portfolio .project-link:focus-visible .project-action{opacity:1;transform:translateY(0)}
 .portfolio a:focus-visible{outline:3px solid #c44700;outline-offset:6px}
 .portfolio .all:hover{border-color:#09090b}
 @media(max-width:900px){

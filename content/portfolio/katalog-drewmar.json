@@ -1,0 +1,53 @@
+{
+  "slug": "katalog-drewmar",
+  "title": "Katalog Drewmar",
+  "description": "Materiały katalogowe dla producenta akcesoriów do sprzątania, zgodne z językiem marki.",
+  "category": "Katalog",
+  "year": "",
+  "cover": "assets/portfolio/full/Drewmar-katalog_1-1.webp",
+  "cover_alt": "Katalog promocyjny dla firmy Drewmar",
+  "brief_title": "Porządek i precyzja w katalogu B2B.",
+  "brief": [
+    "Firma Drewmar specjalizuje się w produkcji profesjonalnych szczotek, mioteł i narzędzi czyszczących dla domu i przemysłu.",
+    "Wymagany był nowoczesny, funkcjonalny katalog produktów, który w logiczny sposób ułoży bogatą gamę wyrobów i ułatwi wybór asortymentu hurtownikom."
+  ],
+  "deliverables": [
+    "Projekt koncepcji graficznej i logicznego podziału na kategorie asortymentowe.",
+    "Precyzyjny retusz zdjęć produktowych podkreślający detale włosia i opraw drewnianych.",
+    "Opracowanie czytelnych tabel technicznych z kodami produktów i wymiarami.",
+    "Przygotowanie kompletnych plików DTP do druku oraz lekkiego formatu cyfrowego PDF."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/katalog-drewmar/Drewmar-katalog_1-1.webp",
+      "alt": "Okładka katalogu Drewmar",
+      "caption": "Okładka katalogu produktów firmy Drewmar.",
+      "width": 1000,
+      "height": 700
+    },
+    {
+      "src": "assets/portfolio/katalog-drewmar/Drewmar-katalog_2.jpg",
+      "alt": "Strony wewnętrzne katalogu",
+      "caption": "Przejrzysty układ stron z kodami towarowymi i specyfikacją.",
+      "width": 1000,
+      "height": 667
+    },
+    {
+      "src": "assets/portfolio/katalog-drewmar/Drewmar-katalog_5.jpg",
+      "alt": "Prezentacja szczotek i mioteł",
+      "caption": "Wizualizacja artykułów do sprzątania w akcji.",
+      "width": 1000,
+      "height": 727
+    }
+  ],
+  "result_title": "Kompleksowe narzędzie marketingowe.",
+  "result": [
+    "Opracowano elegancki, wyczerpujący katalog, który stanowi fundament oferty handlowej firmy Drewmar w relacjach z sieciami handlowymi i odbiorcami hurtowymi."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../ja-i-moj-biznes/index.html",
+  "next_title": "Ja i mój biznes"
+}

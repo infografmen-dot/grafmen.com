@@ -136,7 +136,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b8
 .project-heading{padding-top:64px;padding-bottom:48px}
 .project-heading .home-kicker{margin-top:48px}
 .project-heading h1{font-family:PortfolioOutfit,Outfit,sans-serif;font-size:clamp(64px,8vw,112px);letter-spacing:-.04em;line-height:1.02;font-weight:600;margin:0 0 24px}
-.project-heading .home-lead{max-width:700px}
+.project-heading .home-lead{max-width:960px}
 .project-cover{margin-block:0 96px}
 .project-cover img{width:100%;height:auto;max-height:780px;object-fit:contain;display:block;border-radius:16px;background:#f6f6f7}
 .project-scope{background:#f6f6f7}
@@ -145,7 +145,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b8
 .scope-list li:last-child{border-bottom:1px solid #cacacf}
 .project-gallery{display:grid;gap:56px;margin-top:56px}
 .project-gallery figure{margin:0}
-.project-gallery img{display:block;width:100%;height:auto;object-fit:contain;border-radius:16px}
+.project-gallery img,.project-gallery video{display:block;width:100%;height:auto;object-fit:contain;border-radius:16px}
+.project-gallery video{max-width:100%;background:#09090b}
 .project-gallery figcaption{font-size:14px;color:#62626b;line-height:1.6;margin-top:16px}
 .project-next{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-block:40px 80px}
 .contact-hero .home-lead{max-width:720px;margin-top:32px}

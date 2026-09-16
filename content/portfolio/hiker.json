@@ -33,11 +33,27 @@
       "height": 800
     },
     {
-      "src": "assets/portfolio/hiker/branding_Hiker.webp",
-      "alt": "Logo Hiker na materiałach firmowych",
-      "caption": "Spójne zastosowanie znaku na materiałach firmowych.",
+      "type": "video",
+      "src": "assets/portfolio/hiker/hiker-logo-anim.mp4",
+      "poster": "assets/portfolio/hiker/hiker-logo-anim-poster.jpg",
+      "alt": "Animacja wejściowa logo Hiker",
+      "caption": "Krótka animacja wejściowa z logo przygotowana w After Effects.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "assets/portfolio/hiker/Hiker_mokups.webp",
+      "alt": "Materiały i gadżety marki Hiker",
+      "caption": "Zastosowanie identyfikacji na odzieży i akcesoriach outdoorowych.",
       "width": 1400,
-      "height": 920
+      "height": 800
+    },
+    {
+      "src": "assets/portfolio/hiker/Hiker_www.webp",
+      "alt": "Projekt strony internetowej Hiker",
+      "caption": "Projekt nowoczesnego serwisu internetowego dla marki Hiker.",
+      "width": 1400,
+      "height": 785
     }
   ],
   "result_title": "Spójna identyfikacja i jej zastosowania.",
@@ -48,6 +64,6 @@
   "testimonial_author": "",
   "external_url": "https://www.youtube.com/watch?v=WOaOxbPIIhs",
   "external_label": "Zobacz film reklamowy Hiker",
-  "next_url": "https://grafmen.com/logo_jd-ubezpieczenia/",
+  "next_url": "../jd-ubezpieczenia/index.html",
   "next_title": "JD Ubezpieczenia"
 }
