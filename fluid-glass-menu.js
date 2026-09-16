@@ -1,7 +1,6 @@
 /**
- * Fluid Glass Mini Menu - Grafmen.com
- * Lightweight, accessible floating bar navigation
- * Inspired by fluid.glass
+ * Fluid Glass Menu - Morphing Capsule Navigation
+ * Single-object morph architecture inspired by fluid.glass
  */
 (() => {
   if (typeof window === 'undefined') return;
@@ -32,7 +31,6 @@
     );
 
     const navItems = [
-      { id: 'home', label: 'HOME', href: isHomePage ? '#top' : (prefix ? prefix + 'index.html' : 'index.html'), isHome: true },
       { id: 'web', label: 'Strony WWW', href: prefix + 'strony-www/index.html', match: (p) => p.includes('/strony-www') },
       { id: 'brand', label: 'Branding', href: prefix + 'branding/index.html', match: (p) => p.includes('/branding') },
       { id: 'work', label: 'Portfolio', href: prefix + 'portfolio/index.html', match: (p) => p.includes('/portfolio') },
@@ -41,55 +39,17 @@
       { id: 'contact', label: 'Kontakt', href: prefix + 'kontakt/index.html', match: (p) => p.includes('/kontakt') }
     ];
 
-    // Build Floating Nav Container
+    // Nav Root
     const menu = document.createElement('nav');
     menu.id = 'fg-menu';
     menu.className = 'fg-menu';
     menu.setAttribute('aria-label', 'Szybka nawigacja');
 
-    // Popover Panel
-    const panel = document.createElement('div');
-    panel.id = 'fg-panel';
-    panel.className = 'fg-panel';
-    panel.setAttribute('role', 'region');
-    panel.setAttribute('aria-label', 'Szybkie menu');
-    panel.setAttribute('aria-hidden', 'true');
+    // Single Morphing Capsule Container
+    const capsule = document.createElement('div');
+    capsule.className = 'fg-capsule';
 
-    const list = document.createElement('ul');
-    list.className = 'fg-list';
-
-    navItems.forEach((item, index) => {
-      const li = document.createElement('li');
-      li.className = 'fg-item';
-      li.style.setProperty('--i', index);
-
-      const a = document.createElement('a');
-      a.className = 'fg-link';
-      a.href = item.href;
-      a.textContent = item.label;
-
-      if (item.isHome && isHomePage) {
-        a.classList.add('is-active');
-        a.setAttribute('aria-current', 'page');
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          closeMenu(false);
-        });
-      } else if (item.match && item.match(currentPath)) {
-        a.classList.add('is-active');
-        a.setAttribute('aria-current', 'page');
-        a.addEventListener('click', () => closeMenu(false));
-      } else {
-        a.addEventListener('click', () => closeMenu(false));
-      }
-
-      li.appendChild(a);
-      list.appendChild(li);
-    });
-    panel.appendChild(list);
-
-    // Floating Bar (Closed State: HOME ... [burger])
+    // 1. Bottom Bar Row: HOME + Hamburger
     const bar = document.createElement('div');
     bar.className = 'fg-bar';
 
@@ -103,6 +63,7 @@
       homeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        closeMenu();
       });
     }
 
@@ -110,27 +71,68 @@
     toggleBtn.type = 'button';
     toggleBtn.className = 'fg-toggle';
     toggleBtn.setAttribute('aria-expanded', 'false');
-    toggleBtn.setAttribute('aria-controls', 'fg-panel');
+    toggleBtn.setAttribute('aria-controls', 'fg-body');
     toggleBtn.setAttribute('aria-label', 'Otw\u00f3rz menu');
     toggleBtn.innerHTML = '<span class="fg-burger" aria-hidden="true"><span class="fg-line fg-line--1"></span><span class="fg-line fg-line--2"></span><span class="fg-line fg-line--3"></span></span>';
 
     bar.appendChild(homeBtn);
     bar.appendChild(toggleBtn);
 
-    menu.appendChild(panel);
-    menu.appendChild(bar);
+    // 2. Expandable Body with links
+    const body = document.createElement('div');
+    body.id = 'fg-body';
+    body.className = 'fg-body';
+    body.setAttribute('role', 'region');
+    body.setAttribute('aria-label', 'Szybkie menu');
+    body.setAttribute('aria-hidden', 'true');
+
+    const list = document.createElement('ul');
+    list.className = 'fg-list';
+
+    navItems.forEach((item) => {
+      const li = document.createElement('li');
+      li.className = 'fg-item';
+
+      const a = document.createElement('a');
+      a.className = 'fg-link';
+      a.href = item.href;
+      a.textContent = item.label;
+
+      if (item.match && item.match(currentPath)) {
+        a.classList.add('is-active');
+        a.setAttribute('aria-current', 'page');
+        a.addEventListener('click', () => closeMenu());
+      } else {
+        a.addEventListener('click', () => closeMenu());
+      }
+
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+
+    const sep = document.createElement('div');
+    sep.className = 'fg-separator';
+    sep.setAttribute('aria-hidden', 'true');
+
+    body.appendChild(list);
+    body.appendChild(sep);
+
+    capsule.appendChild(bar);
+    capsule.appendChild(body);
+    menu.appendChild(capsule);
     document.body.appendChild(menu);
 
-    // Open / Close Logic
+    // Interaction state
     let isOpen = false;
 
     const openMenu = () => {
+      if (isOpen) return;
       isOpen = true;
       menu.classList.add('is-open');
       toggleBtn.setAttribute('aria-expanded', 'true');
       toggleBtn.setAttribute('aria-label', 'Zamknij menu');
-      panel.setAttribute('aria-hidden', 'false');
-      const firstLink = panel.querySelector('a');
+      body.setAttribute('aria-hidden', 'false');
+      const firstLink = body.querySelector('a');
       if (firstLink) firstLink.focus();
     };
 
@@ -140,7 +142,7 @@
       menu.classList.remove('is-open');
       toggleBtn.setAttribute('aria-expanded', 'false');
       toggleBtn.setAttribute('aria-label', 'Otw\u00f3rz menu');
-      panel.setAttribute('aria-hidden', 'true');
+      body.setAttribute('aria-hidden', 'true');
       if (restoreFocus) {
         toggleBtn.focus();
       }
@@ -167,7 +169,7 @@
       }
     });
 
-    // Scroll & Intersection Observer for CTA / Footer
+    // Visibility observer: show past Hero, hide at footer
     let isNearFooter = false;
 
     const footerObserver = new IntersectionObserver((entries) => {

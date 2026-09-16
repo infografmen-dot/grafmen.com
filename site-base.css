@@ -70,7 +70,7 @@
   .hero-grid{display:grid;grid-template-columns:minmax(0,930px) 220px;justify-content:space-between;gap:48px}
   h1{font-family:"Inter Display",Inter,"Segoe UI",Arial,sans-serif;font-weight:750;letter-spacing:-.050em;line-height:.94;font-size:clamp(66px,6.05vw,92px);margin:0;max-width:960px}
   .uword{position:relative;display:inline-block}
-  .uword::after{content:"";position:absolute;left:2px;bottom:-2px;width:160px;height:6px;background:var(--orange)}
+  .uword::after{content:"";position:absolute;left:2px;bottom:-2px;width:160px;height:6px;background:var(--orange);transform-origin:left center;transform:scaleX(var(--u-scale,1));transition:transform .65s cubic-bezier(.16,1,.3,1)}
   .terminal{display:inline-block;width:.17em;height:.17em;background:var(--orange);margin-left:.08em;vertical-align:baseline}
   .lead{margin:38px 0 0;color:#6f7886;font-size:21px;line-height:1.45;max-width:690px;font-weight:400}
   .actions{display:flex;gap:18px;margin-top:32px}
@@ -111,3 +111,9 @@
     will-change: auto;
   }
 }
+
+/* Motion Pass 01: Line Mask & Button Microinteractions */
+.gf-line-mask{overflow:hidden!important;display:block!important}
+.gf-line-inner{display:block!important;will-change:transform,opacity}
+.btn span,.cta-button span,.text-link span,.package-link span,.project-ext-link span,.arr-link span{display:inline-block;transition:transform .32s cubic-bezier(.22,1,.36,1)}
+.btn:hover span,.cta-button:hover span,.text-link:hover span,.package-link:hover span,.project-ext-link:hover span,.arr-link:hover span{transform:translateX(4px)}
