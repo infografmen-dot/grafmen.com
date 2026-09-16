@@ -287,29 +287,29 @@
 /* Mobile adjustments */
 @media (max-width: 480px) {
   :root {
-    --fg-capsule-closed-w: 210px;
+    --fg-capsule-closed-w: 180px;
     --fg-capsule-closed-h: 42px;
-    --fg-capsule-open-w: 252px;
-    --fg-capsule-open-h: 304px;
+    --fg-capsule-open-w: 204px;
+    --fg-capsule-open-h: 300px;
   }
   .fg-menu {
     bottom: 18px;
   }
   .fg-bar {
     height: 42px;
-    padding: 0 14px;
+    padding: 0 12px;
   }
   .fg-body {
-    padding: 8px 14px 4px;
+    padding: 8px 10px 4px;
   }
   .fg-menu.is-open .fg-home {
-    transform: translateX(10px);
+    transform: translateX(8px);
   }
   .fg-home {
     font-size: 12.5px;
   }
   .fg-link {
-    padding: 7.5px 10px;
-    font-size: 13.5px;
+    padding: 7px 10px;
+    font-size: 13px;
   }
 }

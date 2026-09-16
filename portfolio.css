@@ -70,3 +70,8 @@
 }
 @media(hover:none){.portfolio .project-action{display:none}}
 @media(prefers-reduced-motion:reduce){.portfolio .project-action{transition:none;transform:none}}
+
+#branding,
+#film {
+  scroll-margin-top: 100px;
+}

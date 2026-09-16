@@ -13,7 +13,7 @@
     ['.tools .quote', 'Contact <span aria-hidden="true">→</span>'],
     ['.eyebrow span:first-child', 'Przemyśl, Poland'],
     ['.eyebrow span:last-child', 'since 2005'],
-    ['.hero h1', 'You run<br>y<span class="uword">our</span> business.<br>I take care of<br>your website<span class="terminal" aria-hidden="true"></span>'],
+    ['.hero h1', '<span class="hero-line" data-line="0"><span class="hero-line-inner">You run</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br><span class="hero-line" data-line="1"><span class="hero-line-inner">y<span class="uword">our</span> business.</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br><span class="hero-line" data-line="2"><span class="hero-line-inner">I take care of</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br><span class="hero-line" data-line="3"><span class="hero-line-inner">your website<span class="terminal" aria-hidden="true"></span></span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span>'],
     ['.hero .lead', 'I design and redesign websites for businesses.<br>From concept and content to domain, hosting and launch.'],
     ['.actions .dark', 'Get a quote <span aria-hidden="true">→</span>'],
     ['.actions .light', 'View my work'],

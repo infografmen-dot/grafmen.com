@@ -1,8 +1,8 @@
 {
   "slug": "hiker",
   "title": "Hiker",
-  "description": "Logo i identyfikacja wizualna marki outdoorowej. Od konstrukcji znaku po materiały firmowe i ruch.",
-  "category": "Logo / branding / motion",
+  "description": "Identyfikacja wizualna marki outdoorowej oraz film reklamowy. Od konstrukcji znaku po materiały firmowe, animację logo i produkcję wideo w plenerze.",
+  "category": "Identyfikacja wizualna i film reklamowy",
   "year": "",
   "cover": "assets/portfolio/hiker.webp",
   "cover_alt": "Identyfikacja Hiker na materiałach firmowych",
@@ -15,7 +15,8 @@
     "Projekt logo i jego konstrukcji.",
     "Paleta kolorów oraz warianty znaku.",
     "Zastosowania identyfikacji na materiałach firmowych.",
-    "Animacja logo i film reklamowy."
+    "Animacja logo przygotowana w After Effects.",
+    "Produkcja filmu reklamowego w plenerze górskim."
   ],
   "gallery": [
     {
@@ -58,12 +59,12 @@
   ],
   "result_title": "Spójna identyfikacja i jej zastosowania.",
   "result": [
-    "Powstał zestaw elementów wizualnych do wykorzystania w materiałach marki. Logo, kolorystyka i animacja tworzą wspólny język komunikacji."
+    "Powstał kompletny zestaw materiałów marki. Logo, kolorystyka, animacja wejściowa oraz film reklamowy tworzą spójny i wyrazisty język komunikacji w druku, internecie i wideo."
   ],
   "testimonial": "",
   "testimonial_author": "",
   "external_url": "https://www.youtube.com/watch?v=WOaOxbPIIhs",
-  "external_label": "Zobacz film reklamowy Hiker",
+  "external_label": "Obejrzyj film na YouTube",
   "next_url": "../jd-ubezpieczenia/index.html",
   "next_title": "JD Ubezpieczenia"
 }

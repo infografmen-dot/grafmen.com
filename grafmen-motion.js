@@ -32,94 +32,77 @@
       gsap.registerPlugin(SplitText);
     }
 
-    // 4. HERO ENTRANCE CHOREOGRAPHY (Good Fella Style Line Mask Reveal)
+    // 4. HERO ENTRANCE CHOREOGRAPHY (Good Fella Kinetic Horizontal Wipe Reveal)
     const hero = document.querySelector('.hero');
     const heroH1 = hero?.querySelector('h1');
+    const heroLines = heroH1 ? heroH1.querySelectorAll('.hero-line') : [];
 
-    if (hero && heroH1 && typeof SplitText !== 'undefined') {
-      const terminal = heroH1.querySelector('.terminal');
-      if (terminal) terminal.remove();
+    if (hero && heroH1 && heroLines.length > 0) {
+      const lineInners = heroH1.querySelectorAll('.hero-line-inner');
+      const brandRects = heroH1.querySelectorAll('.hero-wipe-brand');
+      const fgRects = heroH1.querySelectorAll('.hero-wipe-fg');
+      const calmElements = hero.querySelectorAll('.eyebrow, .lead, .actions a, .meta01, .hero-bottom');
 
-      // Nested SplitText: parent clips overflow, child slides up
-      const childSplit = new SplitText(heroH1, { type: 'lines', linesClass: 'gf-line-inner' });
-      const parentSplit = new SplitText(heroH1, { type: 'lines', linesClass: 'gf-line-mask' });
-
-      // Put terminal at the end of the last line
-      if (terminal) {
-        const lastLine = childSplit.lines[childSplit.lines.length - 1];
-        if (lastLine) {
-          lastLine.appendChild(terminal);
+      const buildHeroTimeline = () => {
+        if (window.__heroTimeline) {
+          window.__heroTimeline.kill();
         }
-      }
+        gsap.set(lineInners, { opacity: 0 });
+        gsap.set([brandRects, fgRects], { scaleX: 0, transformOrigin: 'left' });
+        gsap.set(calmElements, { opacity: 0 });
 
-      const heroTl = gsap.timeline({
-        defaults: { ease: 'expo.out' },
-        onComplete: () => {
-          gsap.set(childSplit.lines, { clearProps: 'transform,opacity,willChange' });
-          gsap.set(['.eyebrow', '.hero .lead', '.hero .actions a', '.meta01', '.hero-bottom'], { clearProps: 'transform,opacity' });
-        }
-      });
+        const tl = gsap.timeline({
+          defaults: { ease: 'power3.inOut' },
+          onComplete: () => {
+            gsap.set([lineInners, brandRects, fgRects], { clearProps: 'all' });
+            gsap.set(calmElements, { clearProps: 'opacity' });
+          }
+        });
 
-      // 0.00: Location eyebrow
-      heroTl.fromTo('.eyebrow', 
-        { opacity: 0, y: 10 }, 
-        { opacity: 1, y: 0, duration: 0.5 }, 
-        0
-      );
+        // Animate each of the 4 explicit lines with a stagger (0.12s)
+        heroLines.forEach((line, index) => {
+          const lineInner = line.querySelector('.hero-line-inner');
+          const brandRect = line.querySelector('.hero-wipe-brand');
+          const fgRect = line.querySelector('.hero-wipe-fg');
+          if (!lineInner || !brandRect || !fgRect) return;
 
-      // 0.10: H1 lines cascade reveal
-      heroTl.fromTo(childSplit.lines, 
-        { yPercent: 110, opacity: 0 }, 
-        { yPercent: 0, opacity: 1, duration: 0.95, stagger: 0.085 }, 
-        0.10
-      );
+          // Timing cascade: Line 0: 0.00s, Line 1: 0.12s, Line 2: 0.24s, Line 3: 0.36s
+          const lineStart = index * 0.12;
 
-      // 0.42: Underline on "swoją" (scaleX: 0 -> 1)
-      const uword = hero.querySelector('.uword');
-      if (uword) {
-        heroTl.fromTo(uword, 
-          { '--u-scale': 0 }, 
-          { '--u-scale': 1, duration: 0.65, ease: 'power3.out' }, 
-          0.42
-        );
-      }
+          // 1. Orange accent block (brand) sweeps across from left to right
+          tl.to(brandRect, { scaleX: 1, duration: 0.42 }, lineStart);
 
-      // 0.50: Block meta01 (STRONY WWW / BRANDING / MOTION)
-      heroTl.fromTo('.meta01', 
-        { opacity: 0, y: 14 }, 
-        { opacity: 1, y: 0, duration: 0.6 }, 
-        0.50
-      );
+          // 2. Main block (fg) sweeps from left with 0.06s offset (orange tip leads)
+          tl.to(fgRect, { scaleX: 1, duration: 0.42 }, lineStart + 0.06);
 
-      // 0.52: Orange dot reveal
-      if (terminal) {
-        heroTl.fromTo(terminal, 
-          { scale: 0, opacity: 0 }, 
-          { scale: 1, opacity: 1, duration: 0.45, ease: 'power3.out' }, 
-          0.52
-        );
-      }
+          // 3. Midpoint: text becomes visible under full cover, origin flips to right
+          tl.set(lineInner, { opacity: 1 }, lineStart + 0.48);
+          tl.set([brandRect, fgRect], { transformOrigin: 'right' }, lineStart + 0.48);
 
-      // 0.65: Lead paragraph
-      heroTl.fromTo('.hero .lead', 
-        { opacity: 0, y: 16 }, 
-        { opacity: 1, y: 0, duration: 0.6 }, 
-        0.65
-      );
+          // 4. Main block collapses to right, revealing text
+          tl.to(fgRect, { scaleX: 0, duration: 0.42 }, lineStart + 0.48);
 
-      // 0.80: CTA buttons
-      heroTl.fromTo('.hero .actions a', 
-        { opacity: 0, y: 14 }, 
-        { opacity: 1, y: 0, duration: 0.55, stagger: 0.08 }, 
-        0.80
-      );
+          // 5. Orange block collapses to right with 0.06s offset (crisp trailing orange tip)
+          tl.to(brandRect, { scaleX: 0, duration: 0.42 }, lineStart + 0.54);
+        });
 
-      // 0.95: Hero bottom bar
-      heroTl.fromTo('.hero-bottom', 
-        { opacity: 0, y: 10 }, 
-        { opacity: 1, y: 0, duration: 0.5 }, 
-        0.95
-      );
+        // Calm subtle fade for the rest of Hero elements after H1 finishes (~1.25s)
+        tl.to(calmElements, {
+          opacity: 1,
+          duration: 0.5,
+          ease: 'power2.out',
+          stagger: 0.04
+        }, 1.25);
+
+        window.__heroTimeline = tl;
+        return tl;
+      };
+
+      buildHeroTimeline();
+
+      window.__replayHeroMotion = () => {
+        buildHeroTimeline();
+      };
     }
 
     // 5. SCROLL REVEAL FOR DUŻE H2 (data-motion="heading-reveal")

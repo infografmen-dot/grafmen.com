@@ -43,6 +43,7 @@
 .portfolio-full .stage{grid-template-columns:repeat(12,minmax(0,1fr));row-gap:88px}
 .portfolio-full .full-card{align-self:start}
 .portfolio-full .full-card .caption{min-height:132px}
+.portfolio-full .p1{grid-column:1 / -1;grid-row:1}
 .portfolio-full .p7{grid-column:1 / span 5;grid-row:4;align-self:start;margin-top:0}
 .portfolio-full .p7 .media{aspect-ratio:1 / 1}
 .portfolio-full .p8{grid-column:7 / span 6;grid-row:4;align-self:start;margin-top:56px}

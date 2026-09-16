@@ -75,7 +75,11 @@ for (const filename of readdirSync(join(root, 'content/portfolio')).filter(f => 
     EXTERNAL: data.external_url ? `<a class="text-link" href="${link(data.external_url)}" target="_blank" rel="noopener noreferrer">${escape(data.external_label)} ↗</a>` : '',
     NEXT_URL: link(data.next_url), NEXT_TITLE: typo(data.next_title)
   };
-  const html = template.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) => {
+  const templatePath = existsSync(join(root, `templates/portfolio-project-${data.slug}.html`))
+    ? join(root, `templates/portfolio-project-${data.slug}.html`)
+    : join(root, 'templates/portfolio-project.html');
+  const currentTemplate = readFileSync(templatePath, 'utf8');
+  const html = currentTemplate.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) => {
     if (!(key in fields)) throw new Error(`Unknown template key ${key}`);
     return fields[key];
   });
