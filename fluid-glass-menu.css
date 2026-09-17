@@ -230,13 +230,23 @@
 .fg-link {
   display: flex;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
   padding: 8px 12px;
   color: var(--fg-text-dim);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
   border-radius: 8px;
+  cursor: pointer;
   transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.fg-link:focus-visible,
+.fg-home:focus-visible,
+.fg-toggle:focus-visible {
+  outline: 2px solid var(--fg-orange);
+  outline-offset: 2px;
 }
 
 .fg-link:hover {

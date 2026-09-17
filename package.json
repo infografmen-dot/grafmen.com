@@ -7,6 +7,7 @@
     "build": "node scripts/build-site.mjs"
   },
   "devDependencies": {
+    "playwright-core": "^1.63.0",
     "vite": "8.0.13"
   },
   "dependencies": {

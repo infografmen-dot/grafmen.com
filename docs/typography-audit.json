@@ -1,0 +1,1887 @@
+﻿[2m20:09:44[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because vite config has changed
+{
+  "Desktop 1440": {
+    "Home": {
+      "h1": {
+        "tag": "h1",
+        "text": "Ty zajmujesz si─Ö  swoj─ů firm─ů.  Ja ",
+        "fontSize": "87.12px",
+        "lineHeight": "81.8928px",
+        "fontWeight": "750",
+        "letterSpacing": "-4.356px",
+        "fontFamily": "Inter Display"
+      },
+      "h2Count": 6,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Realizacje, kt├│re zatrzymuj─ů uwag─Ö.",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h2",
+          "text": "Z kim pracuj─Ö najlepiej",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h2",
+          "text": "Trzy warianty wsp├│┼épracy.",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h2",
+          "text": "Dobra wsp├│┼épraca zostaje na┬ád┼éu┼╝ej.",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h2",
+          "text": "Szybkie odpowiedzi.",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        }
+      ],
+      "h3Count": 9,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Drewmax.pro",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h3",
+          "text": "Film reklamowy Hiker",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h3",
+          "text": "szkola.best",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h3",
+          "text": "Branding Hiker",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h3",
+          "text": "Drew-Art",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Projektuj─Ö i┬ámodernizuj─Ö strony WWW",
+        "fontSize": "21px",
+        "lineHeight": "30.45px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "Inter"
+      },
+      "kickerSample": {
+        "tag": "div",
+        "text": "Przemy┼Ťl, Polska ÔŚĆ od┬á2005",
+        "fontSize": "13px",
+        "lineHeight": "normal",
+        "fontWeight": "400",
+        "letterSpacing": "0.13px",
+        "fontFamily": "Inter"
+      }
+    },
+    "Strony WWW": {
+      "h1": {
+        "tag": "h1",
+        "text": "Tworz─Ö strony internetowe, gotowe n",
+        "fontSize": "72px",
+        "lineHeight": "74.88px",
+        "fontWeight": "600",
+        "letterSpacing": "-2.52px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 7,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Co mo┼╝e utrudnia─ç klientom korzysta",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Jak to rozwi─ůzuj─Ö",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Masz ju┼╝ stron─Ö? Sprawd┼║ mo┼╝liwo┼Ťci",
+          "fontSize": "44px",
+          "lineHeight": "47.52px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.66px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Jak wygl─ůda wsp├│┼épraca przy stronie",
+          "fontSize": "44px",
+          "lineHeight": "47.52px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.66px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Trzy warianty wsp├│┼épracy.",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 14,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "┼üaduje si─Ö za┬áwolno.",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Nie pokazuje charakteru firmy.",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Widoczno┼Ť─ç w┬áwyszukiwaniu z┬áAI.",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Szybka, lekka strona",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Design od┬ápodstaw",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Projektuj─Ö i┬ábuduj─Ö strony z┬áu┼╝ycie",
+        "fontSize": "20px",
+        "lineHeight": "31px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "STRONY WWW / GRAFMEN",
+        "fontSize": "13px",
+        "lineHeight": "18.2px",
+        "fontWeight": "600",
+        "letterSpacing": "1.04px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Branding": {
+      "h1": {
+        "tag": "h1",
+        "text": "Logo, materia┼éy drukowane i┬áwideo z",
+        "fontSize": "72px",
+        "lineHeight": "74.88px",
+        "fontWeight": "600",
+        "letterSpacing": "-2.52px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 3,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Co projektuj─Ö",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Materia┼éy gotowe do┬áu┼╝ycia.",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Porozmawiajmy o┬áprojekcie dla┬áTwoje",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 4,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Identyfikacja wizualna",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Materia┼éy drukowane",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Animacje, wideo i┬áelementy interakt",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Wybrane przyk┼éady identyfikacji i┬ám",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Projektuj─Ö znak firmowy, dobieram k",
+        "fontSize": "20px",
+        "lineHeight": "31px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "BRANDING / GRAFMEN",
+        "fontSize": "13px",
+        "lineHeight": "18.2px",
+        "fontWeight": "600",
+        "letterSpacing": "1.04px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "O mnie": {
+      "h1": {
+        "tag": "h1",
+        "text": "Krzysztof Krawczyk. Tw├│j grafik, od",
+        "fontSize": "72px",
+        "lineHeight": "74.88px",
+        "fontWeight": "600",
+        "letterSpacing": "-2.52px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 7,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Grafik komputerowy. Od┬á2005 roku.",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Z┬ákim pracuj─Ö najlepiej",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Bezpo┼Ťredni kontakt przez ca┼éy proj",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Jasne zasady wsp├│┼épracy",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Co mnie wyr├│┼╝nia",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 7,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Rozwijaj─ů dzia┼éaj─ůc─ů firm─Ö.",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Planuj─ů rozw├│j wizerunku.",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Wol─ů jedn─ů zaufan─ů osob─Ö.",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Nie maj─ů w┼éasnego dzia┼éu graficzneg",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Terminowo┼Ť─ç",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Zaczyna┼éem od┬álogo dla┬álokalnych fi",
+        "fontSize": "20px",
+        "lineHeight": "31px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "O┬áMNIE / GRAFMEN",
+        "fontSize": "13px",
+        "lineHeight": "18.2px",
+        "fontWeight": "600",
+        "letterSpacing": "1.04px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Portfolio": {
+      "h1": {
+        "tag": "h1",
+        "text": "Realizacje, kt├│re zatrzymuj─ů uwag─Ö.",
+        "fontSize": "72px",
+        "lineHeight": "74.88px",
+        "fontWeight": "600",
+        "letterSpacing": "-2.52px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 0,
+      "h2Samples": [],
+      "h3Count": 20,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Drewmax.pro",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "szkola.best",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Hiker",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Drew-Art",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "JD Ubezpieczenia",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "20 realizacji: strony internetowe, ",
+        "fontSize": "16px",
+        "lineHeight": "25.92px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "PORTFOLIO / GRAFMEN",
+        "fontSize": "13px",
+        "lineHeight": "normal",
+        "fontWeight": "600",
+        "letterSpacing": "1.04px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Modernizacja": {
+      "h1": {
+        "tag": "h1",
+        "text": "Modernizacja strony internetowej. N",
+        "fontSize": "72px",
+        "lineHeight": "74.88px",
+        "fontWeight": "600",
+        "letterSpacing": "-2.52px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 4,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Stara strona nie musi wygl─ůda─ç ┼║le,",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Co dostajesz po┬ámodernizacji",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Modernizacja od┬á2 500 z┼é",
+          "fontSize": "44px",
+          "lineHeight": "47.52px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.66px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Porozmawiajmy o┬áprojekcie dla┬áTwoje",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 6,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Wolne dzia┼éanie",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Nieaktualne lub nieczytelne tre┼Ťci",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Trudna obs┼éuga na┬átelefonie",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Nowa konstrukcja",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Tre┼Ť─ç i┬ástruktura pod┬áSEO",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Twoja strona ma 5ÔÇô8 lat? Sprawdz─Ö, ",
+        "fontSize": "20px",
+        "lineHeight": "31px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "MODERNIZACJA / GRAFMEN",
+        "fontSize": "13px",
+        "lineHeight": "18.2px",
+        "fontWeight": "600",
+        "letterSpacing": "1.04px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Blog": {
+      "h1": {
+        "tag": "h1",
+        "text": "O┬áprojektowaniu stron i┬áwizerunku f",
+        "fontSize": "72px",
+        "lineHeight": "74.88px",
+        "fontWeight": "600",
+        "letterSpacing": "-2.52px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 2,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Pierwsze artyku┼éy ju┼╝ wkr├│tce.",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Porozmawiajmy o┬áprojekcie dla┬áTwoje",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 0,
+      "h3Samples": [],
+      "leadSample": {
+        "tag": "p",
+        "text": "Strony WWW, branding i┬ádecyzje, kt├│",
+        "fontSize": "20px",
+        "lineHeight": "31px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "BLOG / GRAFMEN",
+        "fontSize": "13px",
+        "lineHeight": "18.2px",
+        "fontWeight": "600",
+        "letterSpacing": "1.04px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Kontakt": {
+      "h1": {
+        "tag": "h1",
+        "text": "Opowiedz mi o┬áswoim projekcie.",
+        "fontSize": "72px",
+        "lineHeight": "74.88px",
+        "fontWeight": "600",
+        "letterSpacing": "-2.52px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 2,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Krzysztof Krawczyk Grafmen",
+          "fontSize": "44px",
+          "lineHeight": "47.52px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.66px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Zapytaj o┬áwycen─Ö",
+          "fontSize": "44px",
+          "lineHeight": "47.52px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.66px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 1,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Co warto napisa─ç?",
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.42px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Strona internetowa, logo czy materi",
+        "fontSize": "20px",
+        "lineHeight": "31px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "KONTAKT / GRAFMEN",
+        "fontSize": "13px",
+        "lineHeight": "18.2px",
+        "fontWeight": "600",
+        "letterSpacing": "1.04px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Case Study: Hiker": {
+      "h1": {
+        "tag": "h1",
+        "text": "Hiker",
+        "fontSize": "80px",
+        "lineHeight": "81.6px",
+        "fontWeight": "600",
+        "letterSpacing": "-2.8px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 6,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Marka blisko natury.",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Co zrobi┼éem",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Identyfikacja wizualna i┬áruch",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Film promocyjny Hiker",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Sp├│jna identyfikacja i┬ájej zastosow",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 0,
+      "h3Samples": [],
+      "leadSample": {
+        "tag": "p",
+        "text": "Identyfikacja wizualna marki outdoo",
+        "fontSize": "20px",
+        "lineHeight": "31px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "IDENTYFIKACJA WIZUALNA I┬áFILM REKLA",
+        "fontSize": "13px",
+        "lineHeight": "18.2px",
+        "fontWeight": "600",
+        "letterSpacing": "1.04px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Case Study: Drewmax": {
+      "h1": {
+        "tag": "h1",
+        "text": "Drewmax.pro",
+        "fontSize": "80px",
+        "lineHeight": "81.6px",
+        "fontWeight": "600",
+        "letterSpacing": "-2.8px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 5,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "10 lat ci─ůg┼éej wsp├│┼épracy.",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Co zrobi┼éem",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Projekt w┬ázastosowaniu",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Nowy serwis WWW dla┬áproducenta szcz",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Porozmawiajmy o┬áTwojej marce.",
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "letterSpacing": "-1.12px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 0,
+      "h3Samples": [],
+      "leadSample": {
+        "tag": "p",
+        "text": "Strona internetowa producenta szczo",
+        "fontSize": "20px",
+        "lineHeight": "31px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "STRONA WWW / 2024",
+        "fontSize": "13px",
+        "lineHeight": "18.2px",
+        "fontWeight": "600",
+        "letterSpacing": "1.04px",
+        "fontFamily": "PortfolioInter"
+      }
+    }
+  },
+  "Mobile 390": {
+    "Home": {
+      "h1": {
+        "tag": "h1",
+        "text": "Ty zajmujesz si─Ö  swoj─ů firm─ů.  Ja ",
+        "fontSize": "46.8px",
+        "lineHeight": "43.992px",
+        "fontWeight": "750",
+        "letterSpacing": "-2.34px",
+        "fontFamily": "Inter Display"
+      },
+      "h2Count": 6,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Realizacje, kt├│re zatrzymuj─ů uwag─Ö.",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h2",
+          "text": "Z kim pracuj─Ö najlepiej",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h2",
+          "text": "Trzy warianty wsp├│┼épracy.",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h2",
+          "text": "Dobra wsp├│┼épraca zostaje na┬ád┼éu┼╝ej.",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h2",
+          "text": "Szybkie odpowiedzi.",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        }
+      ],
+      "h3Count": 9,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Drewmax.pro",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h3",
+          "text": "Film reklamowy Hiker",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h3",
+          "text": "szkola.best",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h3",
+          "text": "Branding Hiker",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        },
+        {
+          "tag": "h3",
+          "text": "Drew-Art",
+          "fontSize": "16px",
+          "lineHeight": "normal",
+          "fontWeight": "400",
+          "letterSpacing": "normal",
+          "fontFamily": "PortfolioInter"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Projektuj─Ö i┬ámodernizuj─Ö strony WWW",
+        "fontSize": "18px",
+        "lineHeight": "26.1px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "Inter"
+      },
+      "kickerSample": {
+        "tag": "div",
+        "text": "Przemy┼Ťl, Polska ÔŚĆ od┬á2005",
+        "fontSize": "13px",
+        "lineHeight": "normal",
+        "fontWeight": "400",
+        "letterSpacing": "0.13px",
+        "fontFamily": "Inter"
+      }
+    },
+    "Strony WWW": {
+      "h1": {
+        "tag": "h1",
+        "text": "Tworz─Ö strony internetowe, gotowe n",
+        "fontSize": "40px",
+        "lineHeight": "41.6px",
+        "fontWeight": "600",
+        "letterSpacing": "-1.4px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 7,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Co mo┼╝e utrudnia─ç klientom korzysta",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Jak to rozwi─ůzuj─Ö",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Masz ju┼╝ stron─Ö? Sprawd┼║ mo┼╝liwo┼Ťci",
+          "fontSize": "32px",
+          "lineHeight": "34.56px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.48px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Jak wygl─ůda wsp├│┼épraca przy stronie",
+          "fontSize": "32px",
+          "lineHeight": "34.56px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.48px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Trzy warianty wsp├│┼épracy.",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 14,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "┼üaduje si─Ö za┬áwolno.",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Nie pokazuje charakteru firmy.",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Widoczno┼Ť─ç w┬áwyszukiwaniu z┬áAI.",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Szybka, lekka strona",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Design od┬ápodstaw",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Projektuj─Ö i┬ábuduj─Ö strony z┬áu┼╝ycie",
+        "fontSize": "18px",
+        "lineHeight": "27.9px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "STRONY WWW / GRAFMEN",
+        "fontSize": "12px",
+        "lineHeight": "16.8px",
+        "fontWeight": "600",
+        "letterSpacing": "0.96px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Branding": {
+      "h1": {
+        "tag": "h1",
+        "text": "Logo, materia┼éy drukowane i┬áwideo z",
+        "fontSize": "40px",
+        "lineHeight": "41.6px",
+        "fontWeight": "600",
+        "letterSpacing": "-1.4px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 3,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Co projektuj─Ö",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Materia┼éy gotowe do┬áu┼╝ycia.",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Porozmawiajmy o┬áprojekcie dla┬áTwoje",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 4,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Identyfikacja wizualna",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Materia┼éy drukowane",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Animacje, wideo i┬áelementy interakt",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Wybrane przyk┼éady identyfikacji i┬ám",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Projektuj─Ö znak firmowy, dobieram k",
+        "fontSize": "18px",
+        "lineHeight": "27.9px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "BRANDING / GRAFMEN",
+        "fontSize": "12px",
+        "lineHeight": "16.8px",
+        "fontWeight": "600",
+        "letterSpacing": "0.96px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "O mnie": {
+      "h1": {
+        "tag": "h1",
+        "text": "Krzysztof Krawczyk. Tw├│j grafik, od",
+        "fontSize": "40px",
+        "lineHeight": "41.6px",
+        "fontWeight": "600",
+        "letterSpacing": "-1.4px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 7,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Grafik komputerowy. Od┬á2005 roku.",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Z┬ákim pracuj─Ö najlepiej",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Bezpo┼Ťredni kontakt przez ca┼éy proj",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Jasne zasady wsp├│┼épracy",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Co mnie wyr├│┼╝nia",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 7,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Rozwijaj─ů dzia┼éaj─ůc─ů firm─Ö.",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Planuj─ů rozw├│j wizerunku.",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Wol─ů jedn─ů zaufan─ů osob─Ö.",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Nie maj─ů w┼éasnego dzia┼éu graficzneg",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Terminowo┼Ť─ç",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Zaczyna┼éem od┬álogo dla┬álokalnych fi",
+        "fontSize": "18px",
+        "lineHeight": "27.9px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "O┬áMNIE / GRAFMEN",
+        "fontSize": "12px",
+        "lineHeight": "16.8px",
+        "fontWeight": "600",
+        "letterSpacing": "0.96px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Portfolio": {
+      "h1": {
+        "tag": "h1",
+        "text": "Realizacje, kt├│re zatrzymuj─ů uwag─Ö.",
+        "fontSize": "40px",
+        "lineHeight": "41.6px",
+        "fontWeight": "600",
+        "letterSpacing": "-1.4px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 0,
+      "h2Samples": [],
+      "h3Count": 20,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Drewmax.pro",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "szkola.best",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Hiker",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Drew-Art",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "JD Ubezpieczenia",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "20 realizacji: strony internetowe, ",
+        "fontSize": "16px",
+        "lineHeight": "25.92px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "PORTFOLIO / GRAFMEN",
+        "fontSize": "12px",
+        "lineHeight": "normal",
+        "fontWeight": "600",
+        "letterSpacing": "0.96px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Modernizacja": {
+      "h1": {
+        "tag": "h1",
+        "text": "Modernizacja strony internetowej. N",
+        "fontSize": "40px",
+        "lineHeight": "41.6px",
+        "fontWeight": "600",
+        "letterSpacing": "-1.4px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 4,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Stara strona nie musi wygl─ůda─ç ┼║le,",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Co dostajesz po┬ámodernizacji",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Modernizacja od┬á2 500 z┼é",
+          "fontSize": "32px",
+          "lineHeight": "34.56px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.48px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Porozmawiajmy o┬áprojekcie dla┬áTwoje",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 6,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Wolne dzia┼éanie",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Nieaktualne lub nieczytelne tre┼Ťci",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Trudna obs┼éuga na┬átelefonie",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Nowa konstrukcja",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h3",
+          "text": "Tre┼Ť─ç i┬ástruktura pod┬áSEO",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Twoja strona ma 5ÔÇô8 lat? Sprawdz─Ö, ",
+        "fontSize": "18px",
+        "lineHeight": "27.9px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "MODERNIZACJA / GRAFMEN",
+        "fontSize": "12px",
+        "lineHeight": "16.8px",
+        "fontWeight": "600",
+        "letterSpacing": "0.96px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Blog": {
+      "h1": {
+        "tag": "h1",
+        "text": "O┬áprojektowaniu stron i┬áwizerunku f",
+        "fontSize": "40px",
+        "lineHeight": "41.6px",
+        "fontWeight": "600",
+        "letterSpacing": "-1.4px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 2,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Pierwsze artyku┼éy ju┼╝ wkr├│tce.",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Porozmawiajmy o┬áprojekcie dla┬áTwoje",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 0,
+      "h3Samples": [],
+      "leadSample": {
+        "tag": "p",
+        "text": "Strony WWW, branding i┬ádecyzje, kt├│",
+        "fontSize": "18px",
+        "lineHeight": "27.9px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "BLOG / GRAFMEN",
+        "fontSize": "12px",
+        "lineHeight": "16.8px",
+        "fontWeight": "600",
+        "letterSpacing": "0.96px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Kontakt": {
+      "h1": {
+        "tag": "h1",
+        "text": "Opowiedz mi o┬áswoim projekcie.",
+        "fontSize": "40px",
+        "lineHeight": "41.6px",
+        "fontWeight": "600",
+        "letterSpacing": "-1.4px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 2,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Krzysztof Krawczyk Grafmen",
+          "fontSize": "32px",
+          "lineHeight": "34.56px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.48px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Zapytaj o┬áwycen─Ö",
+          "fontSize": "32px",
+          "lineHeight": "34.56px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.48px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 1,
+      "h3Samples": [
+        {
+          "tag": "h3",
+          "text": "Co warto napisa─ç?",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.36px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "leadSample": {
+        "tag": "p",
+        "text": "Strona internetowa, logo czy materi",
+        "fontSize": "18px",
+        "lineHeight": "27.9px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "KONTAKT / GRAFMEN",
+        "fontSize": "12px",
+        "lineHeight": "16.8px",
+        "fontWeight": "600",
+        "letterSpacing": "0.96px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Case Study: Hiker": {
+      "h1": {
+        "tag": "h1",
+        "text": "Hiker",
+        "fontSize": "44px",
+        "lineHeight": "44.88px",
+        "fontWeight": "600",
+        "letterSpacing": "-1.54px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 6,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "Marka blisko natury.",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Co zrobi┼éem",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Identyfikacja wizualna i┬áruch",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Film promocyjny Hiker",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Sp├│jna identyfikacja i┬ájej zastosow",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 0,
+      "h3Samples": [],
+      "leadSample": {
+        "tag": "p",
+        "text": "Identyfikacja wizualna marki outdoo",
+        "fontSize": "18px",
+        "lineHeight": "27.9px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "IDENTYFIKACJA WIZUALNA I┬áFILM REKLA",
+        "fontSize": "12px",
+        "lineHeight": "16.8px",
+        "fontWeight": "600",
+        "letterSpacing": "0.96px",
+        "fontFamily": "PortfolioInter"
+      }
+    },
+    "Case Study: Drewmax": {
+      "h1": {
+        "tag": "h1",
+        "text": "Drewmax.pro",
+        "fontSize": "44px",
+        "lineHeight": "44.88px",
+        "fontWeight": "600",
+        "letterSpacing": "-1.54px",
+        "fontFamily": "PortfolioOutfit"
+      },
+      "h2Count": 5,
+      "h2Samples": [
+        {
+          "tag": "h2",
+          "text": "10 lat ci─ůg┼éej wsp├│┼épracy.",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Co zrobi┼éem",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Projekt w┬ázastosowaniu",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Nowy serwis WWW dla┬áproducenta szcz",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        },
+        {
+          "tag": "h2",
+          "text": "Porozmawiajmy o┬áTwojej marce.",
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.72px",
+          "fontFamily": "PortfolioOutfit"
+        }
+      ],
+      "h3Count": 0,
+      "h3Samples": [],
+      "leadSample": {
+        "tag": "p",
+        "text": "Strona internetowa producenta szczo",
+        "fontSize": "18px",
+        "lineHeight": "27.9px",
+        "fontWeight": "400",
+        "letterSpacing": "normal",
+        "fontFamily": "PortfolioInter"
+      },
+      "kickerSample": {
+        "tag": "p",
+        "text": "STRONA WWW / 2024",
+        "fontSize": "12px",
+        "lineHeight": "16.8px",
+        "fontWeight": "600",
+        "letterSpacing": "0.96px",
+        "fontFamily": "PortfolioInter"
+      }
+    }
+  }
+}

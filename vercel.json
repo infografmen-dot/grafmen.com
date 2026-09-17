@@ -4,6 +4,8 @@
   "installCommand": "",
   "buildCommand": "node scripts/build-site.mjs",
   "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": true,
   "headers": [
     {
       "source": "/(.*)",

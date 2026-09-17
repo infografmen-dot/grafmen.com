@@ -1,0 +1,1160 @@
+{
+  "menuLinks": [
+    {
+      "page": "/",
+      "menuVisible": true,
+      "homeHref": "#top",
+      "homeValid": true
+    },
+    {
+      "page": "/",
+      "item": "Strony WWW",
+      "href": "/strony-www/",
+      "expectedHref": "/strony-www/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/",
+      "item": "Branding",
+      "href": "/branding/",
+      "expectedHref": "/branding/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/",
+      "item": "Portfolio",
+      "href": "/portfolio/",
+      "expectedHref": "/portfolio/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/",
+      "item": "O mnie",
+      "href": "/o-mnie/",
+      "expectedHref": "/o-mnie/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/",
+      "item": "Blog",
+      "href": "/blog/",
+      "expectedHref": "/blog/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/",
+      "item": "Kontakt",
+      "href": "/kontakt/",
+      "expectedHref": "/kontakt/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/o-mnie/",
+      "menuVisible": true,
+      "homeHref": "/",
+      "homeValid": true
+    },
+    {
+      "page": "/o-mnie/",
+      "item": "Strony WWW",
+      "href": "/strony-www/",
+      "expectedHref": "/strony-www/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/o-mnie/",
+      "item": "Branding",
+      "href": "/branding/",
+      "expectedHref": "/branding/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/o-mnie/",
+      "item": "Portfolio",
+      "href": "/portfolio/",
+      "expectedHref": "/portfolio/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/o-mnie/",
+      "item": "O mnie",
+      "href": "/o-mnie/",
+      "expectedHref": "/o-mnie/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/o-mnie/",
+      "item": "Blog",
+      "href": "/blog/",
+      "expectedHref": "/blog/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/o-mnie/",
+      "item": "Kontakt",
+      "href": "/kontakt/",
+      "expectedHref": "/kontakt/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/strony-www/",
+      "menuVisible": true,
+      "homeHref": "/",
+      "homeValid": true
+    },
+    {
+      "page": "/strony-www/",
+      "item": "Strony WWW",
+      "href": "/strony-www/",
+      "expectedHref": "/strony-www/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/strony-www/",
+      "item": "Branding",
+      "href": "/branding/",
+      "expectedHref": "/branding/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/strony-www/",
+      "item": "Portfolio",
+      "href": "/portfolio/",
+      "expectedHref": "/portfolio/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/strony-www/",
+      "item": "O mnie",
+      "href": "/o-mnie/",
+      "expectedHref": "/o-mnie/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/strony-www/",
+      "item": "Blog",
+      "href": "/blog/",
+      "expectedHref": "/blog/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/strony-www/",
+      "item": "Kontakt",
+      "href": "/kontakt/",
+      "expectedHref": "/kontakt/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/",
+      "menuVisible": true,
+      "homeHref": "/",
+      "homeValid": true
+    },
+    {
+      "page": "/portfolio/",
+      "item": "Strony WWW",
+      "href": "/strony-www/",
+      "expectedHref": "/strony-www/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/",
+      "item": "Branding",
+      "href": "/branding/",
+      "expectedHref": "/branding/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/",
+      "item": "Portfolio",
+      "href": "/portfolio/",
+      "expectedHref": "/portfolio/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/",
+      "item": "O mnie",
+      "href": "/o-mnie/",
+      "expectedHref": "/o-mnie/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/",
+      "item": "Blog",
+      "href": "/blog/",
+      "expectedHref": "/blog/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/",
+      "item": "Kontakt",
+      "href": "/kontakt/",
+      "expectedHref": "/kontakt/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/hiker/",
+      "menuVisible": true,
+      "homeHref": "/",
+      "homeValid": true
+    },
+    {
+      "page": "/portfolio/hiker/",
+      "item": "Strony WWW",
+      "href": "/strony-www/",
+      "expectedHref": "/strony-www/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/hiker/",
+      "item": "Branding",
+      "href": "/branding/",
+      "expectedHref": "/branding/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/hiker/",
+      "item": "Portfolio",
+      "href": "/portfolio/",
+      "expectedHref": "/portfolio/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/hiker/",
+      "item": "O mnie",
+      "href": "/o-mnie/",
+      "expectedHref": "/o-mnie/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/hiker/",
+      "item": "Blog",
+      "href": "/blog/",
+      "expectedHref": "/blog/",
+      "hrefPass": true,
+      "activePass": true
+    },
+    {
+      "page": "/portfolio/hiker/",
+      "item": "Kontakt",
+      "href": "/kontakt/",
+      "expectedHref": "/kontakt/",
+      "hrefPass": true,
+      "activePass": true
+    }
+  ],
+  "menuInteractions": [
+    {
+      "openOnToggle": true,
+      "closeOnClickOutside": true,
+      "closeOnEscape": true
+    }
+  ],
+  "fileFallback": [
+    {
+      "tested": "case-study-hiker",
+      "homeHref": "../../index.html",
+      "homePass": true,
+      "webHref": "../../strony-www/index.html",
+      "webPass": true
+    }
+  ],
+  "typography": [
+    {
+      "route": "home",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "87.12px",
+          "lineHeight": "81.8928px",
+          "fontWeight": "750",
+          "fontFamily": "\"Inter Display\", Inter, \"Segoe UI\", Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        }
+      }
+    },
+    {
+      "route": "strony-www",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "72px",
+          "lineHeight": "74.88px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        }
+      }
+    },
+    {
+      "route": "modernizacja",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "72px",
+          "lineHeight": "74.88px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        }
+      }
+    },
+    {
+      "route": "branding",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "72px",
+          "lineHeight": "74.88px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        }
+      }
+    },
+    {
+      "route": "portfolio",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "72px",
+          "lineHeight": "74.88px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600"
+        }
+      }
+    },
+    {
+      "route": "o-mnie",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "72px",
+          "lineHeight": "74.88px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        }
+      }
+    },
+    {
+      "route": "blog",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "72px",
+          "lineHeight": "74.88px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        }
+      }
+    },
+    {
+      "route": "kontakt",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "72px",
+          "lineHeight": "74.88px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "46px",
+          "lineHeight": "49.68px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "28px",
+          "lineHeight": "32.2px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        }
+      }
+    },
+    {
+      "route": "hiker",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "80px",
+          "lineHeight": "81.6px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        }
+      }
+    },
+    {
+      "route": "drewmax",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "80px",
+          "lineHeight": "81.6px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        }
+      }
+    },
+    {
+      "route": "szkola-best",
+      "mode": "desktop",
+      "computed": {
+        "h1": {
+          "fontSize": "80px",
+          "lineHeight": "81.6px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "56px",
+          "lineHeight": "58.24px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        }
+      }
+    },
+    {
+      "route": "home",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "46.8px",
+          "lineHeight": "43.992px",
+          "fontWeight": "750",
+          "fontFamily": "\"Inter Display\", Inter, \"Segoe UI\", Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "22px",
+          "lineHeight": "25.3px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "16px",
+          "lineHeight": "24.8px"
+        }
+      }
+    },
+    {
+      "route": "strony-www",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "40px",
+          "lineHeight": "41.6px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "22px",
+          "lineHeight": "25.3px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "16px",
+          "lineHeight": "24.8px"
+        }
+      }
+    },
+    {
+      "route": "modernizacja",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "40px",
+          "lineHeight": "41.6px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "22px",
+          "lineHeight": "25.3px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "16px",
+          "lineHeight": "24.8px"
+        }
+      }
+    },
+    {
+      "route": "branding",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "40px",
+          "lineHeight": "41.6px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "22px",
+          "lineHeight": "25.3px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "16px",
+          "lineHeight": "24.8px"
+        }
+      }
+    },
+    {
+      "route": "portfolio",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "40px",
+          "lineHeight": "41.6px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "22px",
+          "lineHeight": "25.3px",
+          "fontWeight": "600"
+        }
+      }
+    },
+    {
+      "route": "o-mnie",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "40px",
+          "lineHeight": "41.6px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "22px",
+          "lineHeight": "25.3px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "16px",
+          "lineHeight": "24.8px"
+        }
+      }
+    },
+    {
+      "route": "blog",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "40px",
+          "lineHeight": "41.6px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "lead": {
+          "fontSize": "16px",
+          "lineHeight": "24.8px"
+        }
+      }
+    },
+    {
+      "route": "kontakt",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "40px",
+          "lineHeight": "41.6px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "30px",
+          "lineHeight": "32.4px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h3": {
+          "fontSize": "22px",
+          "lineHeight": "25.3px",
+          "fontWeight": "600"
+        },
+        "lead": {
+          "fontSize": "16px",
+          "lineHeight": "24.8px"
+        }
+      }
+    },
+    {
+      "route": "hiker",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "44px",
+          "lineHeight": "44.88px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "lead": {
+          "fontSize": "16px",
+          "lineHeight": "24.8px"
+        }
+      }
+    },
+    {
+      "route": "drewmax",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "44px",
+          "lineHeight": "44.88px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "lead": {
+          "fontSize": "16px",
+          "lineHeight": "24.8px"
+        }
+      }
+    },
+    {
+      "route": "szkola-best",
+      "mode": "mobile",
+      "computed": {
+        "h1": {
+          "fontSize": "44px",
+          "lineHeight": "44.88px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "h2": {
+          "fontSize": "36px",
+          "lineHeight": "37.44px",
+          "fontWeight": "600",
+          "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
+        },
+        "lead": {
+          "fontSize": "16px",
+          "lineHeight": "24.8px"
+        }
+      }
+    }
+  ],
+  "overflowCheck": [
+    {
+      "mode": "desktop",
+      "route": "home",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "desktop",
+      "route": "strony-www",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "desktop",
+      "route": "modernizacja",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "desktop",
+      "route": "branding",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "desktop",
+      "route": "portfolio",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "desktop",
+      "route": "o-mnie",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "desktop",
+      "route": "blog",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "desktop",
+      "route": "kontakt",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "desktop",
+      "route": "hiker",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "desktop",
+      "route": "drewmax",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "desktop",
+      "route": "szkola-best",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "home",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "strony-www",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "modernizacja",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "branding",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "portfolio",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "o-mnie",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "blog",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "kontakt",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "hiker",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "drewmax",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    },
+    {
+      "mode": "mobile",
+      "route": "szkola-best",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "hasOverflow": false
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "mode": "desktop",
+      "route": "home",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\home_desktop.webp"
+    },
+    {
+      "mode": "desktop",
+      "route": "strony-www",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\strony-www_desktop.webp"
+    },
+    {
+      "mode": "desktop",
+      "route": "modernizacja",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\modernizacja_desktop.webp"
+    },
+    {
+      "mode": "desktop",
+      "route": "branding",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\branding_desktop.webp"
+    },
+    {
+      "mode": "desktop",
+      "route": "portfolio",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\portfolio_desktop.webp"
+    },
+    {
+      "mode": "desktop",
+      "route": "o-mnie",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\o-mnie_desktop.webp"
+    },
+    {
+      "mode": "desktop",
+      "route": "blog",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\blog_desktop.webp"
+    },
+    {
+      "mode": "desktop",
+      "route": "kontakt",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\kontakt_desktop.webp"
+    },
+    {
+      "mode": "desktop",
+      "route": "hiker",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\hiker_desktop.webp"
+    },
+    {
+      "mode": "desktop",
+      "route": "drewmax",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\drewmax_desktop.webp"
+    },
+    {
+      "mode": "desktop",
+      "route": "szkola-best",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\szkola-best_desktop.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "home",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\home_mobile.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "strony-www",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\strony-www_mobile.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "modernizacja",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\modernizacja_mobile.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "branding",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\branding_mobile.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "portfolio",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\portfolio_mobile.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "o-mnie",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\o-mnie_mobile.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "blog",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\blog_mobile.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "kontakt",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\kontakt_mobile.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "hiker",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\hiker_mobile.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "drewmax",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\drewmax_mobile.webp"
+    },
+    {
+      "mode": "mobile",
+      "route": "szkola-best",
+      "file": "d:\\www\\grafmen\\aero\\docs\\screenshots\\szkola-best_mobile.webp"
+    }
+  ]
+}

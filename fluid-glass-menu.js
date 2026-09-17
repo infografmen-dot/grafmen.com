@@ -8,13 +8,17 @@
   const init = () => {
     if (document.getElementById('fg-menu')) return;
 
-    // Detect path depth relative to root
-    const homeLogoHref = document.querySelector('header a.home-logo')?.getAttribute('href') || '';
+    // Protocol check: clean root-relative URLs on HTTP/HTTPS vs relative fallback on file:
+    const isFileProto = window.location.protocol === 'file:';
+
     let prefix = '';
-    if (homeLogoHref.startsWith('../../')) {
-      prefix = '../../';
-    } else if (homeLogoHref.startsWith('../')) {
-      prefix = '../';
+    if (isFileProto) {
+      const homeLogoHref = document.querySelector('header a.home-logo')?.getAttribute('href') || '';
+      if (homeLogoHref.startsWith('../../')) {
+        prefix = '../../';
+      } else if (homeLogoHref.startsWith('../')) {
+        prefix = '../';
+      }
     }
 
     const currentPath = window.location.pathname.replace(/\\/g, '/');
@@ -30,13 +34,20 @@
        !currentPath.includes('/modernizacja'))
     );
 
+    const getHref = (cleanUrl, fileRel) => {
+      if (isFileProto) {
+        return prefix + fileRel;
+      }
+      return cleanUrl;
+    };
+
     const navItems = [
-      { id: 'web', label: 'Strony WWW', href: prefix + 'strony-www/index.html', match: (p) => p.includes('/strony-www') },
-      { id: 'brand', label: 'Branding', href: prefix + 'branding/index.html', match: (p) => p.includes('/branding') },
-      { id: 'work', label: 'Portfolio', href: prefix + 'portfolio/index.html', match: (p) => p.includes('/portfolio') },
-      { id: 'about', label: 'O mnie', href: prefix + 'o-mnie/index.html', match: (p) => p.includes('/o-mnie') },
-      { id: 'blog', label: 'Blog', href: prefix + 'blog/index.html', match: (p) => p.includes('/blog') },
-      { id: 'contact', label: 'Kontakt', href: prefix + 'kontakt/index.html', match: (p) => p.includes('/kontakt') }
+      { id: 'web', label: 'Strony WWW', href: getHref('/strony-www/', 'strony-www/index.html'), match: (p) => p.includes('/strony-www') },
+      { id: 'brand', label: 'Branding', href: getHref('/branding/', 'branding/index.html'), match: (p) => p.includes('/branding') },
+      { id: 'work', label: 'Portfolio', href: getHref('/portfolio/', 'portfolio/index.html'), match: (p) => p.includes('/portfolio') },
+      { id: 'about', label: 'O mnie', href: getHref('/o-mnie/', 'o-mnie/index.html'), match: (p) => p.includes('/o-mnie') },
+      { id: 'blog', label: 'Blog', href: getHref('/blog/', 'blog/index.html'), match: (p) => p.includes('/blog') },
+      { id: 'contact', label: 'Kontakt', href: getHref('/kontakt/', 'kontakt/index.html'), match: (p) => p.includes('/kontakt') }
     ];
 
     // Nav Root
@@ -55,7 +66,7 @@
 
     const homeBtn = document.createElement('a');
     homeBtn.className = 'fg-home';
-    homeBtn.href = isHomePage ? '#top' : (prefix ? prefix + 'index.html' : 'index.html');
+    homeBtn.href = isHomePage ? '#top' : (isFileProto ? (prefix ? prefix + 'index.html' : 'index.html') : '/');
     homeBtn.textContent = 'HOME';
     homeBtn.setAttribute('aria-label', 'Grafmen: powr\u00f3t na g\u00f3r\u0119 strony');
 
@@ -101,9 +112,14 @@
       if (item.match && item.match(currentPath)) {
         a.classList.add('is-active');
         a.setAttribute('aria-current', 'page');
-        a.addEventListener('click', () => closeMenu());
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          closeMenu(true);
+        });
       } else {
-        a.addEventListener('click', () => closeMenu());
+        a.addEventListener('click', () => {
+          setTimeout(() => closeMenu(false), 80);
+        });
       }
 
       li.appendChild(a);

@@ -123,10 +123,14 @@
             scrollTrigger: {
               trigger: h2,
               start: 'top 85%',
-              once: true,
-              onComplete: () => {
-                gsap.set(child.lines, { clearProps: 'transform,opacity,willChange' });
-              }
+              once: true
+            },
+            onComplete: () => {
+              gsap.set(child.lines, { clearProps: 'transform,opacity,willChange' });
+              parent.lines.forEach(line => {
+                line.classList.add('is-revealed');
+                line.style.overflow = 'visible';
+              });
             }
           }
         );
