@@ -53,12 +53,15 @@ for (const filename of readdirSync(join(root, 'content/portfolio')).filter(f => 
   }
   const url = `https://grafmen.com/portfolio/${data.slug}/`;
   const schema = JSON.stringify({'@context':'https://schema.org','@type':'CreativeWork',name:data.title,description:data.description,url,image:'https://grafmen.com/'+data.cover,creator:{'@type':'Person',name:'Krzysztof Krawczyk'}}).replace(/</g, '\\u003c');
+  const ogImage = data.og_image
+    ? (data.og_image.startsWith('http') ? data.og_image : `https://grafmen-com.vercel.app/assets/og/${data.og_image}`)
+    : 'https://grafmen-com.vercel.app/assets/og/grafmen-og-home.jpg';
   const fields = {
     PAGE_TITLE: escape(data.title),
     META_DESCRIPTION: escape(data.description),
     TITLE: typo(data.title),
     DESCRIPTION: typo(data.description),
-    META: `<link rel="canonical" href="${url}"><meta property="og:type" content="article"><meta property="og:title" content="${escape(data.title)} | Grafmen"><meta property="og:description" content="${escape(data.description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="https://grafmen.com/${escape(data.cover)}"><script type="application/ld+json">${schema}</script>`,
+    META: `<link rel="canonical" href="${url}"><meta property="og:type" content="article"><meta property="og:site_name" content="Grafmen"><meta property="og:locale" content="pl_PL"><meta property="og:title" content="${escape(data.title)} | Grafmen"><meta property="og:description" content="${escape(data.description)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${ogImage}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${escape(data.title)} · Grafmen"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(data.title)} | Grafmen"><meta name="twitter:description" content="${escape(data.description)}"><meta name="twitter:image" content="${ogImage}"><script type="application/ld+json">${schema}</script>`,
     CATEGORY: typo(data.category), YEAR: data.year ? ' / ' + escape(data.year) : '',
     COVER: imagePath(data.cover), COVER_ALT: escape(data.cover_alt), BRIEF_TITLE: typo(data.brief_title),
     BRIEF: data.brief.map(t => `<p>${typo(t)}</p>`).join(''),

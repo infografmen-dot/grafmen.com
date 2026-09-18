@@ -210,6 +210,11 @@ async function run() {
           const cs = window.getComputedStyle(h2);
           res.h2 = { fontSize: cs.fontSize, lineHeight: cs.lineHeight, fontWeight: cs.fontWeight, fontFamily: cs.fontFamily };
         }
+        const finalCtaH2 = document.querySelector('.final-cta h2');
+        if (finalCtaH2) {
+          const cs = window.getComputedStyle(finalCtaH2);
+          res.finalCtaH2 = { fontSize: cs.fontSize, lineHeight: cs.lineHeight, fontWeight: cs.fontWeight };
+        }
         const h3 = document.querySelector('h3');
         if (h3) {
           const cs = window.getComputedStyle(h3);
@@ -219,6 +224,11 @@ async function run() {
         if (lead) {
           const cs = window.getComputedStyle(lead);
           res.lead = { fontSize: cs.fontSize, lineHeight: cs.lineHeight };
+        }
+        const bodyP = document.querySelector('.bio-copy p, .home-section p:not(.home-lead):not(.home-kicker), .service-feature p, p:not(.lead):not(.home-lead):not(.home-kicker)');
+        if (bodyP) {
+          const cs = window.getComputedStyle(bodyP);
+          res.body = { fontSize: cs.fontSize, lineHeight: cs.lineHeight };
         }
         return res;
       });

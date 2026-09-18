@@ -304,6 +304,11 @@
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "68px",
+          "lineHeight": "70.72px",
+          "fontWeight": "600"
+        },
         "h3": {
           "fontSize": "28px",
           "lineHeight": "32.2px",
@@ -312,6 +317,10 @@
         "lead": {
           "fontSize": "20px",
           "lineHeight": "31px"
+        },
+        "body": {
+          "fontSize": "13px",
+          "lineHeight": "normal"
         }
       }
     },
@@ -331,6 +340,11 @@
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "68px",
+          "lineHeight": "70.72px",
+          "fontWeight": "600"
+        },
         "h3": {
           "fontSize": "28px",
           "lineHeight": "32.2px",
@@ -339,6 +353,10 @@
         "lead": {
           "fontSize": "20px",
           "lineHeight": "31px"
+        },
+        "body": {
+          "fontSize": "14px",
+          "lineHeight": "22.4px"
         }
       }
     },
@@ -358,6 +376,11 @@
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "68px",
+          "lineHeight": "70.72px",
+          "fontWeight": "600"
+        },
         "h3": {
           "fontSize": "28px",
           "lineHeight": "32.2px",
@@ -366,6 +389,10 @@
         "lead": {
           "fontSize": "20px",
           "lineHeight": "31px"
+        },
+        "body": {
+          "fontSize": "14px",
+          "lineHeight": "22.4px"
         }
       }
     },
@@ -385,12 +412,21 @@
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "68px",
+          "lineHeight": "70.72px",
+          "fontWeight": "600"
+        },
         "h3": {
           "fontSize": "28px",
           "lineHeight": "32.2px",
           "fontWeight": "600"
         },
         "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        },
+        "body": {
           "fontSize": "20px",
           "lineHeight": "31px"
         }
@@ -410,6 +446,10 @@
           "fontSize": "28px",
           "lineHeight": "32.2px",
           "fontWeight": "600"
+        },
+        "body": {
+          "fontSize": "13px",
+          "lineHeight": "normal"
         }
       }
     },
@@ -429,6 +469,11 @@
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "68px",
+          "lineHeight": "70.72px",
+          "fontWeight": "600"
+        },
         "h3": {
           "fontSize": "28px",
           "lineHeight": "32.2px",
@@ -437,6 +482,10 @@
         "lead": {
           "fontSize": "20px",
           "lineHeight": "31px"
+        },
+        "body": {
+          "fontSize": "16px",
+          "lineHeight": "26.4px"
         }
       }
     },
@@ -456,7 +505,16 @@
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "68px",
+          "lineHeight": "70.72px",
+          "fontWeight": "600"
+        },
         "lead": {
+          "fontSize": "20px",
+          "lineHeight": "31px"
+        },
+        "body": {
           "fontSize": "20px",
           "lineHeight": "31px"
         }
@@ -486,6 +544,10 @@
         "lead": {
           "fontSize": "20px",
           "lineHeight": "31px"
+        },
+        "body": {
+          "fontSize": "16px",
+          "lineHeight": "25.92px"
         }
       }
     },
@@ -505,9 +567,18 @@
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "68px",
+          "lineHeight": "70.72px",
+          "fontWeight": "600"
+        },
         "lead": {
           "fontSize": "20px",
           "lineHeight": "31px"
+        },
+        "body": {
+          "fontSize": "16px",
+          "lineHeight": "26.4px"
         }
       }
     },
@@ -527,9 +598,18 @@
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "68px",
+          "lineHeight": "70.72px",
+          "fontWeight": "600"
+        },
         "lead": {
           "fontSize": "20px",
           "lineHeight": "31px"
+        },
+        "body": {
+          "fontSize": "16px",
+          "lineHeight": "26.4px"
         }
       }
     },
@@ -549,9 +629,18 @@
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "68px",
+          "lineHeight": "70.72px",
+          "fontWeight": "600"
+        },
         "lead": {
           "fontSize": "20px",
           "lineHeight": "31px"
+        },
+        "body": {
+          "fontSize": "16px",
+          "lineHeight": "26.4px"
         }
       }
     },
@@ -566,19 +655,28 @@
           "fontFamily": "\"Inter Display\", Inter, \"Segoe UI\", Arial, sans-serif"
         },
         "h2": {
-          "fontSize": "36px",
-          "lineHeight": "37.44px",
+          "fontSize": "38px",
+          "lineHeight": "39.52px",
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "42px",
+          "lineHeight": "43.68px",
+          "fontWeight": "600"
+        },
         "h3": {
-          "fontSize": "22px",
-          "lineHeight": "25.3px",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
           "fontWeight": "600"
         },
         "lead": {
-          "fontSize": "16px",
-          "lineHeight": "24.8px"
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
+        },
+        "body": {
+          "fontSize": "12px",
+          "lineHeight": "normal"
         }
       }
     },
@@ -593,19 +691,28 @@
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
         "h2": {
-          "fontSize": "36px",
-          "lineHeight": "37.44px",
+          "fontSize": "38px",
+          "lineHeight": "39.52px",
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "42px",
+          "lineHeight": "43.68px",
+          "fontWeight": "600"
+        },
         "h3": {
-          "fontSize": "22px",
-          "lineHeight": "25.3px",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
           "fontWeight": "600"
         },
         "lead": {
-          "fontSize": "16px",
-          "lineHeight": "24.8px"
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
+        },
+        "body": {
+          "fontSize": "13px",
+          "lineHeight": "20.8px"
         }
       }
     },
@@ -620,19 +727,28 @@
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
         "h2": {
-          "fontSize": "36px",
-          "lineHeight": "37.44px",
+          "fontSize": "38px",
+          "lineHeight": "39.52px",
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "42px",
+          "lineHeight": "43.68px",
+          "fontWeight": "600"
+        },
         "h3": {
-          "fontSize": "22px",
-          "lineHeight": "25.3px",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
           "fontWeight": "600"
         },
         "lead": {
-          "fontSize": "16px",
-          "lineHeight": "24.8px"
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
+        },
+        "body": {
+          "fontSize": "13px",
+          "lineHeight": "20.8px"
         }
       }
     },
@@ -647,19 +763,28 @@
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
         "h2": {
-          "fontSize": "36px",
-          "lineHeight": "37.44px",
+          "fontSize": "38px",
+          "lineHeight": "39.52px",
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "42px",
+          "lineHeight": "43.68px",
+          "fontWeight": "600"
+        },
         "h3": {
-          "fontSize": "22px",
-          "lineHeight": "25.3px",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
           "fontWeight": "600"
         },
         "lead": {
-          "fontSize": "16px",
-          "lineHeight": "24.8px"
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
+        },
+        "body": {
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
         }
       }
     },
@@ -674,9 +799,13 @@
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
         "h3": {
-          "fontSize": "22px",
-          "lineHeight": "25.3px",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
           "fontWeight": "600"
+        },
+        "body": {
+          "fontSize": "12px",
+          "lineHeight": "normal"
         }
       }
     },
@@ -691,19 +820,28 @@
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
         "h2": {
-          "fontSize": "36px",
-          "lineHeight": "37.44px",
+          "fontSize": "38px",
+          "lineHeight": "39.52px",
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "42px",
+          "lineHeight": "43.68px",
+          "fontWeight": "600"
+        },
         "h3": {
-          "fontSize": "22px",
-          "lineHeight": "25.3px",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
           "fontWeight": "600"
         },
         "lead": {
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
+        },
+        "body": {
           "fontSize": "16px",
-          "lineHeight": "24.8px"
+          "lineHeight": "26.4px"
         }
       }
     },
@@ -718,14 +856,23 @@
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
         "h2": {
-          "fontSize": "36px",
-          "lineHeight": "37.44px",
+          "fontSize": "38px",
+          "lineHeight": "39.52px",
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "42px",
+          "lineHeight": "43.68px",
+          "fontWeight": "600"
+        },
         "lead": {
-          "fontSize": "16px",
-          "lineHeight": "24.8px"
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
+        },
+        "body": {
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
         }
       }
     },
@@ -746,13 +893,17 @@
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
         "h3": {
-          "fontSize": "22px",
-          "lineHeight": "25.3px",
+          "fontSize": "24px",
+          "lineHeight": "27.6px",
           "fontWeight": "600"
         },
         "lead": {
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
+        },
+        "body": {
           "fontSize": "16px",
-          "lineHeight": "24.8px"
+          "lineHeight": "25.92px"
         }
       }
     },
@@ -767,14 +918,23 @@
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
         "h2": {
-          "fontSize": "36px",
-          "lineHeight": "37.44px",
+          "fontSize": "38px",
+          "lineHeight": "39.52px",
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "42px",
+          "lineHeight": "43.68px",
+          "fontWeight": "600"
+        },
         "lead": {
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
+        },
+        "body": {
           "fontSize": "16px",
-          "lineHeight": "24.8px"
+          "lineHeight": "26.4px"
         }
       }
     },
@@ -789,14 +949,23 @@
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
         "h2": {
-          "fontSize": "36px",
-          "lineHeight": "37.44px",
+          "fontSize": "38px",
+          "lineHeight": "39.52px",
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "42px",
+          "lineHeight": "43.68px",
+          "fontWeight": "600"
+        },
         "lead": {
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
+        },
+        "body": {
           "fontSize": "16px",
-          "lineHeight": "24.8px"
+          "lineHeight": "26.4px"
         }
       }
     },
@@ -811,14 +980,23 @@
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
         "h2": {
-          "fontSize": "36px",
-          "lineHeight": "37.44px",
+          "fontSize": "38px",
+          "lineHeight": "39.52px",
           "fontWeight": "600",
           "fontFamily": "PortfolioOutfit, Outfit, Arial, sans-serif"
         },
+        "finalCtaH2": {
+          "fontSize": "42px",
+          "lineHeight": "43.68px",
+          "fontWeight": "600"
+        },
         "lead": {
+          "fontSize": "18px",
+          "lineHeight": "27.9px"
+        },
+        "body": {
           "fontSize": "16px",
-          "lineHeight": "24.8px"
+          "lineHeight": "26.4px"
         }
       }
     }

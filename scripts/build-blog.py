@@ -58,8 +58,29 @@ def render_post(post, template, preview=False):
                   'mainEntityOfPage': url, 'url': url,
                   'author': {'@type': 'Person', 'name': 'Krzysztof Krawczyk', 'url': ORIGIN + '/o-mnie/'},
                   'publisher': {'@type': 'Organization', 'name': 'Grafmen', 'url': ORIGIN}}
-        safe_json = json.dumps(schema, ensure_ascii=False).replace('<', '\\u003c')
-        meta = f'<link rel="canonical" href="{url}"><meta property="og:type" content="article"><meta property="og:url" content="{url}"><meta property="og:title" content="{escape(post["title"], quote=True)}"><meta property="og:description" content="{escape(post["description"], quote=True)}"><script type="application/ld+json">{safe_json}</script>'
+        og_image = post.get('og_image')
+        if og_image:
+            og_image_url = og_image if og_image.startswith('http') else f'https://grafmen-com.vercel.app/assets/og/{og_image}'
+        else:
+            og_image_url = 'https://grafmen-com.vercel.app/assets/og/grafmen-og-home.jpg'
+        meta = (
+            f'<link rel="canonical" href="{url}">'
+            f'<meta property="og:type" content="article">'
+            f'<meta property="og:site_name" content="Grafmen">'
+            f'<meta property="og:locale" content="pl_PL">'
+            f'<meta property="og:title" content="{escape(post["title"], quote=True)} | Grafmen">'
+            f'<meta property="og:description" content="{escape(post["description"], quote=True)}">'
+            f'<meta property="og:url" content="{url}">'
+            f'<meta property="og:image" content="{og_image_url}">'
+            f'<meta property="og:image:width" content="1200">'
+            f'<meta property="og:image:height" content="630">'
+            f'<meta property="og:image:alt" content="{escape(post["title"], quote=True)} · Grafmen">'
+            f'<meta name="twitter:card" content="summary_large_image">'
+            f'<meta name="twitter:title" content="{escape(post["title"], quote=True)} | Grafmen">'
+            f'<meta name="twitter:description" content="{escape(post["description"], quote=True)}">'
+            f'<meta name="twitter:image" content="{og_image_url}">'
+            f'<script type="application/ld+json">{safe_json}</script>'
+        )
     updated = ''
     if post.get('updated'):
         updated = f'<span>Aktualizacja: <time datetime="{post["updated"]}">{date.fromisoformat(post["updated"]).strftime("%d.%m.%Y")}</time></span>'

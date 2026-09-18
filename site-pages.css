@@ -123,7 +123,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b8
 .article-body p,.article-body li{font-size:18px;line-height:1.8;color:#45454d}
 .article-body li+li{margin-top:12px}
 .article-body .article-related{margin-top:64px;padding-top:24px;border-top:1px solid #cacacf}
-@media(max-width:900px){.testimonials-section .testimonial-grid,.blog-list{grid-template-columns:1fr}.testimonial-card{min-height:0}.article-body{padding-bottom:64px}}
+@media(max-width:900px){.blog-list{grid-template-columns:1fr}.testimonial-card{min-height:0}.article-body{padding-bottom:64px}}
 @media(max-width:460px){.tools{gap:8px}.tools .quote{display:none}.logo{width:118px}}
 
 /* Image-led branding and project detail, continuing the existing design system. */

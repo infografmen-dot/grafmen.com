@@ -38,3 +38,69 @@
     header?.querySelector('.home-logo')?.focus({preventScroll:true});
   });
 })();
+
+// Mobile testimonials horizontal swipe slider with dot indicators
+(() => {
+  const initTestimonials = () => {
+    document.querySelectorAll('.testimonials-section').forEach(section => {
+      const grid = section.querySelector('.testimonial-grid');
+      const cards = section.querySelectorAll('.testimonial-card');
+      const dots = section.querySelectorAll('.testimonial-dot');
+      if (!grid || !cards.length || !dots.length) return;
+
+      const getPaddingLeft = () => {
+        const style = window.getComputedStyle(grid);
+        return parseFloat(style.paddingLeft) || 20;
+      };
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          const card = cards[idx];
+          if (card) {
+            const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const targetLeft = card.offsetLeft - getPaddingLeft();
+            grid.scrollTo({
+              left: targetLeft,
+              behavior: reduced ? 'instant' : 'smooth'
+            });
+          }
+        });
+      });
+
+      let ticking = false;
+      const updateDots = () => {
+        const scrollLeft = grid.scrollLeft;
+        const padLeft = getPaddingLeft();
+        let activeIdx = 0;
+        let minDiff = Infinity;
+        cards.forEach((card, idx) => {
+          const diff = Math.abs((card.offsetLeft - padLeft) - scrollLeft);
+          if (diff < minDiff) {
+            minDiff = diff;
+            activeIdx = idx;
+          }
+        });
+        dots.forEach((dot, idx) => {
+          const isActive = idx === activeIdx;
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        ticking = false;
+      };
+
+      grid.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateDots);
+          ticking = true;
+        }
+      }, { passive: true });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTestimonials);
+  } else {
+    initTestimonials();
+  }
+})();
+

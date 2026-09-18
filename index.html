@@ -74,16 +74,19 @@
   .eyebrow{font-size:13px;color:#858d9a;letter-spacing:.01em;margin-bottom:58px;display:flex;gap:12px;align-items:center}
   .eyebrow .dot{font-size:10px;color:#7e8794}
   .hero-grid{display:grid;grid-template-columns:minmax(0,930px) 220px;justify-content:space-between;gap:48px}
-  h1{font-family:"Inter Display",Inter,"Segoe UI",Arial,sans-serif;font-weight:750;letter-spacing:-.050em;line-height:.94;font-size:clamp(66px,6.05vw,92px);margin:0;max-width:960px}
+  h1{font-family:var(--font-display);font-weight:var(--type-display-weight);letter-spacing:var(--type-display-ls);line-height:var(--type-display-lh);font-size:var(--type-display);margin:0;max-width:960px}
   .hero-line{position:relative;display:inline-block;vertical-align:top}
   .hero-line-inner{display:inline-block;white-space:nowrap;position:relative;z-index:1}
   .hero-wipe-brand,.hero-wipe-fg{position:absolute;top:-0.05em;bottom:-0.09em;left:-0.08em;right:-0.08em;pointer-events:none;transform-origin:left;transform:scaleX(0);will-change:transform}
   .hero-wipe-brand{background:var(--orange);z-index:3}
   .hero-wipe-fg{background:#0F0F10;z-index:4}
   .uword{position:relative;display:inline-block}
-  .uword::after{content:"";position:absolute;left:2px;bottom:-2px;width:160px;height:6px;background:var(--orange)}
+  .uword-mob{position:relative;display:inline-block}
+  html:not([lang="en"]) .uword::after{display:none!important}
+  html:not([lang="en"]) .uword-mob::after{content:"";position:absolute;left:0;bottom:-8px;width:calc(100% - 12px);height:6px;background:var(--orange)}
+  html[lang="en"] .uword::after{content:"";position:absolute;left:0;bottom:-8px;width:calc(100% - 4px);height:6px;background:var(--orange)}
   .terminal{display:inline-block;width:.17em;height:.17em;background:var(--orange);margin-left:.08em;vertical-align:baseline}
-  .lead{margin:38px 0 0;color:#6f7886;font-size:21px;line-height:1.45;max-width:690px;font-weight:400}
+  .lead{margin:38px 0 0;color:#6f7886;font-size:var(--type-lead);line-height:var(--type-lead-lh);max-width:690px;font-weight:400}
   .actions{display:flex;gap:18px;margin-top:32px}
   .btn{height:56px;padding:0 30px;border-radius:8px;font-size:16px;font-weight:500;display:inline-flex;align-items:center;gap:30px;text-decoration:none}
   .btn.dark{background:#0b0b0d;color:#fff}
@@ -107,7 +110,9 @@
     .hero-wipe-brand,.hero-wipe-fg{display:none!important}
   }
   @media(max-width:900px){
-    .wrap{width:calc(100% - 40px)} header{height:84px;grid-template-columns:1fr auto}.logo{width:118px}nav{display:none}.hero{min-height:auto;padding:52px 0 72px}.hero-grid{grid-template-columns:1fr}.meta01{display:none}.cube-field{display:none}h1{font-size:clamp(46px,12vw,66px)}.lead{font-size:18px}.hero > .hero-bottom{display:none}.portfolio{padding-top:72px}.portfolio-head{grid-template-columns:1fr;gap:24px;margin-bottom:56px}h2{font-size:var(--type-h2);line-height:var(--type-h2-lh);letter-spacing:var(--type-h2-ls)}.stage{height:auto;display:grid;grid-template-columns:1fr;gap:64px}.work{position:static!important;width:100%!important}.media{height:auto!important;aspect-ratio:1.35/1}
+    .wrap{width:calc(100% - 40px)} header{height:84px;grid-template-columns:1fr auto}.logo{width:118px}nav{display:none}.hero{min-height:auto;padding:52px 0 72px}.hero-grid{grid-template-columns:1fr}.meta01{display:none}.cube-field{display:none}.hero > .hero-bottom{display:none}.portfolio{padding-top:72px}.portfolio-head{grid-template-columns:1fr;gap:24px;margin-bottom:56px}.stage{height:auto;display:grid;grid-template-columns:1fr;gap:64px}.work{position:static!important;width:100%!important}.media{height:auto!important;aspect-ratio:1.35/1}
+    html:not([lang="en"]) .uword-mob::after{bottom:-6px;width:calc(100% - 10px)}
+    html[lang="en"] .uword::after{bottom:-6px}
   }
 </style>
 <link rel="stylesheet" href="site-base.css">
@@ -119,6 +124,20 @@
 <script src="language-preview.js" defer></script>
 <meta name="description" content="Strony WWW, branding i&nbsp;modernizacja stron dla&nbsp;firm. Grafmen · od&nbsp;projektu i&nbsp;treści po&nbsp;uruchomienie. Poznaj realizacje i&nbsp;pakiety od&nbsp;1 500 zł.">
 <link rel="canonical" href="https://grafmen.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Grafmen">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Grafmen · strony WWW, branding i realizacje">
+<meta property="og:description" content="Projektuję strony WWW, branding, materiały reklamowe i motion dla firm. Od 2005 roku.">
+<meta property="og:url" content="https://grafmen.com/">
+<meta property="og:image" content="https://grafmen-com.vercel.app/assets/og/grafmen-og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Grafmen · Ty zajmujesz się swoją firmą. Ja dbam o to, jak ją widać.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grafmen · strony WWW, branding i realizacje">
+<meta name="twitter:description" content="Projektuję strony WWW, branding, materiały reklamowe i motion dla firm. Od 2005 roku.">
+<meta name="twitter:image" content="https://grafmen-com.vercel.app/assets/og/grafmen-og-home.jpg">
 <link rel="stylesheet" href="site-pages.css">
 <link rel="stylesheet" href="fluid-glass-menu.css">
 <script src="site-navigation.js" defer></script>
@@ -141,12 +160,12 @@
         <div>
           <h1>
             <span class="hero-line" data-line="0"><span class="hero-line-inner">Ty zajmujesz się</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br>
-            <span class="hero-line" data-line="1"><span class="hero-line-inner"><span class="uword">swoją</span> firmą.</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br>
+            <span class="hero-line" data-line="1"><span class="hero-line-inner"><span class="uword"><span class="uword-mob">swo</span>ją</span> firmą.</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br>
             <span class="hero-line" data-line="2"><span class="hero-line-inner">Ja zajmuję się jej</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br>
             <span class="hero-line" data-line="3"><span class="hero-line-inner">stroną<span class="terminal" aria-hidden="true"></span></span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span>
           </h1>
           <p class="lead">Projektuję i&nbsp;modernizuję strony WWW dla&nbsp;firm.<br>Od&nbsp;koncepcji i&nbsp;treści po&nbsp;domenę, hosting i&nbsp;uruchomienie.</p>
-          <div class="actions"><a class="btn dark" href="kontakt/index.html">Zapytaj o&nbsp;wycenę <span>→</span></a><a class="btn light" href="#portfolio">Zobacz realizacje</a></div>
+          <div class="actions"><a class="btn dark" href="kontakt/index.html">Zapytaj o&nbsp;wycenę <span>→</span></a></div>
         </div>
         <aside class="meta01"><div class="meta01-top"><span>01</span></div>STRONY WWW<br>BRANDING<br>MOTION</aside>
       </div>
@@ -204,7 +223,6 @@
               <div class="logo-item"><img src="assets/clients/drewmax.svg" alt="Drewmax.pro" width="140" height="42" loading="lazy"></div>
               <div class="logo-item"><img src="assets/clients/drewmar.png" alt="Drewmar" width="130" height="40" loading="lazy"></div>
               <div class="logo-item"><img src="assets/clients/unitrans.png" alt="UniTrans" width="135" height="40" loading="lazy"></div>
-              <div class="logo-item"><img src="assets/clients/mpec-przemysl.png" alt="MPEC Przemyśl" width="110" height="40" loading="lazy"></div>
               <div class="logo-item"><img src="assets/clients/salmax.png" alt="Salmax" width="125" height="38" loading="lazy"></div>
               <div class="logo-item"><img src="assets/clients/kancelaria-lampa.png" alt="Kancelaria Radcy Prawnego Lampa" width="135" height="40" loading="lazy"></div>
               <div class="logo-item"><img src="assets/clients/pervita24.png" alt="PerVita24" width="130" height="40" loading="lazy"></div>
@@ -218,7 +236,6 @@
               <div class="logo-item"><img src="assets/clients/drewmax.svg" alt="" width="140" height="42" loading="lazy"></div>
               <div class="logo-item"><img src="assets/clients/drewmar.png" alt="" width="130" height="40" loading="lazy"></div>
               <div class="logo-item"><img src="assets/clients/unitrans.png" alt="" width="135" height="40" loading="lazy"></div>
-              <div class="logo-item"><img src="assets/clients/mpec-przemysl.png" alt="" width="110" height="40" loading="lazy"></div>
               <div class="logo-item"><img src="assets/clients/salmax.png" alt="" width="125" height="38" loading="lazy"></div>
               <div class="logo-item"><img src="assets/clients/kancelaria-lampa.png" alt="" width="135" height="40" loading="lazy"></div>
               <div class="logo-item"><img src="assets/clients/pervita24.png" alt="" width="130" height="40" loading="lazy"></div>
@@ -251,7 +268,7 @@
           <div class="package-grid">
           <article class="package-card">
             <p class="package-index">01 / START</p><h3>Wizytówka</h3><p class="package-price">od&nbsp;1 500 zł</p><p>Solidna obecność online dla&nbsp;firmy, która nie potrzebuje wielostronicowego portalu.</p>
-            <ul><li>Strona one-page do&nbsp;6 sekcji</li><li>Konfiguracja domeny i&nbsp;hostingu</li><li>Formularz kontaktowy</li><li>Podstawowe SEO i&nbsp;responsywność</li><li>Aktualizacje na&nbsp;zlecenie, bez&nbsp;panelu CMS</li><li>Jedna grafika reklamowa na&nbsp;social media w&nbsp;kolorystyce Twojej marki, w&nbsp;cenie.</li></ul>
+            <ul><li>Strona one-page do&nbsp;6 sekcji</li><li>Indywidualny układ dopasowany do&nbsp;charakteru firmy</li><li>Pomoc w&nbsp;uporządkowaniu treści i&nbsp;najważniejszych komunikatów</li><li>Konfiguracja domeny i&nbsp;hostingu</li><li>Formularz kontaktowy</li><li>Podstawowe SEO i&nbsp;responsywność</li><li>Aktualizacje na&nbsp;zlecenie, bez&nbsp;panelu CMS</li><li>Jedna grafika reklamowa na&nbsp;social media w&nbsp;kolorystyce Twojej marki</li></ul>
             <p class="package-time">Termin ustalamy po&nbsp;rozmowie</p><a class="package-link" href="kontakt/index.html">Zapytaj o&nbsp;pakiet <span>↗</span></a>
           </article>
           <article class="package-card package-featured">
@@ -261,7 +278,7 @@
           </article>
           <article class="package-card">
             <p class="package-index">03 / KOMPLEKSOWO</p><h3>Strona + identyfikacja</h3><p class="package-price">od&nbsp;4 500 zł</p><p>Dla&nbsp;firm, które chcą odświeżyć wizerunek kompleksowo · od&nbsp;logo po&nbsp;gotową stronę.</p>
-            <ul><li>Wszystko z&nbsp;Pakietu 2</li><li>Projekt logo</li><li>Kolory, typografia i&nbsp;sygnet</li><li>Spójność marki w&nbsp;każdym punkcie kontaktu</li><li>Opcjonalny panel CMS do&nbsp;edycji tekstów i&nbsp;zdjęć, wdrażany na&nbsp;życzenie klienta.</li><li>Zestaw 3 gotowych grafik na&nbsp;social media przygotowanych w&nbsp;nowej identyfikacji marki.</li><li>60 dni wsparcia po&nbsp;uruchomieniu w&nbsp;zakresie drobnych korekt istniejącej treści i&nbsp;usuwania usterek objętych projektem.</li></ul>
+            <ul><li>Wielostronicowy serwis WWW, do&nbsp;8 osobnych podstron</li><li>Projekt strony dopasowany do&nbsp;marki</li><li>Techniczne SEO i&nbsp;uporządkowana struktura treści</li><li>Analytics, Search Console i&nbsp;blog</li><li>Opcjonalny panel CMS do&nbsp;edycji tekstów i&nbsp;zdjęć</li><li>Podstawowe dane strukturalne i&nbsp;przygotowanie techniczne pod&nbsp;wyszukiwarki oraz&nbsp;narzędzia AI</li><li>Profesjonalny podgląd linków w&nbsp;social media i&nbsp;komunikatorach</li><li>Projekt logo lub odświeżenie istniejącego znaku</li><li>Dobór kolorystyki i&nbsp;typografii marki</li><li>Przygotowanie podstawowych wariantów logo do&nbsp;internetu i&nbsp;druku</li><li>Zestaw 3 gotowych grafik na&nbsp;social media w&nbsp;nowej identyfikacji</li><li>60 dni wsparcia po&nbsp;uruchomieniu</li></ul>
             <p class="package-time">Etapy i&nbsp;termin ustalamy indywidualnie</p><a class="package-link" href="kontakt/index.html">Zapytaj o&nbsp;pakiet <span>↗</span></a>
           </article>
         </div>
@@ -273,6 +290,11 @@
       <div class="home-inner">
         <div class="home-section-intro testimonials-intro"><p class="home-kicker">05 · OPINIE KLIENTÓW</p><h2 id="testimonials-title">Dobra współpraca<br>zostaje na&nbsp;dłużej.</h2><p class="home-lead">Przeczytaj, jak klienci opisują współpracę ze&nbsp;mną.</p></div>
         <div class="testimonial-grid"><article class="testimonial-card"><blockquote><p>„Pełen profesjonalizm, punktualność i&nbsp;systematyczność to&nbsp;cechy, z&nbsp;którymi się Państwo spotkacie współpracując z&nbsp;firmą GRAFMEN. Właśnie skończyliśmy kolejny wspólny projekt, mamy już w&nbsp;planach kolejne i&nbsp;nie wyobrażam sobie aby ktoś inny nam je&nbsp;opracowywał. Panie Krzysztofie sukcesy i&nbsp;rozwój naszej firmy, to&nbsp;też Pana zasługa -DZIĘKUJĘ.”</p></blockquote><footer><strong>Kazimierz Ogiński</strong><span>Drewmar</span></footer></article><article class="testimonial-card"><blockquote><p>„Jesteśmy bardzo zadowoleni ze&nbsp;współpracy z&nbsp;Panem Krzysztofem, który wykonał dla&nbsp;nas kilkanaście banerów reklamowych w&nbsp;formacie HTML5. Każdy projekt został przygotowany w&nbsp;sposób dokładny i&nbsp;zgodnie z&nbsp;naszymi oczekiwaniami. Dziękujemy za&nbsp;cierpliwość i&nbsp;profesjonalne podejście.”</p></blockquote><footer><strong>Marzena Drabińska</strong><span>Salmax S.C.</span></footer></article><article class="testimonial-card"><blockquote><p>„Współpracowałam z&nbsp;wieloma grafikami. Odkąd poznałam Krzysztofa, nie szukam już innego grafika. Jest bardzo otwarty na&nbsp;klienta i&nbsp;jego potrzeby. Za&nbsp;pomocą przykładów potrafi wyjaśnić dlaczego dobrze by&nbsp;było zrobić coś tak, a&nbsp;nie inaczej. Polecam Grafmena !”</p></blockquote><footer><strong>Joanna Brzeska</strong><span>Unitrans Sp. z&nbsp;o.o.</span></footer></article></div>
+        <div class="testimonial-dots" role="tablist" aria-label="Wskaźnik opinii">
+          <button type="button" class="testimonial-dot active" role="tab" aria-selected="true" aria-label="Opinia 1 z 3: Kazimierz Ogiński" data-index="0"></button>
+          <button type="button" class="testimonial-dot" role="tab" aria-selected="false" aria-label="Opinia 2 z 3: Marzena Drabińska" data-index="1"></button>
+          <button type="button" class="testimonial-dot" role="tab" aria-selected="false" aria-label="Opinia 3 z 3: Joanna Brzeska" data-index="2"></button>
+        </div>
       </div>
     </section>
 
