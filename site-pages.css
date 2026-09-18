@@ -80,9 +80,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b8
 @media(max-width:900px){
  header{position:relative;grid-template-columns:1fr auto;z-index:5}
  .menu-toggle{display:block}
- header nav{display:none;position:absolute;top:100%;left:0;right:0;background:white;border:1px solid #d7dbe1;border-radius:12px;padding:18px 24px;box-shadow:0 12px 28px #0000000d;flex-direction:column;align-items:stretch;gap:2px}
+ header nav{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;background:white;border:1px solid #d7dbe1;border-radius:12px;padding:16px 20px;box-shadow:0 12px 28px #00000014;flex-direction:column;align-items:stretch;gap:2px;z-index:100}
  header nav.is-open{display:flex}
- header nav a.active:after{left:0;transform:none}
+ header nav a{display:flex;align-items:center;justify-content:center;min-height:52px;padding:0 16px;font-size:19px;line-height:1.35;font-weight:500;text-align:center;color:var(--ink);text-decoration:none;position:relative;border-radius:8px;white-space:normal}
+ header nav a.active:after{content:"";position:absolute;height:2px;width:28px;left:50%;bottom:8px;transform:translateX(-50%);background:#aab0b9;border-radius:2px}
  .tools .sep{display:none}
  .tools .quote{height:44px;font-size:12px;padding:0 12px;gap:10px}
  .compact-grid,.callout-grid,.service-hero-bottom,.feature-grid{grid-template-columns:1fr;gap:32px}
@@ -175,7 +176,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b8
 #contact-status{font-size:14px;margin:0;color:#45454d}
 #contact-status:empty{display:none}
 @media(max-width:900px){
- header nav .nav-contact{display:block}
+ header nav .nav-contact{display:flex}
  .project-heading{padding-top:40px;padding-bottom:32px}
  .project-cover{margin-bottom:64px}
  .project-gallery{gap:32px;margin-top:40px}
@@ -229,3 +230,12 @@ section[id]{scroll-margin-top:var(--sticky-header-offset)}
  .back-to-top{right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:44px;height:44px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.site-header-shell{transition:none}}
+
+/* Modifier for /o-mnie/ scope section: 4 cols desktop, 2 cols tablet, 1 col mobile */
+.about-scope-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;margin-top:64px}
+@media(max-width:1199px){
+ .about-scope-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px;margin-top:56px}
+}
+@media(max-width:767px){
+ .about-scope-grid{grid-template-columns:1fr;gap:32px;margin-top:48px}
+}
