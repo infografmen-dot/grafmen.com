@@ -203,6 +203,8 @@ section[id]{scroll-margin-top:var(--sticky-header-offset)}
 .back-to-top[hidden]{display:none}
 .back-to-top:hover{background:#303030}
 .back-to-top:focus-visible{outline:3px solid #ff6400;outline-offset:4px}
+.about-hero{padding-bottom:28px}
+.about-intro{padding-top:28px;border-top:0}
 .about-hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(280px,4fr);gap:clamp(32px,5vw,72px);align-items:center}
 .about-hero h1{font-family:var(--font-heading);font-size:var(--type-h1);line-height:var(--type-h1-lh);letter-spacing:var(--type-h1-ls);font-weight:var(--type-h1-weight)}
 .about-hero .home-lead{margin-top:32px}
@@ -218,6 +220,8 @@ section[id]{scroll-margin-top:var(--sticky-header-offset)}
 @media(min-width:901px){.packages-intro h2+.home-lead,.compact-grid>h2+p{margin-top:0}}
 @media(max-width:900px){
  :root{--section-heading-gap:32px;--sticky-header-offset:104px}
+ .about-hero{padding-bottom:16px}
+ .about-intro{padding-top:20px;border-top:0}
  .about-hero-grid{grid-template-columns:1fr;gap:32px}
  .about-portrait{justify-self:center;max-width:290px;margin:16px auto 0}
  .branding-introduction{margin-bottom:56px}

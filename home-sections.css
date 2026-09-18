@@ -4,6 +4,7 @@
 .home-inner{width:min(var(--max),calc(100% - 96px));margin:0 auto}
 .home-section{padding:120px 0;border-top:1px solid #e5e5e8}
 .home-kicker{margin:0 0 24px;color:#62626b;font-size:var(--type-label);line-height:var(--type-label-lh);letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:var(--type-label-weight)}
+.section-index{color:var(--orange)}
 .home-section h2{margin:0;font-family:var(--font-heading);font-weight:var(--type-h2-weight);font-size:var(--type-h2);line-height:var(--type-h2-lh);letter-spacing:var(--type-h2-ls)}
 .final-cta h2{margin:0;font-family:var(--font-heading);font-weight:var(--type-h2-large-weight);font-size:var(--type-h2-large);line-height:var(--type-h2-large-lh);letter-spacing:var(--type-h2-large-ls);max-width:720px}
 .home-lead{margin:0;color:#62626b;font-size:var(--type-lead);line-height:var(--type-lead-lh)}

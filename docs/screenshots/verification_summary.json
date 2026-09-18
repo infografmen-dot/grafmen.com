@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "title": "Strony WWW, branding i grafika dla firm | Grafmen",
+    "description": "Projektuję strony WWW, branding, grafikę reklamową i motion dla firm. Grafmen od 2005 roku. Projekty dla firm z Przemyśla, Podkarpacia i całej Polski.",
+    "ogTitle": "Strony WWW, branding i grafika dla firm | Grafmen",
+    "ogDescription": "Projektuję strony WWW, branding, materiały reklamowe i motion dla firm. Od koncepcji i treści po gotowy projekt i wdrożenie.",
+    "ogImage": "https://grafmen-com.vercel.app/assets/og/grafmen-og-home.jpg",
+    "ogImageAlt": "Grafmen · Ty zajmujesz się swoją firmą. Ja dbam o to, jak ją widać.",
+    "twitterTitle": "Strony WWW, branding i grafika dla firm | Grafmen",
+    "twitterDescription": "Projektuję strony WWW, branding, materiały reklamowe i motion dla firm. Od koncepcji i treści po gotowy projekt i wdrożenie.",
+    "twitterImage": "https://grafmen-com.vercel.app/assets/og/grafmen-og-home.jpg",
+    "jsonLd": {
+      "@context": "https://schema.org",
+      "@type": [
+        "ProfessionalService",
+        "LocalBusiness"
+      ],
+      "@id": "https://grafmen.com/#business",
+      "name": "Grafmen · Krzysztof Krawczyk",
+      "url": "https://grafmen.com/",
+      "description": "Strony WWW, branding, grafika reklamowa i motion dla firm.",
+      "foundingDate": "2005",
+      "areaServed": [
+        "Przemyśl",
+        "Podkarpacie",
+        "Polska"
+      ],
+      "sameAs": [
+        "https://www.facebook.com/grafmen",
+        "https://www.instagram.com/grafmen",
+        "https://www.linkedin.com/in/krzysztof-krawczyk-grafmen"
+      ]
+    }
+  },
+  "h1": {
+    "lines": [
+      "Ty zajmujesz się",
+      "swoją firmą.",
+      "Ja dbam o to,",
+      "jak ją widać"
+    ],
+    "underlineWord": "swo",
+    "terminal": true
+  },
+  "lead": "Projektuję strony WWW, branding, materiały reklamowe i motion dla firm.\nOd koncepcji i treści po gotowy projekt i wdrożenie.",
+  "cta": "Zapytaj o wycenę\n→",
+  "viewports": [
+    {
+      "viewport": "desktop-1920",
+      "width": 1920,
+      "overflow": {
+        "clientWidth": 1920,
+        "scrollWidth": 1920,
+        "hasHorizontalScroll": false,
+        "h1Right": 1250,
+        "h1Overflows": false,
+        "lines": [
+          {
+            "index": 0,
+            "width": 677.046875,
+            "right": 997.046875,
+            "overflows": false
+          },
+          {
+            "index": 1,
+            "width": 500.96875,
+            "right": 820.96875,
+            "overflows": false
+          },
+          {
+            "index": 2,
+            "width": 542.03125,
+            "right": 862.03125,
+            "overflows": false
+          },
+          {
+            "index": 3,
+            "width": 495.125,
+            "right": 815.125,
+            "overflows": false
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "width": 1440,
+      "overflow": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "hasHorizontalScroll": false,
+        "h1Right": 1010,
+        "h1Overflows": false,
+        "lines": [
+          {
+            "index": 0,
+            "width": 641.125,
+            "right": 721.125,
+            "overflows": false
+          },
+          {
+            "index": 1,
+            "width": 474.40625,
+            "right": 554.40625,
+            "overflows": false
+          },
+          {
+            "index": 2,
+            "width": 513.28125,
+            "right": 593.28125,
+            "overflows": false
+          },
+          {
+            "index": 3,
+            "width": 468.859375,
+            "right": 548.859375,
+            "overflows": false
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "desktop-1280",
+      "width": 1280,
+      "overflow": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "hasHorizontalScroll": false,
+        "h1Right": 964,
+        "h1Overflows": false,
+        "lines": [
+          {
+            "index": 0,
+            "width": 569.890625,
+            "right": 617.890625,
+            "overflows": false
+          },
+          {
+            "index": 1,
+            "width": 421.6875,
+            "right": 469.6875,
+            "overflows": false
+          },
+          {
+            "index": 2,
+            "width": 456.25,
+            "right": 504.25,
+            "overflows": false
+          },
+          {
+            "index": 3,
+            "width": 416.765625,
+            "right": 464.765625,
+            "overflows": false
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "tablet-768",
+      "width": 768,
+      "overflow": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "hasHorizontalScroll": false,
+        "h1Right": 748,
+        "h1Overflows": false,
+        "lines": [
+          {
+            "index": 0,
+            "width": 485.703125,
+            "right": 505.703125,
+            "overflows": false
+          },
+          {
+            "index": 1,
+            "width": 359.40625,
+            "right": 379.40625,
+            "overflows": false
+          },
+          {
+            "index": 2,
+            "width": 388.84375,
+            "right": 408.84375,
+            "overflows": false
+          },
+          {
+            "index": 3,
+            "width": 355.203125,
+            "right": 375.203125,
+            "overflows": false
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "mobile-430",
+      "width": 430,
+      "overflow": {
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "hasHorizontalScroll": false,
+        "h1Right": 410,
+        "h1Overflows": false,
+        "lines": [
+          {
+            "index": 0,
+            "width": 379.734375,
+            "right": 399.734375,
+            "overflows": false
+          },
+          {
+            "index": 1,
+            "width": 280.984375,
+            "right": 300.984375,
+            "overflows": false
+          },
+          {
+            "index": 2,
+            "width": 304.015625,
+            "right": 324.015625,
+            "overflows": false
+          },
+          {
+            "index": 3,
+            "width": 277.703125,
+            "right": 297.703125,
+            "overflows": false
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "width": 390,
+      "overflow": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "hasHorizontalScroll": false,
+        "h1Right": 370,
+        "h1Overflows": false,
+        "lines": [
+          {
+            "index": 0,
+            "width": 344.40625,
+            "right": 364.40625,
+            "overflows": false
+          },
+          {
+            "index": 1,
+            "width": 254.859375,
+            "right": 274.859375,
+            "overflows": false
+          },
+          {
+            "index": 2,
+            "width": 275.734375,
+            "right": 295.734375,
+            "overflows": false
+          },
+          {
+            "index": 3,
+            "width": 251.875,
+            "right": 271.875,
+            "overflows": false
+          }
+        ]
+      }
+    },
+    {
+      "viewport": "mobile-360",
+      "width": 360,
+      "overflow": {
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "hasHorizontalScroll": false,
+        "h1Right": 358.53125,
+        "h1Overflows": false,
+        "lines": [
+          {
+            "index": 0,
+            "width": 338.53125,
+            "right": 358.53125,
+            "overflows": false
+          },
+          {
+            "index": 1,
+            "width": 250.5,
+            "right": 270.5,
+            "overflows": false
+          },
+          {
+            "index": 2,
+            "width": 271.015625,
+            "right": 291.015625,
+            "overflows": false
+          },
+          {
+            "index": 3,
+            "width": 247.5625,
+            "right": 267.5625,
+            "overflows": false
+          }
+        ]
+      }
+    }
+  ],
+  "motionCheck": {
+    "frames": [
+      "hero_anim_50ms.png",
+      "hero_anim_150ms.png",
+      "hero_anim_300ms.png",
+      "hero_anim_500ms.png",
+      "hero_anim_750ms.png",
+      "hero_anim_1000ms.png",
+      "hero_anim_1400ms.png"
+    ]
+  },
+  "links": {
+    "web": "/strony-www/",
+    "brand": "/branding/",
+    "portfolio": "/portfolio/"
+  }
+}
