@@ -10,6 +10,12 @@
 .text-link:hover{border-bottom-color:var(--orange)}
 .audience-short{padding:88px 0}
 .audience-short .text-link{margin-top:12px}
+.package-links-row{display:flex;flex-wrap:wrap;gap:20px 32px;margin-top:20px;padding-top:20px;border-top:1px solid #d7dbe1}
+.package-links-row .text-link{margin-top:0}
+#pakiety{scroll-margin-top:100px}
+@media(max-width:640px){
+  .package-links-row{flex-direction:column;gap:12px;align-items:flex-start}
+}
 .service-page{font-family:PortfolioInter,Inter,Arial,sans-serif}
 .service-hero{padding:80px 0 96px;border-top:1px solid #eee}
 .service-hero h1{font-family:var(--font-heading);font-size:var(--type-h1);line-height:var(--type-h1-lh);font-weight:var(--type-h1-weight);letter-spacing:var(--type-h1-ls);max-width:1080px}
