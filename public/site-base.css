@@ -212,6 +212,10 @@
   .hero-wipe-brand,.hero-wipe-fg{position:absolute;top:-0.05em;bottom:-0.09em;left:-0.08em;right:-0.08em;pointer-events:none;transform-origin:left;transform:scaleX(0);will-change:transform}
   .hero-wipe-brand{background:var(--orange);z-index:3}
   .hero-wipe-fg{background:#0F0F10;z-index:4}
+  @media(prefers-reduced-motion:reduce){
+    .hero-line-inner{opacity:1!important}
+    .hero-wipe-brand,.hero-wipe-fg{display:none!important}
+  }
   .uword{position:relative;display:inline-block}
   .uword-mob{position:relative;display:inline-block}
   html:not([lang="en"]) .uword::after{display:none!important}

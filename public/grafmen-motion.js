@@ -38,18 +38,34 @@
     // 4. HOMEPAGE HERO ENTRANCE (Kinetic Horizontal Wipe Reveal)
     const hero = document.querySelector('.hero');
     const heroH1 = hero?.querySelector('h1');
-    const heroLines = heroH1 ? heroH1.querySelectorAll('.hero-line') : [];
 
-    if (hero && heroH1 && heroLines.length > 0) {
-      const lineInners = heroH1.querySelectorAll('.hero-line-inner');
-      const brandRects = heroH1.querySelectorAll('.hero-wipe-brand');
-      const fgRects = heroH1.querySelectorAll('.hero-wipe-fg');
-      const calmElements = hero.querySelectorAll('.eyebrow, .lead, .actions a, .meta01, .hero-bottom');
+    if (hero && heroH1) {
+      let failsafeTimer = null;
 
       const buildHeroTimeline = () => {
         if (window.__heroTimeline) {
           window.__heroTimeline.kill();
         }
+        if (failsafeTimer) {
+          clearTimeout(failsafeTimer);
+        }
+
+        // Fresh dynamic queries for resilience against DOM updates
+        const heroLines = heroH1.querySelectorAll('.hero-line');
+        const lineInners = heroH1.querySelectorAll('.hero-line-inner');
+        const brandRects = heroH1.querySelectorAll('.hero-wipe-brand');
+        const fgRects = heroH1.querySelectorAll('.hero-wipe-fg');
+        const calmElements = hero.querySelectorAll('.eyebrow, .lead, .actions a, .meta01, .hero-bottom');
+
+        if (!heroLines.length || !lineInners.length) return;
+
+        // Failsafe watchdog: guarantees full text visibility after 2.0s even under heavy tab throttling or errors
+        failsafeTimer = setTimeout(() => {
+          gsap.set(heroH1.querySelectorAll('.hero-line-inner'), { clearProps: 'all', opacity: 1 });
+          gsap.set(heroH1.querySelectorAll('.hero-wipe-brand, .hero-wipe-fg'), { clearProps: 'all', scaleX: 0 });
+          gsap.set(hero.querySelectorAll('.eyebrow, .lead, .actions a, .meta01, .hero-bottom'), { clearProps: 'all', opacity: 1 });
+        }, 2000);
+
         gsap.set(lineInners, { opacity: 0 });
         gsap.set([brandRects, fgRects], { scaleX: 0, transformOrigin: 'left' });
         gsap.set(calmElements, { opacity: 0 });
@@ -57,6 +73,7 @@
         const tl = gsap.timeline({
           defaults: { ease: 'power3.inOut' },
           onComplete: () => {
+            if (failsafeTimer) clearTimeout(failsafeTimer);
             gsap.set([lineInners, brandRects, fgRects], { clearProps: 'all' });
             gsap.set(calmElements, { clearProps: 'opacity' });
           }
@@ -93,6 +110,15 @@
       window.__replayHeroMotion = () => {
         buildHeroTimeline();
       };
+
+      // Ensure that returning from an inactive background tab plays the timeline or completes it
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          if (window.__heroTimeline && window.__heroTimeline.progress() < 1) {
+            window.__heroTimeline.play();
+          }
+        }
+      });
     }
 
     // 5. SUBPAGE HERO ENTRANCE (Calm 0.6s text reveal on subpages)

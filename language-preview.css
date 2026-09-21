@@ -1,8 +1,9 @@
 .language-switch{display:flex;align-items:center;gap:6px}
-.language-switch button{appearance:none;border:0;background:none;font:inherit;color:#737d8d;min-height:44px;padding:0 3px;cursor:pointer}
-.language-switch button[aria-pressed="true"]{color:#09090b}
-.language-switch button:hover{color:#09090b}
-.language-switch button:focus-visible{outline:2px solid #09090b;outline-offset:3px;border-radius:3px}
+.language-switch button{appearance:none;border:0;background:none;font:inherit;font-weight:600;color:#737d8d;min-height:44px;padding:0 3px;cursor:pointer;transition:color .2s ease}
+.language-switch button[aria-pressed="true"]{color:var(--orange)}
+.language-switch button:not([aria-pressed="true"]):hover{color:var(--ink)}
+.language-switch button[aria-pressed="true"]:hover{color:var(--orange)}
+.language-switch button:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:3px}
 .tools .quote{text-decoration:none}
 html[lang="en"] .uword::after{width:calc(100% - 4px)}
 @media(max-width:560px){

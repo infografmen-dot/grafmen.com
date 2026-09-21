@@ -40,8 +40,10 @@
     ['.p6 .project-description', 'A logo and business materials for an insurance brand. The identity combines initials with a symbol of protection to create consistent brand communication.'],
     ['.project-action', 'View project <span aria-hidden="true">↗</span>'],
   ];
+  const cleanMarkup = (html) => html.replace(/\s*style="[^"]*"/gi, '');
+
   const entries = english.flatMap(([selector, en]) =>
-    [...document.querySelectorAll(selector)].map(element => ({ element, pl: element.innerHTML, en }))
+    [...document.querySelectorAll(selector)].map(element => ({ element, pl: cleanMarkup(element.innerHTML), en }))
   );
   const movie = entries.find(entry => entry.element.matches('.p2 .project-action'));
   if (movie) movie.en = 'Watch film <span aria-hidden="true">↗</span>';
@@ -56,17 +58,32 @@
   const images = [...document.querySelectorAll('.portfolio .project-image')].map((element, i) => ({ element, pl: element.alt, en: imageAlts[i] }));
   const polishTitle = document.title;
   const nav = document.querySelector('header nav');
-  const polishNav = nav.getAttribute('aria-label');
+  const polishNav = nav ? nav.getAttribute('aria-label') : '';
   const controls = document.querySelectorAll('[data-language]');
 
-  function setLanguage(language) {
+  function setLanguage(language, isInitial = false) {
     const lang = language === 'en' ? 'en' : 'pl';
+    if (isInitial && lang === 'pl') {
+      // Default Polish state: retain untouched SSR DOM to prevent race conditions with GSAP motion
+      controls.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.language === 'pl')));
+      return;
+    }
     entries.forEach(entry => { entry.element.innerHTML = entry[lang]; });
     images.forEach(entry => { entry.element.alt = entry[lang]; });
     document.documentElement.lang = lang;
     document.title = lang === 'en' ? 'Grafmen — websites, branding and selected work' : polishTitle;
-    nav.setAttribute('aria-label', lang === 'en' ? 'Main navigation' : polishNav);
+    if (nav) nav.setAttribute('aria-label', lang === 'en' ? 'Main navigation' : polishNav);
     controls.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.language === lang)));
+
+    // Replay or ensure visibility of hero text lines upon language switch
+    if (typeof window !== 'undefined') {
+      if (window.__replayHeroMotion) {
+        window.__replayHeroMotion();
+      } else {
+        document.querySelectorAll('.hero-line-inner').forEach(el => { el.style.opacity = '1'; });
+      }
+    }
+
     // Works without a server; blocked file:// History API does not prevent switching.
     try {
       const url = new URL(window.location.href);
@@ -75,6 +92,6 @@
       window.history.replaceState(null, '', url);
     } catch { /* Optional URL state only. */ }
   }
-  controls.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language)));
-  setLanguage(new URLSearchParams(window.location.search).get('lang'));
+  controls.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language, false)));
+  setLanguage(new URLSearchParams(window.location.search).get('lang'), true);
 })();
