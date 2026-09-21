@@ -21,7 +21,11 @@ const ogImage = p.og_image ? (p.og_image.startsWith('/') ? `https://grafmen.com$
 
 const nextSlugMatch = p.next_url.match(/\.\.\/([^/]+)/);
 const nextHref = nextSlugMatch ? `/portfolio/${nextSlugMatch[1]}/` : p.next_url;
-const showSectionNumbers = p.show_section_numbers !== false && p.slug !== 'drewmax';
+
+function fixOrphans(text: string): string {
+  if (!text) return text;
+  return text.replace(/(^|[\s(„"'\u00A0])([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ])\s+/g, '$1$2\u00A0');
+}
 ---
 <BaseLayout title={title} description={description} currentNav="work" bodyClass="service-page" ogImage={ogImage}>
   <Fragment slot="head">
@@ -48,7 +52,7 @@ const showSectionNumbers = p.show_section_numbers !== false && p.slug !== 'drewm
         </nav>
         <p class="home-kicker">{p.category}{p.year ? ` / ${p.year}` : ''}</p>
         <h1>{p.title}</h1>
-        <p class="home-lead">{p.description}</p>
+        <p class="home-lead">{fixOrphans(p.description)}</p>
       </section>
 
       <!-- COVER -->
@@ -60,12 +64,12 @@ const showSectionNumbers = p.show_section_numbers !== false && p.slug !== 'drewm
       <section class="home-section">
         <div class="home-inner compact-grid">
           <div>
-            <p class="home-kicker">{showSectionNumbers ? <><span class="section-index">01 ·</span> </> : null}POTRZEBA</p>
+            <p class="home-kicker">POTRZEBA</p>
             <h2>{p.brief_title}</h2>
           </div>
           <div class="bio-copy">
             {p.brief.map((paragraph) => (
-              <p>{paragraph}</p>
+              <p>{fixOrphans(paragraph)}</p>
             ))}
           </div>
         </div>
@@ -75,12 +79,12 @@ const showSectionNumbers = p.show_section_numbers !== false && p.slug !== 'drewm
       <section class="home-section project-scope">
         <div class="home-inner compact-grid">
           <div>
-            <p class="home-kicker">{showSectionNumbers ? <><span class="section-index">02 ·</span> </> : null}ZAKRES</p>
+            <p class="home-kicker">ZAKRES</p>
             <h2>Co zrobiłem</h2>
           </div>
           <ul class="scope-list">
             {p.deliverables.map((item) => (
-              <li>{item}</li>
+              <li>{fixOrphans(item)}</li>
             ))}
           </ul>
         </div>
@@ -89,7 +93,7 @@ const showSectionNumbers = p.show_section_numbers !== false && p.slug !== 'drewm
       <!-- REALIZACJA -->
       <section class="home-section project-gallery-section" id={p.slug === 'hiker' ? 'branding' : undefined}>
         <div class="home-inner">
-          <p class="home-kicker">{showSectionNumbers ? <><span class="section-index">03 ·</span> </> : null}{p.slug === 'hiker' ? 'BRANDING' : 'REALIZACJA'}</p>
+          <p class="home-kicker">{p.slug === 'hiker' ? 'BRANDING' : 'REALIZACJA'}</p>
           <h2>{p.slug === 'hiker' ? 'Identyfikacja wizualna i ruch' : 'Projekt w zastosowaniu'}</h2>
           <div class="project-gallery">
             {p.gallery.map((item) => {
@@ -119,7 +123,7 @@ const showSectionNumbers = p.show_section_numbers !== false && p.slug !== 'drewm
         <section class="home-section project-film-section" id="film">
           <div class="home-inner compact-grid">
             <div>
-              <p class="home-kicker"><span class="section-index">04 ·</span> FILM REKLAMOWY</p>
+              <p class="home-kicker">FILM REKLAMOWY</p>
               <h2>Film promocyjny Hiker</h2>
             </div>
             <div class="bio-copy">
@@ -144,12 +148,12 @@ const showSectionNumbers = p.show_section_numbers !== false && p.slug !== 'drewm
       <section class="home-section">
         <div class="home-inner compact-grid">
           <div>
-            <p class="home-kicker">{showSectionNumbers ? <><span class="section-index">{p.slug === 'hiker' ? '05 ·' : '04 ·'}</span> </> : null}REZULTAT</p>
+            <p class="home-kicker">REZULTAT</p>
             <h2>{p.result_title}</h2>
           </div>
           <div class="bio-copy">
             {p.result.map((paragraph) => (
-              <p>{paragraph}</p>
+              <p>{fixOrphans(paragraph)}</p>
             ))}
             {p.testimonial && (
               <article class="testimonial-card" style="margin-top:28px">

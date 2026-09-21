@@ -1,6 +1,6 @@
 .portfolio{padding:112px 0 120px;font-family:var(--font-body);scroll-margin-top:48px}
 .portfolio .portfolio-head{display:grid;grid-template-columns:1.3fr 1fr;align-items:end;gap:100px;margin-bottom:88px}
-.portfolio .section-kicker{font-size:var(--type-label);letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:var(--type-label-weight);color:#62626b;margin:0 0 24px}
+.portfolio .section-kicker{font-size:var(--type-label);letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:var(--type-label-weight);color:var(--orange);margin:0 0 24px}
 .portfolio h2{font-family:var(--font-heading);font-size:var(--type-h2);font-weight:var(--type-h2-weight);line-height:var(--type-h2-lh);letter-spacing:var(--type-h2-ls);margin:0}
 .portfolio .portfolio-summary{max-width:365px;justify-self:end}
 .portfolio .portfolio-intro{font-size:var(--type-body);line-height:var(--type-body-lh);color:#62626b;margin:0 0 24px}
