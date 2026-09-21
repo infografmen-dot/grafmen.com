@@ -1,0 +1,53 @@
+{
+  "slug": "self-invest",
+  "title": "Self Invest",
+  "description": "Identyfikacja wizualna firmy konsultingowej Self Invest. System znaku i materiałów buduje spójny obraz marki w relacjach z klientami.",
+  "category": "Logo / branding",
+  "year": "",
+  "cover": "assets/portfolio/full/self-invest.webp",
+  "cover_alt": "Identyfikacja wizualna Self Invest",
+  "brief_title": "Prestiż i profesjonalizm doradztwa inwestycyjnego.",
+  "brief": [
+    "Firma konsultingowa Self Invest potrzebowała nowoczesnej identyfikacji wizualnej odzwierciedlającej rzetelność, wiedzę analityczną i bezpieczeństwo kapitału.",
+    "Kluczowym celem było stworzenie znaku i księgi standardów, które zbudują wysoki prestiż marki w kontaktach z klientami indywidualnymi i korporacyjnymi."
+  ],
+  "deliverables": [
+    "Projekt logotypu opartego na precyzyjnej geometrii i nowoczesnej typografii.",
+    "Kompletna księga znaku z zasadami skalowania, kolorystyką i wersjami achromatycznymi.",
+    "Materiały firmowe: akcydensy, wizytówki, papier korespondencyjny i teczki.",
+    "Wizualizacje brandingowe dla materiałów cyfrowych i drukowanych."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/self-invest/self_invest_1000x700.webp",
+      "alt": "Logotyp Self Invest",
+      "caption": "Konstrukcja i kolorystyka znaku firmowego.",
+      "width": 1000,
+      "height": 700
+    },
+    {
+      "src": "assets/portfolio/self-invest/branding_1000x700.webp",
+      "alt": "Materiały firmowe Self Invest",
+      "caption": "Wizytówki, papeteria i akcydensy firmowe.",
+      "width": 1000,
+      "height": 700
+    },
+    {
+      "src": "assets/portfolio/self-invest/self_invest_ksiega_znaku_2.jpg",
+      "alt": "Księga znaku Self Invest",
+      "caption": "Fragment księgi standardów tożsamości wizualnej.",
+      "width": 880,
+      "height": 654
+    }
+  ],
+  "result_title": "Identyfikacja wizualna firmy doradczej.",
+  "result": [
+    "Przygotowano system identyfikacji wizualnej, w tym projekt logo, księgę znaku oraz materiały wizerunkowe dla firmy doradczej."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../unitrans-katalog/index.html",
+  "next_title": "Katalog Uni-Trans"
+}

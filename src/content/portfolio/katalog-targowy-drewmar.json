@@ -1,0 +1,53 @@
+{
+  "slug": "katalog-targowy-drewmar",
+  "title": "Katalog targowy Drewmar",
+  "description": "Katalog przygotowany na targi Ambiente we Frankfurcie.",
+  "category": "Katalog",
+  "year": "2017",
+  "cover": "assets/portfolio/full/katalog-Drewmar_1_www.jpg",
+  "cover_alt": "Katalog targowy Drewmar",
+  "brief_title": "Ekspozycja marki na wiodących targach europejskich.",
+  "brief": [
+    "Targi Ambiente we Frankfurcie to jedno z najważniejszych światowych wydarzeń branży dóbr konsumpcyjnych i wyposażenia wnętrz.",
+    "Firma Drewmar potrzebowała specjalnego wydania katalogu targowego w języku angielskim i niemieckim, który wyróżni markę na międzynarodowej arenie."
+  ],
+  "deliverables": [
+    "Dedykowana koncepcja wizualna i układ edytorski katalogu targowego.",
+    "Ekskluzywna prezentacja linii szczotek i artykułów drewnianych w układzie wielojęzycznym.",
+    "Wysokiej próby retusz fotografii produktowych eksponujący walory ekologiczne.",
+    "Przygotowanie publikacji do druku premium z uszlachetnieniami okładki."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_1_www.jpg",
+      "alt": "Okładka katalogu targowego",
+      "caption": "Okładka katalogu przygotowanego na targi Ambiente we Frankfurcie.",
+      "width": 1000,
+      "height": 636
+    },
+    {
+      "src": "assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www.jpg",
+      "alt": "Prezentacja wyrobów na targach",
+      "caption": "Rozkładówka ekspozycyjna dla międzynarodowych kupców.",
+      "width": 1000,
+      "height": 682
+    },
+    {
+      "src": "assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_3_www.jpg",
+      "alt": "Katalog Ambiente Frankfurt",
+      "caption": "Katalog prezentujący europejską jakość i rzemiosło producenta.",
+      "width": 1000,
+      "height": 636
+    }
+  ],
+  "result_title": "Katalog na targi międzynarodowe.",
+  "result": [
+    "Przygotowano katalog targowy prezentujący ofertę eksportową firmy na stoisku wystawienniczym we Frankfurcie."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../pobudka/index.html",
+  "next_title": "Pobudka"
+}

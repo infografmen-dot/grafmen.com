@@ -1,0 +1,230 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ModernizacjaPanel from '../../components/ModernizacjaPanel.astro';
+import CtaOrange from '../../components/CtaOrange.astro';
+
+const title = "Tworzenie stron internetowych dla firm | Grafmen";
+const description = "Projektuję strony internetowe dla firm: czytelna oferta, dopasowany design i techniczne przygotowanie. Pakiety od 1 500 zł. Sprawdź ofertę.";
+---
+<BaseLayout title={title} description={description} currentNav="web" bodyClass="service-page">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Tworzenie stron internetowych dla firm",
+      "url": "https://grafmen.com/strony-www/",
+      "provider": {
+        "@type": "Person",
+        "name": "Krzysztof Krawczyk",
+        "url": "https://grafmen.com/o-mnie/"
+      }
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <!-- 1. HERO -->
+    <section class="service-hero">
+      <div class="home-inner">
+        <p class="home-kicker">STRONY WWW / GRAFMEN</p>
+        <h1>Strony internetowe, które jasno pokazują ofertę Twojej firmy.</h1>
+        <div class="service-hero-bottom">
+          <p class="home-lead">Projektuję wygląd i&nbsp;układ strony, porządkuję treści i&nbsp;przygotowuję witrynę do&nbsp;uruchomienia. Zakres, harmonogram i&nbsp;sposób późniejszej edycji ustalamy przed rozpoczęciem pracy.</p>
+          <div><a class="btn dark" href="/kontakt/">Zapytaj o&nbsp;wycenę <span>↗</span></a></div>
+        </div>
+        <figure class="service-hero-visual">
+          <img src="/assets/portfolio/drewmax-site-en.png" alt="Projekt strony internetowej Drewmax.pro – prezentacja oferty producenta szczotek" width="1907" height="1080" fetchpriority="high" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2. ZAKRES USŁUGI -->
+    <section class="home-section service-features" id="zakres">
+      <div class="home-inner">
+        <p class="home-kicker">ZAKRES USŁUGI</p>
+        <h2>Co obejmuje projekt strony</h2>
+        <div class="feature-grid">
+          <article class="service-feature">
+            <span class="item-number">01</span>
+            <h3>Czytelna oferta</h3>
+            <p>Porządkuję treści, menu i&nbsp;drogę do&nbsp;kontaktu, żeby odwiedzający mógł znaleźć usługę oraz&nbsp;potrzebne informacje.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">02</span>
+            <h3>Wygląd dopasowany do&nbsp;marki</h3>
+            <p>Dobieram układ, typografię i&nbsp;sposób prezentacji zdjęć do&nbsp;charakteru firmy oraz&nbsp;jej odbiorców.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">03</span>
+            <h3>Sprawne działanie</h3>
+            <p>Optymalizuję obrazy i&nbsp;kod. Sprawdzam czytelność, formularze i&nbsp;szybkość ładowania kluczowych podstron na&nbsp;telefonie oraz&nbsp;komputerze.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. POZIOMY PANEL MODERNIZACJI -->
+    <ModernizacjaPanel />
+
+    <!-- 4. PROCES WSPÓŁPRACY -->
+    <section class="home-section process-section" id="jak-to-dziala" aria-labelledby="process-title" lang="pl">
+      <div class="home-inner">
+        <p class="home-kicker">PROCES</p>
+        <div class="process-grid">
+          <div class="process-intro">
+            <h2 id="process-title">Jak wygląda współpraca</h2>
+            <p class="home-lead">Wystarczy rozmowa o&nbsp;tym, co robisz i&nbsp;do&nbsp;kogo chcesz dotrzeć. Prowadzę Cię przez kolejne etapy.</p>
+            <div class="process-input">
+              <h3>Na&nbsp;start potrzebuję</h3>
+              <p>Opisu oferty, danych kontaktowych oraz&nbsp;logo i&nbsp;zdjęć, jeśli je masz. Brakujące materiały ustalimy podczas rozmowy.</p>
+            </div>
+          </div>
+          <ol class="process-steps">
+            <li>
+              <span class="process-number" aria-hidden="true">01</span>
+              <div>
+                <h3>Ustalenia</h3>
+                <p>Poznaję firmę, ofertę i&nbsp;cel strony. Ustalamy zakres, wycenę oraz&nbsp;harmonogram.</p>
+              </div>
+            </li>
+            <li>
+              <span class="process-number" aria-hidden="true">02</span>
+              <div>
+                <h3>Treść i&nbsp;projekt</h3>
+                <p>Porządkuję informacje i&nbsp;przygotowuję wygląd strony. Oglądasz projekt i&nbsp;przekazujesz uwagi przed wdrożeniem.</p>
+              </div>
+            </li>
+            <li>
+              <span class="process-number" aria-hidden="true">03</span>
+              <div>
+                <h3>Budowa i&nbsp;sprawdzenie</h3>
+                <p>Wdrażam stronę, konfiguruję formularz i&nbsp;techniczne SEO. Sprawdzam linki oraz&nbsp;działanie na&nbsp;telefonie i&nbsp;komputerze.</p>
+              </div>
+            </li>
+            <li>
+              <span class="process-number" aria-hidden="true">04</span>
+              <div>
+                <h3>Uruchomienie i&nbsp;przekazanie</h3>
+                <p>Po&nbsp;Twojej akceptacji publikuję stronę i&nbsp;przekazuję ustalone dostępy. Otrzymujesz informacje o&nbsp;aktualizacjach i&nbsp;instrukcję edycji w&nbsp;uzgodnionym zakresie.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="process-ownership">
+          <p><strong>Domena i&nbsp;hosting są na&nbsp;Twoje dane.</strong> Masz kontrolę nad&nbsp;kontami i&nbsp;dostępami.</p>
+          <a href="/kontakt/">Porozmawiajmy o&nbsp;Twojej stronie <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PAKIETY I CENY -->
+    <section class="home-section packages-section" id="pakiety" aria-labelledby="packages-title" lang="pl">
+      <div class="home-inner">
+        <div class="home-section-intro packages-intro">
+          <p class="home-kicker">PAKIETY I&nbsp;CENY</p>
+          <h2 id="packages-title">Wybierz zakres<br>swojej strony.</h2>
+          <p class="home-lead">Trzy warianty różnią się zakresem strony, identyfikacji i&nbsp;obsługi po&nbsp;uruchomieniu. Ostateczną wycenę przygotuję po&nbsp;rozmowie o&nbsp;projekcie.</p>
+        </div>
+        <div class="packages-grid-wrap">
+          <div class="display-word" aria-hidden="true">PAKIETY</div>
+          <div class="package-grid">
+            <article class="package-card">
+              <p class="package-index">01 / START</p>
+              <h3>Wizytówka</h3>
+              <p class="package-price">od&nbsp;1 500 zł</p>
+              <p>Dla&nbsp;firmy, która chce przedstawić ofertę i&nbsp;kontakt na&nbsp;jednej stronie.</p>
+              <ul>
+                <li>Strona one-page, do&nbsp;6 sekcji.</li>
+                <li>Indywidualny układ dopasowany do&nbsp;firmy.</li>
+                <li>Pomoc w&nbsp;uporządkowaniu treści i&nbsp;najważniejszych komunikatów.</li>
+                <li>Konfiguracja domeny i&nbsp;hostingu.</li>
+                <li>Formularz kontaktowy.</li>
+                <li>Podstawowe SEO i&nbsp;dopasowanie do&nbsp;urządzeń mobilnych.</li>
+                <li>Aktualizacje na&nbsp;zlecenie, bez&nbsp;panelu CMS.</li>
+                <li>Jedna grafika do&nbsp;mediów społecznościowych w&nbsp;kolorystyce marki.</li>
+              </ul>
+              <p class="package-time">Termin ustalamy po&nbsp;rozmowie.</p>
+              <a class="package-link" href="/kontakt/">Zapytaj o&nbsp;pakiet <span>↗</span></a>
+            </article>
+
+            <article class="package-card package-featured">
+              <p class="package-index">02 / DLA&nbsp;ROZWIJAJĄCEJ SIĘ FIRMY</p>
+              <h3>Strona firmowa</h3>
+              <p class="package-price">od&nbsp;3 000 zł</p>
+              <p>Dla&nbsp;firmy, która potrzebuje osobnych podstron dla&nbsp;swoich usług lub produktów.</p>
+              <ul>
+                <li>Serwis do&nbsp;8 osobnych podstron.</li>
+                <li>Projekt dopasowany do&nbsp;marki.</li>
+                <li>Techniczne SEO i&nbsp;uporządkowana treść.</li>
+                <li>Analytics, Search Console i&nbsp;blog.</li>
+                <li>Opcjonalny panel CMS do&nbsp;edycji tekstów i&nbsp;zdjęć, wdrażany na&nbsp;życzenie.</li>
+                <li>Podstawowe dane strukturalne i&nbsp;przygotowanie treści dla&nbsp;wyszukiwarek oraz&nbsp;narzędzi AI.</li>
+                <li>Podgląd udostępnianego linku w&nbsp;mediach społecznościowych i&nbsp;komunikatorach.</li>
+                <li>30 dni wsparcia po&nbsp;uruchomieniu: drobne korekty istniejącej treści i&nbsp;usuwanie usterek objętych projektem.</li>
+              </ul>
+              <p class="package-time">Harmonogram dopasowany do&nbsp;zakresu.</p>
+              <a class="package-link" href="/kontakt/">Porozmawiajmy <span>↗</span></a>
+            </article>
+
+            <article class="package-card">
+              <p class="package-index">03 / KOMPLEKSOWO</p>
+              <h3>Strona + identyfikacja</h3>
+              <p class="package-price">od&nbsp;4 500 zł</p>
+              <p>Dla&nbsp;firmy, która zamawia stronę wraz z&nbsp;logo i&nbsp;podstawami identyfikacji wizualnej.</p>
+              <ul>
+                <li>Serwis do&nbsp;8 osobnych podstron.</li>
+                <li>Projekt strony dopasowany do&nbsp;marki.</li>
+                <li>Techniczne SEO i&nbsp;uporządkowana struktura treści.</li>
+                <li>Analytics, Search Console i&nbsp;blog.</li>
+                <li>Opcjonalny panel CMS do&nbsp;edycji tekstów i&nbsp;zdjęć.</li>
+                <li>Podstawowe dane strukturalne i&nbsp;przygotowanie techniczne dla&nbsp;wyszukiwarek oraz&nbsp;narzędzi AI.</li>
+                <li>Podgląd linków w&nbsp;mediach społecznościowych i&nbsp;komunikatorach.</li>
+                <li>Projekt logo lub odświeżenie istniejącego znaku.</li>
+                <li>Dobór kolorystyki i&nbsp;typografii marki.</li>
+                <li>Podstawowe warianty logo do&nbsp;internetu i&nbsp;druku.</li>
+                <li>Zestaw 3 grafik do&nbsp;mediów społecznościowych w&nbsp;nowej identyfikacji.</li>
+                <li>60 dni wsparcia po&nbsp;uruchomieniu.</li>
+              </ul>
+              <p class="package-time">Etapy i&nbsp;termin ustalamy indywidualnie.</p>
+              <a class="package-link" href="/kontakt/">Zapytaj o&nbsp;pakiet <span>↗</span></a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FAQ -->
+    <section class="home-section" id="faq">
+      <div class="home-inner faq-grid">
+        <div>
+          <p class="home-kicker">FAQ</p>
+          <h2>Pytania przed zamówieniem.</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>Ile trwa realizacja strony?</summary>
+            <p>Zwykle od&nbsp;jednego do&nbsp;trzech tygodni, zależnie od&nbsp;zakresu, gotowości materiałów i&nbsp;etapów akceptacji. Konkretny harmonogram ustalamy przed rozpoczęciem pracy.</p>
+          </details>
+          <details>
+            <summary>Czy mogę samodzielnie edytować stronę?</summary>
+            <p>W&nbsp;pakietach „Strona firmowa” i&nbsp;„Strona + identyfikacja” mogę wdrożyć opcjonalny panel CMS do&nbsp;zmiany tekstów i&nbsp;zdjęć. W&nbsp;pakiecie „Wizytówka” aktualizacje wykonuję na&nbsp;zlecenie.</p>
+          </details>
+          <details>
+            <summary>Czy budujesz strony na&nbsp;WordPressie?</summary>
+            <p>Tak, na&nbsp;życzenie. Dobieram technologię do&nbsp;potrzeb strony, integracji i&nbsp;sposobu edycji treści. Przy prostszych witrynach proponuję również lekkie strony statyczne.</p>
+          </details>
+          <details>
+            <summary>Kto zajmuje się domeną i&nbsp;hostingiem?</summary>
+            <p>Pomagam je wybrać i&nbsp;skonfigurować na&nbsp;Twoje dane. Konta należą do&nbsp;Ciebie, a&nbsp;opłaty za&nbsp;domenę i&nbsp;hosting są kosztami zewnętrznymi.</p>
+          </details>
+          <details>
+            <summary>Co obejmuje przygotowanie do&nbsp;wyszukiwarek i&nbsp;narzędzi AI?</summary>
+            <p>Dbam o&nbsp;uporządkowanie informacji i&nbsp;techniczne SEO w&nbsp;zakresie wybranego pakietu. Czytelna struktura i&nbsp;wiarygodna treść pomagają w&nbsp;odczytaniu oferty, ale nie gwarantują pozycji w&nbsp;Google ani rekomendacji przez model AI.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CTA -->
+    <CtaOrange />
+  </main>
+</BaseLayout>

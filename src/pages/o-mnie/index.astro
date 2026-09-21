@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaOrange from '../../components/CtaOrange.astro';
+
+const title = "Krzysztof Krawczyk · grafik freelancer | Grafmen";
+const description = "Krzysztof Krawczyk, grafik od 2005 roku. Strony internetowe, identyfikacje wizualne, materiały reklamowe i animacje. Bezpośredni kontakt i sprawdzony proces.";
+---
+<BaseLayout title={title} description={description} currentNav="about" bodyClass="service-page">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Krzysztof Krawczyk",
+      "jobTitle": "Grafik komputerowy",
+      "url": "https://grafmen.com/o-mnie/"
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <!-- 1. HERO -->
+    <section class="service-hero about-hero">
+      <div class="home-inner about-hero-grid">
+        <div>
+          <p class="home-kicker">O&nbsp;MNIE / GRAFMEN</p>
+          <h1>Krzysztof Krawczyk.<br>Twój grafik, od&nbsp;2005.</h1>
+          <p class="home-lead">Zaczynałem od&nbsp;logo dla&nbsp;lokalnych firm. Dziś projektuję strony internetowe, identyfikacje wizualne, materiały reklamowe i&nbsp;animacje dla&nbsp;klientów z&nbsp;Polski.</p>
+        </div>
+        <figure class="about-portrait">
+          <picture>
+            <source srcset="/assets/krzysztof-krawczyk.webp" type="image/webp">
+            <img class="portrait-photo" src="/assets/krzysztof-krawczyk.png" alt="Krzysztof Krawczyk – grafik komputerowy Grafmen" width="1122" height="1402" fetchpriority="high" decoding="async">
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2. SPOSÓB PRACY (Z ANCHOREM #jak-pracuje) -->
+    <section class="home-section" id="jak-pracuje" aria-labelledby="how-i-work-title">
+      <div class="home-inner">
+        <div class="how-intro">
+          <p class="home-kicker">SPOSÓB PRACY</p>
+          <h2 id="how-i-work-title">Jak pracuję</h2>
+          <p class="home-lead">Prowadzę projekt osobiście. Od&nbsp;pierwszych ustaleń po&nbsp;przekazanie gotowych materiałów kontaktujesz się bezpośrednio ze&nbsp;mną. Zakres pracy, cenę i&nbsp;zasady współpracy ustalamy przed rozpoczęciem projektu.</p>
+        </div>
+
+        <ol class="how-steps-grid">
+          <li class="how-step">
+            <span class="process-number" aria-hidden="true">01</span>
+            <div>
+              <h3>Ustalenia i&nbsp;wycena</h3>
+              <p>Opisujesz, czego potrzebuje Twoja firma, i&nbsp;przekazujesz dostępne materiały. Na&nbsp;tej podstawie ustalam zakres projektu, przygotowuję wycenę i&nbsp;proponuję harmonogram. Szczegóły zamówienia oraz&nbsp;najważniejsze ustalenia potwierdzamy mailowo.</p>
+            </div>
+          </li>
+          <li class="how-step">
+            <span class="process-number" aria-hidden="true">02</span>
+            <div>
+              <h3>Umowa i&nbsp;rozpoczęcie</h3>
+              <p>Współpracę z&nbsp;nowym klientem rozpoczynam po&nbsp;podpisaniu umowy o&nbsp;dzieło i&nbsp;wpłacie zadatku w&nbsp;wysokości 40% ustalonej kwoty. Umowa określa zakres projektu, rozliczenie oraz&nbsp;zasady przeniesienia autorskich praw majątkowych.</p>
+            </div>
+          </li>
+          <li class="how-step">
+            <span class="process-number" aria-hidden="true">03</span>
+            <div>
+              <h3>Koncepcja i&nbsp;poprawki</h3>
+              <p>Przygotowuję propozycje zgodnie z&nbsp;ustalonym zakresem. Przy projektowaniu logo przedstawiam od&nbsp;jednej do&nbsp;trzech koncepcji, zależnie od&nbsp;uzgodnień. Wybieramy jedną do&nbsp;dalszego opracowania. Zbieram Twoje uwagi i&nbsp;wprowadzam poprawki w&nbsp;ustalonym zakresie.</p>
+            </div>
+          </li>
+          <li class="how-step">
+            <span class="process-number" aria-hidden="true">04</span>
+            <div>
+              <h3>Akceptacja i&nbsp;przekazanie</h3>
+              <p>Po&nbsp;akceptacji przygotowuję gotowe materiały w&nbsp;uzgodnionych formatach do&nbsp;internetu lub druku. Przy stronie internetowej przekazuję także ustalone dostępy i&nbsp;informacje dotyczące jej obsługi. Przekazanie projektu i&nbsp;praw odbywa się na&nbsp;zasadach zapisanych w&nbsp;umowie.</p>
+            </div>
+          </li>
+        </ol>
+
+        <!-- OGÓLNE ZASADY WSPÓŁPRACY -->
+        <div class="rules-block">
+          <h3 class="rules-block-title">Ogólne zasady współpracy</h3>
+          <div class="rules-columns">
+            <div class="rule-item">
+              <h4>Materiały i&nbsp;licencje</h4>
+              <p>Koszt płatnych zdjęć i&nbsp;fontów ponosi klient. Ich użycie oraz&nbsp;koszt uzgadniamy przed zakupem. Zazwyczaj korzystam z&nbsp;fontów dostępnych bezpłatnie. Jeśli chcesz wykorzystać własne zdjęcia, teksty, logo lub inne materiały, przekaż je na&nbsp;początku projektu wraz z&nbsp;informacją o&nbsp;możliwości ich wykorzystania.</p>
+            </div>
+            <div class="rule-item">
+              <h4>Zmiany poza zakresem</h4>
+              <p>Liczbę koncepcji i&nbsp;zakres poprawek ustalamy przed rozpoczęciem. Dodatkowe materiały lub zmiany wykraczające poza uzgodniony zakres wyceniam osobno, przed ich wykonaniem.</p>
+            </div>
+            <div class="rule-item">
+              <h4>Projekty próbne</h4>
+              <p>Nie wykonuję projektów próbnych przed rozpoczęciem płatnej współpracy. Mój sposób projektowania możesz ocenić na&nbsp;podstawie portfolio.</p>
+            </div>
+            <div class="rule-item">
+              <h4>Przerwanie współpracy</h4>
+              <p>Jeśli nie akceptujesz projektu i&nbsp;chcesz zakończyć współpracę, poinformuj mnie mailowo na&nbsp;adres <a href="mailto:info@grafmen.com">info@grafmen.com</a>. Zasady rozliczenia, postępowania z&nbsp;zadatkiem oraz&nbsp;przekazania dotychczasowych materiałów określa umowa, z&nbsp;uwzględnieniem obowiązujących przepisów.</p>
+            </div>
+            <div class="rule-item rule-item-wide">
+              <h4>Wycena i&nbsp;przyjęcie zlecenia</h4>
+              <p>Ceny na&nbsp;stronie mają charakter informacyjny. Ostateczną wycenę i&nbsp;zakres ustalamy indywidualnie przed zawarciem umowy. Przyjęcie zlecenia wymaga mojego potwierdzenia.</p>
+            </div>
+          </div>
+          <p class="rules-note">Powyższe informacje przedstawiają ogólne zasady współpracy. Szczegółowe warunki danego projektu określa zawarta umowa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DOŚWIADCZENIE / DREWMAR CASE -->
+    <section class="home-section" aria-labelledby="case-drewmar-title">
+      <div class="home-inner compact-grid">
+        <div>
+          <p class="home-kicker">DOŚWIADCZENIE</p>
+          <h2 id="case-drewmar-title">Współpraca, która trwa od&nbsp;lat.</h2>
+          <p style="margin-top:28px"><a class="text-link" href="/portfolio/">Zobacz realizacje <span>↗</span></a></p>
+        </div>
+        <div>
+          <p class="home-lead">Od&nbsp;10 lat wspieram Drewmar, producenta szczotek i&nbsp;zestawów sprzątających, w&nbsp;projektowaniu stron oraz&nbsp;materiałów reklamowych. Przy kolejnych projektach korzystam ze&nbsp;znajomości firmy, jej oferty i&nbsp;dotychczasowych materiałów.</p>
+          <article class="testimonial-card" style="margin-top:32px">
+            <blockquote>
+              <p>„Pełen profesjonalizm, punktualność i&nbsp;systematyczność to&nbsp;cechy, z&nbsp;którymi się Państwo spotkacie współpracując z&nbsp;firmą GRAFMEN. Właśnie skończyliśmy kolejny wspólny projekt, mamy już w&nbsp;planach kolejne i&nbsp;nie wyobrażam sobie aby ktoś inny nam je&nbsp;opracowywał. Panie Krzysztofie sukcesy i&nbsp;rozwój naszej firmy, to&nbsp;też Pana zasługa -DZIĘKUJĘ.”</p>
+            </blockquote>
+            <footer>
+              <strong>Kazimierz Ogiński</strong>
+              <span>Drewmar</span>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CTA -->
+    <CtaOrange />
+  </main>
+</BaseLayout>

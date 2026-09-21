@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaOrange from '../../components/CtaOrange.astro';
+
+const title = "Modernizacja strony internetowej | Grafmen";
+const description = "Modernizacja strony internetowej: odświeżony wygląd, uporządkowane treści i sprawne działanie na telefonie. Wycena od 2 500 zł.";
+---
+<BaseLayout title={title} description={description} currentNav="web" bodyClass="service-page">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Modernizacja strony internetowej",
+      "url": "https://grafmen.com/modernizacja/",
+      "provider": {
+        "@type": "Person",
+        "name": "Krzysztof Krawczyk",
+        "url": "https://grafmen.com/o-mnie/"
+      }
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <!-- 1. HERO -->
+    <section class="service-hero">
+      <div class="home-inner">
+        <p class="home-kicker">MODERNIZACJA / GRAFMEN</p>
+        <h1>Modernizacja strony internetowej.</h1>
+        <div class="service-hero-bottom">
+          <p class="home-lead">Odświeżę wygląd, uporządkuję treści i&nbsp;poprawię działanie Twojej strony. Zaczniemy od&nbsp;sprawdzenia, które elementy warto zachować, a&nbsp;które wymagają przebudowy.</p>
+          <div><a class="btn dark" href="/kontakt/">Porozmawiajmy o&nbsp;modernizacji <span>↗</span></a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DIAGNOZA: KIEDY WARTO PRZEBUDOWAĆ STRONĘ -->
+    <section class="home-section service-features dark-section">
+      <div class="home-inner">
+        <p class="home-kicker">DIAGNOZA</p>
+        <h2>Kiedy warto przebudować stronę</h2>
+        <div class="feature-grid">
+          <article class="service-feature">
+            <span class="item-number">01</span>
+            <h3>Wolne działanie</h3>
+            <p>Oferta i&nbsp;zdjęcia długo się ładują.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">02</span>
+            <h3>Nieaktualne treści</h3>
+            <p>Strona nie pokazuje obecnych usług lub utrudnia znalezienie informacji.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">03</span>
+            <h3>Problemy na&nbsp;telefonie</h3>
+            <p>Tekst, menu albo formularz są niewygodne w&nbsp;użyciu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ZAKRES -->
+    <section class="home-section service-features">
+      <div class="home-inner">
+        <p class="home-kicker">ZAKRES</p>
+        <h2>Co obejmuje modernizacja</h2>
+        <div class="feature-grid">
+          <article class="service-feature">
+            <span class="item-number">01</span>
+            <h3>Treść i&nbsp;adresy</h3>
+            <p>Zachowuję wartościowe materiały, porządkuję nagłówki i&nbsp;strukturę informacji. Dla&nbsp;zmienionych adresów przygotowuję przekierowania 301.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">02</span>
+            <h3>Wygląd</h3>
+            <p>Odświeżam układ, typografię i&nbsp;prezentację oferty, zachowując rozpoznawalne elementy marki.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">03</span>
+            <h3>Działanie</h3>
+            <p>Przebudowuję stronę, optymalizuję obrazy i&nbsp;dopasowuję korzystanie z&nbsp;niej do&nbsp;telefonu oraz&nbsp;komputera.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WYCENA I ZAKRES -->
+    <section class="modernisation-callout">
+      <div class="home-inner callout-grid">
+        <div>
+          <p class="home-kicker">INDYWIDUALNY ZAKRES</p>
+          <h2>Modernizacja<br>od&nbsp;2 500 zł</h2>
+        </div>
+        <div>
+          <p>Wycenę przygotuję po&nbsp;sprawdzeniu obecnej strony i&nbsp;ustaleniu zakresu zmian. Termin zależy od&nbsp;liczby podstron, potrzebnych funkcji i&nbsp;gotowości materiałów.</p>
+          <a class="btn dark" href="/kontakt/" style="margin-top:20px">Zapytaj o&nbsp;modernizację <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CTA -->
+    <CtaOrange />
+  </main>
+</BaseLayout>

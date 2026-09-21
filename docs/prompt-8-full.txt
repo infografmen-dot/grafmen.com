@@ -1,0 +1,189 @@
+<USER_REQUEST>
+Grafmen: poprawki wizualne, zasady współpracy i blog w Astro
+Kompletny prompt do AntiGravity. Uwzględnia zatwierdzenie propozycji oraz późniejsze uwagi właściciela. To zakres nowej rundy, nie polecenie przywrócenia wcześniejszych wersji treści.
+1. Cel i źródła
+Pracujesz nad stroną Grafmen, marką grafika Krzysztofa Krawczyka.
+Repozytorium: [https://github.com/infografmen-dot/grafmen.com](https://github.com/infografmen-dot/grafmen.com)
+Aktualny podgląd: [https://grafmen-com.vercel.app/](https://grafmen-com.vercel.app/)
+Docelowa domena: [https://grafmen.com/](https://grafmen.com/)
+Stara strona z zasadami współpracy: [https://www.grafmen.com/o-mnie.html](https://www.grafmen.com/o-mnie.html)
+Design system: [https://system-design-eta-jade.vercel.app/](https://system-design-eta-jade.vercel.app/)
+Docelowa technologia została jednoznacznie potwierdzona: Astro, kod na GitHubie, hosting Vercel, domena grafmen.com. Wcześniejsze określenie „Aero” było pomyłką. Nie oznacza innego hostingu.
+Najpierw sprawdź aktualną gałąź, historię zmian, pliki projektu i podgląd. Ostatnio sprawdzona wersja była zbudowana z HTML, CSS i JS, a nie z komponentów Astro. Jeśli to nadal aktualne, migracja do Astro jest częścią tego zadania. Jeśli migracja już nastąpiła, kontynuuj istniejącą implementację.
+Nie cofaj poprzedniej redukcji powtórzeń. Zachowaj wszystkie aktualne ceny, zakresy pakietów, warunki CMS i obsługi po wdrożeniu, poza zmianami wyraźnie opisanymi poniżej. Nie zmieniaj cen ani nie dodawaj nowych gwarancji.
+Najpierw przygotuj zmiany w osobnej gałęzi i działający podgląd. Istniejąca strona na grafmen.com pozostaje punktem odniesienia dla późniejszego przełączenia domeny. Przygotuj konfigurację domeny i przekierowań, ale przełączenie ruchu produkcyjnego wykonaj dopiero po odbiorze podglądu. Nie zmieniaj rekordów pocztowych.
+2. Potwierdzone decyzje i ograniczenia
+Ujednolicenie fontów do Outfit, rzeczywiście ładowanego na różnych urządzeniach.
+Rozbudowanie i przeprojektowanie sekcji „Współpraca”.
+Przeniesienie pasa logotypów klientów o jedną sekcję niżej, za współpracę.
+Usunięcie pozostałej numeracji etykiet sekcji oraz uporządkowanie stopki.
+Wyraźny panel modernizacji na stronie WWW, bez przykładu, bez porównania przed/po.
+Przywrócenie konkretnych ogólnych zasad i etapów współpracy na „O mnie”.
+Próbny artykuł, projekt bloga i rzeczywista konfiguracja panelu publikowania tekstów oraz zdjęć.
+Krótsza animacja wejściowa nagłówków podstron oraz diagnoza braku animacji na tablecie Huawei.
+Materiały wizualne:
+Strony WWW: rzeczywista realizacja Drewmax.pro.
+Branding: rzeczywista identyfikacja Hiker.
+Modernizacja: właściciel nie ma jeszcze realizacji do pokazania. Nie twórz fikcyjnego case study, wyników, porównania ani obrazka udającego wykonaną modernizację.
+O mnie: zachowaj zaakceptowany portret na jasnym tle. Nie zmieniaj twarzy ani obróbki fotografii.
+Homepage: zachowaj tekst, układ, podkreślenie, motyw tła i charakter hero oraz siatkę sześciu realizacji. Dopuszczone zmiany w tych miejscach to poprawa fontu i usunięcie numeracji etykiet. Korektę łamania wierszy po zmianie fontu wykonaj tak, aby zachować kompozycję. Nie przebudowuj siatki portfolio.
+3. Astro i wspólne elementy
+Przenieś powtarzalne elementy do komponentów Astro: layout, nagłówek, nawigację, stopkę, końcowe CTA, karty usług, pakiety i elementy bloga. Zachowaj istniejące treści i adresy podstron, w tym wszystkie podstrony portfolio, kontakt, politykę prywatności i modernizację.
+Domyślnie generuj publiczne strony statycznie. Sam blog nie wymaga renderowania całej strony na żądanie. Obsługę logowania CMS zaprojektuj osobno, zgodnie z wymaganiami wybranego backendu. Nie dodawaj frameworka klienckiego do statycznej treści bez konkretnej potrzeby.
+Usuń zdublowane reguły CSS z plików HTML po przeniesieniu ich do wspólnego źródła. Sprawdź, że wszystkie aktualne pliki, zdjęcia, wideo, favicony i polskie znaki pozostają dostępne po buildzie.
+Zachowaj aktualne publiczne URL-e i działające kotwice. Dla adresów starej witryny przygotuj mapę do nowych odpowiedników. Nie przekierowuj hurtowo wszystkich starych stron na homepage.
+4. Outfit: popraw przyczynę różnic między komputerami
+Podczas kontroli w site-base.css i index.html znaleziono m.in.:
+--font-display: "Inter Display", Inter, "Segoe UI", Arial, sans-serif; --font-heading: PortfolioOutfit, Outfit, Arial, sans-serif; --font-body: PortfolioInter, Inter, Arial, sans-serif;
+Część lokalnych fontów zdefiniowano pod aliasami PortfolioOutfit i PortfolioInter, ale część elementów odwołuje się do zwykłego Inter. To niespójne. Użytkownik zauważył Segoe na laptopie, mimo oczekiwanego Outfit.
+Wymagania:
+Jedna rodzina Outfit dla nagłówków, akapitów, menu, przycisków i formularzy.
+Lokalne pliki WOFF2 z wymaganymi odmianami lub zakresem zmiennej grubości, na które pozwala licencja.
+Pełna obsługa polskich znaków. Zachowaj informacje licencyjne.
+Jeden poprawny zestaw @font-face, bez zależności od fontów zainstalowanych na komputerze i bez local() jako sposobu ukrywania błędów.
+Sprawdź font shorthand, style inline, pseudoelementy, formularze i nadpisania na podstronach.
+Preload tylko kluczowych plików, poprawne ścieżki i typy MIME, brak 404/CORS.
+Font zapasowy pozostaje na wypadek błędu sieci, ale w normalnych warunkach faktycznie używany jest Outfit.
+Dobierz istniejące lub odpowiednio zbliżone grubości do zaakceptowanego wyglądu. Nie polegaj na przypadkowym syntetycznym pogrubieniu.
+Weryfikacja: sprawdź pobranie plików, załadowanie font-face oraz faktycznie renderowany font w narzędziach przeglądarki. Sam computed font-family nie dowodzi użycia danego fontu. Użyj świeżego profilu bez lokalnego Outfit/Inter i pustej pamięci podręcznej. Sprawdź np. „Zażółć gęślą jaźń”, nagłówek hero, menu i formularz. Porównaj wygląd desktopu, telefonu i tabletu.
+5. Homepage: Współpraca i kolejność sekcji
+Kolejność po zmianach:
+Hero → Portfolio (6 realizacji) → Współpraca → Logotypy klientów → Opinie → FAQ → Pomarańczowe CTA → Stopka.
+Pas logotypów ma być zwarty. Nie dokładaj mu dużego nagłówka i nadmiernych odstępów. Zachowaj istniejące logotypy oraz ich proporcje.
+Współpraca: dokładny tekst
+Etykieta: WSPÓŁPRACA
+Nagłówek: Jednorazowy projekt lub stała współpraca.
+Opis:
+Przygotuję stronę internetową, identyfikację wizualną lub materiały reklamowe dla Twojej firmy. Możemy zacząć od jednego projektu, a później rozwijać kolejne materiały w tym samym stylu. Pomogę Ci ustalić, czego potrzebujesz teraz i co warto zaplanować na później.
+Pod opisem dwa wyraźne, równorzędne kafle. To skrót usług, nie kolejne cenniki. Każdy ma własny materiał wizualny, krótki opis oraz jedno czytelne przejście.
+Kafel 1: Strony internetowe
+Wizual: fragment rzeczywistej strony Drewmax.pro z materiałów projektu.
+Opis: „Projekt strony, który porządkuje ofertę i ułatwia kontakt z Twoją firmą.”
+Link: „Zobacz pakiety i ceny stron WWW” → /strony-www/#pakiety
+Kafel 2: Logo i branding
+Wizual: fragment rzeczywistej identyfikacji Hiker z materiałów projektu.
+Opis: „Logo, kolory i materiały, które tworzą spójny wizerunek Twojej firmy.”
+Link: „Zobacz pakiety i ceny brandingu” → /branding/#pakiety
+Użyj czystych kadrów, pomarańczowego akcentu i subtelnej reakcji na hover/focus. Na małym ekranie kafle układają się pionowo. Żadna funkcja nie może wymagać hover. Nie zagnieżdżaj linków w innych linkach.
+„Poznaj mój sposób pracy” → /o-mnie/#jak-pracuje pozostaje mniej eksponowanym odnośnikiem obok tekstu sekcji. Nie twórz rzędu trzech konkurujących przycisków.
+Na głównej nadal nie podawaj kwot, także w FAQ. Zachowaj trzy autentyczne opinie, cztery pytania FAQ i końcowe pomarańczowe CTA.
+Numeracja
+„02 · WYBRANE REALIZACJE” zmień na „WYBRANE REALIZACJE”.
+Usuń samotne „01” w bocznej etykiecie hero, zachowując tekst usług i jej kompozycję.
+Sprawdź pozostałe etykiety sekcji na podstronach.
+Zachowaj numery projektów portfolio, wariantów pakietów i kroków procesu. To nie jest numeracja sekcji.
+Stopka
+Zamiast „Dla kogo pracuję” dodaj „Jak pracuję” → /o-mnie/#jak-pracuje.
+Zamiast ogólnego „Pakiety” dodaj „Ceny stron WWW” → /strony-www/#pakiety oraz „Ceny brandingu” → /branding/#pakiety.
+Zachowaj pozostałe potrzebne odnośniki. Dotychczasowe /#pakiety i /#dla-kogo mają nadal prowadzić do sekcji współpracy dla zgodności ze starymi linkami. Sprawdź położenie docelowe przy sticky headerze.
+6. WWW: wyróżnienie modernizacji i materiał Drewmax
+W części wejściowej podstrony /strony-www/ pokaż rzeczywistą realizację Drewmax.pro. Wybierz czytelny fragment strony, ewentualnie prawdziwe widoki desktop i mobile. Nie twórz fikcyjnego mobilnego interfejsu na podstawie przypadkowego kadrowania desktopu. Korzystaj z istniejących zasobów lub rzeczywistego zrzutu, z zachowaniem jakości i proporcji.
+Pomiędzy zakresem usługi a procesem zastąp mało widoczny link osobnym poziomym panelem modernizacji. Jasne pomarańczowe tło, mocny nagłówek, krótki opis i przycisk. Intensywne pomarańczowe zakończenie strony nadal ma pozostać najmocniejszym CTA.
+Nagłówek:
+Masz już stronę? Sprawdź, co warto poprawić.
+Opis:
+Nieaktualna oferta, niewygodna obsługa na telefonie albo przestarzały wygląd? Sprawdzę obecną stronę i zaproponuję zakres modernizacji.
+Przycisk: Zobacz modernizację stron → /modernizacja/
+Bez zdjęcia realizacji modernizacji, bez przykładu, bez przed/po i bez wymyślonych wyników. Panel ma działać dzięki typografii, kolorowi i kompozycji.
+Na samej /modernizacja/ również nie dodawaj fikcyjnej realizacji. Możesz poprawić oprawę wejścia kolorem, geometrią i krótką animacją nagłówka. Zachowaj aktualną cenę i zakres.
+7. Branding: oprawa oparta na Hiker
+W części wejściowej /branding/ dodaj kompozycję z rzeczywistych materiałów Hiker: znak, kolory i istniejące zastosowania identyfikacji. Nie zmieniaj samego projektu Hiker, nie generuj alternatywnego logo i nie wymyślaj historii klienta.
+Kompozycja ma wprowadzić grafikę i kolor, bez tworzenia drugiej dużej sekcji portfolio. Zachowaj aktualne pakiety, ceny i oddzielną informację o indywidualnej wycenie motion/wideo. Kolory pokazanej marki nie stają się nowymi kolorami interfejsu Grafmen.
+8. O mnie: dokładne teksty i ogólne warunki
+Zachowaj portret i nagłówek:
+Krzysztof Krawczyk. Twój grafik, od 2005.
+Wprowadzenie:
+Zaczynałem od logo dla lokalnych firm. Dziś projektuję strony internetowe, identyfikacje wizualne, materiały reklamowe i animacje dla klientów z Polski.
+Usuń „i zagranicy” z tego wprowadzenia. Ta decyzja nie oznacza usuwania informacji o pracy zdalnej z całej strony ani zmiany autentycznych opisów realizacji.
+Jak pracuję
+Dodaj stabilną kotwicę #jak-pracuje. Pokaż krótki wstęp i cztery czytelne etapy, z numeracją procesu. Treść powinna być widoczna bez klikania kolejnych akordeonów.
+Wstęp:
+Prowadzę projekt osobiście. Od pierwszych ustaleń po przekazanie gotowych materiałów kontaktujesz się bezpośrednio ze mną. Zakres pracy, cenę i zasady współpracy ustalamy przed rozpoczęciem projektu.
+01. Ustalenia i wycena
+Opisujesz, czego potrzebuje Twoja firma, i przekazujesz dostępne materiały. Na tej podstawie ustalam zakres projektu, przygotowuję wycenę i proponuję harmonogram. Szczegóły zamówienia oraz najważniejsze ustalenia potwierdzamy mailowo.
+02. Umowa i rozpoczęcie
+Współpracę z nowym klientem rozpoczynam po podpisaniu umowy o dzieło i wpłacie zadatku w wysokości 40% ustalonej kwoty. Umowa określa zakres projektu, rozliczenie oraz zasady przeniesienia autorskich praw majątkowych.
+03. Koncepcja i poprawki
+Przygotowuję propozycje zgodnie z ustalonym zakresem. Przy projektowaniu logo przedstawiam od jednej do trzech koncepcji, zależnie od uzgodnień. Wybieramy jedną do dalszego opracowania. Zbieram Twoje uwagi i wprowadzam poprawki w ustalonym zakresie.
+04. Akceptacja i przekazanie
+Po akceptacji przygotowuję gotowe materiały w uzgodnionych formatach do internetu lub druku. Przy stronie internetowej przekazuję także ustalone dostępy i informacje dotyczące jej obsługi. Przekazanie projektu i praw odbywa się na zasadach zapisanych w umowie.
+Zasady współpracy
+Umieść pod etapami czytelny blok ogólnych warunków. To konkretna informacja dla klienta, nie marketingowe hasła. Nie chowaj informacji o zadatku lub kosztach w tooltipach i drobnym druku.
+Materiały i licencje
+Koszt płatnych zdjęć i fontów ponosi klient. Ich użycie oraz koszt uzgadniamy przed zakupem. Zazwyczaj korzystam z fontów dostępnych bezpłatnie. Jeśli chcesz wykorzystać własne zdjęcia, teksty, logo lub inne materiały, przekaż je na początku projektu wraz z informacją o możliwości ich wykorzystania.
+Zmiany poza zakresem
+Liczbę koncepcji i zakres poprawek ustalamy przed rozpoczęciem. Dodatkowe materiały lub zmiany wykraczające poza uzgodniony zakres wyceniam osobno, przed ich wykonaniem.
+Projekty próbne
+Nie wykonuję projektów próbnych przed rozpoczęciem płatnej współpracy. Mój sposób projektowania możesz ocenić na podstawie portfolio.
+Przerwanie współpracy
+Jeśli nie akceptujesz projektu i chcesz zakończyć współpracę, poinformuj mnie mailowo na adres [info@grafmen.com](mailto:info@grafmen.com). Zasady rozliczenia, postępowania z zadatkiem oraz przekazania dotychczasowych materiałów określa umowa, z uwzględnieniem obowiązujących przepisów.
+Wycena i przyjęcie zlecenia
+Ceny na stronie mają charakter informacyjny. Ostateczną wycenę i zakres ustalamy indywidualnie przed zawarciem umowy. Przyjęcie zlecenia wymaga mojego potwierdzenia.
+Pod blokiem:
+Powyższe informacje przedstawiają ogólne zasady współpracy. Szczegółowe warunki danego projektu określa zawarta umowa.
+Nie przywracaj ze starej strony kategorycznego zapisu, że zadatek zawsze przepada, ani prawa do dowolnego porzucenia już zawartej umowy. Nie obiecuj automatycznego przekazania wszystkich plików roboczych i praw do niewybranych koncepcji. Użytkownik zaakceptował przedstawienie ogólnych zasad w powyższej formie. Nie redaguj za niego pełnej umowy i nie przedstawiaj strony jako gwarancji skuteczności prawnej.
+Zachowaj sekcję o współpracy z Drewmarem i autentyczną opinię, a następnie pomarańczowe CTA. Nie dodawaj kolejnych kart powtarzających „pracujesz bezpośrednio ze mną”.
+9. Animacje: podstrony i tablet Huawei
+Użytkownik uruchomił witrynę na tablecie Huawei i zobaczył od razu normalny tekst, bez animacji. Nie znamy modelu tabletu, przeglądarki ani ustawienia ograniczenia ruchu. Nie przypisuj problemu automatycznie marce urządzenia.
+Sprawdź:
+ładowanie skryptów i ich kolejność, błędy konsoli, działanie po bezpośrednim wejściu i nawigacji;
+warunki inicjalizacji i selektory, w tym różnicę między .hero i .service-hero;
+działanie kodu po przeniesieniu do Astro, bez podwójnej inicjalizacji;
+prefers-reduced-motion: jeśli użytkownik ograniczył ruch, widoczny tekst bez animacji jest prawidłowym zachowaniem;
+czy animację wyłączają warunki rozmiaru ekranu, dotyku lub braku hover;
+kompatybilność kodu z faktycznie obsługiwanymi przeglądarkami;
+czekanie na fonty i sytuację, gdy font lub biblioteka nie załaduje się.
+Nie wymuszaj animacji wbrew prefers-reduced-motion. Nie maskuj błędu regułą „Huawei = brak animacji”. Jeśli do odtworzenia problemu konieczny okaże się model lub wersja przeglądarki, poproś tylko o te brakujące dane po wykonaniu dostępnej diagnozy.
+Na wejściowe H1 podstron WWW, branding, modernizacja, O mnie, portfolio, blog i kontakt zastosuj wspólną, krótszą odmianę odsłonięcia tekstu. Przy wpisie blogowym zachowaj spokojniejszy wariant. Preferuj animowanie linii, transform i opacity, orientacyjnie 0,5–0,8 sekundy, jednorazowo po wejściu. Nie animuj wszystkich akapitów i znaków oddzielnie.
+Treść musi być od razu dostępna w HTML i czytelna, gdy JS nie działa lub animacja zostanie pominięta. Brak biblioteki nie może pozostawić niewidocznych nagłówków lub pustych sekcji. Nie używaj animacji wymagających najechania w nagłówkach wejściowych. Sprawdź obrót tabletu i zmianę szerokości, polskie znaki, czytniki ekranu oraz brak powielenia tekstu po podziale na linie.
+Zachowaj charakter zaakceptowanej animacji homepage, naprawiając potwierdzone błędy. Nie deklaruj poprawy na rzeczywistym Huawei, jeśli wykonano wyłącznie emulację rozmiaru ekranu.
+10. Blog: artykuł demonstracyjny i oprawa
+Nie pozostawiaj bloga jako pustego komunikatu „wkrótce”. Przygotuj na podglądzie jeden pełny artykuł i jego kartę na liście.
+Tytuł: Samo logo czy identyfikacja wizualna? Co wybrać dla swojej firmy
+Tekst po polsku, około 600–900 słów, konkretny i skierowany do klienta. Wyjaśnij różnicę między logo a systemem identyfikacji, zastosowania, kiedy wystarczy sam znak i kiedy potrzebne są kolejne materiały. Zakończ prostą listą rzeczy, które warto przygotować przed rozmową. Nie dodawaj fikcyjnych statystyk, opinii, wzrostów sprzedaży ani nieudokumentowanej historii Hiker.
+Wykorzystaj rzeczywiste materiały Hiker jako ilustrację elementów identyfikacji. Podpisuj wyłącznie to, co faktycznie widać. Nie przedstawiaj artykułu jako nowego zlecenia klienta. Autor: Krzysztof Krawczyk. Data publikacji ma odpowiadać rzeczywistemu wydaniu wpisu, bez antydatowania.
+Układ wpisu: kategoria, H1, krótki lead, autor i data, grafika otwierająca, wygodna kolumna tekstu, śródtytuły, co najmniej dwa przykłady graficzne z podpisami, wyróżniona praktyczna wskazówka i spokojny link do oferty brandingu. Lista bloga: miniatura, kategoria, tytuł i krótki opis. Nie powielaj kartami jednego wpisu, żeby udawać większy blog.
+Próbny artykuł udostępnij w podglądzie do akceptacji, bez indeksowania i bez przypadkowej publikacji jako zatwierdzony wpis produkcyjny. Zwykły szkic nie może być dostępny pod publicznym adresem produkcyjnym. Rozdziel podgląd redakcyjny od publicznej publikacji.
+11. CMS: rzeczywista konfiguracja
+W Astro zastosuj kolekcję wpisów i uzgodniony schemat treści, najlepiej Markdown z metadanymi. Zastąp ręczne dopisywanie JSON-a wygodnym panelem. Preferowany kandydat: Decap CMS z GitHubem, o ile aktualna konfiguracja i sposób logowania spełnią wymagania. Sprawdź aktualną oficjalną dokumentację przed implementacją. Nie zakładaj, że obecny generator lub sam /admin stanowią już gotowy CMS.
+Wymagania funkcjonalne:
+logowanie właściciela;
+nowy wpis i edycja istniejącego;
+tytuł, opis, kategoria, slug, data i opcjonalna data aktualizacji;
+okładka i zdjęcia w treści, alt, podpisy;
+edytor akapitów, śródtytułów, list i linków;
+szkic, podgląd, publikacja oraz wycofanie publikacji;
+automatyczny build i wdrożenie po zatwierdzonej publikacji, bez ręcznego uruchamiania Pythona i edycji plików przez właściciela;
+jednoznaczny komunikat, że zapis zmiany i zakończenie publikacji to różne etapy.
+Przygotuj kompletną konfigurację logowania: backend, callback, adresy dla podglądu i produkcji, wymagane zmienne środowiskowe. Sekrety tylko po stronie serwera, nigdy w publicznym JS, repo ani instrukcji zawierającej prawdziwe wartości. Uwzględnij walidację OAuth state, właściwe originy i uprawnienia ograniczone do potrzeb CMS. Nie wprowadzaj nowej płatnej usługi bez uzgodnienia.
+Jeżeli brak dostępu do konta lub sekretów blokuje ukończenie integracji, wykonaj całą możliwą konfigurację i podaj dokładnie: co zostało wykonane, jaki krok wymaga właściciela oraz czego nie przetestowano. Nie oznaczaj panelu jako działającego na podstawie makiety lub logowania lokalnego.
+Zdjęcia powinny przechodzić przez rzeczywiście działający proces optymalizacji: odpowiednie wymiary, nowoczesne formaty, responsywne warianty i lazy loading poza pierwszym ekranem. Sam widget przesyłania pliku nie zapewnia kompresji. Zachowaj oryginały tam, gdzie są potrzebne do edycji.
+Test odbiorowy CMS wykonaj na bezpiecznym podglądzie: zaloguj się, utwórz wpis, dodaj okładkę i zdjęcie, zapisz szkic, otwórz podgląd, opublikuj w środowisku testowym, zmień tekst i wycofaj publikację. Sprawdź rezultat builda oraz listę artykułów. Nie publikuj testowych śmieci na głównej domenie.
+12. Kontrola i odbiór
+Pracuj etapami: stan wyjściowy → Astro i fonty → homepage/stopka → podstrony i zasady → blog/CMS → testy całości.
+Oceniaj render, nie tylko kod. Porównuj z aktualnym podglądem, aby nie zgubić zaakceptowanego wyglądu. Dla każdego etapu sprawdź zgodność z zakresem, spójność z istniejącym systemem i jakość wizualną. Jeśli korzystasz z dostępnego Design Loop, uwzględnij podane już cele, referencje i materiały zamiast ponownie pytać właściciela o ustalone decyzje.
+Minimum kontroli:
+desktop 1440 px, telefon 390 px i 360 px, tablet w pionie i poziomie;
+rzeczywiście załadowany Outfit, poprawne polskie znaki, brak mieszania fontów;
+czytelne H1, brak poziomego scrolla i niezamierzonych zmian układu hero;
+zachowane sześć realizacji i ich układ;
+nowe kafle, logotypy pod współpracą, trzy opinie, cztery FAQ i zachowane CTA;
+modernizacja widoczna, bez fikcyjnego przykładu;
+właściwe kotwice i stopka na każdej podstronie;
+kompletne zasady współpracy, 40% zadatku i brak „i zagranicy” we wprowadzeniu O mnie;
+formularz kontaktowy i linki działają po migracji; nie wysyłaj próbnej wiadomości bez uzgodnienia;
+animacje działają z włączonym ruchem, a treść pozostaje widoczna przy ograniczonym ruchu i bez JS;
+build Astro, logowanie CMS i cały proces publikacji sprawdzone w rzeczywistym docelowym układzie usług;
+title, description, canonical, sitemap i dane strukturalne bloga są zgodne z opublikowaną treścią, szkice wykluczone;
+zmierz LCP, CLS i obciążenie animacjami przed i po w porównywalnych warunkach. Nie deklaruj wyniku wydajności bez pomiaru.
+Na koniec podaj: link do podglądu, commit/gałąź, zrzuty najważniejszych zmian desktop/mobile, link do próbnego artykułu, instrukcję dodania wpisu i zdjęć oraz wyniki testów. Osobno wymień braki wymagające dostępu do kont i ograniczenia testu Huawei. Nie uznawaj konfiguracji CMS, migracji ani domeny za zakończoną tylko dlatego, że dodano pliki.
+Dokumentacja referencyjna dla wykonawcy
+Astro i Vercel: [https://docs.astro.build/en/guides/deploy/vercel/](https://docs.astro.build/en/guides/deploy/vercel/)
+Kolekcje treści Astro: [https://docs.astro.build/en/guides/content-collections/](https://docs.astro.build/en/guides/content-collections/)
+Decap CMS i GitHub: [https://decapcms.org/docs/github-backend/](https://decapcms.org/docs/github-backend/)
+Konfiguracja Decap: [https://decapcms.org/docs/configuration-options/](https://decapcms.org/docs/configuration-options/)
+Sprawdź zgodność instrukcji z wersjami użytymi w repozytorium. W razie rozbieżności między dawnymi dokumentami projektu a tym zakresem zastosuj najnowsze zatwierdzone ustalenia użytkownika opisane powyżej.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-21T17:26:04+02:00.
+</ADDITIONAL_METADATA>

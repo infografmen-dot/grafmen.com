@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaOrange from '../../components/CtaOrange.astro';
+
+const title = "Logo i identyfikacja wizualna dla firm | Grafmen";
+const description = "Logo i identyfikacja wizualna dla Twojej firmy. Od znaku firmowego po kompletne materiały drukowane, animacje i wideo. Pakiety od 600 zł.";
+---
+<BaseLayout title={title} description={description} currentNav="brand" bodyClass="service-page">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Logo i identyfikacja wizualna",
+      "url": "https://grafmen.com/branding/",
+      "provider": {
+        "@type": "Person",
+        "name": "Krzysztof Krawczyk",
+        "url": "https://grafmen.com/o-mnie/"
+      }
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <!-- 1. HERO -->
+    <section class="service-hero branding-hero">
+      <div class="home-inner">
+        <p class="home-kicker">BRANDING / GRAFMEN</p>
+        <h1>Logo i&nbsp;identyfikacja wizualna dla&nbsp;Twojej firmy.</h1>
+        <div class="service-hero-bottom">
+          <p class="home-lead">Projektuję logo, dobieram kolory i&nbsp;typografię oraz&nbsp;przygotowuję materiały do&nbsp;internetu i&nbsp;druku. Identyfikację mogę rozwinąć o&nbsp;animacje i&nbsp;wideo.</p>
+          <div><a class="btn dark" href="/kontakt/">Zapytaj o&nbsp;wycenę <span>↗</span></a></div>
+        </div>
+
+        <!-- Hiker visual composition -->
+        <div class="branding-hero-composition">
+          <div class="branding-visual-item">
+            <img src="/assets/portfolio/hiker/Hiker_brand.webp" alt="Identyfikacja wizualna Hiker – paleta kolorów i typografia" width="1400" height="800" fetchpriority="high" decoding="async">
+          </div>
+          <div class="branding-visual-item">
+            <img src="/assets/portfolio/hiker/Hiker_construction.webp" alt="Konstrukcja geometryczna znaku i proporcje logo Hiker" width="1400" height="900" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ZAKRES -->
+    <section class="home-section branding-scope" id="zakres">
+      <div class="home-inner">
+        <p class="home-kicker">ZAKRES</p>
+        <h2>Co projektuję</h2>
+        <div class="feature-grid branding-services">
+          <article class="service-feature">
+            <span class="item-number">01</span>
+            <h3>Logo i&nbsp;identyfikacja</h3>
+            <p>Znak firmowy i&nbsp;jego warianty, kolory, typografia oraz&nbsp;zasady stosowania elementów marki.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">02</span>
+            <h3>Druk i&nbsp;grafika do&nbsp;internetu</h3>
+            <p>Wizytówki, papier i&nbsp;koperty firmowe, katalogi, gazetki, kalendarze, banery oraz&nbsp;grafiki do&nbsp;mediów społecznościowych.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">03</span>
+            <h3>Motion i&nbsp;wideo</h3>
+            <p>Animacje logo i&nbsp;2D, banery HTML5, montaż oraz&nbsp;krótkie filmy reklamowe. W&nbsp;projektach filmów produktowych korzystam również z&nbsp;narzędzi AI.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PAKIETY -->
+    <section class="home-section packages-section" id="pakiety" aria-labelledby="packages-title" lang="pl">
+      <div class="home-inner">
+        <div class="home-section-intro packages-intro">
+          <p class="home-kicker">PAKIETY</p>
+          <h2 id="packages-title">Od&nbsp;logo po&nbsp;identyfikację marki.</h2>
+          <p class="home-lead">Wybierz zakres dopasowany do&nbsp;Twojej firmy. Formaty plików i&nbsp;sposób przekazania ustalamy przed rozpoczęciem pracy.</p>
+        </div>
+        <div class="packages-grid-wrap">
+          <div class="display-word" aria-hidden="true">PAKIETY</div>
+          <div class="package-grid">
+            <article class="package-card">
+              <p class="package-index">01 / LOGO</p>
+              <h3>Logo</h3>
+              <p class="package-price">od&nbsp;600 zł</p>
+              <p>Znak firmowy i&nbsp;podstawowy zestaw plików do&nbsp;codziennego użycia.</p>
+              <ul>
+                <li>Krótki brief i&nbsp;rozmowa o&nbsp;marce.</li>
+                <li>Projekt logo.</li>
+                <li>Wersja podstawowa i&nbsp;uproszczona, jeśli wymaga tego znak.</li>
+                <li>Wariant jasny i&nbsp;ciemny.</li>
+                <li>Podstawowa kolorystyka.</li>
+                <li>Pliki do&nbsp;internetu i&nbsp;druku: SVG, PDF, PNG i&nbsp;JPG.</li>
+                <li>Podstawowe wskazówki dotyczące używania logo.</li>
+              </ul>
+              <a class="package-link" href="/kontakt/">Zapytaj o&nbsp;logo <span>↗</span></a>
+            </article>
+
+            <article class="package-card package-featured">
+              <p class="package-index">02 / NAJCZĘŚCIEJ WYBIERANE</p>
+              <h3>Logo + identyfikacja</h3>
+              <p class="package-price">od&nbsp;1 400 zł</p>
+              <p>Logo, podstawy wizualne marki i&nbsp;pierwsze materiały do&nbsp;wykorzystania.</p>
+              <ul>
+                <li>Projekt logo i&nbsp;potrzebnych wariantów.</li>
+                <li>Paleta kolorów i&nbsp;dobór typografii.</li>
+                <li>Podstawowy system identyfikacji i&nbsp;zasady kompozycji.</li>
+                <li>Wizytówka lub papier firmowy.</li>
+                <li>Avatar, czyli zdjęcie profilowe marki.</li>
+                <li>Jedna grafika do&nbsp;mediów społecznościowych.</li>
+                <li>Mini przewodnik po&nbsp;identyfikacji.</li>
+                <li>Komplet plików do&nbsp;internetu i&nbsp;druku.</li>
+              </ul>
+              <a class="package-link" href="/kontakt/">Porozmawiajmy o&nbsp;marce <span>↗</span></a>
+            </article>
+
+            <article class="package-card">
+              <p class="package-index">03 / KOMPLEKSOWO</p>
+              <h3>Identyfikacja marki</h3>
+              <p class="package-price">od&nbsp;2 000 zł</p>
+              <p>Rozbudowany system wizualny i&nbsp;materiały do&nbsp;codziennej komunikacji firmy.</p>
+              <ul>
+                <li>Projekt logo i&nbsp;pełnego zestawu potrzebnych wariantów.</li>
+                <li>Paleta kolorów i&nbsp;dobór typografii.</li>
+                <li>Rozbudowany system identyfikacji wizualnej.</li>
+                <li>Zasady stosowania logo.</li>
+                <li>Materiały firmowe do&nbsp;druku.</li>
+                <li>Wizytówka, papier firmowy lub stopka mailowa.</li>
+                <li>Materiały do&nbsp;mediów społecznościowych, w&nbsp;tym 3 gotowe grafiki reklamowe.</li>
+                <li>Podstawowe szablony do&nbsp;dalszej komunikacji.</li>
+                <li>Przewodnik po&nbsp;identyfikacji marki.</li>
+                <li>Komplet uporządkowanych plików przygotowanych do&nbsp;internetu i&nbsp;druku.</li>
+              </ul>
+              <a class="package-link" href="/kontakt/">Zapytaj o&nbsp;identyfikację <span>↗</span></a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MOTION I WIDEO -->
+    <section class="modernisation-callout branding-motion-callout" id="motion-wideo" lang="pl">
+      <div class="home-inner callout-grid">
+        <div>
+          <p class="home-kicker">MOTION / WIDEO</p>
+          <h2>Animacje i&nbsp;wideo</h2>
+        </div>
+        <div>
+          <p>Animacje logo, banery, montaż i&nbsp;krótkie filmy wyceniam indywidualnie. Koszt zależy od&nbsp;długości materiału, liczby scen, dostępnych materiałów i&nbsp;zakresu animacji. Mogą być częścią szerszego projektu identyfikacji.</p>
+          <a class="text-link" href="/kontakt/">Zapytaj o&nbsp;motion lub wideo <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PRZYKŁADY -->
+    <section class="home-section branding-examples-section" id="przyklady" lang="pl">
+      <div class="home-inner">
+        <p class="home-kicker">PRZYKŁADY</p>
+        <h2>Zobacz przykłady projektów</h2>
+        <div class="feature-grid">
+          <a class="branding-example" href="/portfolio/jd-ubezpieczenia/">
+            <img src="/assets/portfolio/jd-ubezpieczenia.webp" alt="Logo JD Ubezpieczenia: inicjały i motyw parasola" loading="lazy">
+            <span>JD Ubezpieczenia: logo <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="branding-example" href="/portfolio/hiker/">
+            <img src="/assets/portfolio/hiker/Hiker_brand.webp" alt="Paleta kolorów i typografia Hiker" loading="lazy" width="1400" height="800">
+            <span>Hiker: kolory i&nbsp;typografia <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="branding-example" href="/portfolio/self-invest/">
+            <img src="/assets/portfolio/self-invest-brandbook.jpg" alt="Księga znaku Self-Invest" loading="lazy" width="880" height="654">
+            <span>Self-Invest: księga znaku <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CTA -->
+    <CtaOrange />
+  </main>
+</BaseLayout>

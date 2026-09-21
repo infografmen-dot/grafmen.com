@@ -1,0 +1,187 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaOrange from '../../components/CtaOrange.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('portfolio');
+  return projects.map((project) => ({
+    params: { slug: project.data.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const p = project.data;
+
+const title = `${p.title} | Grafmen`;
+const description = p.description;
+const coverSrc = p.cover.startsWith('/') ? p.cover : `/${p.cover}`;
+const ogImage = p.og_image ? (p.og_image.startsWith('/') ? `https://grafmen.com${p.og_image}` : p.og_image) : `https://grafmen.com${coverSrc}`;
+
+const nextSlugMatch = p.next_url.match(/\.\.\/([^/]+)/);
+const nextHref = nextSlugMatch ? `/portfolio/${nextSlugMatch[1]}/` : p.next_url;
+const showSectionNumbers = p.show_section_numbers !== false && p.slug !== 'drewmax';
+---
+<BaseLayout title={title} description={description} currentNav="work" bodyClass="service-page" ogImage={ogImage}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": p.title,
+      "description": p.description,
+      "url": `https://grafmen.com/portfolio/${p.slug}/`,
+      "image": `https://grafmen.com${coverSrc}`,
+      "creator": {
+        "@type": "Person",
+        "name": "Krzysztof Krawczyk"
+      }
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <article class="project-detail">
+      <!-- HEADER & BREADCRUMBS -->
+      <section class="project-heading home-inner">
+        <nav class="breadcrumbs" aria-label="Okruszki">
+          <a href="/portfolio/">Portfolio</a> / <span aria-current="page">{p.title}</span>
+        </nav>
+        <p class="home-kicker">{p.category}{p.year ? ` / ${p.year}` : ''}</p>
+        <h1>{p.title}</h1>
+        <p class="home-lead">{p.description}</p>
+      </section>
+
+      <!-- COVER -->
+      <figure class="project-cover home-inner">
+        <img src={coverSrc} alt={p.cover_alt} width="1400" height="920" fetchpriority="high" decoding="async" />
+      </figure>
+
+      <!-- POTRZEBA -->
+      <section class="home-section">
+        <div class="home-inner compact-grid">
+          <div>
+            <p class="home-kicker">{showSectionNumbers ? <><span class="section-index">01 ·</span> </> : null}POTRZEBA</p>
+            <h2>{p.brief_title}</h2>
+          </div>
+          <div class="bio-copy">
+            {p.brief.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- ZAKRES -->
+      <section class="home-section project-scope">
+        <div class="home-inner compact-grid">
+          <div>
+            <p class="home-kicker">{showSectionNumbers ? <><span class="section-index">02 ·</span> </> : null}ZAKRES</p>
+            <h2>Co zrobiłem</h2>
+          </div>
+          <ul class="scope-list">
+            {p.deliverables.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <!-- REALIZACJA -->
+      <section class="home-section project-gallery-section" id={p.slug === 'hiker' ? 'branding' : undefined}>
+        <div class="home-inner">
+          <p class="home-kicker">{showSectionNumbers ? <><span class="section-index">03 ·</span> </> : null}{p.slug === 'hiker' ? 'BRANDING' : 'REALIZACJA'}</p>
+          <h2>{p.slug === 'hiker' ? 'Identyfikacja wizualna i ruch' : 'Projekt w zastosowaniu'}</h2>
+          <div class="project-gallery">
+            {p.gallery.map((item) => {
+              const itemSrc = item.src.startsWith('/') ? item.src : `/${item.src}`;
+              if (item.type === 'video') {
+                const posterSrc = item.poster ? (item.poster.startsWith('/') ? item.poster : `/${item.poster}`) : undefined;
+                return (
+                  <figure>
+                    <video src={itemSrc} poster={posterSrc} width={item.width || 1920} height={item.height || 1080} controls playsinline muted loop preload="metadata" style="width:100%;height:auto;border-radius:12px;display:block;background:#09090b"></video>
+                    {item.caption && <figcaption>{item.caption}</figcaption>}
+                  </figure>
+                );
+              }
+              return (
+                <figure>
+                  <img src={itemSrc} alt={item.alt} loading="lazy" decoding="async" width={item.width || 1400} height={item.height || 920} />
+                  {item.caption && <figcaption>{item.caption}</figcaption>}
+                </figure>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <!-- EXTRA SECTION FOR HIKER: FILM REKLAMOWY -->
+      {p.slug === 'hiker' && (
+        <section class="home-section project-film-section" id="film">
+          <div class="home-inner compact-grid">
+            <div>
+              <p class="home-kicker"><span class="section-index">04 ·</span> FILM REKLAMOWY</p>
+              <h2>Film promocyjny Hiker</h2>
+            </div>
+            <div class="bio-copy">
+              <p>Film reklamowy prezentujący markę Hiker w&nbsp;otoczeniu gór i&nbsp;surowej przyrody. Dynamiczne ujęcia plenerowe, gra światła i&nbsp;otwarta przestrzeń budują autentyczny klimat marki outdoorowej.</p>
+              <p style="margin-top:24px">
+                <a class="cta-button" href="https://www.youtube.com/watch?v=WOaOxbPIIhs" target="_blank" rel="noopener noreferrer">
+                  Obejrzyj film na YouTube <span aria-hidden="true">↗</span>
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="home-inner project-film-media" style="margin-top:36px">
+            <figure>
+              <video src="/assets/motion/hiker-film.mp4" poster="/assets/motion/hiker-film-poster.webp" width="1920" height="1080" controls playsinline muted loop preload="metadata" style="width:100%;height:auto;border-radius:16px;display:block;background:#09090b"></video>
+              <figcaption style="margin-top:12px;font-size:14px;color:#62626b">Film reklamowy marki Hiker · ujęcia w&nbsp;górskiej scenerii.</figcaption>
+            </figure>
+          </div>
+        </section>
+      )}
+
+      <!-- REZULTAT -->
+      <section class="home-section">
+        <div class="home-inner compact-grid">
+          <div>
+            <p class="home-kicker">{showSectionNumbers ? <><span class="section-index">{p.slug === 'hiker' ? '05 ·' : '04 ·'}</span> </> : null}REZULTAT</p>
+            <h2>{p.result_title}</h2>
+          </div>
+          <div class="bio-copy">
+            {p.result.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+            {p.testimonial && (
+              <article class="testimonial-card" style="margin-top:28px">
+                <blockquote>
+                  <p>{p.testimonial}</p>
+                </blockquote>
+                {p.testimonial_author && (
+                  <footer>
+                    <strong>{p.testimonial_author}</strong>
+                  </footer>
+                )}
+              </article>
+            )}
+            {p.external_url && (
+              <p style="margin-top:24px">
+                <a class="text-link" href={p.external_url} target="_blank" rel="noopener noreferrer">
+                  {p.external_label || 'Otwórz stronę'} <span aria-hidden="true">&nearr;</span>
+                </a>
+              </p>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT NEXT -->
+      <section class="project-next home-inner">
+        <a class="text-link" href="/portfolio/">&larr; Wszystkie realizacje</a>
+        <a class="text-link" href={nextHref}>Następny projekt: {p.next_title} <span aria-hidden="true">&rarr;</span></a>
+      </section>
+    </article>
+
+    <!-- CTA -->
+    <CtaOrange />
+  </main>
+</BaseLayout>

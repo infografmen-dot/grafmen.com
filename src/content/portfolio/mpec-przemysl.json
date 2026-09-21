@@ -1,0 +1,53 @@
+{
+  "slug": "mpec-przemysl",
+  "title": "MPEC Przemyśl",
+  "description": "Identyfikacja wizualna i komplet materiałów firmowych: papeteria, koperty oraz akcydensy dla MPEC Przemyśl.",
+  "category": "Logo / branding",
+  "year": "",
+  "cover": "assets/portfolio/full/mpec-przemysl.webp",
+  "cover_alt": "Identyfikacja wizualna dla MPEC Przemyśl",
+  "brief_title": "Ciepło i nowoczesność w komunikacji miejskiej.",
+  "brief": [
+    "Praca konkursowa na nową identyfikację wizualną Miejskiego Przedsiębiorstwa Energetyki Cieplnej w Przemyślu.",
+    "Zadanie polegało na zaprojektowaniu nowoczesnego, dynamicznego logotypu symbolizującego energię cieplną, ekologię oraz stabilność usług dla mieszkańców miasta."
+  ],
+  "deliverables": [
+    "Autorski projekt logotypu łączącego motywy ciepła i nowoczesnej sieci przesyłowej.",
+    "Zestaw akcydensów firmowych: papier listowy, koperty, teczki oraz wizytówki.",
+    "Wizualizacje oznakowania odzieży technicznej (t-shirty, czapki firmowe).",
+    "Makiety i standaryzacja identyfikacji wizualnej w przestrzeni miejskiej."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/mpec-przemysl/mpec_800x600-www.jpg",
+      "alt": "Znak MPEC Przemyśl",
+      "caption": "Konstrukcja i kolorystyka logotypu konkursowego.",
+      "width": 800,
+      "height": 600
+    },
+    {
+      "src": "assets/portfolio/mpec-przemysl/branding2-www_1000x700.webp",
+      "alt": "Papeteria MPEC Przemyśl",
+      "caption": "Komplet materiałów biurowych i korespondencyjnych.",
+      "width": 1000,
+      "height": 700
+    },
+    {
+      "src": "assets/portfolio/mpec-przemysl/branding-www-1.jpg",
+      "alt": "Odzież firmowa MPEC",
+      "caption": "Znakowanie odzieży pracowników technicznych.",
+      "width": 880,
+      "height": 608
+    }
+  ],
+  "result_title": "Materiały wizerunkowe dla spółki miejskiej.",
+  "result": [
+    "Przygotowano projekt identyfikacji wizualnej, typografię oraz zestaw akcydensów i papeterii biurowej dla miejskiego przedsiębiorstwa ciepłowniczego."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../te-solutions/index.html",
+  "next_title": "TE Solutions"
+}

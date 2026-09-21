@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PortfolioGrid from '../components/PortfolioGrid.astro';
+import WspolpracaCards from '../components/WspolpracaCards.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import OpinieGrid from '../components/OpinieGrid.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import CtaOrange from '../components/CtaOrange.astro';
+
+const title = "Strony WWW, branding i grafika dla firm | Grafmen";
+const description = "Projektuję strony WWW, branding, materiały reklamowe i motion dla firm. Grafmen od 2005 roku. Projekty dla firm z Przemyśla, Podkarpacia i całej Polski.";
+---
+<BaseLayout title={title} description={description} currentNav="home" bodyClass="home-page">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["ProfessionalService", "LocalBusiness"],
+      "@id": "https://grafmen.com/#business",
+      "name": "Grafmen · Krzysztof Krawczyk",
+      "url": "https://grafmen.com/",
+      "description": "Strony WWW, branding, grafika reklamowa i motion dla firm.",
+      "foundingDate": "2005",
+      "areaServed": ["Przemyśl", "Podkarpacie", "Polska"],
+      "sameAs": [
+        "https://www.facebook.com/grafmen",
+        "https://www.instagram.com/grafmen",
+        "https://www.linkedin.com/in/krzysztof-krawczyk-grafmen"
+      ]
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <div class="wrap">
+      <!-- 1. HERO -->
+      <section class="hero">
+        <div class="cube-field" aria-hidden="true"></div>
+        <div class="eyebrow"><span>Przemyśl, Polska</span><span class="dot">●</span><span>od&nbsp;2005</span></div>
+        <div class="hero-grid">
+          <div>
+            <h1>
+              <span class="hero-line" data-line="0"><span class="hero-line-inner">Ty zajmujesz się</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br>
+              <span class="hero-line" data-line="1"><span class="hero-line-inner"><span class="uword"><span class="uword-mob">swo</span>ją</span> firmą.</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br>
+              <span class="hero-line" data-line="2"><span class="hero-line-inner">Ja dbam o&nbsp;to,</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br>
+              <span class="hero-line" data-line="3"><span class="hero-line-inner">jak ją widać<span class="terminal" aria-hidden="true"></span></span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span>
+            </h1>
+            <p class="lead">Projektuję strony WWW, branding, materiały reklamowe i&nbsp;motion dla&nbsp;firm.<br>Od&nbsp;koncepcji i&nbsp;treści po&nbsp;gotowy projekt i&nbsp;wdrożenie.</p>
+            <div class="actions"><a class="btn dark" href="/kontakt/">Zapytaj o&nbsp;wycenę <span>&rarr;</span></a></div>
+          </div>
+          <aside class="meta01"><div class="meta01-top"></div>STRONY WWW<br>BRANDING<br>MOTION</aside>
+        </div>
+        <div class="hero-bottom">
+          <div class="mini">LEPSZE STRONY<br>DLA&nbsp;AMBITNYCH FIRM</div>
+          <div class="center"><span class="mouse"></span><span>PRZEWIŃ W&nbsp;DÓŁ</span><span class="arrowdown">&darr;</span></div>
+          <div class="mini right">EST. 2005<br>PRZEMYŚL, POLSKA</div>
+        </div>
+      </section>
+
+      <!-- 2. PORTFOLIO (6 REALIZACJI) -->
+      <PortfolioGrid />
+    </div>
+
+    <!-- 3. WSPÓŁPRACA (2 KAFLE DREWMAX & HIKER) -->
+    <WspolpracaCards />
+
+    <!-- 4. LOGOTYPY KLIENTÓW (ZWARTY PAS) -->
+    <ClientLogos />
+
+    <!-- 5. OPINIE KLIENTÓW (3 OPINIE) -->
+    <OpinieGrid />
+
+    <!-- 6. FAQ (4 PYTANIA) -->
+    <FaqAccordion />
+
+    <!-- 7. POMARAŃCZOWE CTA -->
+    <CtaOrange />
+  </main>
+</BaseLayout>

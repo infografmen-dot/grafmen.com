@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: infografmen-dot/grafmen.com
+  branch: main
+  base_url: https://grafmen-com.vercel.app
+  auth_endpoint: api/auth
+
+publish_mode: editorial_workflow
+media_folder: "public/assets/blog"
+public_folder: "/assets/blog"
+
+collections:
+  - name: "blog"
+    label: "Artykuły bloga"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Tytuł artykułu", name: "title", widget: "string" }
+      - { label: "Kategoria", name: "category", widget: "string", default: "Identyfikacja wizualna" }
+      - { label: "Lead / Krótki opis", name: "description", widget: "text" }
+      - { label: "Autor", name: "author", widget: "string", default: "Krzysztof Krawczyk" }
+      - { label: "Data publikacji", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Zdjęcie okładkowe", name: "cover", widget: "image" }
+      - { label: "Alt zdjęcia okładkowego", name: "coverAlt", widget: "string" }
+      - { label: "Szkic (nie publikuj publicznie)", name: "draft", widget: "boolean", default: true }
+      - { label: "Treść artykułu", name: "body", widget: "markdown" }

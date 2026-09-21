@@ -1,0 +1,53 @@
+{
+  "slug": "unitrans-katalog",
+  "title": "Katalog Uni-Trans",
+  "description": "Katalog reklamowy i materiały informacyjne dla firmy budowlano-transportowej Uni-Trans.",
+  "category": "Katalog / druk",
+  "year": "",
+  "cover": "assets/portfolio/full/unitrans-katalog.jpg",
+  "cover_alt": "Katalog reklamowy dla firmy Uni-Trans",
+  "brief_title": "Mocny wizerunek w branży transportowo-budowlanej.",
+  "brief": [
+    "Firma Uni-Trans specjalizuje się w usługach transportowych, spedycyjnych oraz robotach budowlanych z użyciem ciężkiego sprzętu.",
+    "Projekt wymagał stworzenia spójnego wizerunku: od dopracowania logotypu z księgą znaku po katalog ofertowy i materiały targowe (roll-upy, foldery)."
+  ],
+  "deliverables": [
+    "Projekt i standaryzacja logotypu Uni-Trans wraz z pełną księgą znaku.",
+    "Układ graficzny i skład katalogu ofertowego w poziomym formacie A5.",
+    "Projekt wielkoformatowych materiałów promocyjnych: roll-upy 120×200 cm.",
+    "Przygotowanie kompletnych plików DTP do druku reklamowego."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/unitrans-katalog/UniTrans-www.jpg",
+      "alt": "Identyfikacja Uni-Trans",
+      "caption": "Główny znak firmowy i zestaw materiałów akcydensowych.",
+      "width": 1000,
+      "height": 640
+    },
+    {
+      "src": "assets/portfolio/unitrans-katalog/Mockup_HorizontalA5_Brochure_1-www.jpg",
+      "alt": "Katalog poziomy A5 Uni-Trans",
+      "caption": "Poziomy folder ofertowy prezentujący park maszynowy i usługi.",
+      "width": 1000,
+      "height": 583
+    },
+    {
+      "src": "assets/portfolio/unitrans-katalog/Mockup_Rollup_side_120x200-www.jpg",
+      "alt": "Roll-up reklamowy Uni-Trans",
+      "caption": "Projekt wielkoformatowego roll-upu wystawienniczego.",
+      "width": 1000,
+      "height": 1563
+    }
+  ],
+  "result_title": "Katalog sprzętowo-transportowy.",
+  "result": [
+    "Przygotowano katalog firmowy prezentujący zaplecze sprzętowe, flotę pojazdów oraz ofertę usług transportowo-sprzętowych."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../mpec-przemysl/index.html",
+  "next_title": "MPEC Przemyśl"
+}

@@ -1,0 +1,70 @@
+{
+  "slug": "hiker",
+  "title": "Hiker",
+  "description": "Identyfikacja wizualna marki outdoorowej oraz film reklamowy. Od konstrukcji znaku po materiały firmowe, animację logo i produkcję wideo w plenerze.",
+  "category": "Identyfikacja wizualna i film reklamowy",
+  "year": "",
+  "cover": "assets/portfolio/hiker.webp",
+  "cover_alt": "Identyfikacja Hiker na materiałach firmowych",
+  "brief_title": "Marka blisko natury.",
+  "brief": [
+    "Hiker to marka odzieży i sprzętu turystycznego. Potrzebowała spójnej identyfikacji, która nawiązuje do natury, swobody i aktywności w terenie.",
+    "Projekt miał łączyć czytelny znak z możliwością zastosowania go w druku, internecie i materiałach filmowych."
+  ],
+  "deliverables": [
+    "Projekt logo i jego konstrukcji.",
+    "Paleta kolorów oraz warianty znaku.",
+    "Zastosowania identyfikacji na materiałach firmowych.",
+    "Animacja logo przygotowana w After Effects.",
+    "Produkcja filmu reklamowego w plenerze górskim."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/hiker/Hiker_construction.webp",
+      "alt": "Konstrukcja znaku Hiker",
+      "caption": "Konstrukcja logo i relacje między elementami znaku.",
+      "width": 1400,
+      "height": 800
+    },
+    {
+      "src": "assets/portfolio/hiker/Hiker_brand.webp",
+      "alt": "Paleta kolorów i typografia marki Hiker",
+      "caption": "Paleta kolorów i typografia identyfikacji.",
+      "width": 1400,
+      "height": 800
+    },
+    {
+      "type": "video",
+      "src": "assets/portfolio/hiker/hiker-logo-anim.mp4",
+      "poster": "assets/portfolio/hiker/hiker-logo-anim-poster.jpg",
+      "alt": "Animacja wejściowa logo Hiker",
+      "caption": "Krótka animacja wejściowa z logo przygotowana w After Effects.",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "assets/portfolio/hiker/Hiker_mokups.webp",
+      "alt": "Materiały i gadżety marki Hiker",
+      "caption": "Zastosowanie identyfikacji na odzieży i akcesoriach outdoorowych.",
+      "width": 1400,
+      "height": 800
+    },
+    {
+      "src": "assets/portfolio/hiker/Hiker_www.webp",
+      "alt": "Projekt strony internetowej Hiker",
+      "caption": "Projekt nowoczesnego serwisu internetowego dla marki Hiker.",
+      "width": 1400,
+      "height": 785
+    }
+  ],
+  "result_title": "Spójna identyfikacja i jej zastosowania.",
+  "result": [
+    "Powstał kompletny zestaw materiałów marki. Logo, kolorystyka, animacja wejściowa oraz film reklamowy tworzą spójny i wyrazisty język komunikacji w druku, internecie i wideo."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "https://www.youtube.com/watch?v=WOaOxbPIIhs",
+  "external_label": "Obejrzyj film na YouTube",
+  "next_url": "../jd-ubezpieczenia/index.html",
+  "next_title": "JD Ubezpieczenia"
+}

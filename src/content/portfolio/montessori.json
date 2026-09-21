@@ -1,0 +1,40 @@
+{
+  "slug": "montessori",
+  "title": "Montessori.com.pl",
+  "description": "Strona placówki Montessori w Przemyślu, z informacjami dla rodziców i uporządkowaną ofertą.",
+  "category": "Strona WWW",
+  "year": "",
+  "cover": "assets/portfolio/full/screenshot-montessori.webp",
+  "cover_alt": "Strona WWW Montessori.com.pl",
+  "brief_title": "Ciepły i przejrzysty serwis edukacyjny.",
+  "brief": [
+    "Prywatne Przedszkole im. Marii Montessori w Przemyślu potrzebowało serwisu internetowego, który przedstawi unikalną metodę pracy placówki oraz ułatwi kontakt rodzicom dzieci w wieku 2–6 lat.",
+    "Strona miała łączyć ciepłą, przyjazną atmosferę z czytelnym układem podstron informacyjnych, regulaminów i formularzy rekrutacyjnych."
+  ],
+  "deliverables": [
+    "Stworzenie responsywnej strony internetowej opartej na systemie CMS WordPress.",
+    "Opracowanie grafiki i layoutu uwzględniającego specyfikę pedagogiki Montessori.",
+    "Projekt podstron: oferta przedszkola, metoda pracy, kadra pedagogiczna, cennik i lokalizacja.",
+    "Formularz kontaktowy umożliwiający zgłoszenie dziecka bezpośrednio ze strony.",
+    "Podstawowa optymalizacja SEO oraz integracja z profilami społecznościowymi."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/montessori/screenshot-montessori.webp",
+      "alt": "Ekran główny serwisu Montessori",
+      "caption": "Strona główna przedszkola Montessori z prezentacją oferty edukacyjnej.",
+      "width": 1000,
+      "height": 700
+    }
+  ],
+  "result_title": "Serwis informacyjny placówki.",
+  "result": [
+    "Wdrożono stronę WWW placówki opartą na systemie WordPress, prezentującą misję, grupy przedszkolne oraz zasady rekrutacji."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "https://montessori.com.pl/",
+  "external_label": "Otwórz stronę Montessori.com.pl",
+  "next_url": "../piworob/index.html",
+  "next_title": "Piworób"
+}

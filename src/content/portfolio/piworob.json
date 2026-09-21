@@ -1,0 +1,53 @@
+{
+  "slug": "piworob",
+  "title": "Piworób",
+  "description": "Nazwa i logo dla lokalnego browaru rzemieślniczego na Podkarpaciu.",
+  "category": "Logo / branding",
+  "year": "",
+  "cover": "assets/portfolio/full/Piworob_logo-1.webp",
+  "cover_alt": "Logo browaru rzemieślniczego Piworób",
+  "brief_title": "Lokalne tradycje piwowarskie w autorskim znaku.",
+  "brief": [
+    "Projekt obejmował opracowanie nazwy i tożsamości wizualnej dla lokalnego browaru rzemieślniczego na Podkarpaciu.",
+    "Identyfikacja miała podkreślać rzemieślniczy charakter, pasję warzenia oraz wyróżniać markę na półkach sklepowych i w lokalnych lokalach gastronomicznych."
+  ],
+  "deliverables": [
+    "Opracowanie sugestywnej i pamiętnej nazwy marki „Piworób”.",
+    "Projekt unikalnego logo odzwierciedlającego rzemieślniczy charakter browaru.",
+    "Koncepcje etykiet piwnych na butelki oraz materiałów promocyjnych.",
+    "Księga znaku z wariantami kolorystycznymi, achromatycznymi oraz wytycznymi typograficznymi."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/piworob/Piworob_logo-1.webp",
+      "alt": "Znak browaru Piworób",
+      "caption": "Główny znak tożsamości browaru rzemieślniczego.",
+      "width": 1000,
+      "height": 700
+    },
+    {
+      "src": "assets/portfolio/piworob/piworob_1.jpg",
+      "alt": "Etykieta i branding Piworób",
+      "caption": "Zastosowanie logo na butelkach i materiałach barowych.",
+      "width": 1000,
+      "height": 643
+    },
+    {
+      "src": "assets/portfolio/piworob/piworob_3.jpg",
+      "alt": "Materiały promocyjne browaru",
+      "caption": "Prezentacja marki w rustykalnym, naturalnym otoczeniu.",
+      "width": 1000,
+      "height": 696
+    }
+  ],
+  "result_title": "Nazwa i znak graficzny dla browaru.",
+  "result": [
+    "Projekt obejmował opracowanie nazwy marki, projektu logo oraz etykiet dla lokalnego browaru rzemieślniczego."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../katalog-drewmar/index.html",
+  "next_title": "Katalog Drewmar"
+}

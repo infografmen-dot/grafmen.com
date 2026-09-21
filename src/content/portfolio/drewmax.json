@@ -1,0 +1,59 @@
+{
+  "slug": "drewmax",
+  "title": "Drewmax.pro",
+  "description": "Strona internetowa producenta szczotek i akcesoriów do sprzątania. Dwie wersje językowe, polska i angielska, prezentują ofertę dla firm z Polski i zagranicy.",
+  "category": "Strona WWW",
+  "year": "2024",
+  "show_section_numbers": false,
+  "cover": "assets/portfolio/drewmax-site-en.png",
+  "cover_alt": "Serwis Drewmax.pro w wersji angielskiej: Clean Space Starts Here – prezentacja oferty producenta szczotek",
+  "brief_title": "10 lat ciągłej współpracy.",
+  "brief": [
+    "Drewmax to polski producent szczotek i akcesoriów do sprzątania z wieloletnią tradycją. Współpracuję z firmą od około 10 lat przy różnych projektach graficznych. W ostatnich około dwóch latach zakres współpracy objął również projektowanie i rozwój stron internetowych.",
+    "Zadaniem było przygotowanie nowoczesnego serwisu internetowego prezentującego pełną gamę produktów oraz ułatwiającego kontakt z partnerami handlowymi w Polsce i za granicą."
+  ],
+  "deliverables": [
+    "Projekt architektury informacji i podziału asortymentu.",
+    "Indywidualny projekt graficzny UI w nowoczesnej stylistyce.",
+    "Wdrożenie dwóch wersji językowych: polskiej i angielskiej.",
+    "Pełna responsywność mobilna i szybkie ładowanie stron."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/drewmax/Frame 1.webp",
+      "alt": "Przegląd kategorii produktów Drewmax.pro",
+      "caption": "Przegląd kategorii produktów.",
+      "width": 1400,
+      "height": 920
+    },
+    {
+      "src": "assets/portfolio/drewmax/Frame 2.webp",
+      "alt": "Katalog produktów Drewmax.pro z wyszukiwarką i listą",
+      "caption": "Katalog produktów z wyszukiwarką i listą.",
+      "width": 1400,
+      "height": 920
+    },
+    {
+      "src": "assets/portfolio/drewmax/Frame 3.webp",
+      "alt": "Sekcja dotycząca drewna FSC i oferty Private Label Drewmax.pro",
+      "caption": "Sekcja dotycząca drewna FSC i oferty Private Label.",
+      "width": 1400,
+      "height": 920
+    },
+    {
+      "src": "assets/portfolio/drewmax/Frame 4.webp",
+      "alt": "Podstrona kontaktowa Drewmax.pro z formularzem",
+      "caption": "Podstrona kontaktowa z formularzem.",
+      "width": 1400,
+      "height": 920
+    }
+  ],
+  "result_title": "Nowy serwis WWW dla producenta szczotek.",
+  "result": [
+    "Powstała dwujęzyczna strona z katalogiem produktów i formularzem kontaktowym, skierowana do firm z Polski i zagranicy."
+  ],
+  "external_url": "https://drewmax.pro/en/",
+  "external_label": "Otwórz stronę Drewmax.pro",
+  "next_url": "../szkola-best/index.html",
+  "next_title": "szkola.best"
+}

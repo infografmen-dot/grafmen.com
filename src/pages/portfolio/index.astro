@@ -1,0 +1,101 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Portfolio · strony WWW, branding i realizacje | Grafmen";
+const description = "20 wybranych realizacji Grafmen: strony WWW, branding, materiały drukowane, digital i filmy dla firm z Polski i zagranicy.";
+
+const orderedSlugs = [
+  'drewmax', 'szkola-best', 'hiker', 'drew-art', 'jd-ubezpieczenia',
+  'katalog-drew-art', 'montessori', 'piworob', 'katalog-drewmar', 'ja-i-moj-biznes',
+  'gazetka-drewmar', 'self-invest', 'unitrans-katalog', 'mpec-przemysl', 'te-solutions',
+  'kancelaria-lampa', 'broszura-pervita24', 'gearexpert', 'katalog-targowy-drewmar', 'pobudka'
+];
+
+const allProjects = await getCollection('portfolio');
+const sortedProjects = allProjects.sort((a, b) => {
+  const indexA = orderedSlugs.indexOf(a.data.slug);
+  const indexB = orderedSlugs.indexOf(b.data.slug);
+  return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+});
+
+const fullPortfolioClasses = [
+  'p1', 'p3', 'p4', 'p5', 'p6',
+  'p7', 'p8', 'p9', 'p10', 'p11',
+  'p12', 'p13', 'p14', 'p15', 'p16',
+  'p17', 'p18', 'p19', 'p20', 'p21'
+];
+---
+<BaseLayout title={title} description={description} currentNav="work" bodyClass="service-page">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Portfolio · strony WWW, branding i realizacje | Grafmen",
+      "url": "https://grafmen.com/portfolio/"
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <div class="home-inner portfolio-full">
+      <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
+        <div class="portfolio-head">
+          <div>
+            <p class="section-kicker">PORTFOLIO / GRAFMEN</p>
+            <h1 id="portfolio-title">Realizacje, które<br>zatrzymują uwagę.</h1>
+          </div>
+          <div class="portfolio-summary">
+            <p class="portfolio-intro">20 realizacji: strony internetowe, identyfikacje wizualne, materiały i&nbsp;filmy. Zobacz wybrane projekty dla&nbsp;moich klientów.</p>
+          </div>
+        </div>
+
+        <ol class="stage">
+          {sortedProjects.map((project, idx) => {
+            const isFullCard = idx >= 5;
+            const cardClass = fullPortfolioClasses[idx] || `p${idx + 1}`;
+            const projectUrl = `/portfolio/${project.data.slug}/`;
+            const coverSrc = project.data.cover.startsWith('/') ? project.data.cover : `/${project.data.cover}`;
+            
+            return (
+              <li class={`work ${isFullCard ? 'full-card' : ''} ${cardClass}`}>
+                <article class="project-card">
+                  <a class="media-link" href={projectUrl} aria-label={`${project.data.title} · Zobacz case study`}>
+                    <div class="media">
+                      {project.data.slug === 'szkola-best' ? (
+                        <div class="site-preview">
+                          <img class="project-image" src={coverSrc} alt={project.data.cover_alt} loading="lazy" decoding="async" />
+                        </div>
+                      ) : (
+                        <img class="project-image" src={coverSrc} alt={project.data.cover_alt} loading="lazy" decoding="async" />
+                      )}
+                      <span class="project-action">Zobacz projekt <span aria-hidden="true">&rarr;</span></span>
+                    </div>
+                  </a>
+                  <div class="caption">
+                    <div class="caption-copy">
+                      <p class="cat">{project.data.category}</p>
+                      <h3 class="title">
+                        <a class="title-link" href={projectUrl}>{project.data.title}</a>
+                      </h3>
+                      <p class="project-description">{project.data.description}</p>
+                      {project.data.external_url && (
+                        <div class="project-ext-action">
+                          <a class="project-ext-link" href={project.data.external_url} target="_blank" rel="noopener noreferrer">
+                            {project.data.external_label || 'Otwórz stronę'} <span aria-hidden="true">&nearr;</span>
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                    <a class="arr-link" href={projectUrl} aria-label={`${project.data.title} · Zobacz case study`}>
+                      <span class="arr" aria-hidden="true">&rarr;</span>
+                    </a>
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

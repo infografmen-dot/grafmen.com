@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Kontakt i wycena projektu | Grafmen, Przemyśl";
+const description = "Skontaktuj się z Krzysztofem Krawczykiem z Grafmen. Strony WWW, logo i branding. Napisz o swoim projekcie i zapytaj o indywidualną wycenę.";
+---
+<BaseLayout title={title} description={description} currentNav="contact" bodyClass="service-page">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Kontakt i wycena projektu",
+      "url": "https://grafmen.com/kontakt/",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Krzysztof Krawczyk",
+        "email": "info@grafmen.com",
+        "telephone": "+48694179217"
+      }
+    })} />
+    <script src="/contact.js" defer></script>
+  </Fragment>
+
+  <main id="main-content">
+    <section class="service-hero contact-hero">
+      <div class="home-inner">
+        <p class="home-kicker">KONTAKT / GRAFMEN</p>
+        <h1>Opowiedz mi<br>o&nbsp;swoim projekcie.</h1>
+        <p class="home-lead">Strona internetowa, logo czy materiały firmowe? Napisz, czego potrzebujesz. Wspólnie ustalimy zakres i&nbsp;kolejne kroki.</p>
+      </div>
+    </section>
+
+    <section class="home-section contact-section" id="kontakt" aria-labelledby="contact-title">
+      <div class="home-inner contact-grid">
+        <div class="contact-details">
+          <p class="home-kicker">BEZPOŚREDNI KONTAKT</p>
+          <h2 id="contact-title">Krzysztof Krawczyk<br><span>Grafmen</span></h2>
+          <a class="contact-email" href="mailto:info@grafmen.com">info@grafmen.com</a>
+          <a class="contact-phone" href="tel:+48694179217">+48 694 179 217</a>
+          <p>Przemyśl, Podkarpacie.<br>Współpracuję zdalnie z&nbsp;klientami z&nbsp;całej Polski i&nbsp;zagranicy.</p>
+          
+          <div class="contact-next">
+            <h3>Co warto napisać?</h3>
+            <ol>
+              <li>Czym zajmuje się Twoja firma.</li>
+              <li>Jakiego projektu potrzebujesz.</li>
+              <li>Czy masz już materiały i&nbsp;orientacyjny termin.</li>
+            </ol>
+            <p>Nie musisz mieć gotowego briefu. Pomogę uporządkować najważniejsze informacje.</p>
+          </div>
+        </div>
+
+        <div class="contact-brief">
+          <h2>Zapytaj o&nbsp;wycenę</h2>
+          <p id="mail-note">Wypełnij krótki brief. Przycisk otworzy Twój program pocztowy z&nbsp;przygotowaną wiadomością. Wyślesz ją samodzielnie z&nbsp;własnej skrzynki.</p>
+          <form id="contact-form" action="mailto:info@grafmen.com" method="get" aria-describedby="mail-note">
+            <div class="form-row">
+              <label>Imię
+                <input name="name" autocomplete="given-name" required maxlength="100">
+              </label>
+              <label>E-mail
+                <input name="email" type="email" autocomplete="email" required maxlength="200">
+              </label>
+            </div>
+            <label>Czego dotyczy projekt?
+              <select name="topic">
+                <option>Strona internetowa</option>
+                <option>Modernizacja strony</option>
+                <option>Logo i&nbsp;branding</option>
+                <option>Materiały firmowe</option>
+                <option>Inny projekt</option>
+              </select>
+            </label>
+            <label>Opisz swój projekt
+              <textarea name="message" rows="6" required minlength="10" maxlength="3000" placeholder="Kilka zdań o firmie, zakresie i potrzebach"></textarea>
+            </label>
+            <p class="form-privacy">Dane posłużą do&nbsp;odpowiedzi na&nbsp;Twoje zapytanie. <a href="/polityka-prywatnosci/">Polityka prywatności</a>.</p>
+            <button class="cta-button" type="submit">Wyślij e-mail <span aria-hidden="true">↗</span></button>
+            <p id="contact-status" role="status" aria-live="polite"></p>
+          </form>
+          <noscript>
+            <p>Przygotowanie briefu wymaga JavaScript. Napisz bezpośrednio na&nbsp;<a href="mailto:info@grafmen.com">info@grafmen.com</a> lub zadzwoń.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

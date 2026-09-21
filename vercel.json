@@ -1,15 +1,32 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": null,
-  "installCommand": "",
-  "buildCommand": "node scripts/build-site.mjs",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/o-mnie.html", "destination": "/o-mnie/", "permanent": true },
+    { "source": "/strony-www.html", "destination": "/strony-www/", "permanent": true },
+    { "source": "/branding.html", "destination": "/branding/", "permanent": true },
+    { "source": "/modernizacja.html", "destination": "/modernizacja/", "permanent": true },
+    { "source": "/kontakt.html", "destination": "/kontakt/", "permanent": true },
+    { "source": "/portfolio.html", "destination": "/portfolio/", "permanent": true },
+    { "source": "/blog.html", "destination": "/blog/", "permanent": true },
+    { "source": "/polityka-prywatnosci.html", "destination": "/polityka-prywatnosci/", "permanent": true }
+  ],
   "headers": [
     {
+      "source": "/assets/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
       "source": "/(.*)",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
     }
   ]
 }

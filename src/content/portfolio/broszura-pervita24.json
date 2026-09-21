@@ -1,0 +1,53 @@
+{
+  "slug": "broszura-pervita24",
+  "title": "Broszura PerVita24",
+  "description": "Broszura reklamowa, która zbiera ofertę w czytelny materiał do kontaktu z klientami.",
+  "category": "Katalog",
+  "year": "",
+  "cover": "assets/portfolio/full/Pervita24-A4_Brochure-www_1.jpg",
+  "cover_alt": "Broszura reklamowa PerVita24",
+  "brief_title": "Troska i opieka w czytelnym formacie A4.",
+  "brief": [
+    "Firma PerVita24 świadczy profesjonalne usługi opiekuńcze na rynku niemieckim (www.pervita24.de).",
+    "Zadaniem było opracowanie wielostronicowej broszury informacyjnej A4 w języku niemieckim, która w empatyczny i czytelny sposób przedstawi zakres wsparcia seniorów."
+  ],
+  "deliverables": [
+    "Projekt layoutu wielostronicowej broszury informacyjno-ofertowej w formacie A4.",
+    "Dobór ciepłej, zaufanej stylistyki graficznej i kompozycji zdjęciowej.",
+    "Przejrzyste rozplanowanie bloków tekstowych w języku niemieckim.",
+    "DTP i przygotowanie plików produkcyjnych do druku broszurowego."
+  ],
+  "gallery": [
+    {
+      "src": "assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_1.jpg",
+      "alt": "Okładka broszury PerVita24",
+      "caption": "Okładka broszury ofertowej skierowanej do rodzin w Niemczech.",
+      "width": 1000,
+      "height": 658
+    },
+    {
+      "src": "assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2.jpg",
+      "alt": "Strony wewnętrzne broszury",
+      "caption": "Rozkładówka z opisem standardów opieki i kwalifikacji personelu.",
+      "width": 1000,
+      "height": 694
+    },
+    {
+      "src": "assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_4.jpg",
+      "alt": "Prezentacja oferty opiekuńczej",
+      "caption": "Przejrzyste zestawienie pakietów wsparcia domowego.",
+      "width": 1000,
+      "height": 694
+    }
+  ],
+  "result_title": "Publikacja informacyjna dla odbiorców.",
+  "result": [
+    "Powstała czytelna broszura informacyjna prezentująca zakres usług opiekuńczych oraz zasady współpracy z agencją."
+  ],
+  "testimonial": "",
+  "testimonial_author": "",
+  "external_url": "",
+  "external_label": "",
+  "next_url": "../gearexpert/index.html",
+  "next_title": "GearExpert"
+}
