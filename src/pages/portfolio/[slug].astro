@@ -102,7 +102,18 @@ function fixOrphans(text: string): string {
                 const posterSrc = item.poster ? (item.poster.startsWith('/') ? item.poster : `/${item.poster}`) : undefined;
                 return (
                   <figure>
-                    <video src={itemSrc} poster={posterSrc} width={item.width || 1920} height={item.height || 1080} controls playsinline muted loop preload="metadata" style="width:100%;height:auto;border-radius:12px;display:block;background:#09090b"></video>
+                    <video
+                      class={p.slug === 'hiker' ? 'scroll-autoplay-video' : undefined}
+                      src={itemSrc}
+                      poster={posterSrc}
+                      width={item.width || 1920}
+                      height={item.height || 1080}
+                      controls
+                      playsinline
+                      muted
+                      preload="metadata"
+                      style="width:100%;height:auto;border-radius:12px;display:block;background:#09090b"
+                    ></video>
                     {item.caption && <figcaption>{item.caption}</figcaption>}
                   </figure>
                 );
@@ -137,7 +148,34 @@ function fixOrphans(text: string): string {
           </div>
           <div class="home-inner project-film-media" style="margin-top:36px">
             <figure>
-              <video src="/assets/motion/hiker-film.mp4" poster="/assets/motion/hiker-film-poster.webp" width="1920" height="1080" controls playsinline muted loop preload="metadata" style="width:100%;height:auto;border-radius:16px;display:block;background:#09090b"></video>
+              <div
+                class="youtube-facade"
+                id="hiker-youtube-player"
+                data-video-id="WOaOxbPIIhs"
+                data-title="Film promocyjny Hiker"
+              >
+                <button
+                  type="button"
+                  class="youtube-facade-btn"
+                  aria-label="Odtwórz film promocyjny Hiker"
+                >
+                  <img
+                    src="/assets/motion/hiker-film-poster.webp"
+                    alt="Film promocyjny Hiker · miniatura filmu"
+                    width="1920"
+                    height="1080"
+                    loading="lazy"
+                    decoding="async"
+                    class="youtube-facade-thumb"
+                  />
+                  <span class="youtube-facade-play" aria-hidden="true">
+                    <svg viewBox="0 0 68 48" width="68" height="48" aria-hidden="true">
+                      <path class="yt-play-bg" d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity="0.85"></path>
+                      <path d="M45 24 27 14v20z" fill="#ffffff"></path>
+                    </svg>
+                  </span>
+                </button>
+              </div>
               <figcaption style="margin-top:12px;font-size:14px;color:#62626b">Film reklamowy marki Hiker · ujęcia w&nbsp;górskiej scenerii.</figcaption>
             </figure>
           </div>
@@ -188,4 +226,52 @@ function fixOrphans(text: string): string {
     <!-- CTA -->
     <CtaOrange />
   </main>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      // YouTube lazy facade
+      var ytFacades = document.querySelectorAll('.youtube-facade');
+      ytFacades.forEach(function(facade) {
+        var btn = facade.querySelector('.youtube-facade-btn');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var videoId = facade.getAttribute('data-video-id');
+          var title = facade.getAttribute('data-title') || 'Wideo';
+          if (!videoId) return;
+
+          var iframe = document.createElement('iframe');
+          iframe.setAttribute('src', 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0');
+          iframe.setAttribute('title', title);
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          iframe.setAttribute('allowfullscreen', 'true');
+          iframe.className = 'youtube-facade-iframe';
+
+          facade.innerHTML = '';
+          facade.appendChild(iframe);
+          facade.classList.add('is-playing');
+        });
+      });
+
+      // Scroll-triggered autoplay for videos with controls
+      var scrollVideos = document.querySelectorAll('video.scroll-autoplay-video');
+      if (scrollVideos.length > 0 && 'IntersectionObserver' in window) {
+        var videoObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            var video = entry.target;
+            if (entry.isIntersecting) {
+              var playPromise = video.play();
+              if (playPromise !== undefined) {
+                playPromise.catch(function() {});
+              }
+            }
+          });
+        }, { threshold: 0.3 });
+
+        scrollVideos.forEach(function(v) {
+          videoObserver.observe(v);
+        });
+      }
+    });
+  </script>
 </BaseLayout>

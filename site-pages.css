@@ -224,6 +224,8 @@ section[id]{scroll-margin-top:var(--sticky-header-offset)}
 .branding-examples{margin-top:80px;padding-top:40px;border-top:1px solid #cacacf}
 .branding-examples>h3{font-family:var(--font-heading);font-size:var(--type-h3);line-height:var(--type-h3-lh);letter-spacing:var(--type-h3-ls);font-weight:var(--type-h3-weight);max-width:700px;margin:0}
 .branding-examples .feature-grid{margin-top:36px}
+.branding-portfolio-link-wrap{padding:48px 0 56px}
+.branding-portfolio-link-wrap .text-link{font-size:1.125rem;font-weight:500}
 @media(min-width:901px){.packages-intro h2+.home-lead,.compact-grid>h2+p{margin-top:0}}
 @media(max-width:900px){
  :root{--section-heading-gap:32px;--sticky-header-offset:104px}
@@ -865,3 +867,14 @@ article header.post-header,
 .post-content a:hover {
   color: #ea580c;
 }
+
+/* YouTube Facade (Hiker promo film) */
+.youtube-facade{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#09090b}
+.youtube-facade-btn{display:block;width:100%;height:100%;padding:0;margin:0;border:0;background:transparent;cursor:pointer;position:relative;text-align:inherit}
+.youtube-facade-thumb{width:100%;height:100%;object-fit:cover;display:block;transition:filter .3s ease,transform .3s ease}
+.youtube-facade-btn:hover .youtube-facade-thumb,.youtube-facade-btn:focus-visible .youtube-facade-thumb{filter:brightness(1.05)}
+.youtube-facade-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:68px;height:48px;transition:transform .2s cubic-bezier(0,0,.2,1);filter:drop-shadow(0 4px 16px rgba(0,0,0,.45))}
+.youtube-facade-btn:hover .youtube-facade-play,.youtube-facade-btn:focus-visible .youtube-facade-play{transform:translate(-50%,-50%) scale(1.12)}
+.youtube-facade-btn:hover .yt-play-bg,.youtube-facade-btn:focus-visible .yt-play-bg{fill:#f00;fill-opacity:1}
+.youtube-facade-iframe{width:100%;height:100%;border:0;display:block;border-radius:16px}
+
