@@ -32,8 +32,37 @@ const description = "Projektuję strony WWW, branding, materiały reklamowe i mo
   <main id="main-content">
     <div class="wrap">
       <!-- 1. HERO -->
-      <section class="hero">
+      <section class="hero" id="hero-section">
+        <!-- Static cube background (left + fallback for all breakpoints) -->
         <div class="cube-field" aria-hidden="true"></div>
+        <!-- Animated cubes video – right side decoration, desktop only -->
+        <div class="hero-cubes-video" aria-hidden="true" id="hero-cubes-wrap">
+          <video
+            id="hero-cubes-vid"
+            class="hero-cubes-vid"
+            poster="/assets/motion/hero-cubes-poster.webp"
+            muted
+            playsinline
+            loop
+            preload="none"
+            tabindex="-1"
+            aria-hidden="true"
+          ></video>
+        </div>
+        <!-- Pause/resume button for motion accessibility -->
+        <button
+          class="hero-cubes-pause"
+          id="hero-cubes-pause"
+          type="button"
+          aria-label="Wstrzymaj animację"
+          aria-pressed="false"
+          hidden
+        >
+          <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+            <rect x="2" y="1" width="3.5" height="12" rx="1"/>
+            <rect x="8.5" y="1" width="3.5" height="12" rx="1"/>
+          </svg>
+        </button>
         <div class="eyebrow"><span>Przemyśl, Polska</span><span class="dot">●</span><span>od&nbsp;2005</span></div>
         <div class="hero-grid">
           <div>
@@ -54,6 +83,124 @@ const description = "Projektuję strony WWW, branding, materiały reklamowe i mo
           <div class="mini right">EST. 2005<br>PRZEMYŚL, POLSKA</div>
         </div>
       </section>
+
+      <script>
+      (function () {
+        'use strict';
+        // Only run on desktop-width (min 1200px) and respect accessibility preferences
+        const MIN_WIDTH = 1200;
+        function shouldRun() {
+          if (typeof window === 'undefined') return false;
+          if (window.innerWidth < MIN_WIDTH) return false;
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+          // @ts-ignore
+          if (navigator.connection && navigator.connection.saveData) return false;
+          return true;
+        }
+
+        if (!shouldRun()) return;
+
+        const vid = /** @type {HTMLVideoElement} */ (document.getElementById('hero-cubes-vid'));
+        const wrap = document.getElementById('hero-cubes-wrap');
+        const btn = /** @type {HTMLButtonElement} */ (document.getElementById('hero-cubes-pause'));
+        if (!vid || !wrap || !btn) return;
+
+        // Lazy-load sources only after confirming conditions
+        const webmSrc = document.createElement('source');
+        webmSrc.type = 'video/webm';
+        webmSrc.src = '/assets/motion/hero-cubes.webm';
+        const mp4Src = document.createElement('source');
+        mp4Src.type = 'video/mp4';
+        mp4Src.src = '/assets/motion/hero-cubes.mp4';
+        vid.appendChild(webmSrc);
+        vid.appendChild(mp4Src);
+        // Ensure muted and set slow playback rate before loading
+        vid.muted = true;
+        vid.playbackRate = 0.75;
+        vid.load();
+
+        // Show pause button once video is playing
+        vid.addEventListener('playing', function onPlaying() {
+          btn.hidden = false;
+          vid.removeEventListener('playing', onPlaying);
+        }, { once: true });
+
+        // Fallback: keep poster if video fails
+        vid.addEventListener('error', function () {
+          btn.hidden = true;
+          if (wrap) wrap.style.display = 'none';
+        });
+
+        let paused = false;
+        // Pause/resume button toggle
+        btn.addEventListener('click', function () {
+          paused = !paused;
+          if (paused) {
+            vid.pause();
+            btn.setAttribute('aria-label', 'Wznów animację');
+            btn.setAttribute('aria-pressed', 'true');
+            btn.querySelector('svg')?.replaceWith(makeSvgPlay());
+          } else {
+            vid.playbackRate = 0.75;
+            vid.play().catch(() => {});
+            btn.setAttribute('aria-label', 'Wstrzymaj animację');
+            btn.setAttribute('aria-pressed', 'false');
+            btn.querySelector('svg')?.replaceWith(makeSvgPause());
+          }
+        });
+
+        function makeSvgPause() {
+          const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          s.setAttribute('aria-hidden', 'true');
+          s.setAttribute('focusable', 'false');
+          s.setAttribute('width', '14');
+          s.setAttribute('height', '14');
+          s.setAttribute('viewBox', '0 0 14 14');
+          s.setAttribute('fill', 'currentColor');
+          s.innerHTML = '<rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/>';
+          return s;
+        }
+        function makeSvgPlay() {
+          const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          s.setAttribute('aria-hidden', 'true');
+          s.setAttribute('focusable', 'false');
+          s.setAttribute('width', '14');
+          s.setAttribute('height', '14');
+          s.setAttribute('viewBox', '0 0 14 14');
+          s.setAttribute('fill', 'currentColor');
+          s.innerHTML = '<path d="M3 1.5l9 5.5-9 5.5V1.5z"/>';
+          return s;
+        }
+
+        // Pause when hero leaves viewport (IntersectionObserver)
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!paused) {
+                if (entry.isIntersecting) {
+                  vid.play().catch(() => {});
+                } else {
+                  vid.pause();
+                }
+              }
+            });
+          }, { threshold: 0.1 });
+          const hero = document.getElementById('hero-section');
+          if (hero) io.observe(hero);
+        }
+
+        // Pause when tab is hidden
+        document.addEventListener('visibilitychange', function () {
+          if (!paused) {
+            if (document.hidden) {
+              vid.pause();
+            } else {
+              vid.play().catch(() => {});
+            }
+          }
+        });
+      })();
+      </script>
 
       <!-- 2. PORTFOLIO (6 REALIZACJI) -->
       <PortfolioGrid />

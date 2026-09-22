@@ -212,7 +212,63 @@
     -webkit-mask-composite:source-in;
     mask-composite:intersect;
   }
-  .hero > :not(.cube-field){position:relative;z-index:1}
+  /* ── Animated cubes video – right side decoration ── */
+  .hero-cubes-video{
+    position:absolute;
+    z-index:0;
+    top:0;
+    bottom:0;
+    right:calc(50% - 50vw);
+    width:clamp(300px, 45vw, 620px);
+    pointer-events:none;
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(to left,rgba(0,0,0,0) 0%,rgba(0,0,0,.08) 6%,rgba(0,0,0,.8) 22%,#000 40%),
+                       linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
+    mask-image:linear-gradient(to left,rgba(0,0,0,0) 0%,rgba(0,0,0,.08) 6%,rgba(0,0,0,.8) 22%,#000 40%),
+               linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
+    -webkit-mask-composite:source-in;
+    mask-composite:intersect;
+  }
+  .hero-cubes-vid{
+    position:absolute;
+    top:0;
+    right:0;
+    height:100%;
+    width:auto;
+    max-width:none;
+    display:block;
+    object-fit:cover;
+    object-position:right center;
+  }
+  /* Hide video wrap on narrow desktops where it would overlap text */
+  @media(max-width:1199px){.hero-cubes-video{display:none}}
+  /* prefers-reduced-motion: hide video, show only static cubes */
+  @media(prefers-reduced-motion:reduce){.hero-cubes-video{display:none}}
+  /* Pause button */
+  .hero-cubes-pause{
+    position:absolute;
+    z-index:10;
+    bottom:16px;
+    right:16px;
+    width:44px;
+    height:44px;
+    border:1px solid rgba(0,0,0,.18);
+    border-radius:50%;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    color:#333;
+    cursor:pointer;
+    display:grid;
+    place-items:center;
+    transition:background .2s,opacity .2s;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+  }
+  .hero-cubes-pause:hover{background:rgba(255,255,255,.95)}
+  .hero-cubes-pause:focus-visible{outline:3px solid #ff6400;outline-offset:3px}
+  @media(max-width:1199px){.hero-cubes-pause{display:none}}
+  .hero > :not(.cube-field):not(.hero-cubes-video):not(.hero-cubes-pause){position:relative;z-index:1}
+
   .eyebrow{font-size:var(--type-label);color:#858d9a;letter-spacing:var(--type-label-ls);margin-bottom:58px;display:flex;gap:12px;align-items:center}
   .eyebrow .dot{font-size:10px;color:#7e8794}
   .hero-grid{display:grid;grid-template-columns:minmax(0,930px) 220px;justify-content:space-between;gap:48px}
