@@ -52,6 +52,29 @@ function fixOrphans(text: string): string {
   }
   return result;
 }
+
+import fs from 'node:fs';
+import path from 'node:path';
+
+function getSrcSet(src: string, originalWidth: number = 1400): string {
+  if (!src || src.endsWith('.svg') || src.endsWith('.mp4')) return '';
+  const cleanSrc = src.startsWith('/') ? src : `/${src}`;
+  const lastDot = cleanSrc.lastIndexOf('.');
+  if (lastDot === -1) return '';
+  const basePath = cleanSrc.substring(0, lastDot);
+
+  const variants: string[] = [];
+  const candidateWidths = [480, 800, 1200];
+  for (const w of candidateWidths) {
+    const candidateRel = `${basePath}-${w}w.webp`;
+    const localFile = path.resolve('./public', candidateRel.replace(/^\//, ''));
+    if (fs.existsSync(localFile)) {
+      variants.push(`${encodeURI(candidateRel)} ${w}w`);
+    }
+  }
+  variants.push(`${encodeURI(cleanSrc)} ${originalWidth}w`);
+  return variants.join(', ');
+}
 ---
 <BaseLayout title={title} description={description} currentNav="work" bodyClass="service-page" ogImage={ogImage}>
   <Fragment slot="head">
@@ -83,7 +106,16 @@ function fixOrphans(text: string): string {
 
       <!-- 2. GŁÓWNE ZDJĘCIE (COVER) -->
       <figure class="project-cover home-inner">
-        <img src={coverSrc} alt={p.cover_alt} width="1400" height="920" fetchpriority="high" decoding="async" />
+        <img
+          src={coverSrc}
+          srcset={getSrcSet(coverSrc, 1400)}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 92vw, 1400px"
+          alt={p.cover_alt}
+          width="1400"
+          height="920"
+          fetchpriority="high"
+          decoding="async"
+        />
       </figure>
 
       <!-- 3. POTRZEBA -->
@@ -150,6 +182,8 @@ function fixOrphans(text: string): string {
                   <figure class={isVertical ? 'gallery-item-vertical' : undefined}>
                     <img
                       src={itemSrc}
+                      srcset={getSrcSet(itemSrc, item.width || 1400)}
+                      sizes={isVertical ? "(max-width: 640px) 100vw, 640px" : "(max-width: 640px) 100vw, (max-width: 1024px) 92vw, 1400px"}
                       alt={item.alt}
                       loading="lazy"
                       decoding="async"

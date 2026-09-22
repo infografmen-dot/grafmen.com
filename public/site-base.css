@@ -164,7 +164,7 @@
   header{height:104px;display:grid;grid-template-columns:190px 1fr auto;align-items:center;gap:28px}
   .logo{display:block;width:142px;height:auto}
   nav{display:flex;justify-content:center;gap:28px;align-items:center;font-size:17px;font-weight:500;white-space:nowrap}
-  nav a{color:var(--ink);text-decoration:none;position:relative;padding:14px 0}
+  nav a{color:var(--ink);text-decoration:none;position:relative;padding:14px 6px;font-size:17px;min-height:44px;display:inline-flex;align-items:center}
   nav a.active:after{content:"";position:absolute;height:2px;width:28px;left:50%;bottom:4px;transform:translateX(-50%);background:#aab0b9;border-radius:2px}
   .tools{display:flex;align-items:center;gap:20px;font-size:13px;font-weight:600;white-space:nowrap}
   .tools .sep{width:1px;height:30px;background:#cfd3d8}
