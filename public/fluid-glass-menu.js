@@ -145,6 +145,7 @@
       if (isOpen) return;
       isOpen = true;
       menu.classList.add('is-open');
+      document.body.classList.add('has-fg-open');
       toggleBtn.setAttribute('aria-expanded', 'true');
       toggleBtn.setAttribute('aria-label', 'Zamknij menu');
       body.setAttribute('aria-hidden', 'false');
@@ -156,6 +157,7 @@
       if (!isOpen) return;
       isOpen = false;
       menu.classList.remove('is-open');
+      document.body.classList.remove('has-fg-open');
       toggleBtn.setAttribute('aria-expanded', 'false');
       toggleBtn.setAttribute('aria-label', 'Otw\u00f3rz menu');
       body.setAttribute('aria-hidden', 'true');
@@ -182,6 +184,23 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isOpen) {
         closeMenu(true);
+      }
+    });
+
+    menu.addEventListener('keydown', (e) => {
+      if (!isOpen) return;
+      if (e.key === 'Tab') {
+        const focusable = Array.from(menu.querySelectorAll('a, button')).filter(el => el.offsetParent !== null);
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     });
 

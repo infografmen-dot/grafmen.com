@@ -1,0 +1,628 @@
+{
+  "viewports": {
+    "mobile_320": {
+      "upperMenu": {
+        "toggle": {
+          "width": 46,
+          "height": 48,
+          "display": "flex"
+        },
+        "openLinks": [
+          {
+            "text": "Strony WWW",
+            "fontSize": "19px",
+            "width": 238,
+            "height": 52
+          },
+          {
+            "text": "Branding",
+            "fontSize": "19px",
+            "width": 238,
+            "height": 52
+          },
+          {
+            "text": "Portfolio",
+            "fontSize": "19px",
+            "width": 238,
+            "height": 52
+          },
+          {
+            "text": "O mnie",
+            "fontSize": "19px",
+            "width": 238,
+            "height": 52
+          },
+          {
+            "text": "Blog",
+            "fontSize": "19px",
+            "width": 238,
+            "height": 52
+          },
+          {
+            "text": "Kontakt",
+            "fontSize": "19px",
+            "width": 238,
+            "height": 52
+          }
+        ]
+      },
+      "languageSwitch": [
+        {
+          "text": "PL",
+          "fontSize": "14px",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "text": "EN",
+          "fontSize": "14px",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "fluidMenuClosed": {
+        "isVisible": false,
+        "capsule": {
+          "width": 220,
+          "height": 48
+        },
+        "homeLink": {
+          "width": 54,
+          "height": 44,
+          "fontSize": "13.5px"
+        },
+        "toggleBtn": {
+          "width": 44,
+          "height": 44
+        }
+      },
+      "fluidMenuOpen": {
+        "isOpenClass": true,
+        "hasFgOpenOnBody": true,
+        "capsule": {
+          "width": 284,
+          "height": 365
+        },
+        "linksCount": 6,
+        "links": [
+          {
+            "text": "Strony WWW",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 212,
+            "bottom": 256,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Branding",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 258,
+            "bottom": 302,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Portfolio",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 304,
+            "bottom": 348,
+            "isWithinViewport": true
+          },
+          {
+            "text": "O mnie",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 350,
+            "bottom": 394,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Blog",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 396,
+            "bottom": 440,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Kontakt",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 443,
+            "bottom": 487,
+            "isWithinViewport": true
+          }
+        ],
+        "lastLinkAccessible": true,
+        "backToTopCollisionGuard": {
+          "display": "grid",
+          "opacity": "0",
+          "pointerEvents": "none"
+        }
+      },
+      "escapeClosesMenu": true
+    },
+    "mobile_390": {
+      "upperMenu": {
+        "toggle": {
+          "width": 46,
+          "height": 48,
+          "display": "flex"
+        },
+        "openLinks": [
+          {
+            "text": "Strony WWW",
+            "fontSize": "19px",
+            "width": 308,
+            "height": 52
+          },
+          {
+            "text": "Branding",
+            "fontSize": "19px",
+            "width": 308,
+            "height": 52
+          },
+          {
+            "text": "Portfolio",
+            "fontSize": "19px",
+            "width": 308,
+            "height": 52
+          },
+          {
+            "text": "O mnie",
+            "fontSize": "19px",
+            "width": 308,
+            "height": 52
+          },
+          {
+            "text": "Blog",
+            "fontSize": "19px",
+            "width": 308,
+            "height": 52
+          },
+          {
+            "text": "Kontakt",
+            "fontSize": "19px",
+            "width": 308,
+            "height": 52
+          }
+        ]
+      },
+      "languageSwitch": [
+        {
+          "text": "PL",
+          "fontSize": "14px",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "text": "EN",
+          "fontSize": "14px",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "fluidMenuClosed": {
+        "isVisible": false,
+        "capsule": {
+          "width": 220,
+          "height": 48
+        },
+        "homeLink": {
+          "width": 54,
+          "height": 44,
+          "fontSize": "13.5px"
+        },
+        "toggleBtn": {
+          "width": 44,
+          "height": 44
+        }
+      },
+      "fluidMenuOpen": {
+        "isOpenClass": true,
+        "hasFgOpenOnBody": true,
+        "capsule": {
+          "width": 284,
+          "height": 366
+        },
+        "linksCount": 6,
+        "links": [
+          {
+            "text": "Strony WWW",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 488,
+            "bottom": 532,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Branding",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 534,
+            "bottom": 578,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Portfolio",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 580,
+            "bottom": 624,
+            "isWithinViewport": true
+          },
+          {
+            "text": "O mnie",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 626,
+            "bottom": 670,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Blog",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 672,
+            "bottom": 716,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Kontakt",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 719,
+            "bottom": 763,
+            "isWithinViewport": true
+          }
+        ],
+        "lastLinkAccessible": true,
+        "backToTopCollisionGuard": {
+          "display": "grid",
+          "opacity": "0",
+          "pointerEvents": "none"
+        }
+      },
+      "escapeClosesMenu": true
+    },
+    "mobile_430": {
+      "upperMenu": {
+        "toggle": {
+          "width": 46,
+          "height": 48,
+          "display": "flex"
+        },
+        "openLinks": [
+          {
+            "text": "Strony WWW",
+            "fontSize": "19px",
+            "width": 348,
+            "height": 52
+          },
+          {
+            "text": "Branding",
+            "fontSize": "19px",
+            "width": 348,
+            "height": 52
+          },
+          {
+            "text": "Portfolio",
+            "fontSize": "19px",
+            "width": 348,
+            "height": 52
+          },
+          {
+            "text": "O mnie",
+            "fontSize": "19px",
+            "width": 348,
+            "height": 52
+          },
+          {
+            "text": "Blog",
+            "fontSize": "19px",
+            "width": 348,
+            "height": 52
+          },
+          {
+            "text": "Kontakt",
+            "fontSize": "19px",
+            "width": 348,
+            "height": 52
+          }
+        ]
+      },
+      "languageSwitch": [
+        {
+          "text": "PL",
+          "fontSize": "14px",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "text": "EN",
+          "fontSize": "14px",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "fluidMenuClosed": {
+        "isVisible": false,
+        "capsule": {
+          "width": 220,
+          "height": 48
+        },
+        "homeLink": {
+          "width": 54,
+          "height": 44,
+          "fontSize": "13.5px"
+        },
+        "toggleBtn": {
+          "width": 44,
+          "height": 44
+        }
+      },
+      "fluidMenuOpen": {
+        "isOpenClass": true,
+        "hasFgOpenOnBody": true,
+        "capsule": {
+          "width": 284,
+          "height": 366
+        },
+        "linksCount": 6,
+        "links": [
+          {
+            "text": "Strony WWW",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 576,
+            "bottom": 620,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Branding",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 622,
+            "bottom": 666,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Portfolio",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 668,
+            "bottom": 712,
+            "isWithinViewport": true
+          },
+          {
+            "text": "O mnie",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 714,
+            "bottom": 758,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Blog",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 760,
+            "bottom": 804,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Kontakt",
+            "fontSize": "17px",
+            "width": 262,
+            "height": 44,
+            "top": 807,
+            "bottom": 851,
+            "isWithinViewport": true
+          }
+        ],
+        "lastLinkAccessible": true,
+        "backToTopCollisionGuard": {
+          "display": "grid",
+          "opacity": "0",
+          "pointerEvents": "none"
+        }
+      },
+      "escapeClosesMenu": true
+    },
+    "desktop_1440": {
+      "upperMenu": {
+        "links": [
+          {
+            "text": "Strony WWW",
+            "fontSize": "17px",
+            "width": 115,
+            "height": 49
+          },
+          {
+            "text": "Branding",
+            "fontSize": "17px",
+            "width": 81,
+            "height": 49
+          },
+          {
+            "text": "Portfolio",
+            "fontSize": "17px",
+            "width": 78,
+            "height": 49
+          },
+          {
+            "text": "O mnie",
+            "fontSize": "17px",
+            "width": 66,
+            "height": 49
+          },
+          {
+            "text": "Blog",
+            "fontSize": "17px",
+            "width": 46,
+            "height": 49
+          },
+          {
+            "text": "Kontakt",
+            "fontSize": "17px",
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      "languageSwitch": [
+        {
+          "text": "PL",
+          "fontSize": "14px",
+          "width": 44,
+          "height": 44
+        },
+        {
+          "text": "EN",
+          "fontSize": "14px",
+          "width": 44,
+          "height": 44
+        }
+      ],
+      "fluidMenuClosed": {
+        "isVisible": true,
+        "capsule": {
+          "width": 236,
+          "height": 48
+        },
+        "homeLink": {
+          "width": 56,
+          "height": 44,
+          "fontSize": "14px"
+        },
+        "toggleBtn": {
+          "width": 44,
+          "height": 44
+        }
+      },
+      "fluidMenuOpen": {
+        "isOpenClass": true,
+        "hasFgOpenOnBody": true,
+        "capsule": {
+          "width": 284,
+          "height": 366
+        },
+        "linksCount": 6,
+        "links": [
+          {
+            "text": "Strony WWW",
+            "fontSize": "17px",
+            "width": 254,
+            "height": 44,
+            "top": 536,
+            "bottom": 580,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Branding",
+            "fontSize": "17px",
+            "width": 254,
+            "height": 44,
+            "top": 582,
+            "bottom": 626,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Portfolio",
+            "fontSize": "17px",
+            "width": 254,
+            "height": 44,
+            "top": 628,
+            "bottom": 672,
+            "isWithinViewport": true
+          },
+          {
+            "text": "O mnie",
+            "fontSize": "17px",
+            "width": 254,
+            "height": 44,
+            "top": 674,
+            "bottom": 718,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Blog",
+            "fontSize": "17px",
+            "width": 254,
+            "height": 44,
+            "top": 720,
+            "bottom": 764,
+            "isWithinViewport": true
+          },
+          {
+            "text": "Kontakt",
+            "fontSize": "17px",
+            "width": 254,
+            "height": 44,
+            "top": 767,
+            "bottom": 811,
+            "isWithinViewport": true
+          }
+        ],
+        "lastLinkAccessible": true,
+        "backToTopCollisionGuard": {
+          "display": "grid",
+          "opacity": "0",
+          "pointerEvents": "none"
+        }
+      },
+      "escapeClosesMenu": true
+    }
+  },
+  "clsMeasurements": {
+    "mobile_320": {
+      "score": 0.0002,
+      "status": "DOBRY (Zielony < 0.1)"
+    },
+    "mobile_390": {
+      "score": 0,
+      "status": "DOBRY (Zielony < 0.1)"
+    },
+    "mobile_430": {
+      "score": 0.0001,
+      "status": "DOBRY (Zielony < 0.1)"
+    },
+    "desktop_1440": {
+      "score": 0.0001,
+      "status": "DOBRY (Zielony < 0.1)"
+    }
+  },
+  "responsiveImageChecks": {
+    "cover": {
+      "currentSrc": "http://localhost:4331/assets/portfolio/drewmax-site-en-800w.webp",
+      "naturalWidth": 390,
+      "naturalHeight": 220,
+      "renderedWidth": 350,
+      "renderedHeight": 198,
+      "aspectRatio": "1.77"
+    },
+    "gallery1": {
+      "currentSrc": "http://localhost:4331/assets/portfolio/drewmax/Frame%201-800w.webp",
+      "naturalWidth": 390,
+      "naturalHeight": 256
+    }
+  }
+}

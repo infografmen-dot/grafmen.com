@@ -1,0 +1,1871 @@
+{
+  "assets/portfolio/full/Pervita24-A4_Brochure-www_1.jpg": {
+    "src": "/assets/portfolio/full/Pervita24-A4_Brochure-www_1.jpg",
+    "width": 1000,
+    "height": 658,
+    "aspectRatio": 1.5198,
+    "isVertical": false,
+    "sizeKb": 106,
+    "variants": [
+      {
+        "width": 360,
+        "height": 237,
+        "src": "/assets/portfolio/full/Pervita24-A4_Brochure-www_1-360w.webp",
+        "sizeKb": 14,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/assets/portfolio/full/Pervita24-A4_Brochure-www_1-480w.webp",
+        "sizeKb": 20,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 526,
+        "src": "/assets/portfolio/full/Pervita24-A4_Brochure-www_1-800w.webp",
+        "sizeKb": 40,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/Pervita24-A4_Brochure-www_1-360w.webp 360w, /assets/portfolio/full/Pervita24-A4_Brochure-www_1-480w.webp 480w, /assets/portfolio/full/Pervita24-A4_Brochure-www_1-800w.webp 800w, /assets/portfolio/full/Pervita24-A4_Brochure-www_1.jpg 1000w"
+  },
+  "assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2.jpg": {
+    "src": "/assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2.jpg",
+    "width": 1000,
+    "height": 694,
+    "aspectRatio": 1.4409,
+    "isVertical": false,
+    "sizeKb": 171,
+    "variants": [
+      {
+        "width": 360,
+        "height": 250,
+        "src": "/assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2-360w.webp",
+        "sizeKb": 21,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 333,
+        "src": "/assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2-480w.webp",
+        "sizeKb": 33,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 555,
+        "src": "/assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2-800w.webp",
+        "sizeKb": 76,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2-360w.webp 360w, /assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2-480w.webp 480w, /assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2-800w.webp 800w, /assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2.jpg 1000w"
+  },
+  "assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_4.jpg": {
+    "src": "/assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_4.jpg",
+    "width": 1000,
+    "height": 694,
+    "aspectRatio": 1.4409,
+    "isVertical": false,
+    "sizeKb": 144,
+    "variants": [
+      {
+        "width": 360,
+        "height": 250,
+        "src": "/assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_4-360w.webp",
+        "sizeKb": 16,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 333,
+        "src": "/assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_4-480w.webp",
+        "sizeKb": 25,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 555,
+        "src": "/assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_4-800w.webp",
+        "sizeKb": 60,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_4-360w.webp 360w, /assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_4-480w.webp 480w, /assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_4-800w.webp 800w, /assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_4.jpg 1000w"
+  },
+  "assets/portfolio/drew-art.webp": {
+    "src": "/assets/portfolio/drew-art.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 85,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/drew-art-360w.webp",
+        "sizeKb": 13,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/drew-art-480w.webp",
+        "sizeKb": 20,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/drew-art-800w.webp",
+        "sizeKb": 41,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/drew-art-360w.webp 360w, /assets/portfolio/drew-art-480w.webp 480w, /assets/portfolio/drew-art-800w.webp 800w, /assets/portfolio/drew-art.webp 1000w"
+  },
+  "assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem.webp": {
+    "src": "/assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem.webp",
+    "width": 1400,
+    "height": 4436,
+    "aspectRatio": 0.3156,
+    "isVertical": true,
+    "sizeKb": 364,
+    "variants": [
+      {
+        "width": 360,
+        "height": 1141,
+        "src": "/assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem-360w.webp",
+        "sizeKb": 51,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 1521,
+        "src": "/assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem-480w.webp",
+        "sizeKb": 79,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 2535,
+        "src": "/assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem-800w.webp",
+        "sizeKb": 169,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 3802,
+        "src": "/assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem-1200w.webp",
+        "sizeKb": 291,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem-360w.webp 360w, /assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem-480w.webp 480w, /assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem-800w.webp 800w, /assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem-1200w.webp 1200w, /assets/portfolio/drew-art/Drew-Art-Sprzatanie-z-finezja-i-stylem.webp 1400w"
+  },
+  "assets/portfolio/drewmax-site-en.png": {
+    "src": "/assets/portfolio/drewmax-site-en.png",
+    "width": 1907,
+    "height": 1080,
+    "aspectRatio": 1.7657,
+    "isVertical": false,
+    "sizeKb": 2415,
+    "variants": [
+      {
+        "width": 360,
+        "height": 204,
+        "src": "/assets/portfolio/drewmax-site-en-360w.webp",
+        "sizeKb": 11,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 272,
+        "src": "/assets/portfolio/drewmax-site-en-480w.webp",
+        "sizeKb": 16,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 453,
+        "src": "/assets/portfolio/drewmax-site-en-800w.webp",
+        "sizeKb": 36,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 680,
+        "src": "/assets/portfolio/drewmax-site-en-1200w.webp",
+        "sizeKb": 65,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/drewmax-site-en-360w.webp 360w, /assets/portfolio/drewmax-site-en-480w.webp 480w, /assets/portfolio/drewmax-site-en-800w.webp 800w, /assets/portfolio/drewmax-site-en-1200w.webp 1200w, /assets/portfolio/drewmax-site-en.png 1907w"
+  },
+  "assets/portfolio/drewmax/Frame 1.webp": {
+    "src": "/assets/portfolio/drewmax/Frame 1.webp",
+    "width": 1400,
+    "height": 920,
+    "aspectRatio": 1.5217,
+    "isVertical": false,
+    "sizeKb": 51,
+    "variants": [
+      {
+        "width": 360,
+        "height": 237,
+        "src": "/assets/portfolio/drewmax/Frame 1-360w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 315,
+        "src": "/assets/portfolio/drewmax/Frame 1-480w.webp",
+        "sizeKb": 12,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 526,
+        "src": "/assets/portfolio/drewmax/Frame 1-800w.webp",
+        "sizeKb": 22,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 789,
+        "src": "/assets/portfolio/drewmax/Frame 1-1200w.webp",
+        "sizeKb": 36,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/drewmax/Frame%201-360w.webp 360w, /assets/portfolio/drewmax/Frame%201-480w.webp 480w, /assets/portfolio/drewmax/Frame%201-800w.webp 800w, /assets/portfolio/drewmax/Frame%201-1200w.webp 1200w, /assets/portfolio/drewmax/Frame%201.webp 1400w"
+  },
+  "assets/portfolio/drewmax/Frame 2.webp": {
+    "src": "/assets/portfolio/drewmax/Frame 2.webp",
+    "width": 1400,
+    "height": 920,
+    "aspectRatio": 1.5217,
+    "isVertical": false,
+    "sizeKb": 49,
+    "variants": [
+      {
+        "width": 360,
+        "height": 237,
+        "src": "/assets/portfolio/drewmax/Frame 2-360w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 315,
+        "src": "/assets/portfolio/drewmax/Frame 2-480w.webp",
+        "sizeKb": 10,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 526,
+        "src": "/assets/portfolio/drewmax/Frame 2-800w.webp",
+        "sizeKb": 20,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 789,
+        "src": "/assets/portfolio/drewmax/Frame 2-1200w.webp",
+        "sizeKb": 34,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/drewmax/Frame%202-360w.webp 360w, /assets/portfolio/drewmax/Frame%202-480w.webp 480w, /assets/portfolio/drewmax/Frame%202-800w.webp 800w, /assets/portfolio/drewmax/Frame%202-1200w.webp 1200w, /assets/portfolio/drewmax/Frame%202.webp 1400w"
+  },
+  "assets/portfolio/drewmax/Frame 3.webp": {
+    "src": "/assets/portfolio/drewmax/Frame 3.webp",
+    "width": 1400,
+    "height": 920,
+    "aspectRatio": 1.5217,
+    "isVertical": false,
+    "sizeKb": 53,
+    "variants": [
+      {
+        "width": 360,
+        "height": 237,
+        "src": "/assets/portfolio/drewmax/Frame 3-360w.webp",
+        "sizeKb": 6,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 315,
+        "src": "/assets/portfolio/drewmax/Frame 3-480w.webp",
+        "sizeKb": 9,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 526,
+        "src": "/assets/portfolio/drewmax/Frame 3-800w.webp",
+        "sizeKb": 19,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 789,
+        "src": "/assets/portfolio/drewmax/Frame 3-1200w.webp",
+        "sizeKb": 36,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/drewmax/Frame%203-360w.webp 360w, /assets/portfolio/drewmax/Frame%203-480w.webp 480w, /assets/portfolio/drewmax/Frame%203-800w.webp 800w, /assets/portfolio/drewmax/Frame%203-1200w.webp 1200w, /assets/portfolio/drewmax/Frame%203.webp 1400w"
+  },
+  "assets/portfolio/drewmax/Frame 4.webp": {
+    "src": "/assets/portfolio/drewmax/Frame 4.webp",
+    "width": 1400,
+    "height": 920,
+    "aspectRatio": 1.5217,
+    "isVertical": false,
+    "sizeKb": 37,
+    "variants": [
+      {
+        "width": 360,
+        "height": 237,
+        "src": "/assets/portfolio/drewmax/Frame 4-360w.webp",
+        "sizeKb": 5,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 315,
+        "src": "/assets/portfolio/drewmax/Frame 4-480w.webp",
+        "sizeKb": 8,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 526,
+        "src": "/assets/portfolio/drewmax/Frame 4-800w.webp",
+        "sizeKb": 16,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 789,
+        "src": "/assets/portfolio/drewmax/Frame 4-1200w.webp",
+        "sizeKb": 27,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/drewmax/Frame%204-360w.webp 360w, /assets/portfolio/drewmax/Frame%204-480w.webp 480w, /assets/portfolio/drewmax/Frame%204-800w.webp 800w, /assets/portfolio/drewmax/Frame%204-1200w.webp 1200w, /assets/portfolio/drewmax/Frame%204.webp 1400w"
+  },
+  "assets/portfolio/full/gazetka_Drewmar_2018_8-1.webp": {
+    "src": "/assets/portfolio/full/gazetka_Drewmar_2018_8-1.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 60,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/gazetka_Drewmar_2018_8-1-360w.webp",
+        "sizeKb": 9,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/gazetka_Drewmar_2018_8-1-480w.webp",
+        "sizeKb": 14,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/gazetka_Drewmar_2018_8-1-800w.webp",
+        "sizeKb": 28,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/gazetka_Drewmar_2018_8-1-360w.webp 360w, /assets/portfolio/full/gazetka_Drewmar_2018_8-1-480w.webp 480w, /assets/portfolio/full/gazetka_Drewmar_2018_8-1-800w.webp 800w, /assets/portfolio/full/gazetka_Drewmar_2018_8-1.webp 1000w"
+  },
+  "assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7.jpg": {
+    "src": "/assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7.jpg",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 141,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7-360w.webp",
+        "sizeKb": 11,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7-480w.webp",
+        "sizeKb": 17,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7-800w.webp",
+        "sizeKb": 39,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7-360w.webp 360w, /assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7-480w.webp 480w, /assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7-800w.webp 800w, /assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7.jpg 1000w"
+  },
+  "assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_6.jpg": {
+    "src": "/assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_6.jpg",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 118,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_6-360w.webp",
+        "sizeKb": 9,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_6-480w.webp",
+        "sizeKb": 14,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_6-800w.webp",
+        "sizeKb": 32,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_6-360w.webp 360w, /assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_6-480w.webp 480w, /assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_6-800w.webp 800w, /assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_6.jpg 1000w"
+  },
+  "assets/portfolio/full/gearExpert_2-www.webp": {
+    "src": "/assets/portfolio/full/gearExpert_2-www.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 33,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/gearExpert_2-www-360w.webp",
+        "sizeKb": 5,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/gearExpert_2-www-480w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/gearExpert_2-www-800w.webp",
+        "sizeKb": 15,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/gearExpert_2-www-360w.webp 360w, /assets/portfolio/full/gearExpert_2-www-480w.webp 480w, /assets/portfolio/full/gearExpert_2-www-800w.webp 800w, /assets/portfolio/full/gearExpert_2-www.webp 1000w"
+  },
+  "assets/portfolio/gearexpert/gearExpert_4-www.jpg": {
+    "src": "/assets/portfolio/gearexpert/gearExpert_4-www.jpg",
+    "width": 1000,
+    "height": 563,
+    "aspectRatio": 1.7762,
+    "isVertical": false,
+    "sizeKb": 95,
+    "variants": [
+      {
+        "width": 360,
+        "height": 203,
+        "src": "/assets/portfolio/gearexpert/gearExpert_4-www-360w.webp",
+        "sizeKb": 6,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/assets/portfolio/gearexpert/gearExpert_4-www-480w.webp",
+        "sizeKb": 8,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 450,
+        "src": "/assets/portfolio/gearexpert/gearExpert_4-www-800w.webp",
+        "sizeKb": 17,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/gearexpert/gearExpert_4-www-360w.webp 360w, /assets/portfolio/gearexpert/gearExpert_4-www-480w.webp 480w, /assets/portfolio/gearexpert/gearExpert_4-www-800w.webp 800w, /assets/portfolio/gearexpert/gearExpert_4-www.jpg 1000w"
+  },
+  "assets/portfolio/gearexpert/gearExpert_1-www.jpg": {
+    "src": "/assets/portfolio/gearexpert/gearExpert_1-www.jpg",
+    "width": 1000,
+    "height": 563,
+    "aspectRatio": 1.7762,
+    "isVertical": false,
+    "sizeKb": 86,
+    "variants": [
+      {
+        "width": 360,
+        "height": 203,
+        "src": "/assets/portfolio/gearexpert/gearExpert_1-www-360w.webp",
+        "sizeKb": 3,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/assets/portfolio/gearexpert/gearExpert_1-www-480w.webp",
+        "sizeKb": 5,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 450,
+        "src": "/assets/portfolio/gearexpert/gearExpert_1-www-800w.webp",
+        "sizeKb": 10,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/gearexpert/gearExpert_1-www-360w.webp 360w, /assets/portfolio/gearexpert/gearExpert_1-www-480w.webp 480w, /assets/portfolio/gearexpert/gearExpert_1-www-800w.webp 800w, /assets/portfolio/gearexpert/gearExpert_1-www.jpg 1000w"
+  },
+  "assets/portfolio/hiker.webp": {
+    "src": "/assets/portfolio/hiker.webp",
+    "width": 1400,
+    "height": 920,
+    "aspectRatio": 1.5217,
+    "isVertical": false,
+    "sizeKb": 74,
+    "variants": [
+      {
+        "width": 360,
+        "height": 237,
+        "src": "/assets/portfolio/hiker-360w.webp",
+        "sizeKb": 10,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 315,
+        "src": "/assets/portfolio/hiker-480w.webp",
+        "sizeKb": 15,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 526,
+        "src": "/assets/portfolio/hiker-800w.webp",
+        "sizeKb": 28,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 789,
+        "src": "/assets/portfolio/hiker-1200w.webp",
+        "sizeKb": 47,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/hiker-360w.webp 360w, /assets/portfolio/hiker-480w.webp 480w, /assets/portfolio/hiker-800w.webp 800w, /assets/portfolio/hiker-1200w.webp 1200w, /assets/portfolio/hiker.webp 1400w"
+  },
+  "assets/portfolio/hiker/Hiker_construction.webp": {
+    "src": "/assets/portfolio/hiker/Hiker_construction.webp",
+    "width": 1400,
+    "height": 800,
+    "aspectRatio": 1.75,
+    "isVertical": false,
+    "sizeKb": 91,
+    "variants": [
+      {
+        "width": 360,
+        "height": 206,
+        "src": "/assets/portfolio/hiker/Hiker_construction-360w.webp",
+        "sizeKb": 15,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 274,
+        "src": "/assets/portfolio/hiker/Hiker_construction-480w.webp",
+        "sizeKb": 22,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 457,
+        "src": "/assets/portfolio/hiker/Hiker_construction-800w.webp",
+        "sizeKb": 41,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 686,
+        "src": "/assets/portfolio/hiker/Hiker_construction-1200w.webp",
+        "sizeKb": 62,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/hiker/Hiker_construction-360w.webp 360w, /assets/portfolio/hiker/Hiker_construction-480w.webp 480w, /assets/portfolio/hiker/Hiker_construction-800w.webp 800w, /assets/portfolio/hiker/Hiker_construction-1200w.webp 1200w, /assets/portfolio/hiker/Hiker_construction.webp 1400w"
+  },
+  "assets/portfolio/hiker/Hiker_brand.webp": {
+    "src": "/assets/portfolio/hiker/Hiker_brand.webp",
+    "width": 1400,
+    "height": 800,
+    "aspectRatio": 1.75,
+    "isVertical": false,
+    "sizeKb": 74,
+    "variants": [
+      {
+        "width": 360,
+        "height": 206,
+        "src": "/assets/portfolio/hiker/Hiker_brand-360w.webp",
+        "sizeKb": 8,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 274,
+        "src": "/assets/portfolio/hiker/Hiker_brand-480w.webp",
+        "sizeKb": 11,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 457,
+        "src": "/assets/portfolio/hiker/Hiker_brand-800w.webp",
+        "sizeKb": 21,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 686,
+        "src": "/assets/portfolio/hiker/Hiker_brand-1200w.webp",
+        "sizeKb": 35,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/hiker/Hiker_brand-360w.webp 360w, /assets/portfolio/hiker/Hiker_brand-480w.webp 480w, /assets/portfolio/hiker/Hiker_brand-800w.webp 800w, /assets/portfolio/hiker/Hiker_brand-1200w.webp 1200w, /assets/portfolio/hiker/Hiker_brand.webp 1400w"
+  },
+  "assets/portfolio/hiker/Hiker_mokups.webp": {
+    "src": "/assets/portfolio/hiker/Hiker_mokups.webp",
+    "width": 1400,
+    "height": 800,
+    "aspectRatio": 1.75,
+    "isVertical": false,
+    "sizeKb": 158,
+    "variants": [
+      {
+        "width": 360,
+        "height": 206,
+        "src": "/assets/portfolio/hiker/Hiker_mokups-360w.webp",
+        "sizeKb": 18,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 274,
+        "src": "/assets/portfolio/hiker/Hiker_mokups-480w.webp",
+        "sizeKb": 28,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 457,
+        "src": "/assets/portfolio/hiker/Hiker_mokups-800w.webp",
+        "sizeKb": 59,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 686,
+        "src": "/assets/portfolio/hiker/Hiker_mokups-1200w.webp",
+        "sizeKb": 102,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/hiker/Hiker_mokups-360w.webp 360w, /assets/portfolio/hiker/Hiker_mokups-480w.webp 480w, /assets/portfolio/hiker/Hiker_mokups-800w.webp 800w, /assets/portfolio/hiker/Hiker_mokups-1200w.webp 1200w, /assets/portfolio/hiker/Hiker_mokups.webp 1400w"
+  },
+  "assets/portfolio/hiker/Hiker_www.webp": {
+    "src": "/assets/portfolio/hiker/Hiker_www.webp",
+    "width": 1400,
+    "height": 785,
+    "aspectRatio": 1.7834,
+    "isVertical": false,
+    "sizeKb": 66,
+    "variants": [
+      {
+        "width": 360,
+        "height": 202,
+        "src": "/assets/portfolio/hiker/Hiker_www-360w.webp",
+        "sizeKb": 11,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 269,
+        "src": "/assets/portfolio/hiker/Hiker_www-480w.webp",
+        "sizeKb": 15,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 449,
+        "src": "/assets/portfolio/hiker/Hiker_www-800w.webp",
+        "sizeKb": 29,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 673,
+        "src": "/assets/portfolio/hiker/Hiker_www-1200w.webp",
+        "sizeKb": 46,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/hiker/Hiker_www-360w.webp 360w, /assets/portfolio/hiker/Hiker_www-480w.webp 480w, /assets/portfolio/hiker/Hiker_www-800w.webp 800w, /assets/portfolio/hiker/Hiker_www-1200w.webp 1200w, /assets/portfolio/hiker/Hiker_www.webp 1400w"
+  },
+  "assets/portfolio/full/screen_site-1000x700-1.webp": {
+    "src": "/assets/portfolio/full/screen_site-1000x700-1.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 64,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/screen_site-1000x700-1-360w.webp",
+        "sizeKb": 11,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/screen_site-1000x700-1-480w.webp",
+        "sizeKb": 16,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/screen_site-1000x700-1-800w.webp",
+        "sizeKb": 31,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/screen_site-1000x700-1-360w.webp 360w, /assets/portfolio/full/screen_site-1000x700-1-480w.webp 480w, /assets/portfolio/full/screen_site-1000x700-1-800w.webp 800w, /assets/portfolio/full/screen_site-1000x700-1.webp 1000w"
+  },
+  "assets/portfolio/ja-i-moj-biznes/site-4.jpg": {
+    "src": "/assets/portfolio/ja-i-moj-biznes/site-4.jpg",
+    "width": 476,
+    "height": 2048,
+    "aspectRatio": 0.2324,
+    "isVertical": true,
+    "sizeKb": 131,
+    "variants": [
+      {
+        "width": 360,
+        "height": 1549,
+        "src": "/assets/portfolio/ja-i-moj-biznes/site-4-360w.webp",
+        "sizeKb": 55,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/ja-i-moj-biznes/site-4-360w.webp 360w, /assets/portfolio/ja-i-moj-biznes/site-4.jpg 476w"
+  },
+  "assets/portfolio/jd-ubezpieczenia.webp": {
+    "src": "/assets/portfolio/jd-ubezpieczenia.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 19,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/jd-ubezpieczenia-360w.webp",
+        "sizeKb": 5,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/jd-ubezpieczenia-480w.webp",
+        "sizeKb": 6,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/jd-ubezpieczenia-800w.webp",
+        "sizeKb": 10,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/jd-ubezpieczenia-360w.webp 360w, /assets/portfolio/jd-ubezpieczenia-480w.webp 480w, /assets/portfolio/jd-ubezpieczenia-800w.webp 800w, /assets/portfolio/jd-ubezpieczenia.webp 1000w"
+  },
+  "assets/portfolio/jd-ubezpieczenia/Mock-up_Id_1_www.jpg": {
+    "src": "/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_1_www.jpg",
+    "width": 1024,
+    "height": 576,
+    "aspectRatio": 1.7778,
+    "isVertical": false,
+    "sizeKb": 77,
+    "variants": [
+      {
+        "width": 360,
+        "height": 203,
+        "src": "/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_1_www-360w.webp",
+        "sizeKb": 5,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_1_www-480w.webp",
+        "sizeKb": 8,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 450,
+        "src": "/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_1_www-800w.webp",
+        "sizeKb": 17,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_1_www-360w.webp 360w, /assets/portfolio/jd-ubezpieczenia/Mock-up_Id_1_www-480w.webp 480w, /assets/portfolio/jd-ubezpieczenia/Mock-up_Id_1_www-800w.webp 800w, /assets/portfolio/jd-ubezpieczenia/Mock-up_Id_1_www.jpg 1024w"
+  },
+  "assets/portfolio/jd-ubezpieczenia/Mock-up_Id_3_www.jpg": {
+    "src": "/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_3_www.jpg",
+    "width": 1024,
+    "height": 576,
+    "aspectRatio": 1.7778,
+    "isVertical": false,
+    "sizeKb": 68,
+    "variants": [
+      {
+        "width": 360,
+        "height": 203,
+        "src": "/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_3_www-360w.webp",
+        "sizeKb": 4,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_3_www-480w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 450,
+        "src": "/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_3_www-800w.webp",
+        "sizeKb": 14,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_3_www-360w.webp 360w, /assets/portfolio/jd-ubezpieczenia/Mock-up_Id_3_www-480w.webp 480w, /assets/portfolio/jd-ubezpieczenia/Mock-up_Id_3_www-800w.webp 800w, /assets/portfolio/jd-ubezpieczenia/Mock-up_Id_3_www.jpg 1024w"
+  },
+  "assets/portfolio/full/kancelaria-lampa.webp": {
+    "src": "/assets/portfolio/full/kancelaria-lampa.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 44,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/kancelaria-lampa-360w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/kancelaria-lampa-480w.webp",
+        "sizeKb": 10,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/kancelaria-lampa-800w.webp",
+        "sizeKb": 19,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/kancelaria-lampa-360w.webp 360w, /assets/portfolio/full/kancelaria-lampa-480w.webp 480w, /assets/portfolio/full/kancelaria-lampa-800w.webp 800w, /assets/portfolio/full/kancelaria-lampa.webp 1000w"
+  },
+  "assets/portfolio/kancelaria-lampa/logo-www.jpg": {
+    "src": "/assets/portfolio/kancelaria-lampa/logo-www.jpg",
+    "width": 880,
+    "height": 550,
+    "aspectRatio": 1.6,
+    "isVertical": false,
+    "sizeKb": 80,
+    "variants": [
+      {
+        "width": 360,
+        "height": 225,
+        "src": "/assets/portfolio/kancelaria-lampa/logo-www-360w.webp",
+        "sizeKb": 12,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 300,
+        "src": "/assets/portfolio/kancelaria-lampa/logo-www-480w.webp",
+        "sizeKb": 22,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 500,
+        "src": "/assets/portfolio/kancelaria-lampa/logo-www-800w.webp",
+        "sizeKb": 55,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/kancelaria-lampa/logo-www-360w.webp 360w, /assets/portfolio/kancelaria-lampa/logo-www-480w.webp 480w, /assets/portfolio/kancelaria-lampa/logo-www-800w.webp 800w, /assets/portfolio/kancelaria-lampa/logo-www.jpg 880w"
+  },
+  "assets/portfolio/kancelaria-lampa/branding-www.jpg": {
+    "src": "/assets/portfolio/kancelaria-lampa/branding-www.jpg",
+    "width": 880,
+    "height": 654,
+    "aspectRatio": 1.3456,
+    "isVertical": false,
+    "sizeKb": 72,
+    "variants": [
+      {
+        "width": 360,
+        "height": 268,
+        "src": "/assets/portfolio/kancelaria-lampa/branding-www-360w.webp",
+        "sizeKb": 12,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 357,
+        "src": "/assets/portfolio/kancelaria-lampa/branding-www-480w.webp",
+        "sizeKb": 18,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 595,
+        "src": "/assets/portfolio/kancelaria-lampa/branding-www-800w.webp",
+        "sizeKb": 38,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/kancelaria-lampa/branding-www-360w.webp 360w, /assets/portfolio/kancelaria-lampa/branding-www-480w.webp 480w, /assets/portfolio/kancelaria-lampa/branding-www-800w.webp 800w, /assets/portfolio/kancelaria-lampa/branding-www.jpg 880w"
+  },
+  "assets/portfolio/full/Mockup_Brochure_21x21_1.webp": {
+    "src": "/assets/portfolio/full/Mockup_Brochure_21x21_1.webp",
+    "width": 1750,
+    "height": 1750,
+    "aspectRatio": 1,
+    "isVertical": false,
+    "sizeKb": 105,
+    "variants": [
+      {
+        "width": 360,
+        "height": 360,
+        "src": "/assets/portfolio/full/Mockup_Brochure_21x21_1-360w.webp",
+        "sizeKb": 10,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/assets/portfolio/full/Mockup_Brochure_21x21_1-480w.webp",
+        "sizeKb": 15,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "src": "/assets/portfolio/full/Mockup_Brochure_21x21_1-800w.webp",
+        "sizeKb": 32,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 1200,
+        "src": "/assets/portfolio/full/Mockup_Brochure_21x21_1-1200w.webp",
+        "sizeKb": 56,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/Mockup_Brochure_21x21_1-360w.webp 360w, /assets/portfolio/full/Mockup_Brochure_21x21_1-480w.webp 480w, /assets/portfolio/full/Mockup_Brochure_21x21_1-800w.webp 800w, /assets/portfolio/full/Mockup_Brochure_21x21_1-1200w.webp 1200w, /assets/portfolio/full/Mockup_Brochure_21x21_1.webp 1750w"
+  },
+  "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2.webp": {
+    "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2.webp",
+    "width": 1750,
+    "height": 1750,
+    "aspectRatio": 1,
+    "isVertical": false,
+    "sizeKb": 95,
+    "variants": [
+      {
+        "width": 360,
+        "height": 360,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-360w.webp",
+        "sizeKb": 9,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-480w.webp",
+        "sizeKb": 13,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 800,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-800w.webp",
+        "sizeKb": 27,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 1200,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-1200w.webp",
+        "sizeKb": 48,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-360w.webp 360w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-480w.webp 480w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-800w.webp 800w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-1200w.webp 1200w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2.webp 1750w"
+  },
+  "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4.webp": {
+    "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4.webp",
+    "width": 2266,
+    "height": 1750,
+    "aspectRatio": 1.2949,
+    "isVertical": false,
+    "sizeKb": 126,
+    "variants": [
+      {
+        "width": 360,
+        "height": 278,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4-360w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 371,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4-480w.webp",
+        "sizeKb": 11,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 618,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4-800w.webp",
+        "sizeKb": 23,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 927,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4-1200w.webp",
+        "sizeKb": 41,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4-360w.webp 360w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4-480w.webp 480w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4-800w.webp 800w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4-1200w.webp 1200w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4.webp 2266w"
+  },
+  "assets/portfolio/full/Drewmar-katalog_1-1.webp": {
+    "src": "/assets/portfolio/full/Drewmar-katalog_1-1.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 44,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/Drewmar-katalog_1-1-360w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/Drewmar-katalog_1-1-480w.webp",
+        "sizeKb": 10,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/Drewmar-katalog_1-1-800w.webp",
+        "sizeKb": 20,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/Drewmar-katalog_1-1-360w.webp 360w, /assets/portfolio/full/Drewmar-katalog_1-1-480w.webp 480w, /assets/portfolio/full/Drewmar-katalog_1-1-800w.webp 800w, /assets/portfolio/full/Drewmar-katalog_1-1.webp 1000w"
+  },
+  "assets/portfolio/katalog-drewmar/Drewmar-katalog_2.jpg": {
+    "src": "/assets/portfolio/katalog-drewmar/Drewmar-katalog_2.jpg",
+    "width": 1000,
+    "height": 667,
+    "aspectRatio": 1.4993,
+    "isVertical": false,
+    "sizeKb": 134,
+    "variants": [
+      {
+        "width": 360,
+        "height": 240,
+        "src": "/assets/portfolio/katalog-drewmar/Drewmar-katalog_2-360w.webp",
+        "sizeKb": 10,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 320,
+        "src": "/assets/portfolio/katalog-drewmar/Drewmar-katalog_2-480w.webp",
+        "sizeKb": 15,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 534,
+        "src": "/assets/portfolio/katalog-drewmar/Drewmar-katalog_2-800w.webp",
+        "sizeKb": 34,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/katalog-drewmar/Drewmar-katalog_2-360w.webp 360w, /assets/portfolio/katalog-drewmar/Drewmar-katalog_2-480w.webp 480w, /assets/portfolio/katalog-drewmar/Drewmar-katalog_2-800w.webp 800w, /assets/portfolio/katalog-drewmar/Drewmar-katalog_2.jpg 1000w"
+  },
+  "assets/portfolio/katalog-drewmar/Drewmar-katalog_5.jpg": {
+    "src": "/assets/portfolio/katalog-drewmar/Drewmar-katalog_5.jpg",
+    "width": 1000,
+    "height": 727,
+    "aspectRatio": 1.3755,
+    "isVertical": false,
+    "sizeKb": 127,
+    "variants": [
+      {
+        "width": 360,
+        "height": 262,
+        "src": "/assets/portfolio/katalog-drewmar/Drewmar-katalog_5-360w.webp",
+        "sizeKb": 8,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 349,
+        "src": "/assets/portfolio/katalog-drewmar/Drewmar-katalog_5-480w.webp",
+        "sizeKb": 13,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 582,
+        "src": "/assets/portfolio/katalog-drewmar/Drewmar-katalog_5-800w.webp",
+        "sizeKb": 30,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/katalog-drewmar/Drewmar-katalog_5-360w.webp 360w, /assets/portfolio/katalog-drewmar/Drewmar-katalog_5-480w.webp 480w, /assets/portfolio/katalog-drewmar/Drewmar-katalog_5-800w.webp 800w, /assets/portfolio/katalog-drewmar/Drewmar-katalog_5.jpg 1000w"
+  },
+  "assets/portfolio/full/katalog-Drewmar_1_www.jpg": {
+    "src": "/assets/portfolio/full/katalog-Drewmar_1_www.jpg",
+    "width": 1000,
+    "height": 636,
+    "aspectRatio": 1.5723,
+    "isVertical": false,
+    "sizeKb": 55,
+    "variants": [
+      {
+        "width": 360,
+        "height": 229,
+        "src": "/assets/portfolio/full/katalog-Drewmar_1_www-360w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 305,
+        "src": "/assets/portfolio/full/katalog-Drewmar_1_www-480w.webp",
+        "sizeKb": 12,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 509,
+        "src": "/assets/portfolio/full/katalog-Drewmar_1_www-800w.webp",
+        "sizeKb": 28,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/katalog-Drewmar_1_www-360w.webp 360w, /assets/portfolio/full/katalog-Drewmar_1_www-480w.webp 480w, /assets/portfolio/full/katalog-Drewmar_1_www-800w.webp 800w, /assets/portfolio/full/katalog-Drewmar_1_www.jpg 1000w"
+  },
+  "assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www.jpg": {
+    "src": "/assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www.jpg",
+    "width": 1000,
+    "height": 682,
+    "aspectRatio": 1.4663,
+    "isVertical": false,
+    "sizeKb": 68,
+    "variants": [
+      {
+        "width": 360,
+        "height": 246,
+        "src": "/assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www-360w.webp",
+        "sizeKb": 9,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 327,
+        "src": "/assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www-480w.webp",
+        "sizeKb": 14,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 546,
+        "src": "/assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www-800w.webp",
+        "sizeKb": 34,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www-360w.webp 360w, /assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www-480w.webp 480w, /assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www-800w.webp 800w, /assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www.jpg 1000w"
+  },
+  "assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_3_www.jpg": {
+    "src": "/assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_3_www.jpg",
+    "width": 1000,
+    "height": 636,
+    "aspectRatio": 1.5723,
+    "isVertical": false,
+    "sizeKb": 55,
+    "variants": [
+      {
+        "width": 360,
+        "height": 229,
+        "src": "/assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_3_www-360w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 305,
+        "src": "/assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_3_www-480w.webp",
+        "sizeKb": 12,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 509,
+        "src": "/assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_3_www-800w.webp",
+        "sizeKb": 28,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_3_www-360w.webp 360w, /assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_3_www-480w.webp 480w, /assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_3_www-800w.webp 800w, /assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_3_www.jpg 1000w"
+  },
+  "assets/portfolio/full/screenshot-montessori.webp": {
+    "src": "/assets/portfolio/full/screenshot-montessori.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 99,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/screenshot-montessori-360w.webp",
+        "sizeKb": 16,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/screenshot-montessori-480w.webp",
+        "sizeKb": 24,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/screenshot-montessori-800w.webp",
+        "sizeKb": 45,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/screenshot-montessori-360w.webp 360w, /assets/portfolio/full/screenshot-montessori-480w.webp 480w, /assets/portfolio/full/screenshot-montessori-800w.webp 800w, /assets/portfolio/full/screenshot-montessori.webp 1000w"
+  },
+  "assets/portfolio/full/mpec-przemysl.webp": {
+    "src": "/assets/portfolio/full/mpec-przemysl.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 84,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/mpec-przemysl-360w.webp",
+        "sizeKb": 13,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/mpec-przemysl-480w.webp",
+        "sizeKb": 20,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/mpec-przemysl-800w.webp",
+        "sizeKb": 39,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/mpec-przemysl-360w.webp 360w, /assets/portfolio/full/mpec-przemysl-480w.webp 480w, /assets/portfolio/full/mpec-przemysl-800w.webp 800w, /assets/portfolio/full/mpec-przemysl.webp 1000w"
+  },
+  "assets/portfolio/mpec-przemysl/mpec_800x600-www.jpg": {
+    "src": "/assets/portfolio/mpec-przemysl/mpec_800x600-www.jpg",
+    "width": 800,
+    "height": 600,
+    "aspectRatio": 1.3333,
+    "isVertical": false,
+    "sizeKb": 41,
+    "variants": [
+      {
+        "width": 360,
+        "height": 270,
+        "src": "/assets/portfolio/mpec-przemysl/mpec_800x600-www-360w.webp",
+        "sizeKb": 4,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/assets/portfolio/mpec-przemysl/mpec_800x600-www-480w.webp",
+        "sizeKb": 5,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/mpec-przemysl/mpec_800x600-www-360w.webp 360w, /assets/portfolio/mpec-przemysl/mpec_800x600-www-480w.webp 480w, /assets/portfolio/mpec-przemysl/mpec_800x600-www.jpg 800w"
+  },
+  "assets/portfolio/mpec-przemysl/branding-www-1.jpg": {
+    "src": "/assets/portfolio/mpec-przemysl/branding-www-1.jpg",
+    "width": 880,
+    "height": 608,
+    "aspectRatio": 1.4474,
+    "isVertical": false,
+    "sizeKb": 116,
+    "variants": [
+      {
+        "width": 360,
+        "height": 249,
+        "src": "/assets/portfolio/mpec-przemysl/branding-www-1-360w.webp",
+        "sizeKb": 23,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 332,
+        "src": "/assets/portfolio/mpec-przemysl/branding-www-1-480w.webp",
+        "sizeKb": 38,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 553,
+        "src": "/assets/portfolio/mpec-przemysl/branding-www-1-800w.webp",
+        "sizeKb": 83,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/mpec-przemysl/branding-www-1-360w.webp 360w, /assets/portfolio/mpec-przemysl/branding-www-1-480w.webp 480w, /assets/portfolio/mpec-przemysl/branding-www-1-800w.webp 800w, /assets/portfolio/mpec-przemysl/branding-www-1.jpg 880w"
+  },
+  "assets/portfolio/full/Piworob_logo-1.webp": {
+    "src": "/assets/portfolio/full/Piworob_logo-1.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 65,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/Piworob_logo-1-360w.webp",
+        "sizeKb": 14,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/Piworob_logo-1-480w.webp",
+        "sizeKb": 23,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/Piworob_logo-1-800w.webp",
+        "sizeKb": 51,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/Piworob_logo-1-360w.webp 360w, /assets/portfolio/full/Piworob_logo-1-480w.webp 480w, /assets/portfolio/full/Piworob_logo-1-800w.webp 800w, /assets/portfolio/full/Piworob_logo-1.webp 1000w"
+  },
+  "assets/portfolio/piworob/piworob_1.jpg": {
+    "src": "/assets/portfolio/piworob/piworob_1.jpg",
+    "width": 1000,
+    "height": 643,
+    "aspectRatio": 1.5552,
+    "isVertical": false,
+    "sizeKb": 226,
+    "variants": [
+      {
+        "width": 360,
+        "height": 231,
+        "src": "/assets/portfolio/piworob/piworob_1-360w.webp",
+        "sizeKb": 18,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 309,
+        "src": "/assets/portfolio/piworob/piworob_1-480w.webp",
+        "sizeKb": 31,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 514,
+        "src": "/assets/portfolio/piworob/piworob_1-800w.webp",
+        "sizeKb": 89,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/piworob/piworob_1-360w.webp 360w, /assets/portfolio/piworob/piworob_1-480w.webp 480w, /assets/portfolio/piworob/piworob_1-800w.webp 800w, /assets/portfolio/piworob/piworob_1.jpg 1000w"
+  },
+  "assets/portfolio/piworob/piworob_3.jpg": {
+    "src": "/assets/portfolio/piworob/piworob_3.jpg",
+    "width": 1000,
+    "height": 696,
+    "aspectRatio": 1.4368,
+    "isVertical": false,
+    "sizeKb": 367,
+    "variants": [
+      {
+        "width": 360,
+        "height": 251,
+        "src": "/assets/portfolio/piworob/piworob_3-360w.webp",
+        "sizeKb": 18,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 334,
+        "src": "/assets/portfolio/piworob/piworob_3-480w.webp",
+        "sizeKb": 35,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 557,
+        "src": "/assets/portfolio/piworob/piworob_3-800w.webp",
+        "sizeKb": 105,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/piworob/piworob_3-360w.webp 360w, /assets/portfolio/piworob/piworob_3-480w.webp 480w, /assets/portfolio/piworob/piworob_3-800w.webp 800w, /assets/portfolio/piworob/piworob_3.jpg 1000w"
+  },
+  "assets/portfolio/full/pobudka_01-www_1000x700.webp": {
+    "src": "/assets/portfolio/full/pobudka_01-www_1000x700.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 177,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/pobudka_01-www_1000x700-360w.webp",
+        "sizeKb": 24,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/pobudka_01-www_1000x700-480w.webp",
+        "sizeKb": 38,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/pobudka_01-www_1000x700-800w.webp",
+        "sizeKb": 82,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/pobudka_01-www_1000x700-360w.webp 360w, /assets/portfolio/full/pobudka_01-www_1000x700-480w.webp 480w, /assets/portfolio/full/pobudka_01-www_1000x700-800w.webp 800w, /assets/portfolio/full/pobudka_01-www_1000x700.webp 1000w"
+  },
+  "assets/portfolio/full/self-invest.webp": {
+    "src": "/assets/portfolio/full/self-invest.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 15,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/self-invest-360w.webp",
+        "sizeKb": 4,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/self-invest-480w.webp",
+        "sizeKb": 6,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/self-invest-800w.webp",
+        "sizeKb": 8,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/self-invest-360w.webp 360w, /assets/portfolio/full/self-invest-480w.webp 480w, /assets/portfolio/full/self-invest-800w.webp 800w, /assets/portfolio/full/self-invest.webp 1000w"
+  },
+  "assets/portfolio/self-invest/branding_1000x700.webp": {
+    "src": "/assets/portfolio/self-invest/branding_1000x700.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 53,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/self-invest/branding_1000x700-360w.webp",
+        "sizeKb": 10,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/self-invest/branding_1000x700-480w.webp",
+        "sizeKb": 15,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/self-invest/branding_1000x700-800w.webp",
+        "sizeKb": 30,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/self-invest/branding_1000x700-360w.webp 360w, /assets/portfolio/self-invest/branding_1000x700-480w.webp 480w, /assets/portfolio/self-invest/branding_1000x700-800w.webp 800w, /assets/portfolio/self-invest/branding_1000x700.webp 1000w"
+  },
+  "assets/portfolio/self-invest/self_invest_ksiega_znaku_2.jpg": {
+    "src": "/assets/portfolio/self-invest/self_invest_ksiega_znaku_2.jpg",
+    "width": 880,
+    "height": 654,
+    "aspectRatio": 1.3456,
+    "isVertical": false,
+    "sizeKb": 89,
+    "variants": [
+      {
+        "width": 360,
+        "height": 268,
+        "src": "/assets/portfolio/self-invest/self_invest_ksiega_znaku_2-360w.webp",
+        "sizeKb": 12,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 357,
+        "src": "/assets/portfolio/self-invest/self_invest_ksiega_znaku_2-480w.webp",
+        "sizeKb": 17,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 595,
+        "src": "/assets/portfolio/self-invest/self_invest_ksiega_znaku_2-800w.webp",
+        "sizeKb": 33,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/self-invest/self_invest_ksiega_znaku_2-360w.webp 360w, /assets/portfolio/self-invest/self_invest_ksiega_znaku_2-480w.webp 480w, /assets/portfolio/self-invest/self_invest_ksiega_znaku_2-800w.webp 800w, /assets/portfolio/self-invest/self_invest_ksiega_znaku_2.jpg 880w"
+  },
+  "assets/portfolio/szkola-best.png": {
+    "src": "/assets/portfolio/szkola-best.png",
+    "width": 1902,
+    "height": 1080,
+    "aspectRatio": 1.7611,
+    "isVertical": false,
+    "sizeKb": 1625,
+    "variants": [
+      {
+        "width": 360,
+        "height": 204,
+        "src": "/assets/portfolio/szkola-best-360w.webp",
+        "sizeKb": 8,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 273,
+        "src": "/assets/portfolio/szkola-best-480w.webp",
+        "sizeKb": 12,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 454,
+        "src": "/assets/portfolio/szkola-best-800w.webp",
+        "sizeKb": 25,
+        "format": "webp"
+      },
+      {
+        "width": 1200,
+        "height": 681,
+        "src": "/assets/portfolio/szkola-best-1200w.webp",
+        "sizeKb": 44,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/szkola-best-360w.webp 360w, /assets/portfolio/szkola-best-480w.webp 480w, /assets/portfolio/szkola-best-800w.webp 800w, /assets/portfolio/szkola-best-1200w.webp 1200w, /assets/portfolio/szkola-best.png 1902w"
+  },
+  "assets/portfolio/full/te-solutions.webp": {
+    "src": "/assets/portfolio/full/te-solutions.webp",
+    "width": 1000,
+    "height": 700,
+    "aspectRatio": 1.4286,
+    "isVertical": false,
+    "sizeKb": 27,
+    "variants": [
+      {
+        "width": 360,
+        "height": 252,
+        "src": "/assets/portfolio/full/te-solutions-360w.webp",
+        "sizeKb": 3,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 336,
+        "src": "/assets/portfolio/full/te-solutions-480w.webp",
+        "sizeKb": 5,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 560,
+        "src": "/assets/portfolio/full/te-solutions-800w.webp",
+        "sizeKb": 9,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/te-solutions-360w.webp 360w, /assets/portfolio/full/te-solutions-480w.webp 480w, /assets/portfolio/full/te-solutions-800w.webp 800w, /assets/portfolio/full/te-solutions.webp 1000w"
+  },
+  "assets/portfolio/te-solutions/te_solutions-www.jpg": {
+    "src": "/assets/portfolio/te-solutions/te_solutions-www.jpg",
+    "width": 801,
+    "height": 601,
+    "aspectRatio": 1.3328,
+    "isVertical": false,
+    "sizeKb": 30,
+    "variants": [
+      {
+        "width": 360,
+        "height": 270,
+        "src": "/assets/portfolio/te-solutions/te_solutions-www-360w.webp",
+        "sizeKb": 3,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/assets/portfolio/te-solutions/te_solutions-www-480w.webp",
+        "sizeKb": 5,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/te-solutions/te_solutions-www-360w.webp 360w, /assets/portfolio/te-solutions/te_solutions-www-480w.webp 480w, /assets/portfolio/te-solutions/te_solutions-www.jpg 801w"
+  },
+  "assets/portfolio/te-solutions/Business-card-www.jpg": {
+    "src": "/assets/portfolio/te-solutions/Business-card-www.jpg",
+    "width": 880,
+    "height": 707,
+    "aspectRatio": 1.2447,
+    "isVertical": false,
+    "sizeKb": 73,
+    "variants": [
+      {
+        "width": 360,
+        "height": 289,
+        "src": "/assets/portfolio/te-solutions/Business-card-www-360w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 386,
+        "src": "/assets/portfolio/te-solutions/Business-card-www-480w.webp",
+        "sizeKb": 11,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 643,
+        "src": "/assets/portfolio/te-solutions/Business-card-www-800w.webp",
+        "sizeKb": 26,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/te-solutions/Business-card-www-360w.webp 360w, /assets/portfolio/te-solutions/Business-card-www-480w.webp 480w, /assets/portfolio/te-solutions/Business-card-www-800w.webp 800w, /assets/portfolio/te-solutions/Business-card-www.jpg 880w"
+  },
+  "assets/portfolio/full/unitrans-katalog.jpg": {
+    "src": "/assets/portfolio/full/unitrans-katalog.jpg",
+    "width": 1000,
+    "height": 583,
+    "aspectRatio": 1.7153,
+    "isVertical": false,
+    "sizeKb": 51,
+    "variants": [
+      {
+        "width": 360,
+        "height": 210,
+        "src": "/assets/portfolio/full/unitrans-katalog-360w.webp",
+        "sizeKb": 6,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 280,
+        "src": "/assets/portfolio/full/unitrans-katalog-480w.webp",
+        "sizeKb": 9,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 466,
+        "src": "/assets/portfolio/full/unitrans-katalog-800w.webp",
+        "sizeKb": 17,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/full/unitrans-katalog-360w.webp 360w, /assets/portfolio/full/unitrans-katalog-480w.webp 480w, /assets/portfolio/full/unitrans-katalog-800w.webp 800w, /assets/portfolio/full/unitrans-katalog.jpg 1000w"
+  },
+  "assets/portfolio/unitrans-katalog/UniTrans-www.jpg": {
+    "src": "/assets/portfolio/unitrans-katalog/UniTrans-www.jpg",
+    "width": 1000,
+    "height": 640,
+    "aspectRatio": 1.5625,
+    "isVertical": false,
+    "sizeKb": 185,
+    "variants": [
+      {
+        "width": 360,
+        "height": 230,
+        "src": "/assets/portfolio/unitrans-katalog/UniTrans-www-360w.webp",
+        "sizeKb": 15,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 307,
+        "src": "/assets/portfolio/unitrans-katalog/UniTrans-www-480w.webp",
+        "sizeKb": 30,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 512,
+        "src": "/assets/portfolio/unitrans-katalog/UniTrans-www-800w.webp",
+        "sizeKb": 101,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/unitrans-katalog/UniTrans-www-360w.webp 360w, /assets/portfolio/unitrans-katalog/UniTrans-www-480w.webp 480w, /assets/portfolio/unitrans-katalog/UniTrans-www-800w.webp 800w, /assets/portfolio/unitrans-katalog/UniTrans-www.jpg 1000w"
+  },
+  "assets/portfolio/unitrans-katalog/Mockup_Rollup_side_120x200-www.jpg": {
+    "src": "/assets/portfolio/unitrans-katalog/Mockup_Rollup_side_120x200-www.jpg",
+    "width": 1000,
+    "height": 1563,
+    "aspectRatio": 0.6398,
+    "isVertical": true,
+    "sizeKb": 155,
+    "variants": [
+      {
+        "width": 360,
+        "height": 563,
+        "src": "/assets/portfolio/unitrans-katalog/Mockup_Rollup_side_120x200-www-360w.webp",
+        "sizeKb": 16,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 750,
+        "src": "/assets/portfolio/unitrans-katalog/Mockup_Rollup_side_120x200-www-480w.webp",
+        "sizeKb": 25,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 1250,
+        "src": "/assets/portfolio/unitrans-katalog/Mockup_Rollup_side_120x200-www-800w.webp",
+        "sizeKb": 53,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/unitrans-katalog/Mockup_Rollup_side_120x200-www-360w.webp 360w, /assets/portfolio/unitrans-katalog/Mockup_Rollup_side_120x200-www-480w.webp 480w, /assets/portfolio/unitrans-katalog/Mockup_Rollup_side_120x200-www-800w.webp 800w, /assets/portfolio/unitrans-katalog/Mockup_Rollup_side_120x200-www.jpg 1000w"
+  }
+}

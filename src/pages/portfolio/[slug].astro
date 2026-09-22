@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaOrange from '../../components/CtaOrange.astro';
+import imageManifest from '../../data/image-manifest.json';
 
 export async function getStaticPaths() {
   const orderedSlugs = [
@@ -35,12 +36,10 @@ export async function getStaticPaths() {
 const { project, prevProject, nextProject } = Astro.props;
 const p = project.data;
 
-const title = `${p.title} | Grafmen`;
+const title = `${p.title} | Portfolio`;
 const description = p.description;
 const coverSrc = p.cover.startsWith('/') ? p.cover : `/${p.cover}`;
-const ogImage = p.og_image
-  ? (p.og_image.startsWith('/') ? `https://grafmen.com${p.og_image}` : p.og_image)
-  : `https://grafmen.com${coverSrc}`;
+const ogImage = `https://grafmen.com${coverSrc}`;
 
 function fixOrphans(text: string): string {
   if (!text) return text;
@@ -53,28 +52,17 @@ function fixOrphans(text: string): string {
   return result;
 }
 
-import fs from 'node:fs';
-import path from 'node:path';
-
-function getSrcSet(src: string, originalWidth: number = 1400): string {
-  if (!src || src.endsWith('.svg') || src.endsWith('.mp4')) return '';
-  const cleanSrc = src.startsWith('/') ? src : `/${src}`;
-  const lastDot = cleanSrc.lastIndexOf('.');
-  if (lastDot === -1) return '';
-  const basePath = cleanSrc.substring(0, lastDot);
-
-  const variants: string[] = [];
-  const candidateWidths = [480, 800, 1200];
-  for (const w of candidateWidths) {
-    const candidateRel = `${basePath}-${w}w.webp`;
-    const localFile = path.resolve('./public', candidateRel.replace(/^\//, ''));
-    if (fs.existsSync(localFile)) {
-      variants.push(`${encodeURI(candidateRel)} ${w}w`);
-    }
-  }
-  variants.push(`${encodeURI(cleanSrc)} ${originalWidth}w`);
-  return variants.join(', ');
+function getImageInfo(src: string) {
+  if (!src) return null;
+  const clean = src.startsWith('/') ? src.slice(1) : src;
+  const manifest = imageManifest as Record<string, any>;
+  return manifest[clean] || null;
 }
+
+const coverInfo = getImageInfo(p.cover);
+const coverWidth = coverInfo?.width || 1400;
+const coverHeight = coverInfo?.height || 920;
+const coverSrcset = coverInfo?.srcset || '';
 ---
 <BaseLayout title={title} description={description} currentNav="work" bodyClass="service-page" ogImage={ogImage}>
   <Fragment slot="head">
@@ -108,11 +96,11 @@ function getSrcSet(src: string, originalWidth: number = 1400): string {
       <figure class="project-cover home-inner">
         <img
           src={coverSrc}
-          srcset={getSrcSet(coverSrc, 1400)}
+          srcset={coverSrcset || undefined}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 92vw, 1400px"
           alt={p.cover_alt}
-          width="1400"
-          height="920"
+          width={coverWidth}
+          height={coverHeight}
           fetchpriority="high"
           decoding="async"
         />
@@ -157,7 +145,12 @@ function getSrcSet(src: string, originalWidth: number = 1400): string {
             <div class="project-gallery">
               {p.gallery.map((item) => {
                 const itemSrc = item.src.startsWith('/') ? item.src : `/${item.src}`;
-                const isVertical = Boolean(item.height && item.width && (item.height / item.width >= 1.25));
+                const itemInfo = getImageInfo(item.src);
+                const itemWidth = itemInfo?.width || item.width || 1400;
+                const itemHeight = itemInfo?.height || item.height || 920;
+                const itemSrcset = itemInfo?.srcset || '';
+                const isVertical = Boolean(itemInfo?.isVertical ?? (itemHeight && itemWidth && (itemHeight / itemWidth >= 1.25)));
+
                 if (item.type === 'video') {
                   const posterSrc = item.poster ? (item.poster.startsWith('/') ? item.poster : `/${item.poster}`) : undefined;
                   return (
@@ -182,13 +175,13 @@ function getSrcSet(src: string, originalWidth: number = 1400): string {
                   <figure class={isVertical ? 'gallery-item-vertical' : undefined}>
                     <img
                       src={itemSrc}
-                      srcset={getSrcSet(itemSrc, item.width || 1400)}
+                      srcset={itemSrcset || undefined}
                       sizes={isVertical ? "(max-width: 640px) 100vw, 640px" : "(max-width: 640px) 100vw, (max-width: 1024px) 92vw, 1400px"}
                       alt={item.alt}
                       loading="lazy"
                       decoding="async"
-                      width={item.width || 1400}
-                      height={item.height || 920}
+                      width={itemWidth}
+                      height={itemHeight}
                     />
                     {item.caption && <figcaption>{fixOrphans(item.caption)}</figcaption>}
                   </figure>
