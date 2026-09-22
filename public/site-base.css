@@ -212,6 +212,13 @@
     -webkit-mask-composite:source-in;
     mask-composite:intersect;
   }
+  /* When video is active: clip cube-field so it doesn't bleed under the video.
+     The video wrapper occupies clamp(300px,45vw,620px) from the right viewport edge.
+     We retract the cube-field mask so it fades out before reaching the video area. */
+  .has-hero-video .cube-field{
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 4%,#000 calc(100% - clamp(300px,45vw,620px) - 16px),transparent),linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
+    mask-image:linear-gradient(to right,transparent,#000 4%,#000 calc(100% - clamp(300px,45vw,620px) - 16px),transparent),linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
+  }
   /* ── Animated cubes video – right side decoration ── */
   .hero-cubes-video{
     position:absolute;

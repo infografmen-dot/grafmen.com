@@ -116,12 +116,15 @@ const description = "Projektuję strony WWW, branding, materiały reklamowe i mo
         vid.appendChild(mp4Src);
         // Ensure muted and set slow playback rate before loading
         vid.muted = true;
-        vid.playbackRate = 0.75;
+        vid.defaultPlaybackRate = 0.4;
+        vid.playbackRate = 0.4;
         vid.load();
 
-        // Show pause button once video is playing
+        // Show pause button and mark hero as video-active on first play
         vid.addEventListener('playing', function onPlaying() {
           btn.hidden = false;
+          const heroSection = document.getElementById('hero-section');
+          if (heroSection) heroSection.classList.add('has-hero-video');
           vid.removeEventListener('playing', onPlaying);
         }, { once: true });
 
@@ -141,7 +144,7 @@ const description = "Projektuję strony WWW, branding, materiały reklamowe i mo
             btn.setAttribute('aria-pressed', 'true');
             btn.querySelector('svg')?.replaceWith(makeSvgPlay());
           } else {
-            vid.playbackRate = 0.75;
+            vid.playbackRate = 0.4;
             vid.play().catch(() => {});
             btn.setAttribute('aria-label', 'Wstrzymaj animację');
             btn.setAttribute('aria-pressed', 'false');
@@ -178,6 +181,7 @@ const description = "Projektuję strony WWW, branding, materiały reklamowe i mo
             entries.forEach(function (entry) {
               if (!paused) {
                 if (entry.isIntersecting) {
+                  vid.playbackRate = 0.4;
                   vid.play().catch(() => {});
                 } else {
                   vid.pause();
@@ -195,6 +199,7 @@ const description = "Projektuję strony WWW, branding, materiały reklamowe i mo
             if (document.hidden) {
               vid.pause();
             } else {
+              vid.playbackRate = 0.4;
               vid.play().catch(() => {});
             }
           }
