@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/ja-i-moj-biznes/screen_site-1000x700-1.webp",
-      "alt": "Strona WWW Ja i mój biznes",
-      "caption": "Projekt strony głównej z ofertą programów wsparcia biznesu.",
-      "width": 1000,
-      "height": 700
-    },
-    {
       "src": "assets/portfolio/ja-i-moj-biznes/site-4.jpg",
       "alt": "Pełny układ serwisu",
       "caption": "Długi landing page porządkujący poszczególne etapy doradztwa.",
@@ -42,5 +35,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../gazetka-drewmar/index.html",
-  "next_title": "Gazetka Drewmar"
+  "next_title": "Gazetka Drewmar",
+  "missing_gallery_slots": 2
 }

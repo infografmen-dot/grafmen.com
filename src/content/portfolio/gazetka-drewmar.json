@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_8-1.webp",
-      "alt": "Okładka gazetki Drewmar",
-      "caption": "Okładka gazetki promocyjnej z ekspozycją nowości.",
-      "width": 1000,
-      "height": 700
-    },
-    {
       "src": "assets/portfolio/gazetka-drewmar/gazetka_Drewmar_2018_7.jpg",
       "alt": "Rozkładówka z ofertą",
       "caption": "Przejrzysty układ stron z rabatami i zestawami promocyjnymi.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../self-invest/index.html",
-  "next_title": "Self Invest"
+  "next_title": "Self Invest",
+  "missing_gallery_slots": 1
 }

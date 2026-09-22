@@ -50,6 +50,7 @@ const portfolioCollection = defineCollection({
     external_label: z.string().optional(),
     next_url: z.string(),
     next_title: z.string(),
+    missing_gallery_slots: z.number().optional(),
   }),
 });
 

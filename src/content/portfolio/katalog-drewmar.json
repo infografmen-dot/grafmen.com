@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/katalog-drewmar/Drewmar-katalog_1-1.webp",
-      "alt": "Okładka katalogu Drewmar",
-      "caption": "Okładka katalogu produktów firmy Drewmar.",
-      "width": 1000,
-      "height": 700
-    },
-    {
       "src": "assets/portfolio/katalog-drewmar/Drewmar-katalog_2.jpg",
       "alt": "Strony wewnętrzne katalogu",
       "caption": "Przejrzysty układ stron z kodami towarowymi i specyfikacją.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../ja-i-moj-biznes/index.html",
-  "next_title": "Ja i mój biznes"
+  "next_title": "Ja i mój biznes",
+  "missing_gallery_slots": 1
 }

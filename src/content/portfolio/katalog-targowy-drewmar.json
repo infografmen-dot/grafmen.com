@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_1_www.jpg",
-      "alt": "Okładka katalogu targowego",
-      "caption": "Okładka katalogu przygotowanego na targi Ambiente we Frankfurcie.",
-      "width": 1000,
-      "height": 636
-    },
-    {
       "src": "assets/portfolio/katalog-targowy-drewmar/katalog-Drewmar_4_www.jpg",
       "alt": "Prezentacja wyrobów na targach",
       "caption": "Rozkładówka ekspozycyjna dla międzynarodowych kupców.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../pobudka/index.html",
-  "next_title": "Pobudka"
+  "next_title": "Pobudka",
+  "missing_gallery_slots": 1
 }

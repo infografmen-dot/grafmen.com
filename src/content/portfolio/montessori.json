@@ -18,15 +18,7 @@
     "Formularz kontaktowy umożliwiający zgłoszenie dziecka bezpośrednio ze strony.",
     "Podstawowa optymalizacja SEO oraz integracja z profilami społecznościowymi."
   ],
-  "gallery": [
-    {
-      "src": "assets/portfolio/montessori/screenshot-montessori.webp",
-      "alt": "Ekran główny serwisu Montessori",
-      "caption": "Strona główna przedszkola Montessori z prezentacją oferty edukacyjnej.",
-      "width": 1000,
-      "height": 700
-    }
-  ],
+  "gallery": [],
   "result_title": "Serwis informacyjny placówki.",
   "result": [
     "Wdrożono stronę WWW placówki opartą na systemie WordPress, prezentującą misję, grupy przedszkolne oraz zasady rekrutacji."
@@ -36,5 +28,6 @@
   "external_url": "https://montessori.com.pl/",
   "external_label": "Otwórz stronę Montessori.com.pl",
   "next_url": "../piworob/index.html",
-  "next_title": "Piworób"
+  "next_title": "Piworób",
+  "missing_gallery_slots": 3
 }

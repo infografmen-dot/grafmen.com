@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_1.jpg",
-      "alt": "Okładka broszury PerVita24",
-      "caption": "Okładka broszury ofertowej skierowanej do rodzin w Niemczech.",
-      "width": 1000,
-      "height": 658
-    },
-    {
       "src": "assets/portfolio/broszura-pervita24/Pervita24-A4_Brochure-www_2.jpg",
       "alt": "Strony wewnętrzne broszury",
       "caption": "Rozkładówka z opisem standardów opieki i kwalifikacji personelu.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../gearexpert/index.html",
-  "next_title": "GearExpert"
+  "next_title": "GearExpert",
+  "missing_gallery_slots": 1
 }

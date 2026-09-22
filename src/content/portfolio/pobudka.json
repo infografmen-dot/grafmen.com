@@ -17,15 +17,7 @@
     "Wizualizacja 3D produktu na potrzeby kampanii internetowej.",
     "Projekt animowanego banera reklamowego HTML5 do kampanii display."
   ],
-  "gallery": [
-    {
-      "src": "assets/portfolio/pobudka/pobudka_01-www_1000x700.webp",
-      "alt": "Opakowanie Pobudka 3D",
-      "caption": "Wizualizacja przestrzenna opakowania suplementu diety.",
-      "width": 1000,
-      "height": 700
-    }
-  ],
+  "gallery": [],
   "result_title": "Projekt opakowania i wizualizacja.",
   "result": [
     "Dostarczono projekt opakowania suplementu diety wraz z wizualizacją produktu w kontekście użytkowym."
@@ -35,5 +27,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../drewmax/index.html",
-  "next_title": "Drewmax.pro"
+  "next_title": "Drewmax.pro",
+  "missing_gallery_slots": 3
 }

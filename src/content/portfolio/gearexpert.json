@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/gearexpert/gearExpert_2-www.webp",
-      "alt": "Logo GearExpert",
-      "caption": "Główny znak firmowy marki GearExpert.",
-      "width": 1000,
-      "height": 700
-    },
-    {
       "src": "assets/portfolio/gearexpert/gearExpert_4-www.jpg",
       "alt": "Zastosowanie logo na ciemnym tle",
       "caption": "Wariant znaku dostosowany do ciemnych powierzchni i oznakowań.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../katalog-targowy-drewmar/index.html",
-  "next_title": "Katalog targowy Drewmar"
+  "next_title": "Katalog targowy Drewmar",
+  "missing_gallery_slots": 1
 }

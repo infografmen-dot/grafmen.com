@@ -26,13 +26,6 @@
       "height": 600
     },
     {
-      "src": "assets/portfolio/mpec-przemysl/branding2-www_1000x700.webp",
-      "alt": "Papeteria MPEC Przemyśl",
-      "caption": "Komplet materiałów biurowych i korespondencyjnych.",
-      "width": 1000,
-      "height": 700
-    },
-    {
       "src": "assets/portfolio/mpec-przemysl/branding-www-1.jpg",
       "alt": "Odzież firmowa MPEC",
       "caption": "Znakowanie odzieży pracowników technicznych.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../te-solutions/index.html",
-  "next_title": "TE Solutions"
+  "next_title": "TE Solutions",
+  "missing_gallery_slots": 1
 }

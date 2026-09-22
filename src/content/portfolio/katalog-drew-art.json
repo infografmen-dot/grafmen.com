@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_1.webp",
-      "alt": "Okładka katalogu Drew-Art",
-      "caption": "Okładka katalogu promocyjnego w formacie 21×21 cm.",
-      "width": 1750,
-      "height": 1750
-    },
-    {
       "src": "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2.webp",
       "alt": "Rozkładówka katalogu Drew-Art",
       "caption": "Przejrzysta rozkładówka z podziałem na kategorie asortymentowe.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../montessori/index.html",
-  "next_title": "Montessori.com.pl"
+  "next_title": "Montessori.com.pl",
+  "missing_gallery_slots": 1
 }

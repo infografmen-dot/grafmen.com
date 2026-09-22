@@ -145,6 +145,16 @@
       --type-label:12px;
     }
   }
+  @media(max-width:480px){
+    :root{
+      --type-display:clamp(34px,9.5vw,44px);
+      --type-project-h1:clamp(30px,8.5vw,40px);
+      --type-h1:clamp(30px,8vw,38px);
+      --type-h2:clamp(26px,7vw,32px);
+      --type-h2-large:clamp(28px,7.5vw,34px);
+      --type-h2-secondary:clamp(24px,6vw,28px);
+    }
+  }
   .section-index{color:var(--orange)}
   *{box-sizing:border-box}
   figure{margin:0}

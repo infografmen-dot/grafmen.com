@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/piworob/Piworob_logo-1.webp",
-      "alt": "Znak browaru Piworób",
-      "caption": "Główny znak tożsamości browaru rzemieślniczego.",
-      "width": 1000,
-      "height": 700
-    },
-    {
       "src": "assets/portfolio/piworob/piworob_1.jpg",
       "alt": "Etykieta i branding Piworób",
       "caption": "Zastosowanie logo na butelkach i materiałach barowych.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../katalog-drewmar/index.html",
-  "next_title": "Katalog Drewmar"
+  "next_title": "Katalog Drewmar",
+  "missing_gallery_slots": 1
 }

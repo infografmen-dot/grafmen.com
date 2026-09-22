@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/self-invest/self_invest_1000x700.webp",
-      "alt": "Logotyp Self Invest",
-      "caption": "Konstrukcja i kolorystyka znaku firmowego.",
-      "width": 1000,
-      "height": 700
-    },
-    {
       "src": "assets/portfolio/self-invest/branding_1000x700.webp",
       "alt": "Materiały firmowe Self Invest",
       "caption": "Wizytówki, papeteria i akcydensy firmowe.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../unitrans-katalog/index.html",
-  "next_title": "Katalog Uni-Trans"
+  "next_title": "Katalog Uni-Trans",
+  "missing_gallery_slots": 1
 }

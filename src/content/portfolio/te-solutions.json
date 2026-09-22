@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/te-solutions/Stationery-branding-www_1000x700.webp",
-      "alt": "Branding TE Solutions",
-      "caption": "Materiały identyfikacji wizualnej i papeteria firmowa.",
-      "width": 1000,
-      "height": 700
-    },
-    {
       "src": "assets/portfolio/te-solutions/te_solutions-www.jpg",
       "alt": "Znak TE Solutions",
       "caption": "Znak graficzny w wersji achromatycznej i kolorystycznej.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../kancelaria-lampa/index.html",
-  "next_title": "Kancelaria Lampa"
+  "next_title": "Kancelaria Lampa",
+  "missing_gallery_slots": 1
 }

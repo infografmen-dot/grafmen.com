@@ -4,27 +4,53 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaOrange from '../../components/CtaOrange.astro';
 
 export async function getStaticPaths() {
+  const orderedSlugs = [
+    'drewmax', 'szkola-best', 'hiker', 'drew-art', 'jd-ubezpieczenia',
+    'katalog-drew-art', 'montessori', 'piworob', 'katalog-drewmar', 'ja-i-moj-biznes',
+    'gazetka-drewmar', 'self-invest', 'unitrans-katalog', 'mpec-przemysl', 'te-solutions',
+    'kancelaria-lampa', 'broszura-pervita24', 'gearexpert', 'katalog-targowy-drewmar', 'pobudka'
+  ];
+
   const projects = await getCollection('portfolio');
-  return projects.map((project) => ({
-    params: { slug: project.data.slug },
-    props: { project },
-  }));
+  const projectMap = new Map(projects.map((p) => [p.data.slug, p]));
+
+  return orderedSlugs.map((slug, idx) => {
+    const project = projectMap.get(slug)!;
+    const prevSlug = orderedSlugs[(idx - 1 + orderedSlugs.length) % orderedSlugs.length];
+    const nextSlug = orderedSlugs[(idx + 1) % orderedSlugs.length];
+    const prevProject = projectMap.get(prevSlug)!;
+    const nextProject = projectMap.get(nextSlug)!;
+
+    return {
+      params: { slug },
+      props: {
+        project,
+        prevProject: { slug: prevProject.data.slug, title: prevProject.data.title },
+        nextProject: { slug: nextProject.data.slug, title: nextProject.data.title },
+      },
+    };
+  });
 }
 
-const { project } = Astro.props;
+const { project, prevProject, nextProject } = Astro.props;
 const p = project.data;
 
 const title = `${p.title} | Grafmen`;
 const description = p.description;
 const coverSrc = p.cover.startsWith('/') ? p.cover : `/${p.cover}`;
-const ogImage = p.og_image ? (p.og_image.startsWith('/') ? `https://grafmen.com${p.og_image}` : p.og_image) : `https://grafmen.com${coverSrc}`;
-
-const nextSlugMatch = p.next_url.match(/\.\.\/([^/]+)/);
-const nextHref = nextSlugMatch ? `/portfolio/${nextSlugMatch[1]}/` : p.next_url;
+const ogImage = p.og_image
+  ? (p.og_image.startsWith('/') ? `https://grafmen.com${p.og_image}` : p.og_image)
+  : `https://grafmen.com${coverSrc}`;
 
 function fixOrphans(text: string): string {
   if (!text) return text;
-  return text.replace(/(^|[\s(„"'\u00A0])([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ])\s+/g, '$1$2\u00A0');
+  let prev = '';
+  let result = text;
+  while (result !== prev) {
+    prev = result;
+    result = result.replace(/(^|[\s(„"'\u00A0])([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ])\s+/g, '$1$2\u00A0');
+  }
+  return result;
 }
 ---
 <BaseLayout title={title} description={description} currentNav="work" bodyClass="service-page" ogImage={ogImage}>
@@ -45,27 +71,27 @@ function fixOrphans(text: string): string {
 
   <main id="main-content">
     <article class="project-detail">
-      <!-- HEADER & BREADCRUMBS -->
+      <!-- 1. HEADER & BREADCRUMBS -->
       <section class="project-heading home-inner">
         <nav class="breadcrumbs" aria-label="Okruszki">
           <a href="/portfolio/">Portfolio</a> / <span aria-current="page">{p.title}</span>
         </nav>
         <p class="home-kicker">{p.category}{p.year ? ` / ${p.year}` : ''}</p>
-        <h1>{p.title}</h1>
+        <h1>{fixOrphans(p.title)}</h1>
         <p class="home-lead">{fixOrphans(p.description)}</p>
       </section>
 
-      <!-- COVER -->
+      <!-- 2. GŁÓWNE ZDJĘCIE (COVER) -->
       <figure class="project-cover home-inner">
         <img src={coverSrc} alt={p.cover_alt} width="1400" height="920" fetchpriority="high" decoding="async" />
       </figure>
 
-      <!-- POTRZEBA -->
+      <!-- 3. POTRZEBA -->
       <section class="home-section">
         <div class="home-inner compact-grid">
           <div>
             <p class="home-kicker">POTRZEBA</p>
-            <h2>{p.brief_title}</h2>
+            <h2>{fixOrphans(p.brief_title)}</h2>
           </div>
           <div class="bio-copy">
             {p.brief.map((paragraph) => (
@@ -75,7 +101,7 @@ function fixOrphans(text: string): string {
         </div>
       </section>
 
-      <!-- ZAKRES -->
+      <!-- 4. ZAKRES -->
       <section class="home-section project-scope">
         <div class="home-inner compact-grid">
           <div>
@@ -90,46 +116,56 @@ function fixOrphans(text: string): string {
         </div>
       </section>
 
-      <!-- REALIZACJA -->
-      <section class="home-section project-gallery-section" id={p.slug === 'hiker' ? 'branding' : undefined}>
-        <div class="home-inner">
-          <p class="home-kicker">{p.slug === 'hiker' ? 'BRANDING' : 'REALIZACJA'}</p>
-          <h2>{p.slug === 'hiker' ? 'Identyfikacja wizualna i ruch' : 'Projekt w zastosowaniu'}</h2>
-          <div class="project-gallery">
-            {p.gallery.map((item) => {
-              const itemSrc = item.src.startsWith('/') ? item.src : `/${item.src}`;
-              if (item.type === 'video') {
-                const posterSrc = item.poster ? (item.poster.startsWith('/') ? item.poster : `/${item.poster}`) : undefined;
+      <!-- 5. PROJEKT W ZASTOSOWANIU (GALERIA) -->
+      {p.gallery && p.gallery.length > 0 && (
+        <section class="home-section project-gallery-section" id={p.slug === 'hiker' ? 'branding' : undefined}>
+          <div class="home-inner">
+            <p class="home-kicker">{p.slug === 'hiker' ? 'BRANDING' : 'REALIZACJA'}</p>
+            <h2>{p.slug === 'hiker' ? 'Identyfikacja wizualna i ruch' : 'Projekt w zastosowaniu'}</h2>
+            <div class="project-gallery">
+              {p.gallery.map((item) => {
+                const itemSrc = item.src.startsWith('/') ? item.src : `/${item.src}`;
+                const isVertical = Boolean(item.height && item.width && (item.height / item.width >= 1.25));
+                if (item.type === 'video') {
+                  const posterSrc = item.poster ? (item.poster.startsWith('/') ? item.poster : `/${item.poster}`) : undefined;
+                  return (
+                    <figure class={isVertical ? 'gallery-item-vertical' : undefined}>
+                      <video
+                        class={p.slug === 'hiker' ? 'scroll-autoplay-video' : undefined}
+                        src={itemSrc}
+                        poster={posterSrc}
+                        width={item.width || 1920}
+                        height={item.height || 1080}
+                        controls
+                        playsinline
+                        muted
+                        preload="metadata"
+                        style="width:100%;height:auto;border-radius:16px;display:block;background:#09090b"
+                      ></video>
+                      {item.caption && <figcaption>{fixOrphans(item.caption)}</figcaption>}
+                    </figure>
+                  );
+                }
                 return (
-                  <figure>
-                    <video
-                      class={p.slug === 'hiker' ? 'scroll-autoplay-video' : undefined}
+                  <figure class={isVertical ? 'gallery-item-vertical' : undefined}>
+                    <img
                       src={itemSrc}
-                      poster={posterSrc}
-                      width={item.width || 1920}
-                      height={item.height || 1080}
-                      controls
-                      playsinline
-                      muted
-                      preload="metadata"
-                      style="width:100%;height:auto;border-radius:12px;display:block;background:#09090b"
-                    ></video>
-                    {item.caption && <figcaption>{item.caption}</figcaption>}
+                      alt={item.alt}
+                      loading="lazy"
+                      decoding="async"
+                      width={item.width || 1400}
+                      height={item.height || 920}
+                    />
+                    {item.caption && <figcaption>{fixOrphans(item.caption)}</figcaption>}
                   </figure>
                 );
-              }
-              return (
-                <figure>
-                  <img src={itemSrc} alt={item.alt} loading="lazy" decoding="async" width={item.width || 1400} height={item.height || 920} />
-                  {item.caption && <figcaption>{item.caption}</figcaption>}
-                </figure>
-              );
-            })}
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <!-- EXTRA SECTION FOR HIKER: FILM REKLAMOWY -->
+      <!-- 6. OPCJONALNY FILM (HIKER) -->
       {p.slug === 'hiker' && (
         <section class="home-section project-film-section" id="film">
           <div class="home-inner compact-grid">
@@ -182,12 +218,12 @@ function fixOrphans(text: string): string {
         </section>
       )}
 
-      <!-- REZULTAT -->
+      <!-- 7. REZULTAT -->
       <section class="home-section">
         <div class="home-inner compact-grid">
           <div>
             <p class="home-kicker">REZULTAT</p>
-            <h2>{p.result_title}</h2>
+            <h2>{fixOrphans(p.result_title)}</h2>
           </div>
           <div class="bio-copy">
             {p.result.map((paragraph) => (
@@ -196,7 +232,7 @@ function fixOrphans(text: string): string {
             {p.testimonial && (
               <article class="testimonial-card" style="margin-top:28px">
                 <blockquote>
-                  <p>{p.testimonial}</p>
+                  <p>{fixOrphans(p.testimonial)}</p>
                 </blockquote>
                 {p.testimonial_author && (
                   <footer>
@@ -216,14 +252,19 @@ function fixOrphans(text: string): string {
         </div>
       </section>
 
-      <!-- PROJECT NEXT -->
-      <section class="project-next home-inner">
-        <a class="text-link" href="/portfolio/">&larr; Wszystkie realizacje</a>
-        <a class="text-link" href={nextHref}>Następny projekt: {p.next_title} <span aria-hidden="true">&rarr;</span></a>
+      <!-- 8. NAWIGACJA MIĘDZY REALIZACJAMI -->
+      <section class="project-next home-inner" aria-label="Nawigacja między realizacjami">
+        <a class="text-link" href={`/portfolio/${prevProject.slug}/`} rel="prev">
+          <span aria-hidden="true">&larr;</span> Poprzedni: {prevProject.title}
+        </a>
+        <a class="text-link" href="/portfolio/">Wszystkie realizacje</a>
+        <a class="text-link" href={`/portfolio/${nextProject.slug}/`} rel="next">
+          Następny: {nextProject.title} <span aria-hidden="true">&rarr;</span>
+        </a>
       </section>
     </article>
 
-    <!-- CTA -->
+    <!-- 9. WSPÓLNE POMARAŃCZOWE CTA -->
     <CtaOrange />
   </main>
 
@@ -253,24 +294,27 @@ function fixOrphans(text: string): string {
         });
       });
 
-      // Scroll-triggered autoplay for videos with controls
-      var scrollVideos = document.querySelectorAll('video.scroll-autoplay-video');
-      if (scrollVideos.length > 0 && 'IntersectionObserver' in window) {
-        var videoObserver = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            var video = entry.target;
-            if (entry.isIntersecting) {
-              var playPromise = video.play();
-              if (playPromise !== undefined) {
-                playPromise.catch(function() {});
+      // Scroll-triggered autoplay for videos with controls (respecting prefers-reduced-motion)
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReducedMotion) {
+        var scrollVideos = document.querySelectorAll('video.scroll-autoplay-video');
+        if (scrollVideos.length > 0 && 'IntersectionObserver' in window) {
+          var videoObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              var video = entry.target;
+              if (entry.isIntersecting) {
+                var playPromise = video.play();
+                if (playPromise !== undefined) {
+                  playPromise.catch(function() {});
+                }
               }
-            }
-          });
-        }, { threshold: 0.3 });
+            });
+          }, { threshold: 0.3 });
 
-        scrollVideos.forEach(function(v) {
-          videoObserver.observe(v);
-        });
+          scrollVideos.forEach(function(v) {
+            videoObserver.observe(v);
+          });
+        }
       }
     });
   </script>

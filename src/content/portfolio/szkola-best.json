@@ -17,15 +17,7 @@
     "Wdrożenie formularza zapisu i integracja z mediami społecznościowymi.",
     "Optymalizacja mobilna pod kątem szybkiego przeglądania na telefonach."
   ],
-  "gallery": [
-    {
-      "src": "assets/portfolio/szkola-best/szkola-best.png",
-      "alt": "Strona główna szkola.best",
-      "caption": "Strona główna z prezentacją oferty kursów językowych.",
-      "width": 1902,
-      "height": 1080
-    }
-  ],
+  "gallery": [],
   "result_title": "Strona szkoły języka angielskiego.",
   "result": [
     "Powstała strona internetowa prezentująca poziomy zaawansowania kursów językowych, grafik zajęć oraz dane kontaktowe szkoły."
@@ -35,5 +27,6 @@
   "external_url": "https://szkola.best/",
   "external_label": "Otwórz stronę szkola.best",
   "next_url": "../drew-art/index.html",
-  "next_title": "Drew-Art"
+  "next_title": "Drew-Art",
+  "missing_gallery_slots": 3
 }

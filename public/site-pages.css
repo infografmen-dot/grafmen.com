@@ -144,7 +144,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b8
 .branding-feature h3{margin-top:16px}
 .project-heading{padding-top:64px;padding-bottom:48px}
 .project-heading .home-kicker{margin-top:48px;color:var(--orange);margin-bottom:24px}
-.project-heading h1{font-family:var(--font-heading);font-size:var(--type-project-h1);letter-spacing:var(--type-project-h1-ls);line-height:var(--type-project-h1-lh);font-weight:var(--type-project-h1-weight);margin:0 0 24px}
+.project-heading h1{font-family:var(--font-heading);font-size:var(--type-project-h1);letter-spacing:var(--type-project-h1-ls);line-height:var(--type-project-h1-lh);font-weight:var(--type-project-h1-weight);margin:0 0 24px;overflow-wrap:break-word;word-break:normal;hyphens:auto}
 .project-heading .home-lead{max-width:60%;margin-left:0;margin-right:auto;text-align:left}
 @media(max-width:768px){
   .project-heading .home-lead{max-width:100%}
@@ -158,9 +158,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b8
 .project-gallery{display:grid;gap:56px;margin-top:56px}
 .project-gallery figure{margin:0}
 .project-gallery img,.project-gallery video{display:block;width:100%;height:auto;object-fit:contain;border-radius:16px}
+.project-gallery figure.gallery-item-vertical{max-width:640px;margin-inline:auto;width:100%}
+.project-gallery figure.gallery-item-vertical img{width:100%;height:auto;max-height:none;object-fit:contain}
 .project-gallery video{max-width:100%;background:#09090b}
 .project-gallery figcaption{font-size:14px;color:#62626b;line-height:1.6;margin-top:16px}
-.project-next{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-block:40px 80px}
+.project-next{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding-block:48px 80px}
+@media(max-width:640px){
+  .project-next{flex-direction:column;align-items:flex-start;gap:16px}
+}
 .contact-hero .home-lead{max-width:720px;margin-top:32px}
 .contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,7vw,112px)}
 .contact-details h2{font-family:var(--font-heading);font-size:var(--type-h2-secondary);line-height:var(--type-h2-secondary-lh);letter-spacing:var(--type-h2-secondary-ls);font-weight:var(--type-h2-secondary-weight);margin-bottom:32px}

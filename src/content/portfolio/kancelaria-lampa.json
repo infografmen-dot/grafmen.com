@@ -19,13 +19,6 @@
   ],
   "gallery": [
     {
-      "src": "assets/portfolio/kancelaria-lampa/business_card-www_1000x700.webp",
-      "alt": "Wizytówki Kancelarii Lampa",
-      "caption": "Elegancki projekt wizytówek na szlachetnym podłożu.",
-      "width": 1000,
-      "height": 700
-    },
-    {
       "src": "assets/portfolio/kancelaria-lampa/logo-www.jpg",
       "alt": "Znak Kancelarii Prawnej",
       "caption": "Monogram i typografia Kancelarii Radcy Prawnego.",
@@ -49,5 +42,6 @@
   "external_url": "",
   "external_label": "",
   "next_url": "../broszura-pervita24/index.html",
-  "next_title": "Broszura PerVita24"
+  "next_title": "Broszura PerVita24",
+  "missing_gallery_slots": 1
 }
