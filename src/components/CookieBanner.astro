@@ -1,31 +1,56 @@
 ---
 ---
 <!--
-  CookieBanner — informacyjny panel cookies
-  Domyślnie ukryty; cookie-banner.js ujawnia go gdy potrzeba.
+  CookieBanner — informacyjny pasek cookies (pill style)
+  Wzorowany na Studio Ahremark: jeden wiersz, kapsułka.
+  Domyślnie hidden; cookie-banner.js ujawnia gdy potrzeba.
 -->
 <div
   id="cookie-banner"
-  role="dialog"
-  aria-modal="false"
-  aria-labelledby="cb-title"
+  role="region"
+  aria-label="Informacja o cookies"
   aria-hidden="true"
-  aria-live="polite"
   hidden
 >
-  <div class="cb-header">
-    <span class="cb-icon" aria-hidden="true">🍪</span>
-    <span class="cb-title" id="cb-title">Informacja o cookies</span>
+  <!-- Panel szczegółowy Info (pojawia się nad kapsułką po kliknięciu "Info") -->
+  <div
+    class="cb-info-panel"
+    id="cb-info-panel"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="cb-info-title"
+    hidden
+  >
+    <div class="cb-info-header">
+      <span class="cb-info-title" id="cb-info-title">Informacja o cookies</span>
+      <button
+        class="cb-info-close"
+        id="cb-info-close"
+        type="button"
+        aria-label="Zamknij"
+      >×</button>
+    </div>
+    <p class="cb-info-text">
+      Ta strona nie&nbsp;używa plików cookies reklamowych ani&nbsp;śledzących.
+      Zapamiętujemy wyłącznie Twój wybór dotyczący tego&nbsp;komunikatu.
+    </p>
+    <a class="cb-info-link" href="/polityka-prywatnosci/">Polityka prywatności →</a>
   </div>
-  <p class="cb-body">
-    Ta strona nie&nbsp;używa plików cookies reklamowych
-    ani&nbsp;śledzących. Więcej informacji:
-    <a href="/polityka-prywatnosci/">Polityka prywatności</a>.
-  </p>
-  <div class="cb-actions">
+
+  <!-- Kapsułka: Cookies [Rozumiem] [Info] -->
+  <div class="cb-pill">
+    <span class="cb-label" aria-hidden="true">Cookies</span>
     <button
       id="cookie-banner-accept"
       type="button"
+      class="cb-btn-primary"
     >Rozumiem</button>
+    <button
+      id="cookie-banner-info"
+      type="button"
+      class="cb-btn-text"
+      aria-expanded="false"
+      aria-controls="cb-info-panel"
+    >Info</button>
   </div>
 </div>

@@ -1,27 +1,25 @@
 /* ============================================================
-   Cookie Banner — Grafmen
-   Kompaktowy panel informacyjny, lewy dolny róg
+   Cookie Banner — Grafmen — pill/capsule style
+   Wzorowany na Studio Ahremark: niski poziomy pasek w lewym
+   dolnym rogu, elementy w jednym wierszu.
    ============================================================ */
 
+/* Kontener — wrapper dla pill + panelu info (absolute wewnątrz fixed) */
 #cookie-banner {
   position: fixed;
   bottom: 24px;
   left: 24px;
+  bottom: max(24px, env(safe-area-inset-bottom, 0px));
+  left: max(24px, env(safe-area-inset-left, 0px));
   z-index: 9000;
-  width: 320px;
-  background: #ffffff;
-  border: 1px solid #e2e4e8;
-  border-radius: 14px;
-  box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.08),
-    0 1px 4px rgba(0, 0, 0, 0.05);
-  padding: 20px 20px 18px;
-  font-family: var(--font-body);
-  /* start hidden — JS ujawnia */
+  /* szerokość wynika z treści */
+  display: inline-block;
+
+  /* animacja wejścia/wyjścia (brak mikroanimacji — JS toggle) */
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(8px);
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 #cookie-banner.cb-visible {
@@ -32,96 +30,181 @@
 
 #cookie-banner.cb-hiding {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(8px);
   pointer-events: none;
 }
 
-/* nagłówek */
-.cb-header {
-  display: flex;
+/* ── Kapsułka (pasek) ── */
+.cb-pill {
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: 2px;
+  height: 46px;
+  padding: 0 6px 0 16px;
+  background: rgba(236, 236, 239, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-family: var(--font-body);
+  /* fallback bez backdrop-filter */
+  box-shadow: none;
+  white-space: nowrap;
 }
 
-.cb-icon {
-  font-size: 17px;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.cb-title {
-  font-family: var(--font-heading);
+/* Etykieta "Cookies" */
+.cb-label {
   font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--ink);
-  line-height: 1.2;
+  font-weight: 400;
+  color: #3b3b42;
+  padding-right: 6px;
+  user-select: none;
 }
 
-/* treść */
-.cb-body {
-  font-size: 13px;
-  line-height: 1.55;
-  color: #62626b;
-  margin-bottom: 14px;
-}
-
-.cb-body a {
-  color: var(--orange);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.cb-body a:hover {
-  text-decoration: none;
-}
-
-/* akcje */
-.cb-actions {
-  display: flex;
-  justify-content: flex-end;
-}
-
-#cookie-banner-accept {
-  background: var(--orange);
-  color: #fff;
+/* Wewnętrzna biała kapsułka "Rozumiem" */
+.cb-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 15px;
+  background: #ffffff;
   border: none;
-  border-radius: 8px;
-  padding: 9px 20px;
+  border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
+  color: #09090b;
   cursor: pointer;
-  transition: background 0.18s ease, transform 0.15s ease;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.cb-btn-primary:hover {
+  background: #f5f5f7;
+}
+
+.cb-btn-primary:focus-visible {
+  outline: 2px solid var(--orange, #ff6400);
+  outline-offset: 2px;
+}
+
+/* Przycisk tekstowy "Info" */
+.cb-btn-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: #72727a;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+  border-radius: 999px;
+}
+
+.cb-btn-text:hover {
+  color: var(--orange, #ff6400);
+}
+
+.cb-btn-text:focus-visible {
+  outline: 2px solid var(--orange, #ff6400);
+  outline-offset: 2px;
+}
+
+/* ── Panel Info (pojawia się nad kapsułką) ── */
+.cb-info-panel {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 280px;
+  background: #ffffff;
+  border: 1px solid #e2e4e8;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  padding: 14px 16px 16px;
+  font-family: var(--font-body);
+}
+
+.cb-info-panel[hidden] {
+  display: none;
+}
+
+.cb-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cb-info-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #09090b;
+}
+
+.cb-info-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
   line-height: 1;
+  color: #72727a;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-#cookie-banner-accept:hover {
-  background: #e05800;
+.cb-info-close:hover {
+  background: #f1f1f3;
+  color: #09090b;
 }
 
-#cookie-banner-accept:active {
-  transform: scale(0.97);
+.cb-info-close:focus-visible {
+  outline: 2px solid var(--orange, #ff6400);
+  outline-offset: 2px;
 }
 
-#cookie-banner-accept:focus-visible {
-  outline: 2px solid var(--orange);
-  outline-offset: 3px;
+.cb-info-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #62626b;
+  margin: 0 0 10px;
+}
+
+.cb-info-link {
+  font-size: 13px;
+  color: var(--orange, #ff6400);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cb-info-link:hover {
+  text-decoration: none;
 }
 
 /* ── Mobile ── */
-@media (max-width: 400px) {
-  #cookie-banner {
-    left: 12px;
-    right: 12px;
-    bottom: 16px;
-    width: auto;
-  }
-}
-
-/* unikaj kolizji z back-to-top i hero-pause (bottom ≤150px na desktopie) */
 @media (max-width: 820px) {
   #cookie-banner {
-    bottom: 72px; /* nad menu mobilnym / przyciskiem back-to-top */
+    /* nad przyciskiem back-to-top i mobilnym menu HOME */
+    bottom: max(72px, calc(72px + env(safe-area-inset-bottom, 0px)));
+    left: max(16px, env(safe-area-inset-left, 0px));
+  }
+
+  .cb-info-panel {
+    /* na małych ekranach panel może wychodzić poza lewą krawędź — ogranicz */
+    max-width: calc(100vw - 32px);
   }
 }
