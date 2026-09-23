@@ -1,4 +1,5 @@
 ---
+import CtaArrow from './CtaArrow.astro';
 ---
 <section class="final-cta" id="kontakt" aria-labelledby="cta-title" lang="pl">
   <div class="home-inner final-cta-inner">
@@ -8,7 +9,10 @@
     </div>
     <div class="final-cta-copy">
       <p>Napisz, czego potrzebujesz. Po&nbsp;zapoznaniu&nbsp;się z&nbsp;zakresem przygotuję bezpłatną wycenę i&nbsp;zaproponuję kolejne kroki.</p>
-      <a class="cta-button" href="/kontakt/">Napisz po&nbsp;bezpłatną wycenę <span>&rarr;</span></a>
+      <a class="cta-button" href="/kontakt/">
+        <span>Napisz po&nbsp;bezpłatną wycenę</span>
+        <CtaArrow />
+      </a>
     </div>
   </div>
 </section>

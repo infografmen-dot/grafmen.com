@@ -55,37 +55,66 @@
         const lineInners = heroH1.querySelectorAll('.hero-line-inner');
         const brandRects = heroH1.querySelectorAll('.hero-wipe-brand');
         const fgRects = heroH1.querySelectorAll('.hero-wipe-fg');
-        const calmElements = hero.querySelectorAll('.eyebrow, .lead, .actions a, .meta01, .hero-bottom');
+
+        const eyebrowInner = hero.querySelector('.eyebrow .hero-mask-inner') || hero.querySelector('.eyebrow');
+        const metaTop = hero.querySelector('.meta01-top');
+        const metaInners = hero.querySelectorAll('.meta01-inner');
+        const miniInners = hero.querySelectorAll('.hero-bottom .mini .hero-mask-inner');
+        const centerIndicator = hero.querySelector('.hero-bottom .center');
+        const leadText = hero.querySelector('.lead');
+        const actionBtn = hero.querySelector('.actions a');
 
         if (!heroLines.length || !lineInners.length) return;
 
-        // Failsafe watchdog: guarantees full text visibility after 2.0s even under heavy tab throttling or errors
+        // Failsafe watchdog: guarantees full text visibility after 2.2s even under heavy tab throttling or errors
         failsafeTimer = setTimeout(() => {
           gsap.set(heroH1.querySelectorAll('.hero-line-inner'), { clearProps: 'all', opacity: 1 });
           gsap.set(heroH1.querySelectorAll('.hero-wipe-brand, .hero-wipe-fg'), { clearProps: 'all', scaleX: 0 });
-          gsap.set(hero.querySelectorAll('.eyebrow, .lead, .actions a, .meta01, .hero-bottom'), { clearProps: 'all', opacity: 1 });
-        }, 2000);
+          gsap.set([eyebrowInner, leadText, actionBtn, centerIndicator], { clearProps: 'all', opacity: 1, y: 0 });
+          if (metaTop) gsap.set(metaTop, { clearProps: 'all', scaleX: 1 });
+          if (metaInners.length) gsap.set(metaInners, { clearProps: 'all', opacity: 1, y: 0 });
+          if (miniInners.length) gsap.set(miniInners, { clearProps: 'all', opacity: 1, y: 0 });
+        }, 2200);
 
         gsap.set(lineInners, { opacity: 0 });
         gsap.set([brandRects, fgRects], { scaleX: 0, transformOrigin: 'left' });
-        gsap.set(calmElements, { opacity: 0 });
+        if (eyebrowInner) gsap.set(eyebrowInner, { y: 14, opacity: 0 });
+        if (leadText) gsap.set(leadText, { y: 12, opacity: 0 });
+        if (actionBtn) gsap.set(actionBtn, { y: 12, opacity: 0 });
+        if (metaTop) gsap.set(metaTop, { scaleX: 0, transformOrigin: 'left' });
+        if (metaInners.length) gsap.set(metaInners, { y: -16, opacity: 0 });
+        if (miniInners.length) gsap.set(miniInners, { y: 14, opacity: 0 });
+        if (centerIndicator) gsap.set(centerIndicator, { opacity: 0 });
 
         const tl = gsap.timeline({
           defaults: { ease: 'power3.inOut' },
           onComplete: () => {
             if (failsafeTimer) clearTimeout(failsafeTimer);
             gsap.set([lineInners, brandRects, fgRects], { clearProps: 'all' });
-            gsap.set(calmElements, { clearProps: 'opacity' });
+            gsap.set([eyebrowInner, leadText, actionBtn, metaTop, centerIndicator], { clearProps: 'all' });
+            if (metaInners.length) gsap.set(metaInners, { clearProps: 'all' });
+            if (miniInners.length) gsap.set(miniInners, { clearProps: 'all' });
           }
         });
 
+        // 1. Eyebrow odsłania się płynnie od dołu w masce
+        if (eyebrowInner) {
+          tl.to(eyebrowInner, {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: 'power3.out'
+          }, 0.15);
+        }
+
+        // 2. Linie H1 odsłaniają się kolejno
         heroLines.forEach((line, index) => {
           const lineInner = line.querySelector('.hero-line-inner');
           const brandRect = line.querySelector('.hero-wipe-brand');
           const fgRect = line.querySelector('.hero-wipe-fg');
           if (!lineInner || !brandRect || !fgRect) return;
 
-          const lineStart = index * 0.12;
+          const lineStart = 0.2 + (index * 0.12);
           tl.to(brandRect, { scaleX: 1, duration: 0.42 }, lineStart);
           tl.to(fgRect, { scaleX: 1, duration: 0.42 }, lineStart + 0.06);
           tl.set(lineInner, { opacity: 1 }, lineStart + 0.48);
@@ -94,12 +123,59 @@
           tl.to(brandRect, { scaleX: 0, duration: 0.42 }, lineStart + 0.54);
         });
 
-        tl.to(calmElements, {
-          opacity: 1,
-          duration: 0.5,
-          ease: 'power2.out',
-          stagger: 0.04
-        }, 1.25);
+        // 3. Meta01: pomarańczowa kreska pierwsza, potem lista STRONY WWW, BRANDING, MOTION od góry do dołu
+        if (metaTop) {
+          tl.to(metaTop, {
+            scaleX: 1,
+            duration: 0.45,
+            ease: 'power3.out'
+          }, 0.38);
+        }
+        if (metaInners.length) {
+          tl.to(metaInners, {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: 'power3.out'
+          }, 0.52);
+        }
+
+        // 4. Lead i Przycisk CTA
+        if (leadText) {
+          tl.to(leadText, {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            ease: 'power2.out'
+          }, 0.72);
+        }
+        if (actionBtn) {
+          tl.to(actionBtn, {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            ease: 'power2.out'
+          }, 0.88);
+        }
+
+        // 5. Dolne podpisy .mini odsłaniają się przez maski
+        if (miniInners.length) {
+          tl.to(miniInners, {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.08,
+            ease: 'power3.out'
+          }, 0.9);
+        }
+        if (centerIndicator) {
+          tl.to(centerIndicator, {
+            opacity: 1,
+            duration: 0.6,
+            ease: 'power2.out'
+          }, 0.95);
+        }
 
         window.__heroTimeline = tl;
         return tl;
@@ -265,31 +341,56 @@
       });
     }
 
-    // 7. WSKAZÓWKA PRZEWIŃ W DÓŁ (Hero Bottom: subtelny ruch pionowy myszy i strzałki)
+    // 7. WSKAZÓWKA PRZEWIŃ W DÓŁ (Hero Bottom: powtarzający się cykl co ~5s)
     const scrollIndicator = document.querySelector('.hero-bottom .center');
     if (scrollIndicator && !scrollIndicator.dataset.motionDone) {
       scrollIndicator.dataset.motionDone = 'true';
       const mouseIcon = scrollIndicator.querySelector('.mouse');
       const arrowIcon = scrollIndicator.querySelector('.arrowdown');
       if (mouseIcon && arrowIcon) {
-        const scrollTween = gsap.to([mouseIcon, arrowIcon], {
-          y: 3.5,
-          duration: 0.9,
-          repeat: 3, // 4 przejścia = 2 spokojne cykle (góra-dół-góra x2), ~3.6s
-          yoyo: true,
-          ease: 'sine.inOut',
-          onComplete: () => {
-            gsap.set([mouseIcon, arrowIcon], { clearProps: 'y' });
-          }
+        // Jeden cykl: 1.8s spokojnego ruchu (0.9s w dół o 4.5px, 0.9s powrót), następnie 3.2s bezruchu (łącznie 5s)
+        const scrollTl = gsap.timeline({
+          repeat: -1,
+          repeatDelay: 3.2,
+          delay: 1.8 // Startuje spokojnie po zakończeniu wejścia hero, bez kolizji
         });
 
-        const stopScrollTween = () => {
-          if (scrollTween && scrollTween.isActive()) {
-            scrollTween.kill();
-            gsap.set([mouseIcon, arrowIcon], { clearProps: 'y' });
+        scrollTl.to([mouseIcon, arrowIcon], {
+          y: 4.5,
+          duration: 0.9,
+          ease: 'sine.inOut'
+        }).to([mouseIcon, arrowIcon], {
+          y: 0,
+          duration: 0.9,
+          ease: 'sine.inOut'
+        });
+
+        // IntersectionObserver: zatrzymanie animacji, gdy wskaźnik znika z widoku (np. po przescrollowaniu)
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                if (scrollTl.paused()) scrollTl.resume();
+              } else {
+                if (!scrollTl.paused()) scrollTl.pause();
+              }
+            });
+          }, { threshold: 0.1 });
+          observer.observe(scrollIndicator);
+        }
+
+        // Visibilitychange: pauzowanie w tle, brak nadrabiania cykli
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+            scrollTl.pause();
+          } else {
+            const rect = scrollIndicator.getBoundingClientRect();
+            const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isInView) {
+              scrollTl.resume();
+            }
           }
-        };
-        window.addEventListener('scroll', stopScrollTween, { once: true, passive: true });
+        });
       }
     }
 
@@ -476,6 +577,219 @@
         );
       });
     }
+
+    // 10. KONTAKT: ANIMACJE TREŚCI PONIŻEJ HERO
+    const contactSection = document.querySelector('.contact-section');
+    if (contactSection && typeof ScrollTrigger !== 'undefined' && !contactSection.dataset.motionDone) {
+      contactSection.dataset.motionDone = 'true';
+
+      const contactDetails = contactSection.querySelector('.contact-details');
+      const contactNext = contactSection.querySelector('.contact-next');
+      const contactBrief = contactSection.querySelector('.contact-brief');
+      const contactForm = contactSection.querySelector('#contact-form');
+
+      // Bezpieczeństwo formularza: wejście fokusu natychmiast czyści style animacji i zapewnia pełną widoczność
+      if (contactForm) {
+        contactForm.addEventListener('focusin', () => {
+          gsap.set(contactForm, { clearProps: 'opacity,transform' });
+        }, { once: true });
+      }
+
+      // Animacja grupy lewej: bezpośrednie dane kontaktowe i dalsze kroki
+      if (contactDetails) {
+        const directContacts = contactDetails.querySelectorAll(':scope > h2, :scope > .contact-email, :scope > .contact-phone, :scope > p');
+        const leftTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: contactDetails,
+            start: 'top 82%',
+            once: true
+          },
+          onComplete: () => {
+            gsap.set([directContacts, contactNext], { clearProps: 'all' });
+          }
+        });
+
+        if (directContacts.length) {
+          leftTimeline.fromTo(directContacts,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.65, stagger: 0.08, ease: 'power2.out' },
+            0
+          );
+        }
+        if (contactNext) {
+          leftTimeline.fromTo(contactNext,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' },
+            0.15
+          );
+        }
+      }
+
+      // Animacja grupy prawej: nagłówek briefu oraz cały formularz jako jeden blok
+      if (contactBrief) {
+        const briefHeader = contactBrief.querySelectorAll(':scope > h2, :scope > #mail-note');
+        const rightTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: contactBrief,
+            start: 'top 82%',
+            once: true
+          },
+          onComplete: () => {
+            if (briefHeader.length) gsap.set(briefHeader, { clearProps: 'all' });
+            if (contactForm) gsap.set(contactForm, { clearProps: 'opacity,transform' });
+          }
+        });
+
+        if (briefHeader.length) {
+          rightTimeline.fromTo(briefHeader,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out' },
+            0
+          );
+        }
+        if (contactForm) {
+          rightTimeline.fromTo(contactForm,
+            { opacity: 0, y: 22 },
+            { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' },
+            0.15
+          );
+        }
+      }
+    }
+
+    // 11. FUTURE THREE HOVER EFFECT (WYŁĄCZNIE HOMEPAGE)
+    const initFutureThree = () => {
+      if (!document.body.classList.contains('home-page')) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      const applyToElement = (el, isOrange = false, isCta = false) => {
+        if (!el) return;
+
+        // Wykluczenia kontrolek technicznych
+        if (
+          el.closest('.language-switch') ||
+          el.classList.contains('footer-cookies-btn') ||
+          el.classList.contains('motion-toggle') ||
+          el.classList.contains('menu-toggle') ||
+          el.classList.contains('back-to-top') ||
+          el.classList.contains('home-logo')
+        ) {
+          return;
+        }
+
+        // Pobierz czysty tekst z elementu
+        let rawText = el.getAttribute('data-f3-raw');
+        if (!rawText) {
+          const flipFront = el.querySelector('.nav-flip-front');
+          if (flipFront) {
+            rawText = flipFront.textContent.replace(/\s+/g, ' ').trim();
+          } else {
+            const clone = el.cloneNode(true);
+            clone.querySelectorAll('svg, .cta-arrow-box, .cta-arrow, [aria-hidden="true"]').forEach(n => n.remove());
+            rawText = (clone.textContent || '').replace(/\s+/g, ' ').trim();
+          }
+          if (!rawText) return;
+          el.setAttribute('data-f3-raw', rawText);
+        }
+
+        // Zapewnienie dostępności: czytnik otrzymuje jeden czysty pełny napis
+        el.setAttribute('aria-label', rawText);
+
+        // Wykryj strzałkę na końcu (→, ↗, ↳)
+        let arrow = null;
+        let textOnly = rawText;
+        const arrowMatch = rawText.match(/\s*([→↗\u2192\u2197\u21B3])$/);
+        if (arrowMatch) {
+          arrow = arrowMatch[1];
+          textOnly = rawText.replace(/\s*([→↗\u2192\u2197\u21B3])$/, '').trim();
+        } else if (isCta) {
+          arrow = '→';
+        }
+
+        // Usuń poprzednią zawartość f3 jeśli istniała (np. przy przełączaniu języka)
+        const oldClip = el.querySelector('.f3-clip');
+        if (oldClip) oldClip.remove();
+
+        const words = textOnly.split(' ');
+        let charIndex = 0;
+
+        const clip = document.createElement('span');
+        clip.className = 'f3-clip';
+        clip.setAttribute('aria-hidden', 'true');
+
+        words.forEach((word, wIdx) => {
+          if (wIdx > 0) {
+            const space = document.createElement('span');
+            space.className = 'f3-space';
+            space.innerHTML = '&nbsp;';
+            clip.appendChild(space);
+          }
+
+          const wordSpan = document.createElement('span');
+          wordSpan.className = 'f3-word';
+
+          const letters = Array.from(word);
+          letters.forEach(char => {
+            const charSpan = document.createElement('span');
+            charSpan.className = 'f3-char';
+            charSpan.style.setProperty('--char', charIndex);
+            charSpan.textContent = char;
+            wordSpan.appendChild(charSpan);
+            charIndex++;
+          });
+
+          clip.appendChild(wordSpan);
+        });
+
+        if (arrow) {
+          const arrowSpan = document.createElement('span');
+          arrowSpan.className = 'f3-arrow';
+          arrowSpan.style.setProperty('--char', charIndex);
+          arrowSpan.textContent = arrow;
+          clip.appendChild(arrowSpan);
+        }
+
+        el.classList.add('f3-link');
+        if (isOrange) el.classList.add('f3-link--orange');
+
+        // Ukryj pierwotne dzieci wizualne (np. .nav-flip, stary span, .cta-arrow-box)
+        Array.from(el.children).forEach(child => {
+          if (child !== clip) {
+            child.style.display = 'none';
+          }
+        });
+
+        // Wyczyść tekst bezpośredni w węzłach tekstowych
+        Array.from(el.childNodes).forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent = '';
+          }
+        });
+
+        el.appendChild(clip);
+        el.dataset.f3Ready = 'true';
+      };
+
+      // 1. Menu główne
+      document.querySelectorAll('#main-nav a').forEach(el => applyToElement(el, false, false));
+      // 2. Samodzielny link "Wszystkie realizacje"
+      document.querySelectorAll('.portfolio-summary .all').forEach(el => applyToElement(el, false, false));
+      // 3. Linki zewnętrzne pod realizacjami (pomarańczowy wariant)
+      document.querySelectorAll('.project-ext-action a').forEach(el => applyToElement(el, true, false));
+      // 4. Linki w sekcji Współpraca (pomarańczowy wariant)
+      document.querySelectorAll('.collab-card-action').forEach(el => applyToElement(el, true, false));
+      // 5. Link w sekcji procesu
+      document.querySelectorAll('.process-ownership a').forEach(el => applyToElement(el, false, false));
+      // 6. Stopka: nawigacja, kontakt, social media
+      document.querySelectorAll('.footer-nav a, .footer-contact a, .social-links a').forEach(el => applyToElement(el, false, false));
+      // 7. Czarne CTA: header quote, hero dark, final cta-button
+      document.querySelectorAll('.tools .quote, .hero .actions .btn.dark, .final-cta .cta-button').forEach(el => applyToElement(el, false, true));
+    };
+
+    window.__reinitFutureThreeHover = initFutureThree;
+    initFutureThree();
 
     // Odświeżenie pozycji przy powrocie z pamięci podręcznej przeglądarki (bfcache)
     window.addEventListener('pageshow', (e) => {
