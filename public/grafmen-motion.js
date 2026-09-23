@@ -678,34 +678,43 @@
           return;
         }
 
-        // Pobierz czysty tekst z elementu
+        // Pobierz czysty tekst i strzałkę z elementu
+        let arrow = el.getAttribute('data-f3-arrow') || null;
         let rawText = el.getAttribute('data-f3-raw');
+
         if (!rawText) {
           const flipFront = el.querySelector('.nav-flip-front');
           if (flipFront) {
             rawText = flipFront.textContent.replace(/\s+/g, ' ').trim();
           } else {
+            // Wykryj strzałkę na końcu (w tekście głównym lub w spanach aria-hidden)
+            const fullText = (el.textContent || '').replace(/\s+/g, ' ').trim();
+            const arrowMatch = fullText.match(/\s*([→↗\u2192\u2197\u21B3])$/);
+            if (arrowMatch) {
+              arrow = arrowMatch[1];
+            } else if (isCta) {
+              arrow = '→';
+            }
+
+            // Pobierz tekst bez zbędnych grafik SVG i kontenerów cta-arrow
             const clone = el.cloneNode(true);
-            clone.querySelectorAll('svg, .cta-arrow-box, .cta-arrow, [aria-hidden="true"]').forEach(n => n.remove());
+            clone.querySelectorAll('svg, .cta-arrow-box, .cta-arrow').forEach(n => n.remove());
             rawText = (clone.textContent || '').replace(/\s+/g, ' ').trim();
+            if (arrow && rawText.endsWith(arrow)) {
+              rawText = rawText.slice(0, -arrow.length).trim();
+            }
           }
           if (!rawText) return;
           el.setAttribute('data-f3-raw', rawText);
-        }
-
-        // Zapewnienie dostępności: czytnik otrzymuje jeden czysty pełny napis
-        el.setAttribute('aria-label', rawText);
-
-        // Wykryj strzałkę na końcu (→, ↗, ↳)
-        let arrow = null;
-        let textOnly = rawText;
-        const arrowMatch = rawText.match(/\s*([→↗\u2192\u2197\u21B3])$/);
-        if (arrowMatch) {
-          arrow = arrowMatch[1];
-          textOnly = rawText.replace(/\s*([→↗\u2192\u2197\u21B3])$/, '').trim();
-        } else if (isCta) {
+          if (arrow) el.setAttribute('data-f3-arrow', arrow);
+        } else if (!arrow && isCta) {
           arrow = '→';
         }
+
+        const textOnly = rawText;
+
+        // Zapewnienie dostępności: czytnik otrzymuje jeden czysty pełny napis
+        el.setAttribute('aria-label', `${textOnly} ${arrow || ''}`.trim());
 
         // Usuń poprzednią zawartość f3 jeśli istniała (np. przy przełączaniu języka)
         const oldClip = el.querySelector('.f3-clip');
@@ -773,26 +782,35 @@
 
       const isHomePage = document.body.classList.contains('home-page');
 
-      // UNIVERSAL: menu i stopka – wszystkie strony
+      // 1. UNIVERSAL: menu i stopka – wszystkie strony
       document.querySelectorAll('#main-nav a').forEach(el => applyToElement(el, false, false));
       document.querySelectorAll('.footer-nav a, .footer-contact a, .social-links a').forEach(el => applyToElement(el, false, false));
       document.querySelectorAll('.tools .quote').forEach(el => applyToElement(el, false, true));
 
-      if (isHomePage) {
-        // HOMEPAGE: specyficzne sekcje
-        document.querySelectorAll('.portfolio-summary .all').forEach(el => applyToElement(el, false, false));
-        document.querySelectorAll('.project-ext-action a').forEach(el => applyToElement(el, true, false));
-        document.querySelectorAll('.collab-card-action').forEach(el => applyToElement(el, true, false));
-        document.querySelectorAll('.collab-meta-link a').forEach(el => applyToElement(el, false, false));
-        document.querySelectorAll('.process-ownership a').forEach(el => applyToElement(el, false, false));
-        document.querySelectorAll('.hero .actions .btn.dark, .final-cta .cta-button').forEach(el => applyToElement(el, false, true));
-      } else {
-        // PODSTRONY: CTA, pakiety, linki procesów
-        document.querySelectorAll('.service-hero .btn.dark').forEach(el => applyToElement(el, false, true));
-        document.querySelectorAll('.final-cta .cta-button').forEach(el => applyToElement(el, false, true));
-        document.querySelectorAll('.package-link').forEach(el => applyToElement(el, false, false));
-        document.querySelectorAll('.process-ownership a').forEach(el => applyToElement(el, false, false));
-      }
+      // 2. PRZYCISKI CTA (ciemne przyciski i formularz kontaktowy)
+      document.querySelectorAll('.hero .actions .btn.dark, .service-hero .btn.dark, .final-cta .cta-button, .contact-brief .cta-button, button.cta-button, .project-film-section .cta-button').forEach(el => applyToElement(el, false, true));
+
+      // 3. POMARAŃCZOWY PANEL MODERNIZACJI (podstrona strony-www i modernizacja)
+      document.querySelectorAll('.modernizacja-panel .btn').forEach(el => applyToElement(el, false, true));
+
+      // 4. PAKIETY (strony-www, branding)
+      document.querySelectorAll('.package-link').forEach(el => applyToElement(el, false, false));
+
+      // 5. LINKI PORTFOLIO ZEWNĘTRZNE (homepage, podstrona /portfolio/ oraz case studies)
+      document.querySelectorAll('.project-ext-action a, .project-ext-link').forEach(el => applyToElement(el, true, false));
+
+      // 6. LINKI WSPÓŁPRACY, PROCESU, PORTFOLIO WSZYSTKIE
+      document.querySelectorAll('.portfolio-summary .all, .portfolio .all').forEach(el => applyToElement(el, false, false));
+      document.querySelectorAll('.collab-card-action').forEach(el => applyToElement(el, true, false));
+      document.querySelectorAll('.collab-meta-link a').forEach(el => applyToElement(el, false, false));
+      document.querySelectorAll('.process-ownership a').forEach(el => applyToElement(el, false, false));
+
+      // 7. LINKI TEKSTOWE .text-link (branding, o-mnie, case studies, blog)
+      document.querySelectorAll('.text-link').forEach(el => applyToElement(el, false, false));
+
+      // 8. BLOG: "Czytaj artykuł"
+      document.querySelectorAll('.blog-featured-link').forEach(el => applyToElement(el, true, false));
+      document.querySelectorAll('.blog-card-link').forEach(el => applyToElement(el, false, false));
     };
 
     window.__reinitFutureThreeHover = initFutureThree;

@@ -572,10 +572,11 @@ a.f3-link {
   --f3-arrow-shadow: #0f0f10;
 }
 
-/* Pomarańczowe linki (collab-card-action, project-ext-action) → ciemny */
+/* Pomarańczowe linki (collab-card-action, project-ext-action, project-ext-link) → ciemny */
 .f3-link--orange,
 .collab-card-action.f3-link,
-.project-ext-action a.f3-link {
+.project-ext-action a.f3-link,
+.project-ext-link.f3-link {
   color: var(--orange, #ff6400) !important;
   --f3-shadow: #09090b !important;
   --f3-arrow-shadow: #09090b !important;
@@ -607,6 +608,29 @@ a.f3-link {
   text-decoration: none !important;
 }
 
+/* Czarna karta pakietu (package-featured) – litery zmieniają się na białe na hover */
+.package-featured .package-link.f3-link {
+  color: var(--orange, #ff6400) !important;
+  --f3-shadow: #ffffff !important;
+  --f3-arrow-shadow: #ffffff !important;
+}
+
+/* Pomarańczowy przycisk panelu modernizacji – litery zmieniają się na ciemne na hover */
+.modernizacja-panel .btn.f3-link {
+  background-color: var(--orange, #ff6400) !important;
+  color: #ffffff !important;
+  --f3-shadow: #09090b !important;
+  --f3-arrow-shadow: #09090b !important;
+}
+
+/* Blog: wyróżniony link "Czytaj artykuł" */
+.blog-featured-link.f3-link {
+  color: var(--orange, #ff6400) !important;
+  --f3-shadow: #09090b !important;
+  --f3-arrow-shadow: #09090b !important;
+  border-bottom: none !important;
+}
+
 /* Ukrycie .cta-arrow-box gdy F3 aktywny */
 .quote.f3-link .cta-arrow-box,
 .btn.dark.f3-link .cta-arrow-box,
@@ -630,16 +654,13 @@ body.home-page header nav .nav-flip-back {
 }
 
 /* Usunięcie dekoracji wyłącznie na elementach z F3 */
-.collab-card-action.f3-link {
-  border-bottom: none !important;
-}
-.process-ownership a.f3-link {
-  border-bottom: none !important;
-}
-.portfolio .all.f3-link {
-  border-bottom: none !important;
-}
-.project-ext-action a.f3-link {
+.collab-card-action.f3-link,
+.process-ownership a.f3-link,
+.portfolio .all.f3-link,
+.project-ext-action a.f3-link,
+.project-ext-link.f3-link,
+.text-link.f3-link,
+.blog-card-link.f3-link {
   border-bottom: none !important;
 }
 

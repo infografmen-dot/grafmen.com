@@ -628,8 +628,8 @@ section[id]{scroll-margin-top:var(--sticky-header-offset)}
 .blog-featured-link:visited {
   color: var(--orange);
 }
-.blog-featured-link:hover,
-.blog-featured-card:hover .blog-featured-link {
+.blog-featured-link:not(.f3-link):hover,
+.blog-featured-card:hover .blog-featured-link:not(.f3-link) {
   color: #ea580c;
   transform: translateX(4px);
 }
