@@ -344,3 +344,23 @@
 .gf-line-inner{display:block!important;will-change:transform,opacity}
 .btn span,.cta-button span,.text-link span,.package-link span,.project-ext-link span,.arr-link span{display:inline-block;transition:transform .32s cubic-bezier(.22,1,.36,1)}
 .btn:hover span,.cta-button:hover span,.text-link:hover span,.package-link:hover span,.project-ext-link:hover span,.arr-link:hover span{transform:translateX(4px)}
+.portfolio .work:hover .arr-link span{transform:translateX(4px)}
+
+/* Lenis smooth scroll minimal core */
+html.lenis,html.lenis body{height:auto}
+.lenis:not(.lenis-autoToggle).lenis-stopped{overflow:clip}
+.lenis [data-lenis-prevent],.lenis [data-lenis-prevent-wheel],.lenis [data-lenis-prevent-touch]{overscroll-behavior:contain}
+.lenis.lenis-smooth iframe{pointer-events:none}
+
+/* Subtle desktop parallax for mockup cards */
+@media (hover: hover) and (pointer: fine) {
+  .portfolio .project-image[data-parallax="photo"] {
+    transform: scale(1.08);
+    will-change: transform;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio .project-image[data-parallax="photo"] {
+    transform: none !important;
+  }
+}
