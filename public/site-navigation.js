@@ -1,14 +1,60 @@
 (() => {
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('#main-nav');
-  const close = () => { nav?.classList.remove('is-open'); toggle?.setAttribute('aria-expanded', 'false'); };
-  toggle?.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') !== 'true';
+  if (!toggle || !nav) return;
+
+  const updateMenuState = (open) => {
     toggle.setAttribute('aria-expanded', String(open));
-    nav?.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu');
+    nav.classList.toggle('is-open', open);
+    document.body.classList.toggle('menu-open', open);
+    if (window.innerWidth <= 1150) {
+      nav.setAttribute('aria-hidden', String(!open));
+    } else {
+      nav.removeAttribute('aria-hidden');
+    }
+  };
+
+  const close = () => {
+    if (toggle.getAttribute('aria-expanded') === 'true') {
+      updateMenuState(false);
+      toggle.focus({ preventScroll: true });
+    }
+  };
+
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    updateMenuState(open);
+    if (open) {
+      const firstLink = nav.querySelector('a');
+      firstLink?.focus({ preventScroll: true });
+    }
   });
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') { close(); toggle?.focus(); } });
-  nav?.addEventListener('click', event => { if (event.target.closest('a')) close(); });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      close();
+    }
+  });
+
+  nav.addEventListener('click', event => {
+    if (event.target.closest('a')) {
+      close();
+    }
+  });
+
+  document.addEventListener('click', event => {
+    if (toggle.getAttribute('aria-expanded') === 'true' && !nav.contains(event.target) && !toggle.contains(event.target)) {
+      close();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1150 && toggle.getAttribute('aria-expanded') === 'true') {
+      close();
+    }
+  }, { passive: true });
+
   // Keep portable file:// navigation; use clean directory URLs on a web server.
   if (/^https?:$/.test(location.protocol)) {
     document.querySelectorAll('a[href]').forEach(link => {

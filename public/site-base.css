@@ -164,8 +164,14 @@
   header{height:104px;display:grid;grid-template-columns:190px 1fr auto;align-items:center;gap:28px}
   .logo{display:block;width:142px;height:auto}
   nav{display:flex;justify-content:center;gap:28px;align-items:center;font-size:17px;font-weight:500;white-space:nowrap}
-  nav a{color:var(--ink);text-decoration:none;position:relative;padding:14px 6px;font-size:17px;min-height:44px;display:inline-flex;align-items:center}
-  nav a.active:after{content:"";position:absolute;height:2px;width:28px;left:50%;bottom:4px;transform:translateX(-50%);background:#aab0b9;border-radius:2px}
+  nav a{color:var(--ink);text-decoration:none;position:relative;padding:14px 6px;font-size:17px;min-height:44px;display:inline-flex;align-items:center;transition:color .25s ease,text-shadow .25s ease}
+  nav a::before{content:"";position:absolute;inset:6px -6px;border-radius:8px;background:radial-gradient(circle at center,rgba(255,100,0,.15) 0%,transparent 75%);opacity:0;pointer-events:none;transition:opacity .25s ease}
+  nav a:hover,nav a:focus-visible{color:var(--orange);text-shadow:0 0 16px rgba(255,100,0,.3);outline:none}
+  nav a:hover::before,nav a:focus-visible::before{opacity:1}
+  nav a.active{color:var(--ink)}
+  nav a.active:hover{color:var(--orange)}
+  nav a.active:after{content:"";position:absolute;height:2px;width:28px;left:50%;bottom:4px;transform:translateX(-50%);background:#aab0b9;border-radius:2px;transition:background .25s ease}
+  nav a.active:hover:after{background:var(--orange)}
   .tools{display:flex;align-items:center;gap:20px;font-size:13px;font-weight:600;white-space:nowrap}
   .tools .sep{width:1px;height:30px;background:#cfd3d8}
   .quote{height:52px;padding:0 24px;border:0;border-radius:8px;background:#0b0b0d;color:#fff;font:600 14px/1 var(--font-body);display:inline-flex;align-items:center;gap:24px}

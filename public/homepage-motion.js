@@ -73,23 +73,23 @@
       }
     }
 
-    // 5. PORTFOLIO CARDS ENTRANCE (Subtle fade-in & upward glide)
+    // 5. PORTFOLIO MEDIA ENTRANCE (Subtle fade-in & upward glide for media; captions have dedicated trigger)
     const portfolioCards = document.querySelectorAll('.portfolio .stage .work');
     if (portfolioCards.length && typeof ScrollTrigger !== 'undefined') {
-      portfolioCards.forEach((workEl, index) => {
-        const cardInner = workEl.querySelector('.project-card');
-        if (!cardInner || workEl.dataset.entranceDone) return;
+      portfolioCards.forEach((workEl) => {
+        const mediaLink = workEl.querySelector('.media-link');
+        if (!mediaLink || workEl.dataset.entranceDone) return;
         workEl.dataset.entranceDone = 'true';
 
-        gsap.fromTo(cardInner, 
+        gsap.fromTo(mediaLink, 
           { 
             opacity: 0, 
-            y: canHover ? 32 : 18 
+            y: canHover ? 24 : 16 
           },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
+            duration: 0.75,
             ease: 'power2.out',
             scrollTrigger: {
               trigger: workEl,
@@ -97,7 +97,7 @@
               once: true
             },
             onComplete: () => {
-              gsap.set(cardInner, { clearProps: 'transform,opacity' });
+              gsap.set(mediaLink, { clearProps: 'transform,opacity' });
             }
           }
         );

@@ -265,6 +265,183 @@
       });
     }
 
+    // 7. WSKAZÓWKA PRZEWIŃ W DÓŁ (Hero Bottom: subtelny ruch pionowy myszy i strzałki)
+    const scrollIndicator = document.querySelector('.hero-bottom .center');
+    if (scrollIndicator && !scrollIndicator.dataset.motionDone) {
+      scrollIndicator.dataset.motionDone = 'true';
+      const mouseIcon = scrollIndicator.querySelector('.mouse');
+      const arrowIcon = scrollIndicator.querySelector('.arrowdown');
+      if (mouseIcon && arrowIcon) {
+        const scrollTween = gsap.to([mouseIcon, arrowIcon], {
+          y: 3.5,
+          duration: 0.9,
+          repeat: 3, // 4 przejścia = 2 spokojne cykle (góra-dół-góra x2), ~3.6s
+          yoyo: true,
+          ease: 'sine.inOut',
+          onComplete: () => {
+            gsap.set([mouseIcon, arrowIcon], { clearProps: 'y' });
+          }
+        });
+
+        const stopScrollTween = () => {
+          if (scrollTween && scrollTween.isActive()) {
+            scrollTween.kill();
+            gsap.set([mouseIcon, arrowIcon], { clearProps: 'y' });
+          }
+        };
+        window.addEventListener('scroll', stopScrollTween, { once: true, passive: true });
+      }
+    }
+
+    // 8. POMARAŃCZOWE ETYKIETY SEKCJI (Odsłanianie maską od lewej + delikatne przesunięcie z lewej)
+    if (typeof ScrollTrigger !== 'undefined') {
+      const kickers = document.querySelectorAll(
+        '.home-section .home-kicker, .portfolio-head .section-kicker, .logo-cloud-kicker, .service-hero .home-kicker, .modernisation-callout .home-kicker'
+      );
+      kickers.forEach(kicker => {
+        if (kicker.closest('.hero') || kicker.dataset.kickerDone) return;
+        kicker.dataset.kickerDone = 'true';
+
+        gsap.fromTo(kicker,
+          {
+            clipPath: 'inset(0 100% 0 0)',
+            x: -14,
+            opacity: 0.7
+          },
+          {
+            clipPath: 'inset(0 0% 0 0)',
+            x: 0,
+            opacity: 1,
+            duration: 0.55,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: kicker,
+              start: 'top 84%',
+              once: true
+            },
+            onComplete: () => {
+              gsap.set(kicker, { clearProps: 'clipPath,x,opacity' });
+            }
+          }
+        );
+      });
+    }
+
+    // 9. OPISY SEKCJI I PODPISY PORTFOLIO
+    if (typeof ScrollTrigger !== 'undefined') {
+      // 9a. Opis i link po prawej stronie nagłówka portfolio
+      const portSummary = document.querySelector('.portfolio-summary');
+      if (portSummary && !portSummary.dataset.motionDone) {
+        portSummary.dataset.motionDone = 'true';
+        const summaryItems = portSummary.querySelectorAll('.portfolio-intro, .all');
+        if (summaryItems.length) {
+          gsap.fromTo(summaryItems,
+            { opacity: 0, y: 16 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              stagger: 0.08,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: portSummary,
+                start: 'top 82%',
+                once: true
+              },
+              onComplete: () => {
+                gsap.set(summaryItems, { clearProps: 'all' });
+              }
+            }
+          );
+        }
+      }
+
+      // 9b. Podpisy wszystkich realizacji (własny ScrollTrigger na .caption)
+      const captions = document.querySelectorAll('.portfolio .stage .work .caption');
+      captions.forEach(caption => {
+        if (caption.dataset.motionDone) return;
+        caption.dataset.motionDone = 'true';
+
+        const cat = caption.querySelector('.cat');
+        const title = caption.querySelector('.title');
+        const desc = caption.querySelector('.project-description');
+        const actions = caption.querySelectorAll('.project-ext-action, .arr-link');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: caption,
+            start: 'top 88%',
+            once: true
+          },
+          onComplete: () => {
+            if (cat) gsap.set(cat, { clearProps: 'all' });
+            if (title) gsap.set(title, { clearProps: 'all' });
+            if (desc) gsap.set(desc, { clearProps: 'all' });
+            if (actions.length) gsap.set(actions, { clearProps: 'all' });
+          }
+        });
+
+        if (cat) {
+          tl.fromTo(cat,
+            { opacity: 0, y: 12 },
+            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+            0
+          );
+        }
+
+        if (title) {
+          tl.fromTo(title,
+            { opacity: 0, y: 16 },
+            { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+            0.06
+          );
+        }
+
+        if (desc) {
+          tl.fromTo(desc,
+            { opacity: 0, y: 14 },
+            { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+            0.12
+          );
+        }
+
+        if (actions.length) {
+          tl.fromTo(actions,
+            { opacity: 0, y: 10 },
+            { opacity: 1, y: 0, duration: 0.5, stagger: 0.06, ease: 'power2.out' },
+            0.18
+          );
+        }
+      });
+
+      // 9c. Krótkie wprowadzenia i leady na pozostałych podstronach
+      const subpageIntros = document.querySelectorAll(
+        '.service-hero-bottom .home-lead, .packages-intro .home-lead, .how-intro .home-lead, .testimonials-intro .home-lead'
+      );
+      subpageIntros.forEach(intro => {
+        if (intro.dataset.motionDone) return;
+        intro.dataset.motionDone = 'true';
+
+        gsap.fromTo(intro,
+          { opacity: 0, y: 16 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: intro,
+              start: 'top 85%',
+              once: true
+            },
+            onComplete: () => {
+              gsap.set(intro, { clearProps: 'all' });
+            }
+          }
+        );
+      });
+    }
+
     // Odświeżenie pozycji przy powrocie z pamięci podręcznej przeglądarki (bfcache)
     window.addEventListener('pageshow', (e) => {
       if (e.persisted && typeof ScrollTrigger !== 'undefined') {
