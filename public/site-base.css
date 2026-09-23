@@ -484,20 +484,23 @@ html.lenis,html.lenis body{height:auto}
 }
 
 /* ==========================================================================
-   FUTURE THREE HOVER EFFECT (WYŁĄCZNIE HOMEPAGE)
+   FUTURE THREE HOVER EFFECT (homepage i podstrony)
+   Reguły scoped do .f3-link i jego dzieci – nie dotykają innych linków.
    ========================================================================== */
 
-/* 1. Kontener linku i słów */
-body.home-page .f3-link {
+/* 1. Kontener linku */
+.f3-link {
   display: inline-flex !important;
   align-items: center;
   position: relative;
   text-decoration: none !important;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;   /* nie kurczy się w kontenerze flex */
 }
 
-body.home-page .f3-clip {
+/* 2. Maska pionowa – ukrywa shadow, padding chroni ostatni znak i grot */
+.f3-clip {
   display: inline-flex;
   align-items: baseline;
   height: 1.35em;
@@ -505,21 +508,23 @@ body.home-page .f3-clip {
   overflow: hidden;
   vertical-align: baseline;
   white-space: nowrap;
+  padding-right: 0.2em;
 }
 
-body.home-page .f3-word {
+/* 3. Wyrazy i spacje */
+.f3-word {
   display: inline-flex;
   white-space: nowrap;
 }
 
-body.home-page .f3-space {
+.f3-space {
   display: inline-block;
   white-space: pre;
   width: 0.28em;
 }
 
-/* 2. Litery i przesunięcie pionowe w oparciu o text-shadow */
-body.home-page .f3-char {
+/* 4. Litery */
+.f3-char {
   display: inline-block;
   text-shadow: 0 1.35em var(--f3-shadow, #ff6400);
   transform: translateY(0);
@@ -529,8 +534,10 @@ body.home-page .f3-char {
   color: inherit;
 }
 
-body.home-page .f3-arrow {
+/* 5. Strzałka – nie może być ściskana przez flex ani obcięta */
+.f3-arrow {
   display: inline-block;
+  flex-shrink: 0;
   margin-left: 0.35em;
   text-shadow: 0 1.35em var(--f3-arrow-shadow, var(--f3-shadow, #ff6400));
   transform: translateY(0);
@@ -540,80 +547,79 @@ body.home-page .f3-arrow {
   color: inherit;
 }
 
-/* Ruch pionowy do góry przy :hover oraz :focus-visible */
-body.home-page .f3-link:hover .f3-char,
-body.home-page .f3-link:focus-visible .f3-char,
-body.home-page a:hover .f3-char,
-body.home-page a:focus-visible .f3-char,
-body.home-page button:hover .f3-char,
-body.home-page button:focus-visible .f3-char {
+/* 6. Ruch pionowy przy :hover i :focus-visible */
+.f3-link:hover .f3-char,
+.f3-link:focus-visible .f3-char {
   transform: translateY(-1.35em);
 }
 
-body.home-page .f3-link:hover .f3-arrow,
-body.home-page .f3-link:focus-visible .f3-arrow,
-body.home-page a:hover .f3-arrow,
-body.home-page a:focus-visible .f3-arrow,
-body.home-page button:hover .f3-arrow,
-body.home-page button:focus-visible .f3-arrow {
+.f3-link:hover .f3-arrow,
+.f3-link:focus-visible .f3-arrow {
   transform: translateY(-1.35em);
 }
 
-/* 3. Kolorystyka */
-
-/* Standardowe ciemne linki tekstowe na jasnym tle (spoczynek ciemny -> hover pomarańczowy) */
-body.home-page a.f3-link,
-body.home-page #main-nav a.f3-link,
-body.home-page .portfolio .all.f3-link,
-body.home-page .process-ownership a.f3-link {
+/* 7. Kolorystyka – ciemne linki na jasnym tle → pomarańczowy */
+a.f3-link {
   color: #0f0f10;
   --f3-shadow: var(--orange, #ff6400);
   --f3-arrow-shadow: var(--orange, #ff6400);
 }
 
-/* Aktywny link w menu zachowuje wyróżnienie pomarańczowe */
-body.home-page #main-nav a.active.f3-link {
+/* Aktywny link menu: pomarańczowy → ciemny */
+#main-nav a.active.f3-link {
   color: var(--orange, #ff6400);
   --f3-shadow: #0f0f10;
   --f3-arrow-shadow: #0f0f10;
 }
 
-/* Linki naturalnie pomarańczowe (np. project-ext-link, collab-card-action) */
-/* Spoczynek pomarańczowy -> hover czarny */
-body.home-page .f3-link--orange,
-body.home-page .project-ext-link.f3-link,
-body.home-page .project-ext-action a.f3-link,
-body.home-page .collab-card-action.f3-link {
+/* Pomarańczowe linki (collab-card-action, project-ext-action) → ciemny */
+.f3-link--orange,
+.collab-card-action.f3-link,
+.project-ext-action a.f3-link {
   color: var(--orange, #ff6400) !important;
   --f3-shadow: #09090b !important;
   --f3-arrow-shadow: #09090b !important;
 }
 
-/* Linki na ciemnym tle (stopka .site-footer) */
-body.home-page .site-footer a.f3-link {
+/* Stopka – jasny tekst na ciemnym tle */
+.site-footer a.f3-link {
   color: #aaaab1;
   --f3-shadow: #ff7a29;
   --f3-arrow-shadow: #ff7a29;
 }
 
-/* Czarne CTA (.quote, .btn.dark, .cta-button) */
-body.home-page .quote.f3-link,
-body.home-page .btn.dark.f3-link,
-body.home-page .cta-button.f3-link {
+/* Czarne CTA (.quote, .btn.dark, .cta-button) – biały tekst → pomarańczowy */
+.quote.f3-link,
+.btn.dark.f3-link,
+.cta-button.f3-link {
   background-color: #09090b !important;
   color: #ffffff !important;
   --f3-shadow: var(--orange, #ff6400) !important;
   --f3-arrow-shadow: var(--orange, #ff6400) !important;
 }
 
-/* Zastąpienie strzałki Spector na homepage */
-body.home-page .quote .cta-arrow-box,
-body.home-page .btn.dark .cta-arrow-box,
-body.home-page .cta-button .cta-arrow-box {
+/* Linki pakietów – pomarańczowy → ciemny */
+.package-link.f3-link {
+  color: var(--orange, #ff6400) !important;
+  --f3-shadow: #0f0f10 !important;
+  --f3-arrow-shadow: #0f0f10 !important;
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+/* Ukrycie .cta-arrow-box gdy F3 aktywny */
+.quote.f3-link .cta-arrow-box,
+.btn.dark.f3-link .cta-arrow-box,
+.cta-button.f3-link .cta-arrow-box {
   display: none !important;
 }
 
-/* Wyłączenie flipu 3D w headerze wyłącznie na homepage (zastąpione falami liter) */
+/* Ukrycie nav-flip gdy F3 aktywny */
+.f3-link .nav-flip {
+  display: none !important;
+}
+
+/* Wyłączenie 3D-flip na homepage (zastąpiony falą liter) */
 body.home-page header nav .nav-flip {
   perspective: none !important;
   transform-style: flat !important;
@@ -623,63 +629,48 @@ body.home-page header nav .nav-flip-back {
   display: none !important;
 }
 
-/* 4. Usunięcie dekoracyjnych podkreśleń i kresek na homepage */
-body.home-page .collab-card-action {
+/* Usunięcie dekoracji wyłącznie na elementach z F3 */
+.collab-card-action.f3-link {
   border-bottom: none !important;
-  text-decoration: none !important;
 }
-body.home-page .process-ownership a {
+.process-ownership a.f3-link {
   border-bottom: none !important;
-  text-decoration: none !important;
 }
-body.home-page .site-footer a {
-  text-decoration: none !important;
-}
-body.home-page .portfolio .all {
+.portfolio .all.f3-link {
   border-bottom: none !important;
-  text-decoration: none !important;
 }
-body.home-page .project-ext-action a {
+.project-ext-action a.f3-link {
   border-bottom: none !important;
-  text-decoration: none !important;
 }
 
-/* 5. Focus-visible i dostępność */
-body.home-page a.f3-link:focus-visible,
-body.home-page .quote:focus-visible,
-body.home-page .btn.dark:focus-visible,
-body.home-page .cta-button:focus-visible {
+/* Focus-visible */
+a.f3-link:focus-visible,
+.quote.f3-link:focus-visible,
+.btn.dark.f3-link:focus-visible,
+.cta-button.f3-link:focus-visible {
   outline: 2px solid var(--orange, #ff6400) !important;
   outline-offset: 3px !important;
   border-radius: 4px;
 }
 
-/* 6. prefers-reduced-motion */
+/* prefers-reduced-motion: zmiana koloru zamiast przesunięcia */
 @media (prefers-reduced-motion: reduce) {
-  body.home-page .f3-char,
-  body.home-page .f3-arrow {
+  .f3-char,
+  .f3-arrow {
     transition: color 0.2s ease !important;
     transform: none !important;
     text-shadow: none !important;
   }
-  body.home-page a.f3-link:hover .f3-char,
-  body.home-page a.f3-link:focus-visible .f3-char,
-  body.home-page button.f3-link:hover .f3-char,
-  body.home-page button.f3-link:focus-visible .f3-char {
+  .f3-link:hover .f3-char,
+  .f3-link:focus-visible .f3-char {
     color: var(--f3-shadow, #ff6400) !important;
   }
-  body.home-page a.f3-link:hover .f3-arrow,
-  body.home-page a.f3-link:focus-visible .f3-arrow,
-  body.home-page button.f3-link:hover .f3-arrow,
-  body.home-page button.f3-link:focus-visible .f3-arrow {
+  .f3-link:hover .f3-arrow,
+  .f3-link:focus-visible .f3-arrow {
     color: var(--f3-arrow-shadow, #ff6400) !important;
   }
 }
 
-/* Zapewnienie, że po aktywacji f3-link pierwotny .nav-flip jest ukryty */
-.f3-link .nav-flip {
-  display: none !important;
-}
 @media (max-width: 900px) {
   .nav-flip-back {
     display: none !important;

@@ -657,9 +657,8 @@
       }
     }
 
-    // 11. FUTURE THREE HOVER EFFECT (WYŁĄCZNIE HOMEPAGE)
+    // 11. FUTURE THREE HOVER EFFECT (homepage i podstrony)
     const initFutureThree = () => {
-      if (!document.body.classList.contains('home-page')) return;
 
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReduced) return;
@@ -772,20 +771,28 @@
         el.dataset.f3Ready = 'true';
       };
 
-      // 1. Menu główne
+      const isHomePage = document.body.classList.contains('home-page');
+
+      // UNIVERSAL: menu i stopka – wszystkie strony
       document.querySelectorAll('#main-nav a').forEach(el => applyToElement(el, false, false));
-      // 2. Samodzielny link "Wszystkie realizacje"
-      document.querySelectorAll('.portfolio-summary .all').forEach(el => applyToElement(el, false, false));
-      // 3. Linki zewnętrzne pod realizacjami (pomarańczowy wariant)
-      document.querySelectorAll('.project-ext-action a').forEach(el => applyToElement(el, true, false));
-      // 4. Linki w sekcji Współpraca (pomarańczowy wariant)
-      document.querySelectorAll('.collab-card-action').forEach(el => applyToElement(el, true, false));
-      // 5. Link w sekcji procesu
-      document.querySelectorAll('.process-ownership a').forEach(el => applyToElement(el, false, false));
-      // 6. Stopka: nawigacja, kontakt, social media
       document.querySelectorAll('.footer-nav a, .footer-contact a, .social-links a').forEach(el => applyToElement(el, false, false));
-      // 7. Czarne CTA: header quote, hero dark, final cta-button
-      document.querySelectorAll('.tools .quote, .hero .actions .btn.dark, .final-cta .cta-button').forEach(el => applyToElement(el, false, true));
+      document.querySelectorAll('.tools .quote').forEach(el => applyToElement(el, false, true));
+
+      if (isHomePage) {
+        // HOMEPAGE: specyficzne sekcje
+        document.querySelectorAll('.portfolio-summary .all').forEach(el => applyToElement(el, false, false));
+        document.querySelectorAll('.project-ext-action a').forEach(el => applyToElement(el, true, false));
+        document.querySelectorAll('.collab-card-action').forEach(el => applyToElement(el, true, false));
+        document.querySelectorAll('.collab-meta-link a').forEach(el => applyToElement(el, false, false));
+        document.querySelectorAll('.process-ownership a').forEach(el => applyToElement(el, false, false));
+        document.querySelectorAll('.hero .actions .btn.dark, .final-cta .cta-button').forEach(el => applyToElement(el, false, true));
+      } else {
+        // PODSTRONY: CTA, pakiety, linki procesów
+        document.querySelectorAll('.service-hero .btn.dark').forEach(el => applyToElement(el, false, true));
+        document.querySelectorAll('.final-cta .cta-button').forEach(el => applyToElement(el, false, true));
+        document.querySelectorAll('.package-link').forEach(el => applyToElement(el, false, false));
+        document.querySelectorAll('.process-ownership a').forEach(el => applyToElement(el, false, false));
+      }
     };
 
     window.__reinitFutureThreeHover = initFutureThree;
