@@ -55,6 +55,7 @@ const description = "Projektuję strony WWW, branding, materiały reklamowe i mo
           id="hero-cubes-pause"
           type="button"
           aria-label="Wstrzymaj animację"
+          title="Wstrzymaj animację"
           aria-pressed="false"
           hidden
         >
@@ -141,12 +142,14 @@ const description = "Projektuję strony WWW, branding, materiały reklamowe i mo
           if (paused) {
             vid.pause();
             btn.setAttribute('aria-label', 'Wznów animację');
+            btn.setAttribute('title', 'Wznów animację');
             btn.setAttribute('aria-pressed', 'true');
             btn.querySelector('svg')?.replaceWith(makeSvgPlay());
           } else {
             vid.playbackRate = 0.4;
             vid.play().catch(() => {});
             btn.setAttribute('aria-label', 'Wstrzymaj animację');
+            btn.setAttribute('title', 'Wstrzymaj animację');
             btn.setAttribute('aria-pressed', 'false');
             btn.querySelector('svg')?.replaceWith(makeSvgPause());
           }

@@ -121,36 +121,97 @@
       });
     }
 
-    // 5. SUBPAGE HERO ENTRANCE (Calm 0.6s text reveal on subpages)
-    const subpageH1 = document.querySelector('.service-hero h1, .blog-hero h1, .portfolio-hero h1, .post-hero h1');
+    // 5. SUBPAGE HERO ENTRANCE (Kinetic Horizontal Wipe Reveal matching Homepage)
+    const subpageH1 = document.querySelector('.service-hero h1, .portfolio-head h1');
     if (subpageH1 && !subpageH1.dataset.motionDone) {
       subpageH1.dataset.motionDone = 'true';
+
+      const originalHtml = subpageH1.innerHTML;
+      const plainText = (subpageH1.innerHTML || '')
+        .replace(/<br\s*[\/]?>/gi, ' ')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/&nbsp;|\u00A0/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (plainText) {
+        subpageH1.setAttribute('aria-label', plainText);
+      }
+
+      // Failsafe watchdog: ensures heading is 100% visible even under heavy tab throttling or errors
+      let subpageFailsafe = setTimeout(() => {
+        subpageH1.innerHTML = originalHtml;
+        if (plainText) subpageH1.setAttribute('aria-label', plainText);
+        gsap.set(subpageH1, { clearProps: 'all', opacity: 1 });
+      }, 1500);
+
       if (typeof SplitText !== 'undefined') {
-        const split = new SplitText(subpageH1, { type: 'lines', linesClass: 'subpage-line' });
-        const mask = new SplitText(subpageH1, { type: 'lines', linesClass: 'subpage-mask' });
-        gsap.fromTo(split.lines,
-          { yPercent: 100, opacity: 0 },
-          {
-            yPercent: 0,
-            opacity: 1,
-            duration: 0.65,
-            stagger: 0.07,
-            ease: 'power2.out',
-            onComplete: () => {
-              gsap.set(split.lines, { clearProps: 'all' });
-              mask.lines.forEach(l => { l.style.overflow = 'visible'; });
-            }
+        const split = new SplitText(subpageH1, { type: 'lines', linesClass: 'hero-line-wrap', aria: 'none' });
+        if (plainText) subpageH1.setAttribute('aria-label', plainText);
+
+        split.lines.forEach((lineWrap) => {
+          lineWrap.setAttribute('aria-hidden', 'true');
+          const lineHtml = lineWrap.innerHTML;
+          lineWrap.innerHTML =
+            `<span class="hero-line">` +
+              `<span class="hero-line-inner" style="opacity:0">${lineHtml}</span>` +
+              `<span class="hero-wipe-brand" aria-hidden="true"></span>` +
+              `<span class="hero-wipe-fg" aria-hidden="true"></span>` +
+            `</span>`;
+        });
+
+        const heroLines = subpageH1.querySelectorAll('.hero-line');
+        const lineInners = subpageH1.querySelectorAll('.hero-line-inner');
+        const brandRects = subpageH1.querySelectorAll('.hero-wipe-brand');
+        const fgRects = subpageH1.querySelectorAll('.hero-wipe-fg');
+
+        if (!heroLines.length || !lineInners.length) {
+          clearTimeout(subpageFailsafe);
+          subpageH1.innerHTML = originalHtml;
+          return;
+        }
+
+        gsap.set(lineInners, { opacity: 0 });
+        gsap.set([brandRects, fgRects], { scaleX: 0, transformOrigin: 'left' });
+
+        const tl = gsap.timeline({
+          defaults: { ease: 'power3.inOut' },
+          onComplete: () => {
+            if (subpageFailsafe) clearTimeout(subpageFailsafe);
+            // Revert cleanly to original HTML so natural word wrapping and resize remain pristine
+            subpageH1.innerHTML = originalHtml;
+            if (plainText) subpageH1.setAttribute('aria-label', plainText);
+            gsap.set(subpageH1, { clearProps: 'all', opacity: 1 });
           }
-        );
+        });
+
+        // 0.6–0.9s total duration matching homepage kinetic wipe
+        heroLines.forEach((line, index) => {
+          const lineInner = line.querySelector('.hero-line-inner');
+          const brandRect = line.querySelector('.hero-wipe-brand');
+          const fgRect = line.querySelector('.hero-wipe-fg');
+          if (!lineInner || !brandRect || !fgRect) return;
+
+          const lineStart = index * 0.10;
+          tl.to(brandRect, { scaleX: 1, duration: 0.38 }, lineStart);
+          tl.to(fgRect, { scaleX: 1, duration: 0.38 }, lineStart + 0.05);
+          tl.set(lineInner, { opacity: 1 }, lineStart + 0.43);
+          tl.set([brandRect, fgRect], { transformOrigin: 'right' }, lineStart + 0.43);
+          tl.to(fgRect, { scaleX: 0, duration: 0.36 }, lineStart + 0.43);
+          tl.to(brandRect, { scaleX: 0, duration: 0.36 }, lineStart + 0.48);
+        });
       } else {
+        // Graceful fallback if SplitText is unavailable
         gsap.fromTo(subpageH1,
-          { y: 24, opacity: 0 },
+          { opacity: 0, y: 16 },
           {
-            y: 0,
             opacity: 1,
+            y: 0,
             duration: 0.6,
             ease: 'power2.out',
-            onComplete: () => gsap.set(subpageH1, { clearProps: 'all' })
+            onComplete: () => {
+              if (subpageFailsafe) clearTimeout(subpageFailsafe);
+              gsap.set(subpageH1, { clearProps: 'all' });
+            }
           }
         );
       }
