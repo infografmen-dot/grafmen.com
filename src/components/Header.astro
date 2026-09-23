@@ -1,4 +1,6 @@
 ---
+import CtaArrow from './CtaArrow.astro';
+
 interface Props {
   currentNav?: 'home' | 'web' | 'brand' | 'work' | 'about' | 'blog' | 'contact';
 }
@@ -38,13 +40,15 @@ const { currentNav } = Astro.props;
           <button type="button" data-language="en" aria-pressed="false" aria-label="English">EN</button>
         </div>
         <span class="sep"></span>
-        <a class="quote" href="/kontakt/">Kontakt <span aria-hidden="true">&rarr;</span></a>
+        <a class="quote" href="/kontakt/">
+          <span>Kontakt</span>
+          <CtaArrow />
+        </a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Otwórz menu">
-          <span class="menu-toggle-box" aria-hidden="true">
-            <span class="menu-toggle-line line-1"></span>
-            <span class="menu-toggle-line line-2"></span>
-            <span class="menu-toggle-line line-3"></span>
-          </span>
+          <svg class="menu-toggle-svg" viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" fill="none" stroke="currentColor" aria-hidden="true">
+            <path class="menu-toggle-path-top" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22" />
+            <path class="menu-toggle-path-mid" d="M7 16 27 16" />
+          </svg>
         </button>
       </div>
     </header>

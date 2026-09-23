@@ -83,6 +83,9 @@
       } else {
         document.querySelectorAll('.hero-line-inner').forEach(el => { el.style.opacity = '1'; });
       }
+      if (window.__reinitFutureThreeHover) {
+        window.__reinitFutureThreeHover();
+      }
     }
 
     // Works without a server; blocked file:// History API does not prevent switching.

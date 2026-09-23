@@ -172,19 +172,23 @@
   .logo{display:block;width:142px;height:auto}
   nav{display:flex;justify-content:center;gap:28px;align-items:center;font-size:17px;font-weight:500;white-space:nowrap}
   nav a{color:var(--ink);text-decoration:none;position:relative;padding:14px 6px;font-size:17px;font-weight:500;min-height:44px;display:inline-flex;align-items:center;perspective:600px;transform-style:preserve-3d;outline:none}
-  nav a::before{content:"";position:absolute;inset:4px -8px;border-radius:8px;background:radial-gradient(circle at center,rgba(229,80,24,.18) 0%,rgba(229,80,24,.05) 50%,transparent 75%);opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.2,.8,.2,1)}
+  nav a:focus-visible{outline:2px solid var(--orange);outline-offset:2px;border-radius:4px}
   .nav-flip{position:relative;display:inline-flex;align-items:center;justify-content:center;transform-style:preserve-3d}
   .nav-flip-front{display:inline-block;transform-origin:center bottom;transform:rotateX(0deg);opacity:1;color:var(--ink);transition:transform .38s cubic-bezier(.2,.8,.2,1),opacity .32s ease,color .28s ease;will-change:transform,opacity}
-  .nav-flip-back{position:absolute;inset:0;display:inline-flex;align-items:center;justify-content:center;transform-origin:center top;transform:rotateX(90deg);opacity:0;color:var(--orange);text-shadow:0 0 16px rgba(229,80,24,.35);transition:transform .38s cubic-bezier(.2,.8,.2,1),opacity .32s ease;pointer-events:none;user-select:none;white-space:nowrap;will-change:transform,opacity}
+  .nav-flip-back{position:absolute;inset:0;display:inline-flex;align-items:center;justify-content:center;transform-origin:center top;transform:rotateX(90deg);opacity:0;color:var(--orange);transition:transform .38s cubic-bezier(.2,.8,.2,1),opacity .32s ease;pointer-events:none;user-select:none;white-space:nowrap;will-change:transform,opacity}
   nav a:hover .nav-flip-front,nav a:focus-visible .nav-flip-front{transform:rotateX(-90deg);opacity:0}
   nav a:hover .nav-flip-back,nav a:focus-visible .nav-flip-back{transform:rotateX(0deg);opacity:1}
-  nav a:hover::before,nav a:focus-visible::before{opacity:1}
   nav a.active .nav-flip-front{color:#6c7078}
   nav a.active:after{content:"";position:absolute;height:2px;width:28px;left:50%;bottom:4px;transform:translateX(-50%);background:#9aa0aa;border-radius:2px;transition:background .3s ease}
   nav a.active:hover:after,nav a.active:focus-visible:after{background:var(--orange)}
+  @media(min-width:1025px){
+    nav a.nav-contact{display:none!important}
+  }
   .tools{display:flex;align-items:center;gap:20px;font-size:13px;font-weight:600;white-space:nowrap}
   .tools .sep{width:1px;height:30px;background:#cfd3d8}
-  .quote{height:52px;padding:0 24px;border:0;border-radius:8px;background:#0b0b0d;color:#fff;font:600 14px/1 var(--font-body);display:inline-flex;align-items:center;gap:24px}
+  .quote{height:52px;padding:0 24px;border:0;border-radius:8px;background:#0b0b0d;color:#fff;font:600 14px/1 var(--font-body);display:inline-flex;align-items:center;gap:18px;text-decoration:none;transition:background .2s ease}
+  .quote:hover,.quote:focus-visible{background:#1a1a1f}
+  .quote:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
   .hero{position:relative;min-height:784px;padding-top:72px;isolation:isolate}
   .hero::after{display:none}
   /* Subtle 2–3-column echo in the outer left margin, using the same relief.
@@ -368,15 +372,318 @@ html.lenis,html.lenis body{height:auto}
 .lenis [data-lenis-prevent],.lenis [data-lenis-prevent-wheel],.lenis [data-lenis-prevent-touch]{overscroll-behavior:contain}
 .lenis.lenis-smooth iframe{pointer-events:none}
 
-/* Subtle desktop parallax for mockup cards */
+/* Subtle desktop parallax for mockup cards (Hiker p4 only) */
 @media (hover: hover) and (pointer: fine) {
-  .portfolio .project-image[data-parallax="photo"] {
-    transform: scale(1.08);
+  .portfolio .p4 .project-image[data-parallax="photo"] {
+    transform: scale(1.05);
     will-change: transform;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .portfolio .project-image[data-parallax="photo"] {
+  .portfolio .p4 .project-image[data-parallax="photo"] {
     transform: none !important;
   }
 }
+
+/* Spector-style dual sliding arrow microinteraction */
+.quote > span:not(.cta-arrow-box),
+.btn.dark > span:not(.cta-arrow-box),
+.cta-button > span:not(.cta-arrow-box) {
+  display: inline-block;
+  transform: none !important;
+  transition: none !important;
+}
+.cta-arrow-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.cta-arrow-inner {
+  display: inline-flex;
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+.cta-arrow-primary,
+.cta-arrow-secondary {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.cta-arrow-primary {
+  transform: translateX(0);
+}
+.cta-arrow-secondary {
+  transform: translateX(-150%);
+}
+.quote:hover .cta-arrow-primary,
+.quote:focus-visible .cta-arrow-primary,
+.btn.dark:hover .cta-arrow-primary,
+.btn.dark:focus-visible .cta-arrow-primary,
+.cta-button:hover .cta-arrow-primary,
+.cta-button:focus-visible .cta-arrow-primary {
+  transform: translateX(150%);
+}
+.quote:hover .cta-arrow-secondary,
+.quote:focus-visible .cta-arrow-secondary,
+.btn.dark:hover .cta-arrow-secondary,
+.btn.dark:focus-visible .cta-arrow-secondary,
+.cta-button:hover .cta-arrow-secondary,
+.cta-button:focus-visible .cta-arrow-secondary {
+  transform: translateX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-arrow-primary,
+  .cta-arrow-secondary {
+    transition: none !important;
+  }
+  .cta-arrow-secondary {
+    display: none !important;
+  }
+}
+
+/* Hero entrance masks */
+.hero-mask-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.hero-mask-inner {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+.meta01-top {
+  transform-origin: left;
+  will-change: transform;
+}
+.meta01-list {
+  display: flex;
+  flex-direction: column;
+}
+.meta01-item {
+  display: block;
+}
+.meta01-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.meta01-inner {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   FUTURE THREE HOVER EFFECT (WYŁĄCZNIE HOMEPAGE)
+   ========================================================================== */
+
+/* 1. Kontener linku i słów */
+body.home-page .f3-link {
+  display: inline-flex !important;
+  align-items: center;
+  position: relative;
+  text-decoration: none !important;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+body.home-page .f3-clip {
+  display: inline-flex;
+  align-items: baseline;
+  height: 1.35em;
+  line-height: 1.35;
+  overflow: hidden;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+body.home-page .f3-word {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+body.home-page .f3-space {
+  display: inline-block;
+  white-space: pre;
+  width: 0.28em;
+}
+
+/* 2. Litery i przesunięcie pionowe w oparciu o text-shadow */
+body.home-page .f3-char {
+  display: inline-block;
+  text-shadow: 0 1.35em var(--f3-shadow, #ff6400);
+  transform: translateY(0);
+  will-change: transform;
+  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(min(0.32s, var(--char, 0) * 0.021s));
+  color: inherit;
+}
+
+body.home-page .f3-arrow {
+  display: inline-block;
+  margin-left: 0.35em;
+  text-shadow: 0 1.35em var(--f3-arrow-shadow, var(--f3-shadow, #ff6400));
+  transform: translateY(0);
+  will-change: transform;
+  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(min(0.32s, var(--char, 0) * 0.021s));
+  color: inherit;
+}
+
+/* Ruch pionowy do góry przy :hover oraz :focus-visible */
+body.home-page .f3-link:hover .f3-char,
+body.home-page .f3-link:focus-visible .f3-char,
+body.home-page a:hover .f3-char,
+body.home-page a:focus-visible .f3-char,
+body.home-page button:hover .f3-char,
+body.home-page button:focus-visible .f3-char {
+  transform: translateY(-1.35em);
+}
+
+body.home-page .f3-link:hover .f3-arrow,
+body.home-page .f3-link:focus-visible .f3-arrow,
+body.home-page a:hover .f3-arrow,
+body.home-page a:focus-visible .f3-arrow,
+body.home-page button:hover .f3-arrow,
+body.home-page button:focus-visible .f3-arrow {
+  transform: translateY(-1.35em);
+}
+
+/* 3. Kolorystyka */
+
+/* Standardowe ciemne linki tekstowe na jasnym tle (spoczynek ciemny -> hover pomarańczowy) */
+body.home-page a.f3-link,
+body.home-page #main-nav a.f3-link,
+body.home-page .portfolio .all.f3-link,
+body.home-page .process-ownership a.f3-link {
+  color: #0f0f10;
+  --f3-shadow: var(--orange, #ff6400);
+  --f3-arrow-shadow: var(--orange, #ff6400);
+}
+
+/* Aktywny link w menu zachowuje wyróżnienie pomarańczowe */
+body.home-page #main-nav a.active.f3-link {
+  color: var(--orange, #ff6400);
+  --f3-shadow: #0f0f10;
+  --f3-arrow-shadow: #0f0f10;
+}
+
+/* Linki naturalnie pomarańczowe (np. project-ext-link, collab-card-action) */
+/* Spoczynek pomarańczowy -> hover czarny */
+body.home-page .f3-link--orange,
+body.home-page .project-ext-link.f3-link,
+body.home-page .project-ext-action a.f3-link,
+body.home-page .collab-card-action.f3-link {
+  color: var(--orange, #ff6400) !important;
+  --f3-shadow: #09090b !important;
+  --f3-arrow-shadow: #09090b !important;
+}
+
+/* Linki na ciemnym tle (stopka .site-footer) */
+body.home-page .site-footer a.f3-link {
+  color: #aaaab1;
+  --f3-shadow: #ff7a29;
+  --f3-arrow-shadow: #ff7a29;
+}
+
+/* Czarne CTA (.quote, .btn.dark, .cta-button) */
+body.home-page .quote.f3-link,
+body.home-page .btn.dark.f3-link,
+body.home-page .cta-button.f3-link {
+  background-color: #09090b !important;
+  color: #ffffff !important;
+  --f3-shadow: var(--orange, #ff6400) !important;
+  --f3-arrow-shadow: var(--orange, #ff6400) !important;
+}
+
+/* Zastąpienie strzałki Spector na homepage */
+body.home-page .quote .cta-arrow-box,
+body.home-page .btn.dark .cta-arrow-box,
+body.home-page .cta-button .cta-arrow-box {
+  display: none !important;
+}
+
+/* Wyłączenie flipu 3D w headerze wyłącznie na homepage (zastąpione falami liter) */
+body.home-page header nav .nav-flip {
+  perspective: none !important;
+  transform-style: flat !important;
+}
+body.home-page header nav .nav-flip-front,
+body.home-page header nav .nav-flip-back {
+  display: none !important;
+}
+
+/* 4. Usunięcie dekoracyjnych podkreśleń i kresek na homepage */
+body.home-page .collab-card-action {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+body.home-page .process-ownership a {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+body.home-page .site-footer a {
+  text-decoration: none !important;
+}
+body.home-page .portfolio .all {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+body.home-page .project-ext-action a {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+/* 5. Focus-visible i dostępność */
+body.home-page a.f3-link:focus-visible,
+body.home-page .quote:focus-visible,
+body.home-page .btn.dark:focus-visible,
+body.home-page .cta-button:focus-visible {
+  outline: 2px solid var(--orange, #ff6400) !important;
+  outline-offset: 3px !important;
+  border-radius: 4px;
+}
+
+/* 6. prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  body.home-page .f3-char,
+  body.home-page .f3-arrow {
+    transition: color 0.2s ease !important;
+    transform: none !important;
+    text-shadow: none !important;
+  }
+  body.home-page a.f3-link:hover .f3-char,
+  body.home-page a.f3-link:focus-visible .f3-char,
+  body.home-page button.f3-link:hover .f3-char,
+  body.home-page button.f3-link:focus-visible .f3-char {
+    color: var(--f3-shadow, #ff6400) !important;
+  }
+  body.home-page a.f3-link:hover .f3-arrow,
+  body.home-page a.f3-link:focus-visible .f3-arrow,
+  body.home-page button.f3-link:hover .f3-arrow,
+  body.home-page button.f3-link:focus-visible .f3-arrow {
+    color: var(--f3-arrow-shadow, #ff6400) !important;
+  }
+}
+
+/* Zapewnienie, że po aktywacji f3-link pierwotny .nav-flip jest ukryty */
+.f3-link .nav-flip {
+  display: none !important;
+}
+@media (max-width: 900px) {
+  .nav-flip-back {
+    display: none !important;
+  }
+}
+
+

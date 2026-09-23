@@ -6,6 +6,7 @@ import ClientLogos from '../components/ClientLogos.astro';
 import OpinieGrid from '../components/OpinieGrid.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import CtaOrange from '../components/CtaOrange.astro';
+import CtaArrow from '../components/CtaArrow.astro';
 
 const title = "Strony WWW, branding i grafika dla firm | Grafmen";
 const description = "Projektuję strony WWW, branding, materiały reklamowe i motion dla firm. Grafmen od 2005 roku. Projekty dla firm z Przemyśla, Podkarpacia i całej Polski.";
@@ -64,7 +65,7 @@ const description = "Projektuję strony WWW, branding, materiały reklamowe i mo
             <rect x="8.5" y="1" width="3.5" height="12" rx="1"/>
           </svg>
         </button>
-        <div class="eyebrow"><span>Przemyśl, Polska</span><span class="dot">●</span><span>od&nbsp;2005</span></div>
+        <div class="eyebrow"><span class="hero-mask-wrap"><span class="hero-mask-inner"><span>Przemyśl, Polska</span><span class="dot">●</span><span>od&nbsp;2005</span></span></span></div>
         <div class="hero-grid">
           <div>
             <h1>
@@ -74,14 +75,26 @@ const description = "Projektuję strony WWW, branding, materiały reklamowe i mo
               <span class="hero-line" data-line="3"><span class="hero-line-inner">jak ją widać<span class="terminal" aria-hidden="true"></span></span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span>
             </h1>
             <p class="lead">Projektuję strony WWW, branding, materiały reklamowe i&nbsp;motion dla&nbsp;firm.<br>Od&nbsp;koncepcji i&nbsp;treści po&nbsp;gotowy projekt i&nbsp;wdrożenie.</p>
-            <div class="actions"><a class="btn dark" href="/kontakt/">Zapytaj o&nbsp;wycenę <span>&rarr;</span></a></div>
+            <div class="actions">
+              <a class="btn dark" href="/kontakt/">
+                <span>Zapytaj o&nbsp;wycenę</span>
+                <CtaArrow />
+              </a>
+            </div>
           </div>
-          <aside class="meta01"><div class="meta01-top"></div>STRONY WWW<br>BRANDING<br>MOTION</aside>
+          <aside class="meta01">
+            <div class="meta01-top"></div>
+            <div class="meta01-list">
+              <div class="meta01-item"><span class="meta01-mask"><span class="meta01-inner">STRONY WWW</span></span></div>
+              <div class="meta01-item"><span class="meta01-mask"><span class="meta01-inner">BRANDING</span></span></div>
+              <div class="meta01-item"><span class="meta01-mask"><span class="meta01-inner">MOTION</span></span></div>
+            </div>
+          </aside>
         </div>
         <div class="hero-bottom">
-          <div class="mini">LEPSZE STRONY<br>DLA&nbsp;AMBITNYCH FIRM</div>
+          <div class="mini"><span class="hero-mask-wrap"><span class="hero-mask-inner">LEPSZE STRONY<br>DLA&nbsp;AMBITNYCH FIRM</span></span></div>
           <div class="center"><span class="mouse"></span><span>PRZEWIŃ W&nbsp;DÓŁ</span><span class="arrowdown">&darr;</span></div>
-          <div class="mini right">EST. 2005<br>PRZEMYŚL, POLSKA</div>
+          <div class="mini right"><span class="hero-mask-wrap"><span class="hero-mask-inner">EST. 2005<br>PRZEMYŚL, POLSKA</span></span></div>
         </div>
       </section>
 
