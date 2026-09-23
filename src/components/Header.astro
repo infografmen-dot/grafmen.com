@@ -29,9 +29,6 @@ const { currentNav } = Astro.props;
         <a data-nav="blog" class={currentNav === 'blog' ? 'active' : ''} aria-current={currentNav === 'blog' ? 'page' : undefined} href="/blog/">
           <span class="nav-flip"><span class="nav-flip-front">Blog</span><span class="nav-flip-back" aria-hidden="true">Blog</span></span>
         </a>
-        <a class={`nav-contact ${currentNav === 'contact' ? 'active' : ''}`} data-nav="contact" aria-current={currentNav === 'contact' ? 'page' : undefined} href="/kontakt/">
-          <span class="nav-flip"><span class="nav-flip-front">Kontakt</span><span class="nav-flip-back" aria-hidden="true">Kontakt</span></span>
-        </a>
       </nav>
       <div class="tools">
         <div class="language-switch" role="group" aria-label="Język / Language">
