@@ -362,9 +362,9 @@
 .gf-line-mask{overflow:hidden;display:block!important;padding-bottom:0.22em;margin-bottom:-0.22em}
 .gf-line-mask.is-revealed{overflow:visible!important}
 .gf-line-inner{display:block!important;will-change:transform,opacity}
-.btn span,.cta-button span,.text-link span,.package-link span,.project-ext-link span,.arr-link span{display:inline-block;transition:transform .32s cubic-bezier(.22,1,.36,1)}
-.btn:hover span,.cta-button:hover span,.text-link:hover span,.package-link:hover span,.project-ext-link:hover span,.arr-link:hover span{transform:translateX(4px)}
-.portfolio .work:hover .arr-link span{transform:translateX(4px)}
+.btn:not(.f3-link) span,.cta-button:not(.f3-link) span,.text-link:not(.f3-link) span,.package-link:not(.f3-link) span,.project-ext-link:not(.f3-link) span,.arr-link:not(.f3-link) span{display:inline-block;transition:transform .32s cubic-bezier(.22,1,.36,1)}
+.btn:not(.f3-link):hover span,.cta-button:not(.f3-link):hover span,.text-link:not(.f3-link):hover span,.package-link:not(.f3-link):hover span,.project-ext-link:not(.f3-link):hover span,.arr-link:not(.f3-link):hover span{transform:translateX(4px)}
+.portfolio .work:hover .arr-link:not(.f3-link) span{transform:translateX(4px)}
 
 /* Lenis smooth scroll minimal core */
 html.lenis,html.lenis body{height:auto}

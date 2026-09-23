@@ -42,7 +42,7 @@
 .portfolio .project-description{font-size:var(--type-body);line-height:var(--type-body-lh);color:#62626b;margin:0;max-width:440px}
 .portfolio .project-ext-action{margin-top:12px}
 .portfolio .project-ext-link{display:inline-flex;align-items:center;gap:6px;font-size:var(--type-small);font-weight:500;color:#ff6400;text-decoration:none;transition:color 150ms ease}
-.portfolio .project-ext-link:hover{color:#d14d00;text-decoration:underline}
+.portfolio .project-ext-link:not(.f3-link):hover{color:#d14d00;text-decoration:underline}
 .portfolio .arr{font-size:24px;line-height:1.2;margin-top:26px;flex:none;transition:color 160ms ease}
 .portfolio .arr-link{color:inherit;text-decoration:none;display:inline-flex;align-self:flex-start}
 .portfolio .arr-link:hover .arr,.portfolio .work:hover .arr{color:#ff6400}
