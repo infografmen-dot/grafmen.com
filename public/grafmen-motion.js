@@ -218,38 +218,59 @@
     }
 
     // 6. SCROLL REVEAL FOR DUŻE H2 (data-motion="heading-reveal")
+    // Działa spójnie na homepage i podstronach dla wszystkich nagłówków z data-motion="heading-reveal"
     if (typeof ScrollTrigger !== 'undefined' && typeof SplitText !== 'undefined') {
       const headingReveals = document.querySelectorAll('[data-motion="heading-reveal"]');
+      const isDesktopMotion = window.matchMedia('(hover: hover) and (pointer: fine)').matches && !Boolean(navigator.connection?.saveData);
+
       headingReveals.forEach(h2 => {
         if (h2.dataset.motionDone) return;
         h2.dataset.motionDone = 'true';
-        const child = new SplitText(h2, { type: 'lines', linesClass: 'gf-line-inner' });
-        const parent = new SplitText(h2, { type: 'lines', linesClass: 'gf-line-mask' });
 
-        gsap.fromTo(child.lines, 
-          { yPercent: 110, opacity: 0 },
+        // Podział nagłówka na linie
+        const split = new SplitText(h2, { type: 'lines', linesClass: 'gf-line-inner' });
+        if (!split.lines || !split.lines.length) return;
+
+        // Czytelne, spokojne odsłanianie wierszy:
+        // - wejście od dołu o około 24 px
+        // - opacity 0 -> 1
+        // - delikatne rozmycie do 3 px -> 0 na desktopie (na mobile brak rozmycia)
+        // - czas około 0,8 sekundy
+        // - odstęp między wierszami około 0,08 sekundy
+        // - płynne wyhamowanie (power2.out)
+        // - start, gdy góra nagłówka dochodzi do około 80% wysokości okna
+        gsap.fromTo(split.lines,
           {
-            yPercent: 0,
+            y: 24,
+            opacity: 0,
+            filter: isDesktopMotion ? 'blur(3px)' : 'none'
+          },
+          {
+            y: 0,
             opacity: 1,
-            duration: 0.75,
-            stagger: 0.06,
-            ease: 'expo.out',
+            filter: isDesktopMotion ? 'blur(0px)' : 'none',
+            duration: 0.8,
+            stagger: 0.08,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: h2,
-              start: 'top 85%',
+              start: 'top 80%',
               once: true
             },
             onComplete: () => {
-              gsap.set(child.lines, { clearProps: 'transform,opacity,willChange' });
-              parent.lines.forEach(line => {
-                line.classList.add('is-revealed');
-                line.style.overflow = 'visible';
-              });
+              gsap.set(split.lines, { clearProps: 'all' });
             }
           }
         );
       });
     }
+
+    // Odświeżenie pozycji przy powrocie z pamięci podręcznej przeglądarki (bfcache)
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted && typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    });
   };
 
   if (document.readyState === 'loading') {

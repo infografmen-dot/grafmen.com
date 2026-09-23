@@ -186,15 +186,22 @@
       }
     }
 
-    // 8. WATCHDOG FAILSAFE: Guarantees full visibility after 2.5s even if ScrollTrigger gets throttled
+    // 8. ACCESSIBILITY & FAILSAFE WATCHDOG:
+    // Only rescues elements that are actually inside the visible viewport if ScrollTrigger gets stuck.
+    // Elements below the fold wait for natural ScrollTrigger entrance without premature cancellation.
     setTimeout(() => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
       const allCards = document.querySelectorAll('.portfolio .project-card, .collab-card, .testimonial-card');
       allCards.forEach(el => {
-        if (window.getComputedStyle(el).opacity === '0') {
-          gsap.set(el, { clearProps: 'all', opacity: 1 });
+        const rect = el.getBoundingClientRect();
+        // Only rescue if currently in visible viewport and opacity is stuck at 0
+        if (rect.top < vh && rect.bottom > 0) {
+          if (window.getComputedStyle(el).opacity === '0') {
+            gsap.set(el, { clearProps: 'all', opacity: 1 });
+          }
         }
       });
-    }, 2500);
+    }, 4000);
   };
 
   if (document.readyState === 'loading') {
