@@ -1,259 +1,325 @@
+import { createServer } from 'node:http';
+import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'node:fs';
+import { join, extname, resolve } from 'node:path';
 import { chromium } from 'playwright-core';
-import { execSync } from 'node:child_process';
-import fs from 'node:fs';
-import path from 'node:path';
 
-const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+const port = 4220;
+const distDir = resolve('./dist');
 const artifactDir = 'C:\\Users\\infog\\.gemini\\antigravity-ide\\brain\\96cfd579-e6ac-4ff4-8ef2-cfb1b5054459';
-const scratchDir = path.join(artifactDir, 'scratch');
-const framesDir = path.join(scratchDir, 'heading_frames');
 
-if (!fs.existsSync(framesDir)) {
-  fs.mkdirSync(framesDir, { recursive: true });
-}
+if (!existsSync(artifactDir)) mkdirSync(artifactDir, { recursive: true });
 
-async function runVerification() {
-  console.log('🚀 Starting Playwright verification on http://localhost:4321/ ...');
-  const browser = await chromium.launch({ executablePath: chromePath, headless: true });
-  const context = await browser.newContext({
-    viewport: { width: 1440, height: 900 }
-  });
-  const page = await context.newPage();
+const mimeTypes = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
+  '.woff2': 'font/woff2'
+};
 
-  // Listen to console errors
-  page.on('console', msg => {
-    if (msg.type() === 'error') console.log('❌ Browser Console Error:', msg.text());
-  });
+const server = createServer((req, res) => {
+  let urlPath = decodeURIComponent(req.url.split('?')[0]);
+  if (urlPath.endsWith('/')) urlPath += 'index.html';
+  if (!extname(urlPath)) urlPath += '/index.html';
 
-  await page.goto('http://localhost:4321/', { waitUntil: 'networkidle' });
-  await page.evaluate(() => document.fonts.ready);
-
-  console.log('\n================ 1. COOKIES BANNER AUDIT ================');
-  // Force show cookie banner if hidden by localStorage
-  await page.evaluate(() => {
-    localStorage.removeItem('grafmen_cookies_accepted');
-    const banner = document.getElementById('cookie-banner');
-    if (banner) {
-      banner.removeAttribute('hidden');
-      banner.removeAttribute('aria-hidden');
-      banner.classList.add('cb-visible');
-    }
-  });
-  await page.waitForTimeout(300);
-
-  const cookieMetrics = await page.evaluate(() => {
-    const pill = document.querySelector('.cb-pill');
-    const btn = document.querySelector('.cb-btn-primary');
-    const pillCs = pill ? window.getComputedStyle(pill) : null;
-    const btnCs = btn ? window.getComputedStyle(btn) : null;
-    return {
-      pillRadius: pillCs?.borderRadius,
-      pillBg: pillCs?.backgroundColor,
-      pillBackdropFilter: pillCs?.backdropFilter || pillCs?.webkitBackdropFilter,
-      pillBoxShadow: pillCs?.boxShadow,
-      pillBorder: pillCs?.border,
-      btnRadius: btnCs?.borderRadius,
-      btnFont: btnCs?.fontFamily
-    };
-  });
-  console.log('Cookies Pill Metrics:', cookieMetrics);
-
-  // Capture Cookies screenshot on default background (over hero/white)
-  const cookieBannerLoc = page.locator('#cookie-banner');
-  const cookieScreenshotWhite = path.join(artifactDir, 'cookies-white-bg.png');
-  await cookieBannerLoc.screenshot({ path: cookieScreenshotWhite });
-  console.log('✅ Saved cookies screenshot (white bg):', cookieScreenshotWhite);
-
-  // Capture Cookies screenshot on dark background
-  await page.evaluate(() => {
-    const banner = document.getElementById('cookie-banner');
-    const darkBox = document.createElement('div');
-    darkBox.id = 'temp-dark-bg';
-    darkBox.style.position = 'fixed';
-    darkBox.style.bottom = '10px';
-    darkBox.style.left = '10px';
-    darkBox.style.width = '320px';
-    darkBox.style.height = '80px';
-    darkBox.style.backgroundColor = '#18181b';
-    darkBox.style.zIndex = '8999';
-    darkBox.style.borderRadius = '16px';
-    document.body.appendChild(darkBox);
-  });
-  await page.waitForTimeout(100);
-  const cookieScreenshotDark = path.join(artifactDir, 'cookies-dark-bg.png');
-  await cookieBannerLoc.screenshot({ path: cookieScreenshotDark });
-  console.log('✅ Saved cookies screenshot (dark bg):', cookieScreenshotDark);
-
-  // Cleanup temp dark bg
-  await page.evaluate(() => {
-    const box = document.getElementById('temp-dark-bg');
-    if (box) box.remove();
-  });
-
-  console.log('\n================ 2. DREWMAX CARD AUDIT ================');
-  const drewmaxMetrics = await page.evaluate(() => {
-    const p1Work = document.querySelector('.portfolio .p1');
-    const img = p1Work?.querySelector('.project-image');
-    const video = p1Work?.querySelector('.portfolio-loop');
-    const imgCs = img ? window.getComputedStyle(img) : null;
-    const videoCs = video ? window.getComputedStyle(video) : null;
-    return {
-      hasParallaxAttr: img?.hasAttribute('data-parallax'),
-      parallaxValue: img?.getAttribute('data-parallax'),
-      imgObjectFit: imgCs?.objectFit,
-      imgObjectPosition: imgCs?.objectPosition,
-      imgTransform: imgCs?.transform,
-      videoObjectFit: videoCs?.objectFit,
-      videoObjectPosition: videoCs?.objectPosition
-    };
-  });
-  console.log('Drewmax Metrics:', drewmaxMetrics);
-
-  // Scroll to Drewmax and take full card screenshot
-  const p1Locator = page.locator('.portfolio .p1');
-  await p1Locator.scrollIntoViewIfNeeded();
-  await page.waitForTimeout(600);
-  const drewmaxScreenshot = path.join(artifactDir, 'drewmax-full-card.png');
-  await p1Locator.screenshot({ path: drewmaxScreenshot });
-  console.log('✅ Saved Drewmax screenshot:', drewmaxScreenshot);
-
-  console.log('\n================ 3. 5-SECOND IDLE TEST & HEADINGS AUDIT ================');
-  // Navigate fresh to top of homepage
-  await page.goto('http://localhost:4321/', { waitUntil: 'networkidle' });
-  await page.evaluate(() => window.scrollTo(0, 0));
-  console.log('Waiting 5.2 seconds without scrolling to test watchdog failsafe...');
-  await page.waitForTimeout(5200);
-
-  // Check state of elements before scrolling
-  const preScrollChecks = await page.evaluate(() => {
-    const headings = [
-      { name: 'Portfolio', el: document.querySelector('#portfolio-title') },
-      { name: 'Współpraca', el: document.querySelector('.audience-section [data-motion="heading-reveal"]') },
-      { name: 'Opinie', el: document.querySelector('#testimonials-title') },
-      { name: 'FAQ', el: document.querySelector('#faq-title') },
-      { name: 'CTA Orange', el: document.querySelector('#cta-title') }
-    ];
-    return headings.map(h => ({
-      name: h.name,
-      found: Boolean(h.el),
-      motionDone: h.el?.dataset.motionDone,
-      hasSplitLines: Boolean(h.el?.querySelectorAll('.gf-line-inner').length),
-      lineCount: h.el?.querySelectorAll('.gf-line-inner').length || 0
-    }));
-  });
-  console.log('Pre-scroll Headings State (after 5s idle):', preScrollChecks);
-
-  // Now record animation frames while smoothly scrolling through each heading
-  const headingsToRecord = [
-    { id: '#portfolio-title', name: 'Portfolio' },
-    { id: '.audience-section [data-motion="heading-reveal"]', name: 'Współpraca' },
-    { id: '#testimonials-title', name: 'Opinie' },
-    { id: '#faq-title', name: 'FAQ' },
-    { id: '#cta-title', name: 'CTA Orange' }
-  ];
-
-  let frameIdx = 0;
-  for (const h of headingsToRecord) {
-    console.log(`Scrolling to reveal heading: ${h.name} ...`);
-    const loc = page.locator(h.id).first();
-    const box = await loc.boundingBox();
-    if (box) {
-      // Position scroll so that top of heading is at ~90% of window height (just before trigger)
-      const targetScroll = box.y + (await page.evaluate(() => window.scrollY)) - (900 * 0.95);
-      await page.evaluate(y => window.scrollTo({ top: Math.max(0, y), behavior: 'instant' }), targetScroll);
-      await page.waitForTimeout(100);
-
-      // Now scroll in small steps through the trigger point (80%) and capture frames
-      for (let step = 0; step < 8; step++) {
-        await page.evaluate(() => window.scrollBy({ top: 35, behavior: 'instant' }));
-        await page.waitForTimeout(60);
-        const headingBox = await loc.boundingBox();
-        if (headingBox) {
-          // Capture heading vicinity
-          const clipY = Math.max(0, headingBox.y - 40);
-          const clipH = headingBox.height + 80;
-          await page.screenshot({
-            path: path.join(framesDir, `frame_${String(frameIdx++).padStart(4, '0')}.png`),
-            clip: { x: Math.max(0, headingBox.x - 20), y: clipY, width: 900, height: clipH }
-          });
-        }
-      }
-      // Wait for animation completion
-      await page.waitForTimeout(400);
-      const headingBoxFinal = await loc.boundingBox();
-      if (headingBoxFinal) {
-        await page.screenshot({
-          path: path.join(framesDir, `frame_${String(frameIdx++).padStart(4, '0')}.png`),
-          clip: { x: Math.max(0, headingBoxFinal.x - 20), y: Math.max(0, headingBoxFinal.y - 40), width: 900, height: headingBoxFinal.height + 80 }
-        });
-      }
-    }
+  let filePath = join(distDir, urlPath);
+  if (!existsSync(filePath)) {
+    res.statusCode = 404;
+    res.end('Not found: ' + filePath);
+    return;
   }
+  res.setHeader('Content-Type', mimeTypes[extname(filePath)] || 'application/octet-stream');
+  res.end(readFileSync(filePath));
+});
 
-  // Compile frames into animated WebP
-  console.log(`Compiling ${frameIdx} frames into animated WebP...`);
-  const animWebpPath = path.join(artifactDir, 'headings-reveal-animation.webp').replace(/\\/g, '/');
-  const inputPattern = path.join(framesDir, 'frame_%04d.png').replace(/\\/g, '/');
-  try {
-    execSync(`ffmpeg -y -framerate 10 -i "${inputPattern}" -loop 0 -vf "scale=720:-1:flags=lanczos" "${animWebpPath}"`, { stdio: 'inherit' });
-    console.log('✅ Generated headings animation recording:', animWebpPath);
-  } catch (err) {
-    console.error('ffmpeg compilation failed:', err.message);
-  }
+await new Promise(r => server.listen(port, r));
+console.log(`Verification server running at http://localhost:${port}`);
 
-  // Verify final visibility and style cleanup of all headings
-  const postScrollChecks = await page.evaluate(() => {
-    const headings = [
-      { name: 'Portfolio', el: document.querySelector('#portfolio-title') },
-      { name: 'Współpraca', el: document.querySelector('.audience-section [data-motion="heading-reveal"]') },
-      { name: 'Opinie', el: document.querySelector('#testimonials-title') },
-      { name: 'FAQ', el: document.querySelector('#faq-title') },
-      { name: 'CTA Orange', el: document.querySelector('#cta-title') }
-    ];
-    return headings.map(h => {
-      const lines = h.el?.querySelectorAll('.gf-line-inner');
-      const linesData = Array.from(lines || []).map(l => {
-        const cs = window.getComputedStyle(l);
-        return {
-          text: l.innerText?.trim(),
-          opacity: cs.opacity,
-          transform: cs.transform,
-          filter: cs.filter
-        };
-      });
+const browser = await chromium.launch({
+  executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+});
+
+const report = {};
+
+try {
+  // 1. Mobile Hero at 390px
+  console.log('\n--- 1. Testing Mobile Hero (390px) ---');
+  {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await page.goto(`http://localhost:${port}/`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(600);
+
+    const heroMetrics = await page.evaluate(() => {
+      const h1 = document.querySelector('.hero h1');
+      const cs = window.getComputedStyle(h1);
+      const lines = Array.from(h1.querySelectorAll('.hero-line-inner')).map(el => ({
+        text: el.textContent.trim(),
+        width: el.getBoundingClientRect().width,
+        height: el.getBoundingClientRect().height
+      }));
       return {
-        name: h.name,
-        linesCount: lines?.length || 0,
-        allVisible: linesData.every(l => l.opacity === '1'),
-        linesData
+        fontSize: cs.fontSize,
+        lineHeight: cs.lineHeight,
+        scrollWidth: document.body.scrollWidth,
+        clientWidth: document.documentElement.clientWidth,
+        lines
       };
     });
-  });
-  console.log('\nPost-scroll Final Heading States:', JSON.stringify(postScrollChecks, null, 2));
 
-  console.log('\n================ 4. REDUCED MOTION TEST ================');
-  const reducedContext = await browser.newContext({
-    viewport: { width: 1440, height: 900 },
-    reducedMotion: 'reduce'
-  });
-  const reducedPage = await reducedContext.newPage();
-  await reducedPage.goto('http://localhost:4321/', { waitUntil: 'networkidle' });
-  const reducedCheck = await reducedPage.evaluate(() => {
-    const headings = document.querySelectorAll('[data-motion="heading-reveal"]');
-    const cards = document.querySelectorAll('.portfolio .project-card, .collab-card, .testimonial-card');
-    return {
-      allHeadingsVisible: Array.from(headings).every(h => window.getComputedStyle(h).opacity === '1'),
-      allCardsVisible: Array.from(cards).every(c => window.getComputedStyle(c).opacity === '1'),
-      hasLenisClass: document.documentElement.classList.contains('lenis')
-    };
-  });
-  console.log('Reduced Motion Verification:', reducedCheck);
+    console.log('Hero metrics at 390px:', heroMetrics);
+    report.heroMetrics390 = heroMetrics;
 
+    await page.screenshot({ path: join(artifactDir, 'after_mobile_hero_390.png') });
+    console.log('Saved after_mobile_hero_390.png');
+    await page.close();
+  }
+
+  // 2. Mobile Bottom Capsule and Back to top button at 390px and 320px
+  console.log('\n--- 2. Testing Bottom Capsule (176px) and Back-To-Top distance ---');
+  {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await page.goto(`http://localhost:${port}/`, { waitUntil: 'networkidle' });
+
+    // Scroll to reveal back-to-top and bottom bar
+    await page.evaluate(() => window.scrollTo(0, 1800));
+    await page.waitForTimeout(800);
+
+    const barMetrics390 = await page.evaluate(() => {
+      const capsule = document.querySelector('.fg-capsule');
+      const back = document.querySelector('.back-to-top');
+      const home = document.querySelector('.fg-home');
+      const toggle = document.querySelector('.fg-toggle');
+
+      const cRect = capsule ? capsule.getBoundingClientRect() : null;
+      const bRect = back ? back.getBoundingClientRect() : null;
+      const hRect = home ? home.getBoundingClientRect() : null;
+      const tRect = toggle ? toggle.getBoundingClientRect() : null;
+
+      const gap = (cRect && bRect) ? (bRect.left - cRect.right) : null;
+
+      return {
+        capsuleWidth: cRect?.width,
+        capsuleHeight: cRect?.height,
+        backWidth: bRect?.width,
+        backHeight: bRect?.height,
+        gapBetweenCapsuleAndBack: gap,
+        homeTarget: { width: hRect?.width, height: hRect?.height },
+        toggleTarget: { width: tRect?.width, height: tRect?.height }
+      };
+    });
+
+    console.log('Bottom bar metrics at 390px:', barMetrics390);
+    report.barMetrics390 = barMetrics390;
+
+    await page.screenshot({ path: join(artifactDir, 'after_mobile_bottom_bar_and_arrow.png') });
+    console.log('Saved after_mobile_bottom_bar_and_arrow.png');
+
+    // Test at 320px
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.waitForTimeout(400);
+
+    const barMetrics320 = await page.evaluate(() => {
+      const capsule = document.querySelector('.fg-capsule');
+      const back = document.querySelector('.back-to-top');
+      const cRect = capsule ? capsule.getBoundingClientRect() : null;
+      const bRect = back ? back.getBoundingClientRect() : null;
+      const gap = (cRect && bRect) ? (bRect.left - cRect.right) : null;
+      return {
+        capsuleWidth: cRect?.width,
+        gapBetweenCapsuleAndBack: gap,
+        scrollWidth: document.body.scrollWidth
+      };
+    });
+
+    console.log('Bottom bar metrics at 320px:', barMetrics320);
+    report.barMetrics320 = barMetrics320;
+    await page.screenshot({ path: join(artifactDir, 'after_mobile_320_bottom_bar.png') });
+    console.log('Saved after_mobile_320_bottom_bar.png');
+
+    await page.close();
+  }
+
+  // 3. /o-mnie/ heading break after comma on mobile and single line on desktop
+  console.log('\n--- 3. Testing /o-mnie/ heading break ---');
+  {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await page.goto(`http://localhost:${port}/o-mnie/`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(400);
+
+    // Scroll to heading
+    await page.evaluate(() => {
+      const h2 = document.querySelector('#case-drewmar-title');
+      if (h2) h2.scrollIntoView({ block: 'center' });
+    });
+    await page.waitForTimeout(400);
+
+    const omnieMobileMetrics = await page.evaluate(() => {
+      const h2 = document.querySelector('#case-drewmar-title');
+      const mobBlock = h2.querySelector('.mob-block');
+      const mobRect = mobBlock.getBoundingClientRect();
+      const h2Rect = h2.getBoundingClientRect();
+      return {
+        text: h2.innerText,
+        mobBlockDisplay: window.getComputedStyle(mobBlock).display,
+        mobBlockRect: mobRect,
+        h2Rect: h2Rect
+      };
+    });
+
+    console.log('/o-mnie/ heading on mobile 390px:', omnieMobileMetrics);
+    report.omnieMobileMetrics = omnieMobileMetrics;
+
+    await page.screenshot({ path: join(artifactDir, 'after_mobile_omnie_heading.png') });
+    console.log('Saved after_mobile_omnie_heading.png');
+
+    // Check desktop
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.waitForTimeout(400);
+
+    const omnieDesktopMetrics = await page.evaluate(() => {
+      const h2 = document.querySelector('#case-drewmar-title');
+      const mobBlock = h2.querySelector('.mob-block');
+      return {
+        mobBlockDisplay: window.getComputedStyle(mobBlock).display,
+        h2Height: h2.getBoundingClientRect().height
+      };
+    });
+    console.log('/o-mnie/ heading on desktop 1280px:', omnieDesktopMetrics);
+    report.omnieDesktopMetrics = omnieDesktopMetrics;
+
+    await page.screenshot({ path: join(artifactDir, 'after_desktop_omnie_heading.png') });
+    console.log('Saved after_desktop_omnie_heading.png');
+
+    await page.close();
+  }
+
+  // 4. Desktop Menu 3D Roll/Flip & Glow hover
+  console.log('\n--- 4. Testing Desktop Header Menu 3D Flip & Active State ---');
+  {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
+    await page.goto(`http://localhost:${port}/`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(600);
+
+    const menuStateBeforeHover = await page.evaluate(() => {
+      const links = Array.from(document.querySelectorAll('header nav a')).map(a => {
+        const front = a.querySelector('.nav-flip-front');
+        const back = a.querySelector('.nav-flip-back');
+        return {
+          nav: a.dataset.nav,
+          active: a.classList.contains('active'),
+          frontColor: front ? window.getComputedStyle(front).color : null,
+          backColor: back ? window.getComputedStyle(back).color : null
+        };
+      });
+      return links;
+    });
+    console.log('Menu states before hover:', menuStateBeforeHover);
+    report.menuStateBeforeHover = menuStateBeforeHover;
+
+    // Hover over branding
+    await page.hover('header nav a[data-nav="brand"]');
+    await page.waitForTimeout(400);
+
+    const menuHoverMetrics = await page.evaluate(() => {
+      const brand = document.querySelector('header nav a[data-nav="brand"]');
+      const front = brand.querySelector('.nav-flip-front');
+      const back = brand.querySelector('.nav-flip-back');
+      return {
+        frontTransform: window.getComputedStyle(front).transform,
+        frontOpacity: window.getComputedStyle(front).opacity,
+        backTransform: window.getComputedStyle(back).transform,
+        backOpacity: window.getComputedStyle(back).opacity,
+        backColor: window.getComputedStyle(back).color
+      };
+    });
+    console.log('Menu branding link hover metrics:', menuHoverMetrics);
+    report.menuHoverMetrics = menuHoverMetrics;
+
+    await page.screenshot({ path: join(artifactDir, 'after_desktop_menu_glow.png') });
+    console.log('Saved after_desktop_menu_glow.png');
+
+    // Test active item hover: navigate to /strony-www/
+    await page.goto(`http://localhost:${port}/strony-www/`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(400);
+
+    const activeItemMetrics = await page.evaluate(() => {
+      const web = document.querySelector('header nav a[data-nav="web"]');
+      const front = web.querySelector('.nav-flip-front');
+      return {
+        activeClass: web.classList.contains('active'),
+        ariaCurrent: web.getAttribute('aria-current'),
+        frontColor: window.getComputedStyle(front).color
+      };
+    });
+    console.log('Active item (/strony-www/) metrics in rest state:', activeItemMetrics);
+    report.activeItemMetrics = activeItemMetrics;
+
+    await page.hover('header nav a[data-nav="web"]');
+    await page.waitForTimeout(400);
+
+    const activeItemHover = await page.evaluate(() => {
+      const web = document.querySelector('header nav a[data-nav="web"]');
+      const back = web.querySelector('.nav-flip-back');
+      return {
+        backColor: window.getComputedStyle(back).color,
+        backOpacity: window.getComputedStyle(back).opacity
+      };
+    });
+    console.log('Active item hover state (should be orange):', activeItemHover);
+    report.activeItemHover = activeItemHover;
+
+    await page.close();
+  }
+
+  // 5. Portfolio Section Kickers & Caption Mask reveal
+  console.log('\n--- 5. Testing Kickers and Captions ---');
+  {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
+    await page.goto(`http://localhost:${port}/`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(400);
+
+    // Scroll to portfolio section
+    await page.evaluate(() => {
+      const sec = document.querySelector('.portfolio');
+      if (sec) sec.scrollIntoView({ block: 'start' });
+    });
+    await page.waitForTimeout(800);
+
+    const portfolioMetrics = await page.evaluate(() => {
+      const kicker = document.querySelector('.portfolio .section-kicker');
+      const kickerInner = kicker ? kicker.querySelector('.kicker-inner') : null;
+      const firstCaption = document.querySelector('.portfolio .caption');
+      const title = firstCaption ? firstCaption.querySelector('.title') : null;
+      const titleInner = title ? title.querySelector('.title-inner') : null;
+
+      return {
+        kickerWidth: kicker?.getBoundingClientRect().width,
+        kickerInnerWidth: kickerInner?.getBoundingClientRect().width,
+        kickerText: kicker?.textContent.trim(),
+        captionTitle: title?.textContent.trim(),
+        titleInnerTransform: titleInner ? window.getComputedStyle(titleInner).transform : null
+      };
+    });
+
+    console.log('Portfolio kicker & caption metrics:', portfolioMetrics);
+    report.portfolioMetrics = portfolioMetrics;
+
+    await page.screenshot({ path: join(artifactDir, 'after_portfolio_kicker_caption_reveal.png') });
+    console.log('Saved after_portfolio_kicker_caption_reveal.png');
+
+    await page.close();
+  }
+
+  writeFileSync(join(artifactDir, 'round3_verification_report.json'), JSON.stringify(report, null, 2));
+  console.log('\nAll tests completed and report saved successfully!');
+
+} catch (err) {
+  console.error('Test error:', err);
+} finally {
   await browser.close();
-  console.log('\n🎉 ALL AUDITS AND VERIFICATIONS FINISHED SUCCESSFULLY!');
+  server.close();
 }
-
-runVerification().catch(err => {
-  console.error('Fatal error during verification:', err);
-  process.exit(1);
-});

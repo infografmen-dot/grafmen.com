@@ -3,13 +3,14 @@
  * All translated markup below is authored locally, never supplied by a URL or service.
  */
 (() => {
+  const navWrap = (t) => `<span class="nav-flip"><span class="nav-flip-front">${t}</span><span class="nav-flip-back" aria-hidden="true">${t}</span></span>`;
   const english = [
-    ['[data-nav=web]', 'Websites'],
-    ['[data-nav=brand]', 'Branding'],
-    ['[data-nav=work]', 'Portfolio'],
-    ['[data-nav=about]', 'About me'],
-    ['[data-nav=blog]', 'Blog'],
-    ['[data-nav=contact]', 'Contact'],
+    ['[data-nav=web]', navWrap('Websites')],
+    ['[data-nav=brand]', navWrap('Branding')],
+    ['[data-nav=work]', navWrap('Portfolio')],
+    ['[data-nav=about]', navWrap('About me')],
+    ['[data-nav=blog]', navWrap('Blog')],
+    ['[data-nav=contact]', navWrap('Contact')],
     ['.tools .quote', 'Contact <span aria-hidden="true">→</span>'],
     ['.eyebrow span:first-child', 'Przemyśl, Poland'],
     ['.eyebrow span:last-child', 'since 2005'],

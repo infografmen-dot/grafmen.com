@@ -293,7 +293,7 @@
       }
     }
 
-    // 8. POMARAŃCZOWE ETYKIETY SEKCJI (Odsłanianie maską od lewej + delikatne przesunięcie z lewej)
+    // 8. POMARAŃCZOWE ETYKIETY SEKCJI (Odsłanianie maską na szerokości tekstu + przesunięcie z lewej)
     if (typeof ScrollTrigger !== 'undefined') {
       const kickers = document.querySelectorAll(
         '.home-section .home-kicker, .portfolio-head .section-kicker, .logo-cloud-kicker, .service-hero .home-kicker, .modernisation-callout .home-kicker'
@@ -302,25 +302,38 @@
         if (kicker.closest('.hero') || kicker.dataset.kickerDone) return;
         kicker.dataset.kickerDone = 'true';
 
-        gsap.fromTo(kicker,
+        // Ograniczenie maskowania ściśle do szerokości tekstu (inline-block), by nie animować pustej przestrzeni
+        let inner = kicker.querySelector('.kicker-inner');
+        if (!inner) {
+          inner = document.createElement('span');
+          inner.className = 'kicker-inner';
+          inner.style.display = 'inline-block';
+          inner.style.willChange = 'clip-path, transform';
+          while (kicker.firstChild) {
+            inner.appendChild(kicker.firstChild);
+          }
+          kicker.appendChild(inner);
+        }
+
+        gsap.fromTo(inner,
           {
             clipPath: 'inset(0 100% 0 0)',
-            x: -14,
+            x: -18,
             opacity: 0.7
           },
           {
             clipPath: 'inset(0 0% 0 0)',
             x: 0,
             opacity: 1,
-            duration: 0.55,
+            duration: 0.65,
             ease: 'power2.out',
             scrollTrigger: {
               trigger: kicker,
-              start: 'top 84%',
+              start: 'top 82%',
               once: true
             },
             onComplete: () => {
-              gsap.set(kicker, { clearProps: 'clipPath,x,opacity' });
+              gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
             }
           }
         );
@@ -356,7 +369,7 @@
         }
       }
 
-      // 9b. Podpisy wszystkich realizacji (własny ScrollTrigger na .caption)
+      // 9b. Podpisy wszystkich realizacji (własny ScrollTrigger na .caption, mask reveal tytułu)
       const captions = document.querySelectorAll('.portfolio .stage .work .caption');
       captions.forEach(caption => {
         if (caption.dataset.motionDone) return;
@@ -367,15 +380,37 @@
         const desc = caption.querySelector('.project-description');
         const actions = caption.querySelectorAll('.project-ext-action, .arr-link');
 
+        // Maska overflow-hidden na tytule do odsłaniania wierszami od dołu
+        let titleInner = null;
+        if (title) {
+          title.style.overflow = 'hidden';
+          title.style.display = 'block';
+          let inner = title.querySelector('.title-inner');
+          if (!inner) {
+            inner = document.createElement('span');
+            inner.className = 'title-inner';
+            inner.style.display = 'inline-block';
+            inner.style.willChange = 'transform, opacity';
+            while (title.firstChild) {
+              inner.appendChild(title.firstChild);
+            }
+            title.appendChild(inner);
+          }
+          titleInner = inner;
+        }
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: caption,
-            start: 'top 88%',
+            start: 'top 82%',
             once: true
           },
           onComplete: () => {
             if (cat) gsap.set(cat, { clearProps: 'all' });
-            if (title) gsap.set(title, { clearProps: 'all' });
+            if (title) {
+              gsap.set(title, { clearProps: 'overflow,display' });
+              if (titleInner) gsap.set(titleInner, { clearProps: 'all' });
+            }
             if (desc) gsap.set(desc, { clearProps: 'all' });
             if (actions.length) gsap.set(actions, { clearProps: 'all' });
           }
@@ -383,32 +418,32 @@
 
         if (cat) {
           tl.fromTo(cat,
-            { opacity: 0, y: 12 },
+            { opacity: 0, y: 14 },
             { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
             0
           );
         }
 
-        if (title) {
-          tl.fromTo(title,
-            { opacity: 0, y: 16 },
-            { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-            0.06
+        if (titleInner) {
+          tl.fromTo(titleInner,
+            { opacity: 0, y: 22 },
+            { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' },
+            0.05
           );
         }
 
         if (desc) {
           tl.fromTo(desc,
-            { opacity: 0, y: 14 },
-            { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+            { opacity: 0, y: 18 },
+            { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' },
             0.12
           );
         }
 
         if (actions.length) {
           tl.fromTo(actions,
-            { opacity: 0, y: 10 },
-            { opacity: 1, y: 0, duration: 0.5, stagger: 0.06, ease: 'power2.out' },
+            { opacity: 0, y: 16 },
+            { opacity: 1, y: 0, duration: 0.55, stagger: 0.06, ease: 'power2.out' },
             0.18
           );
         }

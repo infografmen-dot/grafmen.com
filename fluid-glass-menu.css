@@ -334,20 +334,20 @@ body.has-fg-open .back-to-top {
 }
 
 /* Mobile adjustments */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   :root {
-    --fg-capsule-closed-w: 220px;
+    --fg-capsule-closed-w: 176px;
     --fg-capsule-closed-h: 48px;
     --fg-capsule-open-w: min(calc(100vw - 32px), 284px);
     --fg-capsule-open-h: 366px;
   }
   .fg-menu {
-    bottom: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
   }
   .fg-bar {
     height: 48px;
     min-height: 48px;
-    padding: 0 10px 0 14px;
+    padding: 0 8px 0 12px;
   }
   .fg-body {
     padding: 10px 10px 4px;
