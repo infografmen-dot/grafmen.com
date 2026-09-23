@@ -3,7 +3,7 @@
 .site-footer{font-family:var(--font-body)}
 .home-inner{width:min(var(--max),calc(100% - 96px));margin:0 auto}
 .home-section{padding:120px 0;border-top:1px solid #e5e5e8}
-.home-kicker{margin:0 0 24px;color:#62626b;font-size:var(--type-label);line-height:var(--type-label-lh);letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:var(--type-label-weight)}
+.home-kicker{margin:0 0 24px;color:var(--orange);font-size:var(--type-label);line-height:var(--type-label-lh);letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:var(--type-label-weight)}
 .section-index{color:var(--orange)}
 .home-section h2{margin:0;font-family:var(--font-heading);font-weight:var(--type-h2-weight);font-size:var(--type-h2);line-height:var(--type-h2-lh);letter-spacing:var(--type-h2-ls)}
 .final-cta h2{margin:0;font-family:var(--font-heading);font-weight:var(--type-h2-large-weight);font-size:var(--type-h2-large);line-height:var(--type-h2-large-lh);letter-spacing:var(--type-h2-large-ls);max-width:720px}
@@ -18,11 +18,11 @@
 .audience-copy p:last-child{color:#767676}
 .audience-list{grid-column:7 / span 6;border-top:1px solid #c9c9ce}
 .audience-item{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:26px 0;border-bottom:1px solid #c9c9ce}
-.item-number{color:#ff6400;font-size:var(--type-small);line-height:1.5;font-variant-numeric:tabular-nums}
+.item-number{display:inline-block;font-family:var(--font-heading);font-size:20px;font-weight:600;color:var(--orange);line-height:1.3;margin-bottom:8px}
 .audience-item h3{margin:0 0 8px;font-family:var(--font-heading);font-size:var(--type-h3);line-height:var(--type-h3-lh);font-weight:var(--type-h3-weight);letter-spacing:var(--type-h3-ls)}
 .audience-item p{margin:0;color:#62626b}
 .problem-section{background:#101010;color:#fff;border-top-color:#101010}
-.problem-section .home-kicker{color:#aaaab1}
+.problem-section .home-kicker{color:var(--orange)}
 .problem-section h2{max-width:920px;color:#fff}
 .problem-section h2 span{color:#aaaab1}
 .problem-copy{display:grid;grid-template-columns:5fr 4fr;gap:120px;max-width:1000px;margin:56px 0 88px;margin-left:auto}
@@ -49,7 +49,7 @@
 
 /* Logo Cloud Section - Compact Cinematic Trust Bar */
 .logo-cloud-section{background:#fff;padding:44px 0 48px;border-top:1px solid #f0f0f2;overflow:hidden}
-.logo-cloud-kicker{margin:0 0 24px;text-align:center;color:#888890;font-size:var(--type-label);letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:var(--type-label-weight)}
+.logo-cloud-kicker{margin:0 0 24px;text-align:center;color:var(--orange);font-size:var(--type-label);letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:var(--type-label-weight)}
 .logo-cloud{position:relative;width:100%;overflow:hidden}
 .logo-cloud--cinematic{overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%)}
 .logo-marquee-track{display:flex;width:max-content}
@@ -78,8 +78,8 @@
 .process-steps{list-style:none;padding:0;margin:0}
 .process-steps li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:24px;padding:34px 0 40px;border-top:1px solid #cacacf}
 .process-steps li:last-child{border-bottom:1px solid #cacacf}
-.process-number{font-size:var(--type-small);color:#62626b;font-variant-numeric:tabular-nums;line-height:2}
-.process-steps li:first-child .process-number{color:#b84400}
+.process-number{font-family:var(--font-heading);font-size:20px;font-weight:600;color:var(--orange);line-height:1.3;flex-shrink:0}
+.process-steps li .process-number{color:var(--orange)}
 .process-steps h3{margin:0 0 16px;font-family:var(--font-heading);font-weight:var(--type-h3-weight);font-size:var(--type-h3);letter-spacing:var(--type-h3-ls);line-height:var(--type-h3-lh)}
 .process-steps p{margin:0;color:#62626b}
 .process-steps .process-decision{font-size:var(--type-small);margin-top:20px;color:#09090b}
@@ -97,7 +97,7 @@
 .package-card:hover{border-color:#9aa1ad}
 .package-card.package-featured{border-color:#09090b;background:#09090b;color:#fff;transform:translateY(-16px)}
 .package-card.package-featured:hover{border-color:#3b3b42;box-shadow:0 0 0 1px #3b3b42}
-.package-index{margin:0 0 48px;color:#767676;font-size:var(--type-label)!important;letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:var(--type-label-weight)}
+.package-index{margin:0 0 48px;color:var(--orange);font-family:var(--font-heading);font-size:var(--type-label)!important;letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:600}
 .package-featured .package-index{color:#ff7a29}
 .package-card h3{margin:0;font-family:var(--font-heading);font-size:var(--type-h3);line-height:var(--type-h3-lh);font-weight:var(--type-h3-weight);letter-spacing:var(--type-h3-ls)}
 .package-price{margin:14px 0 20px!important;color:#ff6400;font-family:var(--font-heading);font-size:var(--type-h3)!important;font-weight:var(--type-h3-weight);line-height:var(--type-h3-lh)!important}
@@ -134,6 +134,8 @@
 .faq-list summary::after{content:"+";position:absolute;right:0;top:21px;color:#ff6400;font-family:var(--font-body);font-size:24px;font-weight:400}
 .faq-list details[open] summary::after{content:"−"}
 .faq-list details p{max-width:650px;margin:-4px 48px 24px 0;color:#62626b}
+.faq-list details p a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
+.faq-list details p a:hover{text-decoration:none}
 .final-cta{padding:104px 0;background:#ff6400;color:#09090b}
 .final-cta .home-kicker{color:#09090b}
 .final-cta h2{max-width:720px}
@@ -155,6 +157,8 @@
 .footer-bottom{display:flex;justify-content:space-between;gap:24px;padding-top:20px;border-top:1px solid #3b3b42;color:#767676;font-size:var(--type-small)}
 .footer-bottom a{color:#aaaab1;text-decoration:none}
 .footer-bottom a:hover{color:#ff7a29}
+.footer-cookies-btn{background:none;border:none;padding:0;font-family:inherit;font-size:inherit;color:#aaaab1;cursor:pointer;text-decoration:none;transition:color 0.18s ease}
+.footer-cookies-btn:hover{color:#ff7a29}
 .home-section a:focus-visible,.final-cta a:focus-visible,.site-footer a:focus-visible{outline:3px solid #ff7a29;outline-offset:5px}
 @media(max-width:900px){
  .home-inner{width:calc(100% - 40px)}
@@ -196,6 +200,12 @@
 }
 
 /* Nowa sekcja Współpraca z dwoma kafelkami */
+@media (min-width: 901px) {
+  .audience-section .compact-grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 80px);
+  }
+}
 .collab-cards-wrap {
   margin-top: 56px;
 }

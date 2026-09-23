@@ -49,6 +49,7 @@ function fixOrphans(text: string): string {
     prev = result;
     result = result.replace(/(^|[\s(„"'\u00A0])([a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ])\s+/g, '$1$2\u00A0');
   }
+  result = result.replace(/(\s+)się(?=[\s.,!?)]|$)/g, '\u00A0się');
   return result;
 }
 
@@ -141,7 +142,7 @@ const coverSrcset = coverInfo?.srcset || '';
         <section class="home-section project-gallery-section" id={p.slug === 'hiker' ? 'branding' : undefined}>
           <div class="home-inner">
             <p class="home-kicker">{p.slug === 'hiker' ? 'BRANDING' : 'REALIZACJA'}</p>
-            <h2>{p.slug === 'hiker' ? 'Identyfikacja wizualna i ruch' : 'Projekt w zastosowaniu'}</h2>
+            <h2>{fixOrphans(p.slug === 'hiker' ? 'Identyfikacja wizualna i ruch' : 'Projekt w zastosowaniu')}</h2>
             <div class="project-gallery">
               {p.gallery.map((item) => {
                 const itemSrc = item.src.startsWith('/') ? item.src : `/${item.src}`;

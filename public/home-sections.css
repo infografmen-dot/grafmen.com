@@ -200,6 +200,12 @@
 }
 
 /* Nowa sekcja Współpraca z dwoma kafelkami */
+@media (min-width: 901px) {
+  .audience-section .compact-grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 80px);
+  }
+}
 .collab-cards-wrap {
   margin-top: 56px;
 }
