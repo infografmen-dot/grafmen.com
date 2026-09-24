@@ -100,8 +100,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #b8
  header nav a.active:after{content:"";position:absolute;height:2px;width:28px;left:50%;bottom:8px;transform:translateX(-50%);background:#aab0b9;border-radius:2px}
  header nav .nav-flip-back{display:none!important}
  header nav .nav-flip-front{transform:none!important;opacity:1!important}
- .tools .sep{display:none}
- .tools .quote{height:44px;font-size:12px;padding:0 12px;gap:10px}
+ .tools .sep, .tools .quote{display:none!important}
+ .tools{gap:8px}
+ header nav .nav-contact{display:flex!important}
+}
+@media(min-width:1025px){
+ header nav .nav-contact{display:none!important}
 }
 #case-drewmar-title .mob-block{display:inline}
 @media(max-width:600px){
