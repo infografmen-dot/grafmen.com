@@ -657,6 +657,464 @@
       }
     }
 
+    // 10b. UJEDNOLICONE AKSAMITNE ANIMACJE WEJŚCIA DLA BLOKÓW NA PODSTRONACH
+    if (typeof ScrollTrigger !== 'undefined') {
+      const animGroup = (containerSel, itemSel, options = {}) => {
+        try {
+          const containers = document.querySelectorAll(containerSel);
+          containers.forEach(container => {
+            if (container.dataset.entranceDone) return;
+            container.dataset.entranceDone = 'true';
+            const items = container.querySelectorAll(itemSel);
+            if (!items.length) return;
+
+            const yDist = options.y ?? 18;
+            const dur = options.duration ?? 0.95;
+            const stag = options.stagger ?? 0.12;
+            const startPos = options.start ?? 'top 82%';
+
+            gsap.fromTo(items,
+              { opacity: 0, y: yDist, force3D: true },
+              {
+                opacity: 1,
+                y: 0,
+                duration: dur,
+                stagger: stag,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: container,
+                  start: startPos,
+                  once: true
+                },
+                onComplete: () => {
+                  gsap.set(items, { clearProps: 'opacity,transform' });
+                }
+              }
+            );
+          });
+        } catch (e) {
+          console.warn('animGroup error:', e);
+        }
+      };
+
+      const animSingle = (sel, options = {}) => {
+        try {
+          const elements = document.querySelectorAll(sel);
+          elements.forEach(el => {
+            if (el.dataset.entranceDone) return;
+            el.dataset.entranceDone = 'true';
+
+            const yDist = options.y ?? 18;
+            const dur = options.duration ?? 0.85;
+            const startPos = options.start ?? 'top 82%';
+
+            gsap.fromTo(el,
+              { opacity: 0, y: yDist, force3D: true },
+              {
+                opacity: 1,
+                y: 0,
+                duration: dur,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: el,
+                  start: startPos,
+                  once: true
+                },
+                onComplete: () => {
+                  gsap.set(el, { clearProps: 'opacity,transform' });
+                }
+              }
+            );
+          });
+        } catch (e) {
+          console.warn('animSingle error:', e);
+        }
+      };
+
+      // 1. Hero visuals na podstronach
+      animSingle('.service-hero-visual', { y: 20, duration: 0.9, start: 'top 85%' });
+      animGroup('.branding-hero-composition', '.branding-visual-item', { y: 20, duration: 0.9, stagger: 0.12, start: 'top 85%' });
+      animSingle('.about-portrait', { y: 20, duration: 0.9, start: 'top 85%' });
+      animSingle('.project-cover', { y: 20, duration: 0.9, start: 'top 85%' });
+      animSingle('.post-cover-wrap', { y: 20, duration: 0.9, start: 'top 85%' });
+
+      // 2. Karty usług i nagłówki (.service-features na Stronach WWW oraz .branding-scope na Branding)
+      const serviceFeaturesSecs = document.querySelectorAll('.service-features, .branding-scope');
+      serviceFeaturesSecs.forEach(sec => {
+        if (sec.dataset.entranceDone) return;
+        sec.dataset.entranceDone = 'true';
+        const heading = sec.querySelector('h2');
+        const features = sec.querySelectorAll('.feature-grid .service-feature');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sec,
+            start: 'top 82%',
+            once: true
+          },
+          onComplete: () => {
+            if (heading) gsap.set(heading, { clearProps: 'opacity,transform' });
+            if (features.length) gsap.set(features, { clearProps: 'opacity,transform' });
+          }
+        });
+
+        if (heading) {
+          tl.fromTo(heading,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+            0
+          );
+        }
+
+        if (features.length) {
+          tl.fromTo(features,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.95, stagger: 0.12, ease: 'power3.out' },
+            heading ? 0.12 : 0
+          );
+        }
+      });
+
+      // 3. Poziomy panel modernizacji (Strony WWW) i Motion/wideo (Branding)
+      animSingle('.modernizacja-panel', { y: 20, duration: 0.9, start: 'top 82%' });
+      animSingle('.branding-motion-callout', { y: 20, duration: 0.9, start: 'top 82%' });
+
+      // 4. Proces współpracy (.process-section na Stronach WWW)
+      const processSecs = document.querySelectorAll('.process-section');
+      processSecs.forEach(sec => {
+        if (sec.dataset.entranceDone) return;
+        sec.dataset.entranceDone = 'true';
+        const heading = sec.querySelector('h2');
+        const introItems = sec.querySelectorAll('.process-intro .home-lead, .process-input');
+        const steps = sec.querySelectorAll('.process-steps li');
+        const ownership = sec.querySelector('.process-ownership');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sec,
+            start: 'top 82%',
+            once: true
+          },
+          onComplete: () => {
+            if (heading) gsap.set(heading, { clearProps: 'opacity,transform' });
+            if (introItems.length) gsap.set(introItems, { clearProps: 'opacity,transform' });
+            if (steps.length) gsap.set(steps, { clearProps: 'opacity,transform' });
+            if (ownership) gsap.set(ownership, { clearProps: 'opacity,transform' });
+          }
+        });
+
+        if (heading) {
+          tl.fromTo(heading,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+            0
+          );
+        }
+
+        if (introItems.length) {
+          tl.fromTo(introItems,
+            { opacity: 0, y: 16, force3D: true },
+            { opacity: 1, y: 0, duration: 0.85, stagger: 0.08, ease: 'power3.out' },
+            0.08
+          );
+        }
+
+        if (steps.length) {
+          tl.fromTo(steps,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out' },
+            0.12
+          );
+        }
+
+        if (ownership) {
+          tl.fromTo(ownership,
+            { opacity: 0, y: 16, force3D: true },
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+            '+=0.05'
+          );
+        }
+      });
+
+      // 5. Pakiety ofertowe (Strony WWW i Branding)
+      const packagesSecs = document.querySelectorAll('.packages-section');
+      packagesSecs.forEach(sec => {
+        if (sec.dataset.entranceDone) return;
+        sec.dataset.entranceDone = 'true';
+        const heading = sec.querySelector('h2');
+        const lead = sec.querySelector('.packages-intro .home-lead');
+        const cards = sec.querySelectorAll('.package-grid .package-card');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sec,
+            start: 'top 82%',
+            once: true
+          },
+          onComplete: () => {
+            if (heading) gsap.set(heading, { clearProps: 'opacity,transform' });
+            if (lead) gsap.set(lead, { clearProps: 'opacity,transform' });
+            if (cards.length) gsap.set(cards, { clearProps: 'opacity,transform' });
+          }
+        });
+
+        if (heading) {
+          tl.fromTo(heading,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+            0
+          );
+        }
+
+        if (lead) {
+          tl.fromTo(lead,
+            { opacity: 0, y: 16, force3D: true },
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+            0.08
+          );
+        }
+
+        if (cards.length) {
+          tl.fromTo(cards,
+            { opacity: 0, y: 20, force3D: true },
+            { opacity: 1, y: 0, duration: 0.95, stagger: 0.12, ease: 'power3.out' },
+            0.12
+          );
+        }
+      });
+
+      // 6. FAQ na podstronie Strony WWW (#faq .faq-grid)
+      const faqSec = document.querySelector('#faq .faq-grid');
+      if (faqSec && !faqSec.dataset.entranceDone) {
+        faqSec.dataset.entranceDone = 'true';
+        const heading = faqSec.querySelector('h2');
+        const faqItems = faqSec.querySelectorAll('.faq-list details');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: faqSec,
+            start: 'top 82%',
+            once: true
+          },
+          onComplete: () => {
+            if (heading) gsap.set(heading, { clearProps: 'opacity,transform' });
+            if (faqItems.length) gsap.set(faqItems, { clearProps: 'opacity,transform' });
+          }
+        });
+
+        if (heading) {
+          tl.fromTo(heading,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+            0
+          );
+        }
+
+        if (faqItems.length) {
+          tl.fromTo(faqItems,
+            { opacity: 0, y: 16, force3D: true },
+            { opacity: 1, y: 0, duration: 0.85, stagger: 0.06, ease: 'power3.out' },
+            heading ? 0.1 : 0
+          );
+        }
+      }
+
+      // 7. Sekcje compact-grid na podstronach (Case Studies: Potrzeba, Zakres, Rezultat oraz O mnie: Doświadczenie)
+      const compactGrids = document.querySelectorAll('.project-detail .compact-grid, section[aria-labelledby="case-drewmar-title"] .compact-grid');
+      compactGrids.forEach(grid => {
+        if (grid.dataset.entranceDone) return;
+        grid.dataset.entranceDone = 'true';
+
+        const heading = grid.querySelector('h2');
+        const contentItems = grid.querySelectorAll('.bio-copy > *, .scope-list > li, .testimonial-card, .home-lead, :scope > div:last-child > p');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: grid,
+            start: 'top 82%',
+            once: true
+          },
+          onComplete: () => {
+            if (heading) gsap.set(heading, { clearProps: 'opacity,transform' });
+            if (contentItems.length) gsap.set(contentItems, { clearProps: 'opacity,transform' });
+          }
+        });
+
+        if (heading) {
+          tl.fromTo(heading,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+            0
+          );
+        }
+
+        if (contentItems.length) {
+          tl.fromTo(contentItems,
+            { opacity: 0, y: 16, force3D: true },
+            { opacity: 1, y: 0, duration: 0.85, stagger: 0.08, ease: 'power3.out' },
+            heading ? 0.1 : 0
+          );
+        }
+      });
+
+      // 8. Dowody i relacje (Strony WWW i Branding)
+      animGroup('.proof-grid', '.proof-item', { y: 18, duration: 0.85, stagger: 0.08, start: 'top 85%' });
+      animSingle('.relationship-story', { y: 18, duration: 0.85, start: 'top 85%' });
+      animSingle('.branding-portfolio-link-wrap', { y: 16, duration: 0.8, start: 'top 88%' });
+
+      // 9. Listing portfolio: okładki realizacji wchodzą płynnie
+      const portfolioWorks = document.querySelectorAll('.portfolio .stage .work');
+      portfolioWorks.forEach(work => {
+        if (work.dataset.entranceDone) return;
+        work.dataset.entranceDone = 'true';
+        const media = work.querySelector('.media-link');
+        if (media) {
+          gsap.fromTo(media,
+            { opacity: 0, y: 20, force3D: true },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.95,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: media,
+                start: 'top 85%',
+                once: true
+              },
+              onComplete: () => {
+                gsap.set(media, { clearProps: 'opacity,transform' });
+              }
+            }
+          );
+        }
+      });
+
+      // 10. Strony case study portfolio (/portfolio/[slug]/)
+      animGroup('.project-gallery', 'figure', { y: 20, duration: 0.9, stagger: 0.1, start: 'top 85%' });
+      animSingle('.project-film-media figure', { y: 20, duration: 0.9, start: 'top 85%' });
+      animGroup('.project-next', 'a', { y: 16, duration: 0.8, stagger: 0.06, start: 'top 88%' });
+
+      // 11. O mnie (/o-mnie/): Sposób pracy i Zasady współpracy
+      const howSec = document.querySelector('#jak-pracuje');
+      if (howSec && !howSec.dataset.entranceDone) {
+        howSec.dataset.entranceDone = 'true';
+        const heading = howSec.querySelector('.how-intro h2');
+        const lead = howSec.querySelector('.how-intro .home-lead');
+        const steps = howSec.querySelectorAll('.how-steps-grid .how-step');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: howSec,
+            start: 'top 82%',
+            once: true
+          },
+          onComplete: () => {
+            if (heading) gsap.set(heading, { clearProps: 'opacity,transform' });
+            if (lead) gsap.set(lead, { clearProps: 'opacity,transform' });
+            if (steps.length) gsap.set(steps, { clearProps: 'opacity,transform' });
+          }
+        });
+
+        if (heading) {
+          tl.fromTo(heading,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+            0
+          );
+        }
+
+        if (lead) {
+          tl.fromTo(lead,
+            { opacity: 0, y: 16, force3D: true },
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+            0.08
+          );
+        }
+
+        if (steps.length) {
+          tl.fromTo(steps,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.95, stagger: 0.12, ease: 'power3.out' },
+            0.12
+          );
+        }
+      }
+
+      const rulesSec = document.querySelector('.rules-block');
+      if (rulesSec && !rulesSec.dataset.entranceDone) {
+        rulesSec.dataset.entranceDone = 'true';
+        const title = rulesSec.querySelector('.rules-block-title');
+        const rules = rulesSec.querySelectorAll('.rules-columns .rule-item');
+        const note = rulesSec.querySelector('.rules-note');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: rulesSec,
+            start: 'top 82%',
+            once: true
+          },
+          onComplete: () => {
+            if (title) gsap.set(title, { clearProps: 'opacity,transform' });
+            if (rules.length) gsap.set(rules, { clearProps: 'opacity,transform' });
+            if (note) gsap.set(note, { clearProps: 'opacity,transform' });
+          }
+        });
+
+        if (title) {
+          tl.fromTo(title,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+            0
+          );
+        }
+
+        if (rules.length) {
+          tl.fromTo(rules,
+            { opacity: 0, y: 18, force3D: true },
+            { opacity: 1, y: 0, duration: 0.95, stagger: 0.12, ease: 'power3.out' },
+            title ? 0.12 : 0
+          );
+        }
+
+        if (note) {
+          tl.fromTo(note,
+            { opacity: 0, y: 14, force3D: true },
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+            '+=0.05'
+          );
+        }
+      }
+
+      // 12. Blog (/blog/ oraz /blog/[slug]/)
+      animSingle('.blog-featured-card', { y: 20, duration: 0.95, start: 'top 82%' });
+      animGroup('.blog-list-grid', '.blog-card', { y: 20, duration: 0.95, stagger: 0.12, start: 'top 82%' });
+
+      const singlePostContent = document.querySelector('.post-layout-wrap .post-content');
+      if (singlePostContent && !singlePostContent.dataset.entranceDone) {
+        singlePostContent.dataset.entranceDone = 'true';
+        const postBlocks = singlePostContent.querySelectorAll(':scope > p, :scope > h2, :scope > ul, :scope > ol, :scope > blockquote, :scope > figure');
+        postBlocks.forEach(block => {
+          gsap.fromTo(block,
+            { opacity: 0, y: 16, force3D: true },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: block,
+                start: 'top 88%',
+                once: true
+              },
+              onComplete: () => {
+                gsap.set(block, { clearProps: 'opacity,transform' });
+              }
+            }
+          );
+        });
+      }
+    }
+
     // 11. FUTURE THREE HOVER EFFECT (homepage i podstrony)
     const initFutureThree = () => {
 

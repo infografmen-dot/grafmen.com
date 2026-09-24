@@ -3,10 +3,15 @@
   if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Target content sections, strictly excluding any Hero section across homepage and subpages
+  // Target content sections, strictly excluding any Hero section and sections with dedicated GSAP child motion
   const heroSelectors = '.hero, .service-hero, .portfolio-hero, .project-heading';
   const allCandidates = document.querySelectorAll('main > section, section.final-cta, .project-detail > section');
-  const sections = Array.from(allCandidates).filter(sec => !sec.matches(heroSelectors));
+  const sections = Array.from(allCandidates).filter(sec => {
+    if (sec.matches(heroSelectors)) return false;
+    if (sec.querySelector('[data-motion="heading-reveal"]')) return false;
+    if (sec.querySelector('.feature-grid, .package-grid, .process-steps, .how-steps-grid, .rules-columns, .proof-grid, .blog-list-grid, .project-gallery, .contact-brief, .faq-grid, .compact-grid, .branding-motion-callout')) return false;
+    return true;
+  });
   if (!sections.length) return;
 
   // Mark html as reveal-enabled only when script successfully runs

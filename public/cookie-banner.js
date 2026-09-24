@@ -109,6 +109,7 @@
     clearDismissed();
     clearTimeout(showTimer);
     showBanner();
+    openInfo();
   }
 
   /* ── Inicjalizacja ── */

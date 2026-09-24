@@ -6,12 +6,34 @@ interface Props {
 }
 
 const { currentNav } = Astro.props;
+const isHome = currentNav === 'home';
+const svgLogoSrc = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjAuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNvbXBvbmVudF8xN18zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiCgkgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTcxLjYgNTYuOCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTcxLjYgNTYuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJCS5zdDF7ZmlsbDojMTAxMDEwO30KPC9zdHlsZT4KPHBhdGggaWQ9IlBhdGhfMTA3OTciIGNsYXNzPSJzdDEiIGQ9Ik0yNy4xLDM5LjNjLTYuNiwwLTExLjctNC44LTExLjctMTEuMmMwLjEtNi4zLDUuMi0xMS4zLDExLjUtMTEuMmMzLjUsMCw2LjgsMS43LDguOSw0LjUKCWwtMy41LDJjLTEuNC0xLjYtMy41LTIuNi01LjYtMi41Yy0zLjgtMC4xLTcsMi45LTcuMSw2LjdjMCwwLjIsMCwwLjMsMCwwLjVjMCw0LjIsMyw3LjEsNy41LDcuMWMzLjEsMCw1LjMtMS4zLDYuMi0zLjhsMC4yLTAuNgoJaC02LjJ2LTMuNWgxMC4zdjEuNEMzNy43LDM1LjEsMzMuNSwzOS4zLDI3LjEsMzkuM3oiLz4KPHBhdGggaWQ9IlBhdGhfMTA3OTgiIGNsYXNzPSJzdDEiIGQ9Ik01OS42LDQ5LjJMNDguMiwzMS41SDQ1djcuNGgtNC4yVjE3LjNoOC41YzQsMCw3LjIsMy4yLDcuMiw3LjJjLTAuMSwyLjYtMS42LDQuOS0zLjksNi4xCglsLTAuNSwwLjJMNjQsNDkuMkg1OS42eiBNNDUsMjcuOWg0LjNjMS45LTAuMiwzLjItMS44LDMtMy43Yy0wLjItMS42LTEuNC0yLjktMy0zSDQ1VjI3Ljl6Ii8+CjxwYXRoIGlkPSJQYXRoXzEwNzk5IiBjbGFzcz0ic3QxIiBkPSJNNzQuNCwzOC45bC0xLjEtMy41aC05LjFsLTEuMSwzLjVoLTQuNmw3LjMtMjEuNWg1LjlMNzksMzguOUg3NC40eiBNNjUuNCwzMS41SDcybC0zLjMtMTAuMwoJTDY1LjQsMzEuNXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDAiIGNsYXNzPSJzdDEiIGQ9Ik04MSwzOC45VjcuNmgxMi43djRoLTguNVYyNmg4LjN2NGgtOC4zdjlMODEsMzguOXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDEiIGNsYXNzPSJzdDEiIGQ9Ik0xMTQsNDkuMlYyNC42bC02LjYsMTAuOGgwbC02LjYtMTAuOHYxNC4zaC00LjJWMTcuM2g0LjRsNi40LDEwLjRsNi40LTEwLjRoNC40djMxLjlMMTE0LDQ5LjIKCXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDIiIGNsYXNzPSJzdDEiIGQ9Ik0xMjIuMiwzOC45VjE3LjNoMTN2NGgtOC44VjI2aDh2My45aC04djQuOWg5djRMMTIyLjIsMzguOXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDMiIGNsYXNzPSJzdDEiIGQ9Ik0xNTIsMzguOWwtOS40LTEzLjJ2MTMuMmgtNC4yVjE3LjNoMy4xbDkuNCwxMy4yVjE3LjNoNC4ydjIxLjVMMTUyLDM4Ljl6Ii8+CjxyZWN0IGlkPSJSZWN0YW5nbGVfMTIwIiB4PSIxMDIuMiIgeT0iNy42IiBjbGFzcz0ic3QxIiB3aWR0aD0iNjIuOSIgaGVpZ2h0PSI0Ii8+CjxyZWN0IGlkPSJSZWN0YW5nbGVfMTIxIiB4PSI2LjUiIHk9IjcuNiIgY2xhc3M9InN0MSIgd2lkdGg9IjY2LjIiIGhlaWdodD0iNCIvPgo8cmVjdCBpZD0iUmVjdGFuZ2xlXzEyMiIgeD0iNjAiIHk9IjQ1LjIiIGNsYXNzPSJzdDEiIHdpZHRoPSI0NS43IiBoZWlnaHQ9IjQiLz4KPHJlY3QgaWQ9IlJlY3RhbmdsZV8xMjMiIHg9IjEyNi41IiB5PSI0NS4yIiBjbGFzcz0ic3QxIiB3aWR0aD0iMzYuNyIgaGVpZ2h0PSI0Ii8+CjxyZWN0IGlkPSJSZWN0YW5nbGVfMTI0IiB4PSI2LjUiIHk9IjQ1LjIiIGNsYXNzPSJzdDEiIHdpZHRoPSI0My42IiBoZWlnaHQ9IjQiLz4KPHJlY3QgaWQ9IlJlY3RhbmdsZV8xMjUiIHg9IjE2MS4xIiB5PSI3LjYiIGNsYXNzPSJzdDEiIHdpZHRoPSI0IiBoZWlnaHQ9IjQxLjYiLz4KPHJlY3QgaWQ9IlJlY3RhbmdsZV8xMjYiIHg9IjYuNSIgeT0iNy42IiBjbGFzcz0ic3QxIiB3aWR0aD0iNCIgaGVpZ2h0PSI0MS42Ii8+Cjwvc3ZnPgo=";
 ---
 <div class="site-header-shell">
   <div class="wrap">
     <header>
       <a class="home-logo" href="/" aria-label="Grafmen · strona główna">
-        <img class="logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjAuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNvbXBvbmVudF8xN18zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiCgkgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTcxLjYgNTYuOCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTcxLjYgNTYuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJCS5zdDF7ZmlsbDojMTAxMDEwO30KPC9zdHlsZT4KPHBhdGggaWQ9IlBhdGhfMTA3OTciIGNsYXNzPSJzdDEiIGQ9Ik0yNy4xLDM5LjNjLTYuNiwwLTExLjctNC44LTExLjctMTEuMmMwLjEtNi4zLDUuMi0xMS4zLDExLjUtMTEuMmMzLjUsMCw2LjgsMS43LDguOSw0LjUKCWwtMy41LDJjLTEuNC0xLjYtMy41LTIuNi01LjYtMi41Yy0zLjgtMC4xLTcsMi45LTcuMSw2LjdjMCwwLjIsMCwwLjMsMCwwLjVjMCw0LjIsMyw3LjEsNy41LDcuMWMzLjEsMCw1LjMtMS4zLDYuMi0zLjhsMC4yLTAuNgoJaC02LjJ2LTMuNWgxMC4zdjEuNEMzNy43LDM1LjEsMzMuNSwzOS4zLDI3LjEsMzkuM3oiLz4KPHBhdGggaWQ9IlBhdGhfMTA3OTgiIGNsYXNzPSJzdDEiIGQ9Ik01OS42LDQ5LjJMNDguMiwzMS41SDQ1djcuNGgtNC4yVjE3LjNoOC41YzQsMCw3LjIsMy4yLDcuMiw3LjJjLTAuMSwyLjYtMS42LDQuOS0zLjksNi4xCglsLTAuNSwwLjJMNjQsNDkuMkg1OS42eiBNNDUsMjcuOWg0LjNjMS45LTAuMiwzLjItMS44LDMtMy43Yy0wLjItMS42LTEuNC0yLjktMy0zSDQ1VjI3Ljl6Ii8+CjxwYXRoIGlkPSJQYXRoXzEwNzk5IiBjbGFzcz0ic3QxIiBkPSJNNzQuNCwzOC45bC0xLjEtMy41aC05LjFsLTEuMSwzLjVoLTQuNmw3LjMtMjEuNWg1LjlMNzksMzguOUg3NC40eiBNNjUuNCwzMS41SDcybC0zLjMtMTAuMwoJTDY1LjQsMzEuNXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDAiIGNsYXNzPSJzdDEiIGQ9Ik04MSwzOC45VjcuNmgxMi43djRoLTguNVYyNmg4LjN2NGgtOC4zdjlMODEsMzguOXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDEiIGNsYXNzPSJzdDEiIGQ9Ik0xMTQsNDkuMlYyNC42bC02LjYsMTAuOGgwbC02LjYtMTAuOHYxNC4zaC00LjJWMTcuM2g0LjRsNi40LDEwLjRsNi40LTEwLjRoNC40djMxLjlMMTE0LDQ5LjIKCXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDIiIGNsYXNzPSJzdDEiIGQ9Ik0xMjIuMiwzOC45VjE3LjNoMTN2NGgtOC44VjI2aDh2My45aC04djQuOWg5djRMMTIyLjIsMzguOXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDMiIGNsYXNzPSJzdDEiIGQ9Ik0xNTIsMzguOWwtOS40LTEzLjJ2MTMuMmgtNC4yVjE3LjNoMy4xbDkuNCwxMy4yVjE3LjNoNC4ydjIxLjVMMTUyLDM4Ljl6Ii8+CjxyZWN0IGlkPSJSZWN0YW5nbGVfMTIwIiB4PSIxMDIuMiIgeT0iNy42IiBjbGFzcz0ic3QxIiB3aWR0aD0iNjIuOSIgaGVpZ2h0PSI0Ii8+CjxyZWN0IGlkPSJSZWN0YW5nbGVfMTIxIiB4PSI2LjUiIHk9IjcuNiIgY2xhc3M9InN0MSIgd2lkdGg9IjY2LjIiIGhlaWdodD0iNCIvPgo8cmVjdCBpZD0iUmVjdGFuZ2xlXzEyMiIgeD0iNjAiIHk9IjQ1LjIiIGNsYXNzPSJzdDEiIHdpZHRoPSI0NS43IiBoZWlnaHQ9IjQiLz4KPHJlY3QgaWQ9IlJlY3RhbmdsZV8xMjMiIHg9IjEyNi41IiB5PSI0NS4yIiBjbGFzcz0ic3QxIiB3aWR0aD0iMzYuNyIgaGVpZ2h0PSI0Ii8+CjxyZWN0IGlkPSJSZWN0YW5nbGVfMTI0IiB4PSI2LjUiIHk9IjQ1LjIiIGNsYXNzPSJzdDEiIHdpZHRoPSI0My42IiBoZWlnaHQ9IjQiLz4KPHJlY3QgaWQ9IlJlY3RhbmdsZV8xMjUiIHg9IjE2MS4xIiB5PSI3LjYiIGNsYXNzPSJzdDEiIHdpZHRoPSI0IiBoZWlnaHQ9IjQxLjYiLz4KPHJlY3QgaWQ9IlJlY3RhbmdsZV8xMjYiIHg9IjYuNSIgeT0iNy42IiBjbGFzcz0ic3QxIiB3aWR0aD0iNCIgaGVpZ2h0PSI0MS42Ii8+Cjwvc3ZnPgo=" alt="Grafmen" width="142" height="47">
+        {isHome ? (
+          <>
+            <video
+              class="logo-video"
+              autoplay
+              muted
+              playsinline
+              preload="auto"
+              poster="/assets/motion/grafmen-logo-poster.png"
+              width="142"
+              height="47"
+              aria-hidden="true"
+            >
+              <source src="/assets/motion/grafmen-logo.webm" type="video/webm" />
+              <source src="/assets/motion/grafmen-logo.mp4" type="video/mp4" />
+            </video>
+            <img class="logo logo--static-fallback" src={svgLogoSrc} alt="Grafmen" width="142" height="47" />
+          </>
+        ) : (
+          <img class="logo" src={svgLogoSrc} alt="Grafmen" width="142" height="47" />
+        )}
       </a>
       <nav id="main-nav" aria-label="Główna nawigacja">
         <a data-nav="web" class={currentNav === 'web' ? 'active' : ''} aria-current={currentNav === 'web' ? 'page' : undefined} href="/strony-www/">
@@ -51,3 +73,35 @@ const { currentNav } = Astro.props;
     </header>
   </div>
 </div>
+
+{isHome && (
+  <script is:inline>
+    (() => {
+      const v = document.querySelector('.home-logo .logo-video');
+      const fallback = document.querySelector('.home-logo .logo--static-fallback');
+      if (!v) return;
+
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        v.style.display = 'none';
+        if (fallback) fallback.style.display = 'block';
+        return;
+      }
+
+      v.addEventListener('ended', () => {
+        v.pause();
+      }, { once: true });
+
+      v.addEventListener('error', () => {
+        v.style.display = 'none';
+        if (fallback) fallback.style.display = 'block';
+      }, { once: true });
+
+      const playPromise = v.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Jeśli autoplay zablokowany, wideo automatycznie prezentuje plik poster
+        });
+      }
+    })();
+  </script>
+)}
