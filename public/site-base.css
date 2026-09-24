@@ -171,7 +171,8 @@
   header{height:104px;display:grid;grid-template-columns:190px 1fr auto;align-items:center;gap:28px}
   .home-logo{display:inline-flex;align-items:center;position:relative;width:142px;height:47px;flex-shrink:0}
   .logo{display:block;width:142px;height:47px;object-fit:contain}
-  .logo-video{display:block;width:142px;height:47px;object-fit:contain;mix-blend-mode:multiply;pointer-events:none;background:transparent}
+  .logo-video{display:block;width:142px;height:47px;object-fit:contain;mix-blend-mode:multiply;pointer-events:none;-webkit-user-select:none;user-select:none;background:transparent}
+  .logo-video::-webkit-media-controls,.logo-video::-webkit-media-controls-enclosure,.logo-video::-webkit-media-controls-panel,.logo-video::-webkit-media-controls-play-button,.logo-video::-webkit-media-controls-start-playback-button,.logo-video::-webkit-media-controls-overlay-play-button,.logo-video::-webkit-media-controls-overlay-enclosure{display:none!important;opacity:0!important;pointer-events:none!important;-webkit-appearance:none!important;visibility:hidden!important}
   .logo--static-fallback{display:none}
   @media(max-width:1150px){
     .home-logo,.home-logo .logo,.home-logo .logo-video{width:130px;height:43px}

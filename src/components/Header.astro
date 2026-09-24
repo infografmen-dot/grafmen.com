@@ -25,6 +25,11 @@ const svgLogoSrc = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZG
               width="142"
               height="47"
               aria-hidden="true"
+              disablepictureinpicture
+              disableremoteplayback
+              controlslist="nodownload nofullscreen noremoteplayback"
+              tabindex="-1"
+              data-edge-visual-search="false"
             >
               <source src="/assets/motion/grafmen-logo.webm" type="video/webm" />
               <source src="/assets/motion/grafmen-logo.mp4" type="video/mp4" />
@@ -81,25 +86,31 @@ const svgLogoSrc = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZG
       const fallback = document.querySelector('.home-logo .logo--static-fallback');
       if (!v) return;
 
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        v.style.display = 'none';
+      const showFallback = () => {
         if (fallback) fallback.style.display = 'block';
+        v.style.display = 'none';
+        v.pause();
+      };
+
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        showFallback();
         return;
       }
 
-      v.addEventListener('ended', () => {
-        v.pause();
-      }, { once: true });
+      v.addEventListener('ended', showFallback, { once: true });
+      v.addEventListener('error', showFallback, { once: true });
 
-      v.addEventListener('error', () => {
-        v.style.display = 'none';
-        if (fallback) fallback.style.display = 'block';
-      }, { once: true });
+      // Zabezpieczenie czasowe po zakończeniu animacji (trwa 1.034s)
+      setTimeout(() => {
+        if (v && (v.ended || v.currentTime >= 0.95)) {
+          showFallback();
+        }
+      }, 1200);
 
       const playPromise = v.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          // Jeśli autoplay zablokowany, wideo automatycznie prezentuje plik poster
+          // Jeśli autoplay zablokowany, wideo prezentuje poster
         });
       }
     })();
