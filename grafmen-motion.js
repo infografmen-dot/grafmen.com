@@ -293,74 +293,51 @@
       }
     }
 
-    // 6. SCROLL REVEAL FOR DUŻE H2 (data-motion="heading-reveal" oraz nagłówki sekcji na podstronach)
+    // 6. SCROLL REVEAL FOR DUŻE H2 (data-motion="heading-reveal")
+    // Działa spójnie na homepage i podstronach dla wszystkich nagłówków z data-motion="heading-reveal"
     if (typeof ScrollTrigger !== 'undefined' && typeof SplitText !== 'undefined') {
-      const headingSelectors = [
-        '[data-motion="heading-reveal"]',
-        '.home-section:not(.final-cta) h2',
-        '.service-features h2',
-        '.process-intro h2',
-        '.packages-intro h2',
-        '.how-intro h2',
-        '.rules-block-title',
-        '.modernisation-callout h2',
-        '.project-heading h1',
-        '.blog-intro-hero h1'
-      ];
-      const headingReveals = document.querySelectorAll(headingSelectors.join(', '));
+      const headingReveals = document.querySelectorAll('[data-motion="heading-reveal"]');
       const isDesktopMotion = window.matchMedia('(hover: hover) and (pointer: fine)').matches && !Boolean(navigator.connection?.saveData);
 
       headingReveals.forEach(h2 => {
-        if (h2.dataset.motionDone || h2.closest('.hero')) return;
+        if (h2.dataset.motionDone) return;
         h2.dataset.motionDone = 'true';
 
-        try {
-          // Podział nagłówka na linie
-          const split = new SplitText(h2, { type: 'lines', linesClass: 'gf-line-inner' });
-          if (!split.lines || !split.lines.length) return;
+        // Podział nagłówka na linie
+        const split = new SplitText(h2, { type: 'lines', linesClass: 'gf-line-inner' });
+        if (!split.lines || !split.lines.length) return;
 
-          gsap.fromTo(split.lines,
-            {
-              y: 24,
-              opacity: 0,
-              filter: isDesktopMotion ? 'blur(3px)' : 'none'
+        // Czytelne, spokojne odsłanianie wierszy:
+        // - wejście od dołu o około 24 px
+        // - opacity 0 -> 1
+        // - delikatne rozmycie do 3 px -> 0 na desktopie (na mobile brak rozmycia)
+        // - czas około 0,8 sekundy
+        // - odstęp między wierszami około 0,08 sekundy
+        // - płynne wyhamowanie (power2.out)
+        // - start, gdy góra nagłówka dochodzi do około 80% wysokości okna
+        gsap.fromTo(split.lines,
+          {
+            y: 24,
+            opacity: 0,
+            filter: isDesktopMotion ? 'blur(3px)' : 'none'
+          },
+          {
+            y: 0,
+            opacity: 1,
+            filter: isDesktopMotion ? 'blur(0px)' : 'none',
+            duration: 0.8,
+            stagger: 0.08,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: h2,
+              start: 'top 80%',
+              once: true
             },
-            {
-              y: 0,
-              opacity: 1,
-              filter: isDesktopMotion ? 'blur(0px)' : 'none',
-              duration: 0.8,
-              stagger: 0.08,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: h2,
-                start: 'top 80%',
-                once: true
-              },
-              onComplete: () => {
-                gsap.set(split.lines, { clearProps: 'all' });
-              }
+            onComplete: () => {
+              gsap.set(split.lines, { clearProps: 'all' });
             }
-          );
-        } catch (_) {
-          gsap.fromTo(h2,
-            { y: 24, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.8,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: h2,
-                start: 'top 80%',
-                once: true
-              },
-              onComplete: () => {
-                gsap.set(h2, { clearProps: 'all' });
-              }
-            }
-          );
-        }
+          }
+        );
       });
     }
 
@@ -678,219 +655,6 @@
           );
         }
       }
-    // 10b. GLOBALNE ANIMACJE WEJŚCIA DLA KART, PANELI, ZDJĘĆ I LIST (PODSTRONY I HOMEPAGE)
-    if (typeof ScrollTrigger !== 'undefined') {
-      // Helper do staggerowanych grup
-      const animGroup = (containerSelector, itemSelector, opts = {}) => {
-        const containers = document.querySelectorAll(containerSelector);
-        containers.forEach(cont => {
-          if (cont.dataset.entranceDone) return;
-          cont.dataset.entranceDone = 'true';
-          const items = cont.querySelectorAll(itemSelector);
-          if (!items.length) return;
-
-          const y = opts.y ?? 24;
-          const duration = opts.duration ?? 0.75;
-          const stagger = opts.stagger ?? 0.1;
-          const delay = opts.delay ?? 0;
-          const start = opts.start ?? 'top 85%';
-
-          gsap.fromTo(items,
-            { opacity: 0, y: y },
-            {
-              opacity: 1,
-              y: 0,
-              duration: duration,
-              stagger: stagger,
-              delay: delay,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: cont,
-                start: start,
-                once: true
-              },
-              onComplete: () => {
-                gsap.set(items, { clearProps: 'opacity,transform' });
-              }
-            }
-          );
-        });
-      };
-
-      // Helper do pojedynczych bloków
-      const animSingle = (selector, opts = {}) => {
-        const elements = document.querySelectorAll(selector);
-        elements.forEach(el => {
-          if (el.dataset.entranceDone) return;
-          el.dataset.entranceDone = 'true';
-
-          const y = opts.y ?? 24;
-          const duration = opts.duration ?? 0.75;
-          const delay = opts.delay ?? 0;
-          const start = opts.start ?? 'top 85%';
-
-          gsap.fromTo(el,
-            { opacity: 0, y: y },
-            {
-              opacity: 1,
-              y: 0,
-              duration: duration,
-              delay: delay,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: el,
-                start: start,
-                once: true
-              },
-              onComplete: () => {
-                gsap.set(el, { clearProps: 'opacity,transform' });
-              }
-            }
-          );
-        });
-      };
-
-      // 1. Główne zdjęcia Hero na podstronach (wejście od dołu z delikatnym opóźnieniem)
-      animSingle('.service-hero-visual', { y: 24, duration: 0.8, delay: 0.12, start: 'top 88%' });
-      animGroup('.branding-hero-composition', '.branding-visual-item', { y: 24, duration: 0.8, stagger: 0.12, delay: 0.12, start: 'top 88%' });
-      animSingle('.about-portrait', { y: 20, duration: 0.8, delay: 0.12, start: 'top 88%' });
-      animSingle('.project-cover', { y: 24, duration: 0.8, start: 'top 88%' });
-      animSingle('.post-cover-wrap', { y: 24, duration: 0.8, start: 'top 88%' });
-
-      // 2. Listing portfolio: okładki realizacji (.media-link) wchodzą wspólnie z podpisami
-      const portfolioWorks = document.querySelectorAll('.portfolio .stage .work');
-      portfolioWorks.forEach(work => {
-        const mediaLink = work.querySelector('.media-link');
-        if (mediaLink && !mediaLink.dataset.entranceDone) {
-          mediaLink.dataset.entranceDone = 'true';
-          gsap.fromTo(mediaLink,
-            { opacity: 0, y: 24 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.75,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: work,
-                start: 'top 85%',
-                once: true
-              },
-              onComplete: () => {
-                gsap.set(mediaLink, { clearProps: 'opacity,transform' });
-              }
-            }
-          );
-        }
-      });
-
-      // 3. Strony case study portfolio (/portfolio/[slug]/): galeria, film, punkty i akapity
-      animGroup('.project-scope', '.scope-list li', { y: 16, duration: 0.6, stagger: 0.06, start: 'top 85%' });
-      
-      const galleryFigures = document.querySelectorAll('.project-gallery figure, .project-film-media figure');
-      galleryFigures.forEach(fig => {
-        if (fig.dataset.entranceDone) return;
-        fig.dataset.entranceDone = 'true';
-        gsap.fromTo(fig,
-          { opacity: 0, y: 24 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.75,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: fig,
-              start: 'top 85%',
-              once: true
-            },
-            onComplete: () => {
-              gsap.set(fig, { clearProps: 'opacity,transform' });
-            }
-          }
-        );
-      });
-
-      const caseStudiesBio = document.querySelectorAll('.project-detail .compact-grid .bio-copy');
-      caseStudiesBio.forEach(bio => {
-        if (bio.dataset.entranceDone) return;
-        bio.dataset.entranceDone = 'true';
-        const paragraphs = bio.querySelectorAll(':scope > p, :scope > .testimonial-card');
-        if (paragraphs.length) {
-          gsap.fromTo(paragraphs,
-            { opacity: 0, y: 20 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.7,
-              stagger: 0.08,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: bio,
-                start: 'top 85%',
-                once: true
-              },
-              onComplete: () => {
-                gsap.set(paragraphs, { clearProps: 'opacity,transform' });
-              }
-            }
-          );
-        }
-      });
-
-      animGroup('.project-next', 'a', { y: 16, duration: 0.6, stagger: 0.08, start: 'top 90%' });
-
-      // 4. Karty pakietów (na /strony-www/ oraz /branding/)
-      animGroup('.packages-grid-wrap .package-grid', '.package-card', { y: 24, duration: 0.75, stagger: 0.12, start: 'top 85%' });
-
-      // 5. Zakres usług i cechy (.feature-grid) na /strony-www/, /branding/, /modernizacja/
-      animGroup('.feature-grid', '.service-feature', { y: 24, duration: 0.75, stagger: 0.1, start: 'top 85%' });
-
-      // 6. Proces współpracy na /strony-www/
-      animGroup('.process-steps', 'li', { y: 20, duration: 0.7, stagger: 0.1, start: 'top 85%' });
-      animSingle('.process-ownership', { y: 18, duration: 0.65, start: 'top 85%' });
-
-      // 7. Panel modernizacji na /strony-www/
-      animSingle('.modernizacja-panel', { y: 20, duration: 0.75, start: 'top 85%' });
-
-      // 8. O mnie: etapy współpracy (.how-step) i zasady (.rule-item)
-      animGroup('.how-steps-grid', '.how-step', { y: 24, duration: 0.75, stagger: 0.1, start: 'top 85%' });
-      animGroup('.rules-columns', '.rule-item', { y: 20, duration: 0.7, stagger: 0.08, start: 'top 85%' });
-      animSingle('.rules-note', { y: 14, duration: 0.6, start: 'top 85%' });
-
-      // 9. Blog: karty artykułów i wyróżniony wpis
-      animSingle('.blog-featured-card', { y: 24, duration: 0.75, start: 'top 85%' });
-      animGroup('.blog-list-grid', '.blog-card', { y: 24, duration: 0.75, stagger: 0.1, start: 'top 85%' });
-
-      // 10. Artykuł na blogu: treść w blokach
-      const singlePostContent = document.querySelector('.post-layout-wrap .post-content');
-      if (singlePostContent && !singlePostContent.dataset.entranceDone) {
-        singlePostContent.dataset.entranceDone = 'true';
-        const postBlocks = singlePostContent.querySelectorAll(':scope > p, :scope > h2, :scope > ul, :scope > ol, :scope > blockquote, :scope > figure');
-        postBlocks.forEach(block => {
-          gsap.fromTo(block,
-            { opacity: 0, y: 18 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.65,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: block,
-                start: 'top 88%',
-                once: true
-              },
-              onComplete: () => {
-                gsap.set(block, { clearProps: 'opacity,transform' });
-              }
-            }
-          );
-        });
-      }
-
-      // 11. Relacja, dowody i opinie na podstronach
-      animGroup('.proof-grid', '.proof-item', { y: 20, duration: 0.7, stagger: 0.08, start: 'top 85%' });
-      animSingle('.relationship-story', { y: 18, duration: 0.65, start: 'top 85%' });
-      animSingle('.compact-grid .testimonial-card', { y: 20, duration: 0.75, start: 'top 85%' });
-      animSingle('.branding-portfolio-link-wrap', { y: 16, duration: 0.6, start: 'top 88%' });
     }
 
     // 11. FUTURE THREE HOVER EFFECT (homepage i podstrony)
