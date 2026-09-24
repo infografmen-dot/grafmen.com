@@ -343,18 +343,15 @@
     html[lang="en"] .uword::after{bottom:-3px}
   }
 
-/* Subtle section scroll reveal */
+/* Subtle section scroll reveal - handled natively by GSAP unified motion engine */
 @media (prefers-reduced-motion: no-preference) {
   html.js-reveal-enabled .reveal-section {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 500ms ease-out, transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
+    opacity: 1;
+    transform: none;
   }
   html.js-reveal-enabled .reveal-section.is-revealed {
     opacity: 1;
-    transform: translateY(0);
-    will-change: auto;
+    transform: none;
   }
 }
 
