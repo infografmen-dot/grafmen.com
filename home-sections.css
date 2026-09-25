@@ -48,25 +48,33 @@
 @media(max-width:580px){.packages-grid-wrap .display-word{display:none}}
 
 /* Logo Cloud Section - Compact Cinematic Trust Bar */
-.logo-cloud-section{background:#fff;padding:44px 0 48px;border-top:1px solid #f0f0f2;overflow:hidden}
-.logo-cloud-kicker{margin:0 0 24px;text-align:center;color:var(--orange);font-size:var(--type-label);letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:var(--type-label-weight)}
+.logo-cloud-section{background:#fff;padding:36px 0 40px;border-top:1px solid #f0f0f2;overflow:hidden}
+.logo-cloud-kicker{margin:0 0 20px;text-align:center;color:var(--orange);font-size:var(--type-label);letter-spacing:var(--type-label-ls);text-transform:uppercase;font-weight:var(--type-label-weight)}
 .logo-cloud{position:relative;width:100%;overflow:hidden}
-.logo-cloud--cinematic{overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 12%,#000 88%,transparent 100%)}
+.logo-cloud--cinematic{overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent 0%,#000 10%,#000 90%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 10%,#000 90%,transparent 100%)}
 .logo-marquee-track{display:flex;width:max-content}
-.logo-track-group{display:flex;align-items:center;gap:110px;padding-right:110px;animation:logoDrift 48s linear infinite}
+.logo-track-group{display:flex;align-items:center;gap:64px;padding-right:64px;animation:logoDrift 48s linear infinite}
 .logo-marquee-track:hover .logo-track-group{animation-play-state:paused}
 @keyframes logoDrift{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-.logo-item{display:flex;align-items:center;justify-content:center;height:120px;min-width:250px}
-.logo-item img{max-height:105px;max-width:360px;width:auto;height:auto;object-fit:contain;filter:grayscale(100%);opacity:.42;transition:opacity .25s ease,filter .25s ease,transform .25s ease}
+.logo-item{display:flex;align-items:center;justify-content:center;height:72px;min-width:180px}
+.logo-item img{max-height:48px;max-width:200px;width:auto;height:auto;object-fit:contain;filter:grayscale(100%);opacity:.60;transition:opacity .25s ease,filter .25s ease,transform .25s ease}
 .logo-item:hover img{opacity:.95;filter:grayscale(0%);transform:scale(1.05)}
-@media(prefers-reduced-motion:reduce){.logo-track-group{animation:none!important}}
+@media(prefers-reduced-motion:reduce){
+  .logo-cloud--cinematic{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .logo-track-group{animation:none!important}
+}
 @media(max-width:768px){
   .logo-cloud-section,
-  .logo-cloud-section.compact{padding:22px 0 24px}
-  .logo-cloud-kicker{margin:0 0 16px;font-size:11px}
-  .logo-track-group{gap:48px;padding-right:48px}
-  .logo-item{height:46px;min-width:130px}
-  .logo-item img{max-height:40px;max-width:140px;width:auto;height:auto;object-fit:contain;transform:none}
+  .logo-cloud-section.compact{padding:16px 0 18px}
+  .logo-cloud-kicker{margin:0 0 12px;font-size:11px}
+  .logo-cloud{height:68px}
+  .logo-cloud--cinematic{mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
+  .logo-track-group{gap:28px;padding-right:28px;animation-duration:42s}
+  .logo-item{height:64px;min-width:auto}
+  .logo-item img{max-height:44px;max-width:155px;width:auto;height:auto;object-fit:contain;opacity:.60;transform:none}
+  .logo-item img[src*="sourcetech"],
+  .logo-item img[src*="e-projektowanie"],
+  .logo-item img[src*="mpec"]{max-height:48px;max-width:105px}
   .logo-item:hover img{transform:none}
 }
 .process-section{background:#f6f6f7;scroll-margin-top:32px}
