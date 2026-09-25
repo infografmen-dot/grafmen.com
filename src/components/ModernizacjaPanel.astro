@@ -1,14 +1,32 @@
 ---
+interface Props {
+  lang?: 'pl' | 'en';
+}
+
+const { lang = 'pl' } = Astro.props;
+const isEn = lang === 'en';
 ---
-<section class="modernizacja-panel" aria-labelledby="modernizacja-panel-title">
+<section class="modernizacja-panel" aria-labelledby="modernizacja-panel-title" lang={isEn ? 'en-GB' : 'pl'}>
   <div class="home-inner modernizacja-panel-inner">
     <div class="modernizacja-panel-content">
-      <h2 id="modernizacja-panel-title" class="panel-heading">Masz już stronę? Sprawdź, co&nbsp;warto poprawić.</h2>
-      <p>Nieaktualna oferta, niewygodna obsługa na&nbsp;telefonie albo przestarzały wygląd?</p>
-      <p>Sprawdzę obecną stronę i&nbsp;zaproponuję zakres modernizacji.</p>
+      {isEn ? (
+        <>
+          <h2 id="modernizacja-panel-title" class="panel-heading">Already have a&nbsp;website? See what’s worth improving.</h2>
+          <p>Outdated offer, difficult mobile navigation, or an ageing visual style?</p>
+          <p>I will review your current site and suggest a focused redesign scope.</p>
+        </>
+      ) : (
+        <>
+          <h2 id="modernizacja-panel-title" class="panel-heading">Masz już stronę? Sprawdź, co&nbsp;warto poprawić.</h2>
+          <p>Nieaktualna oferta, niewygodna obsługa na&nbsp;telefonie albo przestarzały wygląd?</p>
+          <p>Sprawdzę obecną stronę i&nbsp;zaproponuję zakres modernizacji.</p>
+        </>
+      )}
     </div>
     <div class="modernizacja-panel-action">
-      <a class="btn" href="/modernizacja/">Zobacz modernizację stron <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn" href={isEn ? "/en/redesign/" : "/modernizacja/"}>
+        <span>{isEn ? "Explore website redesign" : "Zobacz modernizację stron"}</span> <span aria-hidden="true">&rarr;</span>
+      </a>
     </div>
   </div>
 </section>

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaArrow from '../../components/CtaArrow.astro';
+
+const title = "404 · Page not found | Grafmen";
+const description = "Sorry, the page you are looking for does not exist or has been moved.";
+---
+<BaseLayout title={title} description={description} bodyClass="service-page" lang="en">
+  <main id="main-content">
+    <section class="service-hero" style="min-height:55vh;display:flex;align-items:center;">
+      <div class="home-inner">
+        <p class="home-kicker">ERROR 404</p>
+        <h1>Page not found.</h1>
+        <div class="service-hero-bottom">
+          <p class="home-lead">The page you are looking for does not exist or has been relocated. Please check the URL or return to the homepage.</p>
+          <div>
+            <a class="btn dark" href="/en/">
+              <span>Return to homepage</span>
+              <CtaArrow />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

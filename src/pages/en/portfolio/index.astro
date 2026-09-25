@@ -1,0 +1,109 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { portfolioEn } from '../../../data/i18n/portfolio-en';
+
+const title = "Portfolio · websites, branding and selected work | Grafmen";
+const description = "20 selected works by Grafmen: websites, branding, print collateral, digital design and video for businesses in Poland and internationally.";
+
+const orderedSlugs = [
+  'drewmax', 'szkola-best', 'hiker', 'drew-art', 'jd-ubezpieczenia',
+  'katalog-drew-art', 'montessori', 'piworob', 'katalog-drewmar', 'ja-i-moj-biznes',
+  'gazetka-drewmar', 'self-invest', 'unitrans-katalog', 'mpec-przemysl', 'te-solutions',
+  'kancelaria-lampa', 'broszura-pervita24', 'gearexpert', 'katalog-targowy-drewmar', 'pobudka'
+];
+
+const allProjects = await getCollection('portfolio');
+const sortedProjects = allProjects.sort((a, b) => {
+  const indexA = orderedSlugs.indexOf(a.data.slug);
+  const indexB = orderedSlugs.indexOf(b.data.slug);
+  return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+});
+
+const fullPortfolioClasses = [
+  'p1', 'p3', 'p4', 'p5', 'p6',
+  'p7', 'p8', 'p9', 'p10', 'p11',
+  'p12', 'p13', 'p14', 'p15', 'p16',
+  'p17', 'p18', 'p19', 'p20', 'p21'
+];
+---
+<BaseLayout title={title} description={description} currentNav="work" bodyClass="service-page" lang="en">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Portfolio · websites, branding and selected work | Grafmen",
+      "url": "https://grafmen.com/en/portfolio/"
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <div class="home-inner portfolio-full">
+      <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
+        <div class="portfolio-head">
+          <div>
+            <p class="section-kicker">PORTFOLIO / GRAFMEN</p>
+            <h1 id="portfolio-title">Work that<br>gets noticed.</h1>
+          </div>
+          <div class="portfolio-summary">
+            <p class="portfolio-intro">Websites, visual identities, print collateral, and video. Explore selected projects crafted for my clients.</p>
+          </div>
+        </div>
+
+        <ol class="stage">
+          {sortedProjects.map((project, idx) => {
+            const slug = project.data.slug;
+            const enData = portfolioEn[slug];
+            const isFullCard = idx >= 5;
+            const cardClass = fullPortfolioClasses[idx] || `p${idx + 1}`;
+            const projectUrl = `/en/portfolio/${slug}/`;
+            const coverSrc = project.data.cover.startsWith('/') ? project.data.cover : `/${project.data.cover}`;
+            const displayTitle = enData?.title || project.data.title;
+            const displayCat = enData?.category || project.data.category;
+            const displayDesc = enData?.description || project.data.description;
+            const displayAlt = enData?.cover_alt || project.data.cover_alt;
+            const displayExtLabel = enData?.external_label || project.data.external_label || 'Open website';
+            
+            return (
+              <li class={`work ${isFullCard ? 'full-card' : ''} ${cardClass}`}>
+                <article class="project-card">
+                  <a class="media-link" href={projectUrl} aria-label={`${displayTitle} · View case study`}>
+                    <div class="media">
+                      {slug === 'szkola-best' ? (
+                        <div class="site-preview">
+                          <img class="project-image" src={coverSrc} alt={displayAlt} loading="lazy" decoding="async" />
+                        </div>
+                      ) : (
+                        <img class="project-image" src={coverSrc} alt={displayAlt} loading="lazy" decoding="async" />
+                      )}
+                      <span class="project-action">{slug === 'hiker' ? 'Watch film' : 'View project'} <span aria-hidden="true">&rarr;</span></span>
+                    </div>
+                  </a>
+                  <div class="caption">
+                    <div class="caption-copy">
+                      <p class="cat">{displayCat}</p>
+                      <h3 class="title">
+                        <a class="title-link" href={projectUrl}>{displayTitle}</a>
+                      </h3>
+                      <p class="project-description">{displayDesc}</p>
+                      {project.data.external_url && (
+                        <div class="project-ext-action">
+                          <a class="project-ext-link" href={project.data.external_url} target="_blank" rel="noopener noreferrer">
+                            {displayExtLabel} <span aria-hidden="true">&nearr;</span>
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                    <a class="arr-link" href={projectUrl} aria-label={`${displayTitle} · View case study`}>
+                      <span class="arr" aria-hidden="true">&rarr;</span>
+                    </a>
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

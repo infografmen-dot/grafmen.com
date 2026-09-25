@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CtaOrange from '../../../components/CtaOrange.astro';
+
+const title = "Privacy policy | Grafmen";
+const description = "Principles of personal data processing and cookie usage on Grafmen.com.";
+---
+<BaseLayout title={title} description={description} bodyClass="service-page" lang="en">
+  <main id="main-content">
+    <section class="service-hero">
+      <div class="home-inner">
+        <p class="home-kicker">LEGAL INFORMATION / GRAFMEN</p>
+        <h1>Privacy policy.</h1>
+        <p class="home-lead">I treat the protection of your personal data with utmost care. Below you will find the principles of personal data processing and cookie usage on Grafmen.com.</p>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="home-inner" style="max-width:820px;margin:0 auto">
+        <div class="post-content">
+          <h2>1. Data Controller</h2>
+          <p>The controller of your personal data is <strong>Krzysztof Krawczyk</strong>, operating under the trade name <strong>Grafmen</strong> based in Przemyśl, Poland. For any matters concerning personal data protection, you may reach me via email at: <a href="mailto:info@grafmen.com">info@grafmen.com</a> or by phone: +48 694 179 217.</p>
+
+          <h2>2. Purposes and Legal Bases for Data Processing</h2>
+          <p>Your personal data is processed solely for purposes necessary to:</p>
+          <ul>
+            <li><strong>Respond to commercial enquiries:</strong> email and phone correspondence regarding project quotations and scoping (legal basis: Art. 6(1)(f) GDPR – legitimate interest of the controller).</li>
+            <li><strong>Conclude and perform contracts:</strong> project collaboration, contracts for specific work, and copyright transfer agreements (legal basis: Art. 6(1)(b) GDPR).</li>
+            <li><strong>Comply with legal obligations:</strong> invoicing, accounting, and statutory tax obligations (legal basis: Art. 6(1)(c) GDPR).</li>
+          </ul>
+
+          <h2>3. Contact Form and Correspondence</h2>
+          <p>The Grafmen website does not store your messages in external marketing databases. Submitting the project brief form prepares a message in your own email software. Messages arrive directly at my email inbox and are retained strictly for the duration necessary to handle the enquiry, perform the contract, or satisfy statutory record-keeping periods.</p>
+
+          <h2>4. Cookies and Analytics</h2>
+          <p>Grafmen.com <strong>does not use</strong> advertising, third-party tracking, or behavioural profiling cookies. No external profiling scripts are loaded on this website.</p>
+          <ul>
+            <li><strong>Technical storage and localStorage:</strong> The site may store user interface preferences locally in your browser (localStorage), such as remembering the dismissal of the informational privacy banner so it does not reappear. This data is not transmitted to external servers or third parties.</li>
+            <li><strong>Embedded video media:</strong> Portfolio videos are embedded strictly upon user interaction from the domain <code>youtube-nocookie.com</code> (YouTube's privacy-enhanced mode), which does not place tracking cookies prior to playback.</li>
+          </ul>
+          <p>Should the website introduce anonymous web analytics (such as Google Analytics) in the future, this policy will be updated accordingly, and visitors will be prompted for consent before any analytics scripts run.</p>
+          <p>You can adjust or reset your cookie preferences at any time by clicking “Cookie settings” in the website footer or by adjusting your browser settings.</p>
+
+          <h2>5. Your Statutory Rights</h2>
+          <p>Under the General Data Protection Regulation (GDPR), you have the right to:</p>
+          <ul>
+            <li>access your personal data and request a copy,</li>
+            <li>rectify (correct) inaccurate or incomplete data,</li>
+            <li>request erasure of data (“right to be forgotten”),</li>
+            <li>restrict or object to data processing,</li>
+            <li>lodge a complaint with a supervisory authority (in Poland: the President of the Personal Data Protection Office – UODO).</li>
+          </ul>
+
+          <h2>6. Changes to this Privacy Policy</h2>
+          <p>Any revisions to this privacy policy will be published on this page. The current version is effective as of 21 September 2026.</p>
+        </div>
+      </div>
+    </section>
+
+    <CtaOrange lang="en" />
+  </main>
+</BaseLayout>

@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PortfolioGrid from '../../components/PortfolioGrid.astro';
+import WspolpracaCards from '../../components/WspolpracaCards.astro';
+import ClientLogos from '../../components/ClientLogos.astro';
+import OpinieGrid from '../../components/OpinieGrid.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import CtaOrange from '../../components/CtaOrange.astro';
+import CtaArrow from '../../components/CtaArrow.astro';
+
+const title = "Websites, branding and graphic design for businesses | Grafmen";
+const description = "I design websites, visual identities, advertising materials and motion for businesses. Grafmen since 2005. Crafting distinctive work for clients in Poland and worldwide.";
+---
+<BaseLayout title={title} description={description} currentNav="home" bodyClass="home-page" lang="en">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["ProfessionalService", "LocalBusiness"],
+      "@id": "https://grafmen.com/#business-en",
+      "name": "Grafmen · Krzysztof Krawczyk",
+      "url": "https://grafmen.com/en/",
+      "description": "Websites, branding, promotional graphic design and motion for businesses.",
+      "foundingDate": "2005",
+      "areaServed": ["Przemyśl", "Podkarpacie", "Poland", "Worldwide"],
+      "sameAs": [
+        "https://www.facebook.com/grafmen",
+        "https://www.instagram.com/grafmen",
+        "https://www.linkedin.com/in/krzysztof-krawczyk-grafmen"
+      ]
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <div class="wrap">
+      <!-- 1. HERO -->
+      <section class="hero" id="hero-section">
+        <!-- Static cube background (left + fallback for all breakpoints) -->
+        <div class="cube-field" aria-hidden="true"></div>
+        <!-- Animated cubes video – right side decoration, desktop only -->
+        <div class="hero-cubes-video" aria-hidden="true" id="hero-cubes-wrap">
+          <video
+            id="hero-cubes-vid"
+            class="hero-cubes-vid"
+            poster="/assets/motion/hero-cubes-poster.webp"
+            muted
+            playsinline
+            loop
+            preload="none"
+            tabindex="-1"
+            aria-hidden="true"
+          ></video>
+        </div>
+        <!-- Pause/resume button for motion accessibility -->
+        <button
+          class="hero-cubes-pause"
+          id="hero-cubes-pause"
+          type="button"
+          aria-label="Pause animation"
+          title="Pause animation"
+          aria-pressed="false"
+          hidden
+        >
+          <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+            <rect x="2" y="1" width="3.5" height="12" rx="1"/>
+            <rect x="8.5" y="1" width="3.5" height="12" rx="1"/>
+          </svg>
+        </button>
+        <div class="eyebrow"><span class="hero-mask-wrap"><span class="hero-mask-inner"><span>Przemyśl, Poland</span><span class="dot">●</span><span>since&nbsp;2005</span></span></span></div>
+        <div class="hero-grid">
+          <div>
+            <h1>
+              <span class="hero-line" data-line="0"><span class="hero-line-inner">You run</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br>
+              <span class="hero-line" data-line="1"><span class="hero-line-inner">y<span class="uword">our</span> business.</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br>
+              <span class="hero-line" data-line="2"><span class="hero-line-inner">I take care of</span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span><br>
+              <span class="hero-line" data-line="3"><span class="hero-line-inner">how it's seen<span class="terminal" aria-hidden="true"></span></span><span class="hero-wipe-brand" aria-hidden="true"></span><span class="hero-wipe-fg" aria-hidden="true"></span></span>
+            </h1>
+            <p class="lead">I design websites, branding, advertising materials and motion for businesses.<br>From concept and content to finished design and launch.</p>
+            <div class="actions">
+              <a class="btn dark" href="/en/contact/">
+                <span>Request a quote</span>
+                <CtaArrow />
+              </a>
+            </div>
+          </div>
+          <aside class="meta01">
+            <div class="meta01-top"></div>
+            <div class="meta01-list">
+              <div class="meta01-item"><span class="meta01-mask"><span class="meta01-inner">WEBSITES</span></span></div>
+              <div class="meta01-item"><span class="meta01-mask"><span class="meta01-inner">BRANDING</span></span></div>
+              <div class="meta01-item"><span class="meta01-mask"><span class="meta01-inner">MOTION</span></span></div>
+            </div>
+          </aside>
+        </div>
+        <div class="hero-bottom">
+          <div class="mini"><span class="hero-mask-wrap"><span class="hero-mask-inner">BETTER WEBSITES<br>FOR&nbsp;AMBITIOUS BUSINESSES</span></span></div>
+          <div class="center"><span class="mouse"></span><span>SCROLL DOWN</span><span class="arrowdown">&darr;</span></div>
+          <div class="mini right"><span class="hero-mask-wrap"><span class="hero-mask-inner">EST. 2005<br>PRZEMYŚL, POLAND</span></span></div>
+        </div>
+      </section>
+
+      <script>
+      (function () {
+        'use strict';
+        const MIN_WIDTH = 1200;
+        function shouldRun() {
+          if (typeof window === 'undefined') return false;
+          if (window.innerWidth < MIN_WIDTH) return false;
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+          // @ts-ignore
+          if (navigator.connection && navigator.connection.saveData) return false;
+          return true;
+        }
+
+        if (!shouldRun()) return;
+
+        const vid = /** @type {HTMLVideoElement} */ (document.getElementById('hero-cubes-vid'));
+        const wrap = document.getElementById('hero-cubes-wrap');
+        const btn = /** @type {HTMLButtonElement} */ (document.getElementById('hero-cubes-pause'));
+        if (!vid || !wrap || !btn) return;
+
+        const webmSrc = document.createElement('source');
+        webmSrc.type = 'video/webm';
+        webmSrc.src = '/assets/motion/hero-cubes.webm';
+        const mp4Src = document.createElement('source');
+        mp4Src.type = 'video/mp4';
+        mp4Src.src = '/assets/motion/hero-cubes.mp4';
+        vid.appendChild(webmSrc);
+        vid.appendChild(mp4Src);
+        vid.muted = true;
+        vid.defaultPlaybackRate = 0.4;
+        vid.playbackRate = 0.4;
+        vid.load();
+
+        vid.addEventListener('playing', function onPlaying() {
+          btn.hidden = false;
+          const heroSection = document.getElementById('hero-section');
+          if (heroSection) heroSection.classList.add('has-hero-video');
+          vid.removeEventListener('playing', onPlaying);
+        }, { once: true });
+
+        vid.addEventListener('error', function () {
+          btn.hidden = true;
+          if (wrap) wrap.style.display = 'none';
+        });
+
+        let paused = false;
+        btn.addEventListener('click', function () {
+          paused = !paused;
+          if (paused) {
+            vid.pause();
+            btn.setAttribute('aria-label', 'Resume animation');
+            btn.setAttribute('title', 'Resume animation');
+            btn.setAttribute('aria-pressed', 'true');
+            btn.querySelector('svg')?.replaceWith(makeSvgPlay());
+          } else {
+            vid.playbackRate = 0.4;
+            vid.play().catch(() => {});
+            btn.setAttribute('aria-label', 'Pause animation');
+            btn.setAttribute('title', 'Pause animation');
+            btn.setAttribute('aria-pressed', 'false');
+            btn.querySelector('svg')?.replaceWith(makeSvgPause());
+          }
+        });
+
+        function makeSvgPause() {
+          const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          s.setAttribute('aria-hidden', 'true');
+          s.setAttribute('focusable', 'false');
+          s.setAttribute('width', '14');
+          s.setAttribute('height', '14');
+          s.setAttribute('viewBox', '0 0 14 14');
+          s.setAttribute('fill', 'currentColor');
+          s.innerHTML = '<rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/>';
+          return s;
+        }
+        function makeSvgPlay() {
+          const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          s.setAttribute('aria-hidden', 'true');
+          s.setAttribute('focusable', 'false');
+          s.setAttribute('width', '14');
+          s.setAttribute('height', '14');
+          s.setAttribute('viewBox', '0 0 14 14');
+          s.setAttribute('fill', 'currentColor');
+          s.innerHTML = '<path d="M3 1.5l9 5.5-9 5.5V1.5z"/>';
+          return s;
+        }
+
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!paused) {
+                if (entry.isIntersecting) {
+                  vid.playbackRate = 0.4;
+                  vid.play().catch(() => {});
+                } else {
+                  vid.pause();
+                }
+              }
+            });
+          }, { threshold: 0.1 });
+          const hero = document.getElementById('hero-section');
+          if (hero) io.observe(hero);
+        }
+
+        document.addEventListener('visibilitychange', function () {
+          if (!paused) {
+            if (document.hidden) {
+              vid.pause();
+            } else {
+              vid.playbackRate = 0.4;
+              vid.play().catch(() => {});
+            }
+          }
+        });
+      })();
+      </script>
+
+      <!-- 2. PORTFOLIO (6 REALIZACJI) -->
+      <PortfolioGrid lang="en" />
+    </div>
+
+    <!-- 3. WSPÓŁPRACA (2 KAFLE DREWMAX & HIKER) -->
+    <WspolpracaCards lang="en" />
+
+    <!-- 4. LOGOTYPY KLIENTÓW -->
+    <ClientLogos lang="en" />
+
+    <!-- 5. OPINIE KLIENTÓW -->
+    <OpinieGrid lang="en" />
+
+    <!-- 6. FAQ -->
+    <FaqAccordion lang="en" />
+
+    <!-- 7. POMARAŃCZOWE CTA -->
+    <CtaOrange lang="en" />
+  </main>
+</BaseLayout>

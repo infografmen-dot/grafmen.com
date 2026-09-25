@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = "Contact and project quotation | Grafmen, Poland";
+const description = "Contact Krzysztof Krawczyk at Grafmen. Websites, logos, and visual branding. Tell me about your project and request an individual quote.";
+---
+<BaseLayout title={title} description={description} currentNav="contact" bodyClass="service-page" lang="en">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact and project quotation",
+      "url": "https://grafmen.com/en/contact/",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Krzysztof Krawczyk",
+        "email": "info@grafmen.com",
+        "telephone": "+48694179217"
+      }
+    })} />
+    <script src="/contact.js" defer></script>
+  </Fragment>
+
+  <main id="main-content">
+    <section class="service-hero contact-hero">
+      <div class="home-inner">
+        <p class="home-kicker">CONTACT / GRAFMEN</p>
+        <h1>Tell me about<br>your project.</h1>
+        <p class="home-lead">Website, logo, or marketing collateral? Let me know what you need. Together we will determine the project scope and next steps.</p>
+      </div>
+    </section>
+
+    <section class="home-section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="home-inner contact-grid">
+        <div class="contact-details">
+          <p class="home-kicker">DIRECT CONTACT</p>
+          <h2 id="contact-title">Krzysztof Krawczyk<br><span>Grafmen</span></h2>
+          <a class="contact-email" href="mailto:info@grafmen.com">info@grafmen.com</a>
+          <a class="contact-phone" href="tel:+48694179217">+48 694 179 217</a>
+          <p>Przemyśl, Poland.<br>Working remotely with clients across Poland and worldwide.</p>
+          
+          <div class="contact-next">
+            <h3>What is helpful to include?</h3>
+            <ol>
+              <li>What your company does.</li>
+              <li>What type of project you need.</li>
+              <li>Whether you have existing materials and an estimated timeline.</li>
+            </ol>
+            <p>You don’t need a finalized brief. I will help structure the essential information.</p>
+          </div>
+        </div>
+
+        <div class="contact-brief">
+          <h2>Request a quote</h2>
+          <p id="mail-note">Fill in a brief outline. The button will open your email application with a pre-formatted message. You will send it yourself directly from your own inbox.</p>
+          <form id="contact-form" action="mailto:info@grafmen.com" method="get" aria-describedby="mail-note" data-lang="en">
+            <div class="form-row">
+              <label>Name
+                <input name="name" autocomplete="given-name" required maxlength="100">
+              </label>
+              <label>Email
+                <input name="email" type="email" autocomplete="email" required maxlength="200">
+              </label>
+            </div>
+            <div class="field-group" id="topic-field-group">
+              <label id="topic-label" for="contact-topic">What is the project regarding?</label>
+              <div class="custom-select-wrap" id="topic-select-wrap">
+                <select name="topic" id="contact-topic" class="native-select">
+                  <option value="Website" selected>Website</option>
+                  <option value="Website redesign">Website redesign</option>
+                  <option value="Logo and branding">Logo &amp; branding</option>
+                  <option value="Marketing materials">Marketing materials</option>
+                  <option value="Other project">Other project</option>
+                </select>
+
+                <button
+                  type="button"
+                  class="custom-select-trigger"
+                  id="topic-trigger"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-labelledby="topic-label topic-value-display"
+                  aria-controls="topic-listbox"
+                >
+                  <span class="custom-select-value" id="topic-value-display">Website</span>
+                  <span class="custom-select-arrow" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </button>
+
+                <ul
+                  id="topic-listbox"
+                  class="custom-select-menu"
+                  role="listbox"
+                  aria-labelledby="topic-label"
+                  tabindex="-1"
+                  hidden
+                >
+                  <li role="option" id="topic-opt-0" class="custom-select-opt is-selected" aria-selected="true" data-value="Website" tabindex="-1">
+                    <span class="opt-text">Website</span>
+                    <span class="opt-check" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                  </li>
+                  <li role="option" id="topic-opt-1" class="custom-select-opt" aria-selected="false" data-value="Website redesign" tabindex="-1">
+                    <span class="opt-text">Website redesign</span>
+                    <span class="opt-check" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                  </li>
+                  <li role="option" id="topic-opt-2" class="custom-select-opt" aria-selected="false" data-value="Logo and branding" tabindex="-1">
+                    <span class="opt-text">Logo &amp; branding</span>
+                    <span class="opt-check" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                  </li>
+                  <li role="option" id="topic-opt-3" class="custom-select-opt" aria-selected="false" data-value="Marketing materials" tabindex="-1">
+                    <span class="opt-text">Marketing materials</span>
+                    <span class="opt-check" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                  </li>
+                  <li role="option" id="topic-opt-4" class="custom-select-opt" aria-selected="false" data-value="Other project" tabindex="-1">
+                    <span class="opt-text">Other project</span>
+                    <span class="opt-check" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                  </li>
+                </ul>
+                <div class="custom-select-backdrop" id="topic-select-backdrop" hidden></div>
+              </div>
+            </div>
+            <label>Describe your project
+              <textarea name="message" rows="6" required minlength="10" maxlength="3000" placeholder="A few sentences about your business, required scope, and goals"></textarea>
+            </label>
+            <p class="form-privacy">Your details are used solely to reply to your enquiry. <a href="/en/privacy-policy/">Privacy policy</a>.</p>
+            <button class="cta-button" type="submit">Compose email <span aria-hidden="true">↗</span></button>
+            <p id="contact-status" role="status" aria-live="polite"></p>
+          </form>
+          <noscript>
+            <p>Preparing a brief requires JavaScript. Write directly to <a href="mailto:info@grafmen.com">info@grafmen.com</a> or give me a call.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

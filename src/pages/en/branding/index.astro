@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CtaOrange from '../../../components/CtaOrange.astro';
+import CtaArrow from '../../../components/CtaArrow.astro';
+
+const title = "Logo and visual identity for businesses | Grafmen";
+const description = "Logo and visual identity for your business. From trademark design to complete print collateral, motion design, and video. Packages from 600 PLN net.";
+---
+<BaseLayout title={title} description={description} currentNav="brand" bodyClass="service-page" lang="en">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Logo and visual identity",
+      "url": "https://grafmen.com/en/branding/",
+      "provider": {
+        "@type": "Person",
+        "name": "Krzysztof Krawczyk",
+        "url": "https://grafmen.com/en/about/"
+      }
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <!-- 1. HERO -->
+    <section class="service-hero branding-hero">
+      <div class="home-inner">
+        <p class="home-kicker">BRANDING / GRAFMEN</p>
+        <h1>Logo and visual identity for your business.</h1>
+        <div class="service-hero-bottom">
+          <p class="home-lead">I design logos, curate colour palettes and typography, and prepare marketing assets for digital and print. The identity can be extended into motion graphics and video.</p>
+          <div><a class="btn dark" href="/en/contact/"><span>Request a quote</span> <CtaArrow /></a></div>
+        </div>
+
+        <!-- Hero branding composition -->
+        <div class="branding-hero-composition">
+          <div class="branding-visual-item">
+            <img src="/assets/portfolio/jd-ubezpieczenia/Mock-up_Id_1_www.jpg" alt="Visual identity materials and business cards – JD Ubezpieczenia Joanna Dywan" width="1024" height="576" fetchpriority="high" decoding="async">
+          </div>
+          <div class="branding-visual-item">
+            <img src="/assets/portfolio/hiker/Hiker_construction.webp" alt="Geometric mark construction and logo proportions – Hiker" width="1400" height="900" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ZAKRES -->
+    <section class="home-section branding-scope" id="scope">
+      <div class="home-inner">
+        <p class="home-kicker">SCOPE</p>
+        <h2>What I design</h2>
+        <div class="feature-grid branding-services">
+          <article class="service-feature">
+            <span class="item-number">01</span>
+            <h3>Logo &amp; brand identity</h3>
+            <p>Corporate mark and its variants, colours, typography, and clear guidelines for applying brand assets.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">02</span>
+            <h3>Print &amp; digital graphics</h3>
+            <p>Business cards, letterheads, presentation folders, catalogues, flyers, display banners, and social media assets.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">03</span>
+            <h3>Motion &amp; video</h3>
+            <p>Logo animations, 2D motion graphics, HTML5 banners, video editing, and short promotional films. For product videos, I also utilize advanced AI tools.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PAKIETY -->
+    <section class="home-section packages-section" id="packages" aria-labelledby="packages-title" lang="en-GB">
+      <div class="home-inner">
+        <div class="home-section-intro packages-intro">
+          <p class="home-kicker">PACKAGES</p>
+          <h2 id="packages-title">From logo design to complete brand identity.</h2>
+          <p class="home-lead">Choose a package tailored to your company. File formats and handover methods are established before work commences.</p>
+        </div>
+        <div class="packages-grid-wrap">
+          <div class="display-word" aria-hidden="true">PACKAGES</div>
+          <div class="package-grid">
+            <article class="package-card">
+              <p class="package-index">01 / LOGO</p>
+              <h3>Logo</h3>
+              <p class="package-price">from&nbsp;600 PLN net</p>
+              <p>A professional company mark and essential file set for daily operations.</p>
+              <ul>
+                <li>Brief consultation and brand discussion.</li>
+                <li>Bespoke logo design.</li>
+                <li>Primary and simplified mark versions if required.</li>
+                <li>Light and dark background variants.</li>
+                <li>Core colour specifications.</li>
+                <li>Production files for digital and print: SVG, PDF, PNG, and JPG.</li>
+                <li>Essential guidelines for correct logo usage.</li>
+              </ul>
+              <a class="package-link" href="/en/contact/">Enquire about logo <span>↗</span></a>
+            </article>
+
+            <article class="package-card package-featured">
+              <p class="package-index">02 / MOST POPULAR</p>
+              <h3>Logo + Identity</h3>
+              <p class="package-price">from&nbsp;1,400 PLN net</p>
+              <p>Logo, foundational brand assets, and essential collateral ready for immediate use.</p>
+              <ul>
+                <li>Logo design and necessary layout variants.</li>
+                <li>Colour palette and typography selection.</li>
+                <li>Core brand identity system and compositional rules.</li>
+                <li>Business card or corporate letterhead design.</li>
+                <li>Social media avatar and profile graphics.</li>
+                <li>One branded promotional social media asset.</li>
+                <li>Mini brand identity style guide.</li>
+                <li>Complete file pack for web and professional print.</li>
+              </ul>
+              <a class="package-link" href="/en/contact/">Let’s discuss your brand <span>↗</span></a>
+            </article>
+
+            <article class="package-card">
+              <p class="package-index">03 / COMPREHENSIVE</p>
+              <h3>Brand Identity System</h3>
+              <p class="package-price">from&nbsp;2,000 PLN net</p>
+              <p>Extensive visual system and collateral for daily corporate communication.</p>
+              <ul>
+                <li>Comprehensive logo design with full variant suite.</li>
+                <li>Refined colour palette and typography hierarchy.</li>
+                <li>Extended visual identity system and graphic devices.</li>
+                <li>Detailed mark application rules and exclusions.</li>
+                <li>Corporate print collateral designs.</li>
+                <li>Business cards, letterheads, or email signature templates.</li>
+                <li>Social media package including 3 finished promotional graphics.</li>
+                <li>Foundational templates for ongoing brand communication.</li>
+                <li>Comprehensive brand identity manual (brandbook).</li>
+                <li>Organized production archive for web and commercial print.</li>
+              </ul>
+              <a class="package-link" href="/en/contact/">Enquire about identity <span>↗</span></a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MOTION I WIDEO -->
+    <section class="modernisation-callout branding-motion-callout" id="motion-video" lang="en-GB">
+      <div class="home-inner callout-grid">
+        <div>
+          <p class="home-kicker">MOTION / VIDEO</p>
+          <h2>Animations and video</h2>
+        </div>
+        <div>
+          <p>Logo animations, banners, video editing, and short films are quoted individually. Pricing depends on runtime, scene count, available footage, and animation complexity. These can form part of a broader brand identity project.</p>
+          <a class="text-link" href="/en/contact/">Enquire about motion or video <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ODNOŚNIK DO PORTFOLIO -->
+    <div class="home-inner branding-portfolio-link-wrap">
+      <a class="text-link" href="/en/portfolio/">View portfolio <span aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    <!-- 6. CTA -->
+    <CtaOrange lang="en" />
+  </main>
+</BaseLayout>

@@ -181,11 +181,19 @@
   form.addEventListener('submit', event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
+    const isEn = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
     const values = new FormData(form);
-    const subject = `Zapytanie: ${values.get('topic')}`;
-    const body = `Imię: ${values.get('name')}\nE-mail: ${values.get('email')}\n\n${values.get('message')}`;
+    const subject = isEn ? `Project enquiry: ${values.get('topic')}` : `Zapytanie: ${values.get('topic')}`;
+    const nameLabel = isEn ? 'Name' : 'Imię';
+    const emailLabel = isEn ? 'Email' : 'E-mail';
+    const body = `${nameLabel}: ${values.get('name')}\n${emailLabel}: ${values.get('email')}\n\n${values.get('message')}`;
     const mailto = `mailto:info@grafmen.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    document.querySelector('#contact-status').textContent = 'Wiadomość nie została wysłana przez stronę. Sprawdź i wyślij ją w swoim programie pocztowym. Jeśli program się nie otworzył, skopiuj treść i napisz na info@grafmen.com.';
+    const statusEl = document.querySelector('#contact-status');
+    if (statusEl) {
+      statusEl.textContent = isEn
+        ? 'Your message was prepared for your email client. Please review and send it from your email application. If your client did not open, please copy your message and email info@grafmen.com directly.'
+        : 'Wiadomość nie została wysłana przez stronę. Sprawdź i wyślij ją w swoim programie pocztowym. Jeśli program się nie otworzył, skopiuj treść i napisz na info@grafmen.com.';
+    }
     window.location.href = mailto;
   });
 })();

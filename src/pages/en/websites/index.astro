@@ -1,0 +1,231 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ModernizacjaPanel from '../../../components/ModernizacjaPanel.astro';
+import CtaOrange from '../../../components/CtaOrange.astro';
+import CtaArrow from '../../../components/CtaArrow.astro';
+
+const title = "Website creation and design for businesses | Grafmen";
+const description = "I design websites for businesses: structured offer, bespoke design, and clean technical performance. Packages from 1,500 PLN net. Explore the offer.";
+---
+<BaseLayout title={title} description={description} currentNav="web" bodyClass="service-page" lang="en">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Website creation and design for businesses",
+      "url": "https://grafmen.com/en/websites/",
+      "provider": {
+        "@type": "Person",
+        "name": "Krzysztof Krawczyk",
+        "url": "https://grafmen.com/en/about/"
+      }
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <!-- 1. HERO -->
+    <section class="service-hero">
+      <div class="home-inner">
+        <p class="home-kicker">WEBSITES / GRAFMEN</p>
+        <h1>Websites that clearly present what your business offers.</h1>
+        <div class="service-hero-bottom">
+          <p class="home-lead">I design the look and structure of your website, organize content, and prepare the site for launch. The scope, schedule, and content management options are agreed before any work begins.</p>
+          <div><a class="btn dark" href="/en/contact/"><span>Request a quote</span> <CtaArrow /></a></div>
+        </div>
+        <figure class="service-hero-visual">
+          <img src="/assets/portfolio/drewmax-site-en.png" alt="Drewmax.pro website project – presenting brush manufacturer offer" width="1907" height="1080" fetchpriority="high" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2. ZAKRES USŁUGI -->
+    <section class="home-section service-features" id="scope">
+      <div class="home-inner">
+        <p class="home-kicker">SERVICE SCOPE</p>
+        <h2>What website design includes</h2>
+        <div class="feature-grid">
+          <article class="service-feature">
+            <span class="item-number">01</span>
+            <h3>Clear offer</h3>
+            <p>I organize the content, navigation, and contact pathways so visitors immediately find your services and key information.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">02</span>
+            <h3>Tailored visual style</h3>
+            <p>I select the layout, typography, and photography presentation to reflect the character of your business and appeal to your audience.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">03</span>
+            <h3>Smooth performance</h3>
+            <p>I optimize images and code. I test legibility, forms, and loading speeds across smartphones and desktop computers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. POZIOMY PANEL MODERNIZACJI -->
+    <ModernizacjaPanel lang="en" />
+
+    <!-- 4. PROCES WSPÓŁPRACY -->
+    <section class="home-section process-section" id="how-it-works" aria-labelledby="process-title" lang="en-GB">
+      <div class="home-inner">
+        <p class="home-kicker">PROCESS</p>
+        <div class="process-grid">
+          <div class="process-intro">
+            <h2 id="process-title">How collaboration works</h2>
+            <p class="home-lead">A conversation about what you do and who you want to reach is all it takes. I guide you through each stage.</p>
+            <div class="process-input">
+              <h3>To start, I need</h3>
+              <p>A description of your offer, contact details, along with your logo and photos if available. Any missing materials can be discussed during our initial talk.</p>
+            </div>
+          </div>
+          <ol class="process-steps">
+            <li>
+              <span class="process-number" aria-hidden="true">01</span>
+              <div>
+                <h3>Discovery &amp; scope</h3>
+                <p>I learn about your company, offer, and goals. We agree on the scope, fixed pricing, and schedule.</p>
+              </div>
+            </li>
+            <li>
+              <span class="process-number" aria-hidden="true">02</span>
+              <div>
+                <h3>Content &amp; design</h3>
+                <p>I organize the information and design the layout. You review the design and provide feedback before development starts.</p>
+              </div>
+            </li>
+            <li>
+              <span class="process-number" aria-hidden="true">03</span>
+              <div>
+                <h3>Development &amp; testing</h3>
+                <p>I build the site, set up forms, and configure technical SEO. I test links, responsiveness, and speed across devices.</p>
+              </div>
+            </li>
+            <li>
+              <span class="process-number" aria-hidden="true">04</span>
+              <div>
+                <h3>Launch &amp; handover</h3>
+                <p>Upon your final approval, I launch the website and transfer all agreed access details. You receive update guidelines and instructions for editing.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="process-ownership">
+          <p><strong>Domain and hosting remain in your name.</strong> You maintain complete ownership of accounts and credentials.</p>
+          <a href="/en/contact/">Let’s discuss your website <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PAKIETY I CENY -->
+    <section class="home-section packages-section" id="packages" aria-labelledby="packages-title" lang="en-GB">
+      <div class="home-inner">
+        <div class="home-section-intro packages-intro">
+          <p class="home-kicker">PACKAGES &amp; PRICING</p>
+          <h2 id="packages-title">Choose the scope<br>for your website.</h2>
+          <p class="home-lead">Three variants tailored to website size, brand identity needs, and post-launch support. Final quotation is provided after discussing your project requirements.</p>
+        </div>
+        <div class="packages-grid-wrap">
+          <div class="display-word" aria-hidden="true">PACKAGES</div>
+          <div class="package-grid">
+            <article class="package-card">
+              <p class="package-index">01 / STARTER</p>
+              <h3>One-Page Website</h3>
+              <p class="package-price">from&nbsp;1,500 PLN net</p>
+              <p>For a business that wants to present its offer and contact details on a clean single page.</p>
+              <ul>
+                <li>One-page website, up to 6 sections.</li>
+                <li>Individual layout customized to your company.</li>
+                <li>Assistance in structuring content and key messaging.</li>
+                <li>Domain and hosting setup.</li>
+                <li>Contact enquiry form.</li>
+                <li>Core SEO and mobile responsiveness.</li>
+                <li>Maintenance updates on request (without CMS).</li>
+                <li>One social media graphic formatted in your brand colours.</li>
+              </ul>
+              <p class="package-time">Timeline agreed upon consultation.</p>
+              <a class="package-link" href="/en/contact/">Enquire about package <span>↗</span></a>
+            </article>
+
+            <article class="package-card package-featured">
+              <p class="package-index">02 / FOR GROWING BUSINESSES</p>
+              <h3>Company Website</h3>
+              <p class="package-price">from&nbsp;3,000 PLN net</p>
+              <p>For a business that requires dedicated subpages for its individual services or products.</p>
+              <ul>
+                <li>Multi-page website up to 8 distinct subpages.</li>
+                <li>Bespoke UI design aligned with your brand.</li>
+                <li>Technical SEO and structured content.</li>
+                <li>Analytics, Search Console and integrated blog.</li>
+                <li>Optional CMS panel for editing text and photos, implemented on request.</li>
+                <li>Core structured data (JSON-LD) and technical optimization for search engines and AI tools.</li>
+                <li>Rich social media preview cards for links shared in messages and networks.</li>
+                <li>30 days of post-launch warranty support: minor content adjustments and bug fixes covered by the project.</li>
+              </ul>
+              <p class="package-time">Schedule tailored to scope.</p>
+              <a class="package-link" href="/en/contact/">Let’s talk <span>↗</span></a>
+            </article>
+
+            <article class="package-card">
+              <p class="package-index">03 / COMPREHENSIVE</p>
+              <h3>Website + Identity</h3>
+              <p class="package-price">from&nbsp;4,500 PLN net</p>
+              <p>For a company commissioning a new website together with a logo and foundational visual identity.</p>
+              <ul>
+                <li>Multi-page website up to 8 distinct subpages.</li>
+                <li>Bespoke website design aligned with your brand.</li>
+                <li>Technical SEO and structured content architecture.</li>
+                <li>Analytics, Search Console and integrated blog.</li>
+                <li>Optional CMS panel for editing text and images.</li>
+                <li>Core structured data and technical optimization for search engines and AI tools.</li>
+                <li>Social media preview cards for shared links.</li>
+                <li>New logo design or modern refresh of existing mark.</li>
+                <li>Curated brand colour palette and typography selection.</li>
+                <li>Core logo variants for digital screens and print.</li>
+                <li>Set of 3 branded social media graphics.</li>
+                <li>60 days of post-launch warranty support.</li>
+              </ul>
+              <p class="package-time">Phases and timeline agreed individually.</p>
+              <a class="package-link" href="/en/contact/">Enquire about package <span>↗</span></a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FAQ -->
+    <section class="home-section" id="faq">
+      <div class="home-inner faq-grid">
+        <div>
+          <p class="home-kicker">FAQ</p>
+          <h2>Questions before ordering.</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>How long does website creation take?</summary>
+            <p>Typically between one and three weeks, depending on the scope, availability of materials, and feedback cycles. We establish a clear timeline before commencing work.</p>
+          </details>
+          <details>
+            <summary>Can I edit the website myself?</summary>
+            <p>In the “Company Website” and “Website + Identity” packages, I can implement an optional CMS panel for editing text and photos. In the “One-Page” package, updates are performed on request.</p>
+          </details>
+          <details>
+            <summary>Do you build websites on WordPress?</summary>
+            <p>Yes, on request. I select the right technology for your website needs, integrations, and content workflow. For simpler sites, I also recommend fast, lightweight static architectures.</p>
+          </details>
+          <details>
+            <summary>Who handles domain and hosting registration?</summary>
+            <p>I assist you in selecting and configuring them directly in your name. The accounts belong exclusively to you, and domain and hosting fees are separate external costs.</p>
+          </details>
+          <details>
+            <summary>What does preparation for search engines and AI tools include?</summary>
+            <p>I ensure logical information hierarchy and technical SEO within the chosen package scope. Clean semantic markup and credible content help machines interpret your offer, though no designer can guarantee fixed Google rankings or AI recommendations.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CTA -->
+    <CtaOrange lang="en" />
+  </main>
+</BaseLayout>

@@ -1,10 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import CtaOrange from '../../components/CtaOrange.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CtaOrange from '../../../components/CtaOrange.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft && data.lang !== 'en');
+  const posts = await getCollection('blog', ({ data }) => !data.draft && data.lang === 'en');
   return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },
@@ -14,20 +14,20 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-const title = `${post.data.title} | Blog Grafmen`;
+const title = `${post.data.title} | Grafmen Blog`;
 const description = post.data.description;
 const coverSrc = post.data.cover.startsWith('/') ? post.data.cover : `/${post.data.cover}`;
 const ogImage = `https://grafmen.com${coverSrc}`;
 
 function formatDate(date: Date) {
-  return date.toLocaleDateString('pl-PL', {
+  return date.toLocaleDateString('en-GB', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   });
 }
 ---
-<BaseLayout title={title} description={description} currentNav="blog" bodyClass="service-page" ogType="article" ogImage={ogImage}>
+<BaseLayout title={title} description={description} currentNav="blog" bodyClass="service-page" ogType="article" ogImage={ogImage} lang="en">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -39,12 +39,12 @@ function formatDate(date: Date) {
       "author": {
         "@type": "Person",
         "name": post.data.author,
-        "url": "https://grafmen.com/o-mnie/"
+        "url": "https://grafmen.com/en/about/"
       },
       "publisher": {
         "@type": "Organization",
         "name": "Grafmen",
-        "url": "https://grafmen.com/",
+        "url": "https://grafmen.com/en/",
         "logo": {
           "@type": "ImageObject",
           "url": "https://grafmen.com/assets/favicon.png"
@@ -57,8 +57,8 @@ function formatDate(date: Date) {
     <div class="home-inner">
       <article class="post-layout-wrap">
         <header class="post-header">
-          <nav class="breadcrumbs" aria-label="Okruszki" style="margin-bottom:20px">
-            <a href="/blog/">Blog</a> / <span aria-current="page">{post.data.category}</span>
+          <nav class="breadcrumbs" aria-label="Breadcrumbs" style="margin-bottom:20px">
+            <a href="/en/blog/">Blog</a> / <span aria-current="page">{post.data.category}</span>
           </nav>
 
           <p class="post-kicker">{post.data.category.toUpperCase()}</p>
@@ -66,7 +66,7 @@ function formatDate(date: Date) {
           <p class="post-lead">{post.data.description}</p>
 
           <div class="post-author-bar">
-            <span>Autor: <strong>{post.data.author}</strong></span>
+            <span>Author: <strong>{post.data.author}</strong></span>
             <span class="meta-dot">·</span>
             <time datetime={post.data.pubDate.toISOString().slice(0, 10)}>{formatDate(post.data.pubDate)}</time>
           </div>
@@ -81,12 +81,12 @@ function formatDate(date: Date) {
         </div>
 
         <div class="project-next" style="margin-top:64px;border-top:1px solid #e5e5e8;padding-top:32px">
-          <a class="text-link" href="/blog/">&larr; Wróć do wszystkich artykułów</a>
-          <a class="text-link" href="/kontakt/">Porozmawiajmy o&nbsp;Twoim projekcie <span aria-hidden="true">&rarr;</span></a>
+          <a class="text-link" href="/en/blog/">&larr; Back to all articles</a>
+          <a class="text-link" href="/en/contact/">Let’s discuss your project <span aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     </div>
 
-    <CtaOrange />
+    <CtaOrange lang="en" />
   </main>
 </BaseLayout>

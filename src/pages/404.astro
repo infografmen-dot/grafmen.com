@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaArrow from '../components/CtaArrow.astro';
+
+const title = "404 · Strona nie została znaleziona | Grafmen";
+const description = "Przepraszamy, strona o podanym adresie nie istnieje lub została przeniesiona.";
+---
+<BaseLayout title={title} description={description} bodyClass="service-page" lang="pl">
+  <main id="main-content">
+    <section class="service-hero" style="min-height:55vh;display:flex;align-items:center;">
+      <div class="home-inner">
+        <p class="home-kicker">BŁĄD 404</p>
+        <h1>Nie znaleziono strony.</h1>
+        <div class="service-hero-bottom">
+          <p class="home-lead">Adres, którego szukasz, nie istnieje lub został przeniesiony. Sprawdź wpisany adres lub przejdź do strony głównej.</p>
+          <div>
+            <a class="btn dark" href="/">
+              <span>Wróć do strony głównej</span>
+              <CtaArrow />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

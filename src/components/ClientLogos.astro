@@ -1,10 +1,16 @@
 ---
+interface Props {
+  lang?: 'pl' | 'en';
+}
+
+const { lang = 'pl' } = Astro.props;
+const isEn = lang === 'en';
 ---
-<section class="home-section logo-cloud-section compact" id="klienci" aria-labelledby="clients-kicker" lang="pl">
+<section class="home-section logo-cloud-section compact" id="klienci" aria-labelledby="clients-kicker" lang={isEn ? 'en-GB' : 'pl'}>
   <div class="home-inner">
-    <p class="home-kicker logo-cloud-kicker" id="clients-kicker">WYBRANI KLIENCI</p>
+    <p class="home-kicker logo-cloud-kicker" id="clients-kicker">{isEn ? "SELECTED CLIENTS" : "WYBRANI KLIENCI"}</p>
     
-    <div class="logo-cloud logo-cloud--cinematic" id="logo-cloud-cinematic" aria-label="Logotypy wybranych klientów">
+    <div class="logo-cloud logo-cloud--cinematic" id="logo-cloud-cinematic" aria-label={isEn ? "Logos of selected clients" : "Logotypy wybranych klientów"}>
       <div class="logo-marquee-track">
         <div class="logo-track-group">
           <div class="logo-item"><img src="/assets/clients/marquee/drewmax.svg" alt="Drewmax.pro" width="150" height="43" loading="lazy"></div>

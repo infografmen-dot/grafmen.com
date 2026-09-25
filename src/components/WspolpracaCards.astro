@@ -1,46 +1,60 @@
 ---
+interface Props {
+  lang?: 'pl' | 'en';
+}
+
+const { lang = 'pl' } = Astro.props;
+const isEn = lang === 'en';
 ---
-<section class="home-section audience-section" id="pakiety" lang="pl">
-  <span id="dla-kogo" class="scroll-target" aria-hidden="true"></span>
+<section class="home-section audience-section" id="pakiety" lang={isEn ? 'en-GB' : 'pl'}>
+  <span id={isEn ? "who-its-for" : "dla-kogo"} class="scroll-target" aria-hidden="true"></span>
   <div class="home-inner">
     <div class="compact-grid">
       <div>
-        <p class="home-kicker">WSPÓŁPRACA</p>
-        <h2 data-motion="heading-reveal">Jednorazowy projekt<br>lub&nbsp;stała&nbsp;współpraca.</h2>
+        <p class="home-kicker">{isEn ? "COLLABORATION" : "WSPÓŁPRACA"}</p>
+        <h2 data-motion="heading-reveal">
+          {isEn ? <>A&nbsp;single project<br>or&nbsp;ongoing&nbsp;partnership.</> : <>Jednorazowy projekt<br>lub&nbsp;stała&nbsp;współpraca.</>}
+        </h2>
       </div>
       <div>
         <p class="home-lead">
-          Przygotuję stronę internetową, identyfikację wizualną lub materiały reklamowe dla&nbsp;Twojej firmy. Możemy zacząć od&nbsp;jednego projektu, a&nbsp;później rozwijać kolejne materiały w&nbsp;tym samym stylu. Pomogę Ci ustalić, czego potrzebujesz teraz i&nbsp;co&nbsp;warto zaplanować na&nbsp;później.
+          {isEn ? (
+            "I design websites, visual identities, and marketing materials for your business. We can start with a single project and develop further collateral in the same coherent style over time. I will help you identify what you need today and what is worth planning for later."
+          ) : (
+            "Przygotuję stronę internetową, identyfikację wizualną lub materiały reklamowe dla\u00A0Twojej firmy. Możemy zacząć od\u00A0jednego projektu, a\u00A0później rozwijać kolejne materiały w\u00A0tym samym stylu. Pomogę Ci ustalić, czego potrzebujesz teraz i\u00A0co\u00A0warto zaplanować na\u00A0później."
+          )}
         </p>
         <div class="collab-meta-link">
-          <a href="/o-mnie/#jak-pracuje">Poznaj mój sposób pracy <span aria-hidden="true">&rarr;</span></a>
+          <a href={isEn ? "/en/about/#how-i-work" : "/o-mnie/#jak-pracuje"}>
+            {isEn ? "Explore my workflow" : "Poznaj mój sposób pracy"} <span aria-hidden="true">&rarr;</span>
+          </a>
         </div>
       </div>
     </div>
 
     <div class="collab-cards-wrap">
       <div class="collab-cards">
-        <a class="collab-card" href="/strony-www/#pakiety">
+        <a class="collab-card" href={isEn ? "/en/websites/#packages" : "/strony-www/#pakiety"}>
           <div class="collab-card-media">
-            <img src="/assets/portfolio/montessori/screenshot-montessori.webp" alt="Strona internetowa Prywatne Przedszkole Montessori" width="600" height="375" loading="lazy" decoding="async">
+            <img src="/assets/portfolio/montessori/screenshot-montessori.webp" alt={isEn ? "Montessori Nursery School Website" : "Strona internetowa Prywatne Przedszkole Montessori"} width="600" height="375" loading="lazy" decoding="async">
           </div>
           <div class="collab-card-body">
-            <span class="collab-card-tag">Strony internetowe</span>
-            <h3 class="collab-card-title">Strony WWW</h3>
-            <p class="collab-card-desc">Projekt strony, który porządkuje ofertę i&nbsp;ułatwia kontakt z&nbsp;Twoją firmą.</p>
-            <span class="collab-card-action">Zobacz pakiety i&nbsp;ceny stron WWW <span aria-hidden="true">&rarr;</span></span>
+            <span class="collab-card-tag">{isEn ? "Websites" : "Strony internetowe"}</span>
+            <h3 class="collab-card-title">{isEn ? "Websites" : "Strony WWW"}</h3>
+            <p class="collab-card-desc">{isEn ? "A website design that clarifies your offer and makes contacting your business effortless." : "Projekt strony, który porządkuje ofertę i\u00A0ułatwia kontakt z\u00A0Twoją firmą."}</p>
+            <span class="collab-card-action">{isEn ? "View website packages and prices" : "Zobacz pakiety i\u00A0ceny stron WWW"} <span aria-hidden="true">&rarr;</span></span>
           </div>
         </a>
 
-        <a class="collab-card" href="/branding/#pakiety">
+        <a class="collab-card" href={isEn ? "/en/branding/#packages" : "/branding/#pakiety"}>
           <div class="collab-card-media">
-            <img src="/assets/portfolio/gearexpert/gearExpert_4-www.jpg" alt="Identyfikacja wizualna GearExpert · teczka, papier firmowy i&nbsp;wizytówki" width="600" height="375" loading="lazy" decoding="async">
+            <img src="/assets/portfolio/gearexpert/gearExpert_4-www.jpg" alt={isEn ? "GearExpert visual identity · folder, stationery, and business cards" : "Identyfikacja wizualna GearExpert · teczka, papier firmowy i\u00A0wizytówki"} width="600" height="375" loading="lazy" decoding="async">
           </div>
           <div class="collab-card-body">
-            <span class="collab-card-tag">Logo i&nbsp;branding</span>
-            <h3 class="collab-card-title">Identyfikacja wizualna</h3>
-            <p class="collab-card-desc">Logo, kolory i&nbsp;materiały, które tworzą spójny wizerunek Twojej firmy.</p>
-            <span class="collab-card-action">Zobacz pakiety i&nbsp;ceny brandingu <span aria-hidden="true">&rarr;</span></span>
+            <span class="collab-card-tag">{isEn ? "Logo & branding" : "Logo i\u00A0branding"}</span>
+            <h3 class="collab-card-title">{isEn ? "Visual identity" : "Identyfikacja wizualna"}</h3>
+            <p class="collab-card-desc">{isEn ? "Logo, colours, and assets that create a coherent identity for your business." : "Logo, kolory i\u00A0materiały, które tworzą spójny wizerunek Twojej firmy."}</p>
+            <span class="collab-card-action">{isEn ? "View branding packages and prices" : "Zobacz pakiety i\u00A0ceny brandingu"} <span aria-hidden="true">&rarr;</span></span>
           </div>
         </a>
       </div>

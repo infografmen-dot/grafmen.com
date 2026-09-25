@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CtaOrange from '../../../components/CtaOrange.astro';
+import CtaArrow from '../../../components/CtaArrow.astro';
+
+const title = "Website redesign and modernization | Grafmen";
+const description = "Website redesign and modernization: refreshed look, structured content, and smooth mobile performance. Custom pricing from 2,500 PLN net.";
+---
+<BaseLayout title={title} description={description} currentNav="web" bodyClass="service-page" lang="en">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Website redesign and modernization",
+      "url": "https://grafmen.com/en/redesign/",
+      "provider": {
+        "@type": "Person",
+        "name": "Krzysztof Krawczyk",
+        "url": "https://grafmen.com/en/about/"
+      }
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <!-- 1. HERO -->
+    <section class="service-hero">
+      <div class="home-inner">
+        <p class="home-kicker">REDESIGN / GRAFMEN</p>
+        <h1>Website redesign and modernization.</h1>
+        <div class="service-hero-bottom">
+          <p class="home-lead">I will refresh the visual design, organize your content, and improve your website’s performance. We start by reviewing which existing elements are worth retaining and which require a rebuild.</p>
+          <div><a class="btn dark" href="/en/contact/"><span>Let’s discuss your redesign</span> <CtaArrow /></a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DIAGNOZA: KIEDY WARTO PRZEBUDOWAĆ STRONĘ -->
+    <section class="home-section service-features dark-section">
+      <div class="home-inner">
+        <p class="home-kicker">DIAGNOSIS</p>
+        <h2>When to rebuild your website</h2>
+        <div class="feature-grid">
+          <article class="service-feature">
+            <span class="item-number">01</span>
+            <h3>Slow performance</h3>
+            <p>Your offer and imagery take too long to load.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">02</span>
+            <h3>Outdated content</h3>
+            <p>The site does not reflect your current services or makes information difficult to find.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">03</span>
+            <h3>Mobile friction</h3>
+            <p>Text, navigation, or contact forms are awkward to use on smartphones.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ZAKRES -->
+    <section class="home-section service-features">
+      <div class="home-inner">
+        <p class="home-kicker">SCOPE</p>
+        <h2>What modernization includes</h2>
+        <div class="feature-grid">
+          <article class="service-feature">
+            <span class="item-number">01</span>
+            <h3>Content &amp; URLs</h3>
+            <p>I preserve valuable materials, structure headings, and organize information hierarchy. For modified addresses, I set up 301 redirects.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">02</span>
+            <h3>Visual presentation</h3>
+            <p>I refresh the layout, typography, and offer presentation while preserving recognizable brand elements.</p>
+          </article>
+          <article class="service-feature">
+            <span class="item-number">03</span>
+            <h3>Technical performance</h3>
+            <p>I rebuild the site, optimize imagery, and ensure seamless usability across phones and desktop screens.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WYCENA I ZAKRES -->
+    <section class="modernisation-callout">
+      <div class="home-inner callout-grid">
+        <div>
+          <p class="home-kicker">INDIVIDUAL SCOPE</p>
+          <h2>Modernization<br>from&nbsp;2,500 PLN net</h2>
+        </div>
+        <div>
+          <p>I prepare a precise quote after reviewing your current website and agreeing on the scope of changes. The turnaround depends on page count, required features, and content readiness.</p>
+          <a class="btn dark" href="/en/contact/" style="margin-top:20px"><span>Enquire about redesign</span> <CtaArrow /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CTA -->
+    <CtaOrange lang="en" />
+  </main>
+</BaseLayout>

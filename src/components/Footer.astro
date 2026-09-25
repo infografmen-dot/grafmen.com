@@ -1,32 +1,55 @@
 ---
+import { ui } from '../data/i18n/ui';
+
+interface Props {
+  lang?: 'pl' | 'en';
+  altLangUrl?: string;
+}
+
+const { lang = 'pl', altLangUrl } = Astro.props;
+const isEn = lang === 'en';
+const t = ui[lang].footer;
+
+const workHref = isEn ? '/en/portfolio/' : '/portfolio/';
+const howIWorkHref = isEn ? '/en/about/#how-i-work' : '/o-mnie/#jak-pracuje';
+const webPricingHref = isEn ? '/en/websites/#packages' : '/strony-www/#pakiety';
+const brandPricingHref = isEn ? '/en/branding/#packages' : '/branding/#pakiety';
+const faqHref = isEn ? '/en/#faq' : '/#faq';
+const blogHref = isEn ? '/en/blog/' : '/blog/';
+const webServicesHref = isEn ? '/en/websites/' : '/strony-www/';
+const redesignHref = isEn ? '/en/redesign/' : '/modernizacja/';
+const brandingHref = isEn ? '/en/branding/' : '/branding/';
+const contactHref = isEn ? '/en/contact/' : '/kontakt/';
+const privacyHref = isEn ? '/en/privacy-policy/' : '/polityka-prywatnosci/';
+const homeAnchor = '#top';
 ---
-<footer class="site-footer" lang="pl">
+<footer class="site-footer" lang={isEn ? 'en-GB' : 'pl'}>
   <div class="home-inner footer-main">
     <div class="footer-brand">
-      <a class="footer-home" href="#top" aria-label="Grafmen: strona główna">
+      <a class="footer-home" href={homeAnchor} aria-label={isEn ? "Grafmen: back to top" : "Grafmen: strona główna"}>
         <img src="/assets/logo-grafmen-light.svg" alt="Grafmen" width="142" height="47" loading="lazy">
       </a>
-      <p>Projektuję od&nbsp;2005 roku.<br>Strony WWW, branding i&nbsp;materiały,<br>które pracują dla&nbsp;Twojej firmy.</p>
+      <p set:html={t.tagline}></p>
     </div>
     <div class="footer-nav">
-      <p class="footer-label">Nawigacja</p>
-      <a href="/portfolio/">Portfolio</a>
-      <a href="/o-mnie/#jak-pracuje">Jak pracuję</a>
-      <a href="/strony-www/#pakiety">Ceny stron WWW</a>
-      <a href="/branding/#pakiety">Ceny brandingu</a>
-      <a href="/#faq">FAQ</a>
-      <a href="/blog/">Blog</a>
+      <p class="footer-label">{t.navLabel}</p>
+      <a href={workHref}>{ui[lang].nav.work}</a>
+      <a href={howIWorkHref}>{t.howIWork}</a>
+      <a href={webPricingHref}>{t.webPricing}</a>
+      <a href={brandPricingHref}>{t.brandPricing}</a>
+      <a href={faqHref}>{t.faq}</a>
+      <a href={blogHref}>{t.blog}</a>
     </div>
     <div class="footer-nav">
-      <p class="footer-label">Usługi</p>
-      <a href="/strony-www/">Strony WWW</a>
-      <a href="/modernizacja/">Modernizacja WWW</a>
-      <a href="/branding/">Branding</a>
-      <a href="/kontakt/">Kontakt</a>
+      <p class="footer-label">{t.servicesLabel}</p>
+      <a href={webServicesHref}>{t.webServices}</a>
+      <a href={redesignHref}>{t.redesign}</a>
+      <a href={brandingHref}>{t.branding}</a>
+      <a href={contactHref}>{t.contact}</a>
     </div>
     <div class="footer-contact">
-      <p class="footer-label">Pracuję zdalnie</p>
-      <p>Przemyśl / Podkarpacie<br>cała Polska i&nbsp;zagranica</p>
+      <p class="footer-label">{t.remoteLabel}</p>
+      <p set:html={t.remoteSub}></p>
       <div class="social-links">
         <a href="https://www.facebook.com/grafmen" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a href="https://www.instagram.com/grafmen" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -36,16 +59,26 @@
   </div>
   <div class="home-inner footer-bottom">
     <span>© Grafmen · Krzysztof Krawczyk</span>
-    <a href="/polityka-prywatnosci/">Polityka prywatności</a>
+    <a href={privacyHref}>{t.privacy}</a>
     <button
       class="footer-cookies-btn"
       type="button"
       onclick="window.gmCookies && window.gmCookies.reset()"
-    >Ustawienia cookies</button>
-    <span>PL / EN</span>
+    >{t.cookiesBtn}</button>
+    <span class="footer-lang-switch">
+      {isEn ? (
+        <>
+          <a href={altLangUrl || '/'} aria-label="Wersja polska">PL</a> / <strong>EN</strong>
+        </>
+      ) : (
+        <>
+          <strong>PL</strong> / <a href={altLangUrl || '/en/'} aria-label="English version">EN</a>
+        </>
+      )}
+    </span>
   </div>
 </footer>
-<button class="back-to-top" type="button" aria-label="Wróć na&nbsp;górę strony" hidden>
+<button class="back-to-top" type="button" aria-label={t.backToTop} hidden>
   <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
     <path d="m6 14 6-6 6 6"/>
   </svg>

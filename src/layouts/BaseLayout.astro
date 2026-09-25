@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import { getAltLangUrl } from '../data/i18n/routes';
 
 interface Props {
   title: string;
@@ -11,6 +12,8 @@ interface Props {
   ogImage?: string;
   currentNav?: 'home' | 'web' | 'brand' | 'work' | 'about' | 'blog' | 'contact';
   bodyClass?: string;
+  lang?: 'pl' | 'en';
+  altLangUrl?: string;
 }
 
 const {
@@ -21,18 +24,30 @@ const {
   ogImage = 'https://grafmen-com.vercel.app/assets/og/grafmen-og-home.jpg',
   currentNav,
   bodyClass = 'service-page',
+  lang = 'pl',
+  altLangUrl: customAltLangUrl,
 } = Astro.props;
 
+const isEn = lang === 'en';
+const htmlLang = isEn ? 'en-GB' : 'pl';
+const ogLocale = isEn ? 'en_GB' : 'pl_PL';
 const canonicalUrl = new URL(canonicalPath, 'https://grafmen.com').toString();
+
+const computedAltLangUrl = customAltLangUrl || getAltLangUrl(canonicalPath, lang);
+const plUrl = isEn ? new URL(computedAltLangUrl, 'https://grafmen.com').toString() : canonicalUrl;
+const enUrl = isEn ? canonicalUrl : new URL(computedAltLangUrl, 'https://grafmen.com').toString();
 ---
 <!doctype html>
-<html lang="pl">
+<html lang={htmlLang}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonicalUrl}>
+  <link rel="alternate" hreflang="pl" href={plUrl}>
+  <link rel="alternate" hreflang="en" href={enUrl}>
+  <link rel="alternate" hreflang="x-default" href={plUrl}>
 
   <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -49,14 +64,14 @@ const canonicalUrl = new URL(canonicalPath, 'https://grafmen.com').toString();
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content={ogType}>
   <meta property="og:site_name" content="Grafmen">
-  <meta property="og:locale" content="pl_PL">
+  <meta property="og:locale" content={ogLocale}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:url" content={canonicalUrl}>
   <meta property="og:image" content={ogImage}>
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Grafmen · Ty zajmujesz się swoją firmą. Ja dbam o to, jak ją widać.">
+  <meta property="og:image:alt" content={isEn ? "Grafmen · You run your business. I take care of how it’s seen." : "Grafmen · Ty zajmujesz się swoją firmą. Ja dbam o to, jak ją widać."}>
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -85,15 +100,14 @@ const canonicalUrl = new URL(canonicalPath, 'https://grafmen.com').toString();
   <script src="/scroll-reveal.js" defer></script>
   <script src="/portfolio-motion.js" defer></script>
   <script src="/homepage-motion.js" defer></script>
-  <script src="/language-preview.js" defer></script>
   <script src="/cookie-banner.js" defer></script>
 
   <slot name="head" />
 </head>
 <body class={bodyClass} id="top">
-  <Header currentNav={currentNav} />
+  <Header currentNav={currentNav} lang={lang} altLangUrl={computedAltLangUrl} />
   <slot />
-  <Footer />
-  <CookieBanner />
+  <Footer lang={lang} altLangUrl={computedAltLangUrl} />
+  <CookieBanner lang={lang} />
 </body>
 </html>

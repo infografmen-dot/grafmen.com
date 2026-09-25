@@ -1,17 +1,28 @@
 ---
+import { ui } from '../data/i18n/ui';
+
+interface Props {
+  lang?: 'pl' | 'en';
+}
+
+const { lang = 'pl' } = Astro.props;
+const isEn = lang === 'en';
+const t = ui[lang].cookieBanner;
+const privacyHref = isEn ? '/en/privacy-policy/' : '/polityka-prywatnosci/';
 ---
 <!--
   CookieBanner — informacyjny pasek prywatności (pill style)
   Wzorowany na Studio Ahremark: matowe szkło, kapsułka w lewym dolnym rogu.
-  Dwa przyciski: [Prywatność] [Zamknij].
+  Dwa przyciski: [Prywatność / Privacy] [Zamknij / Close].
   Domyślnie hidden; cookie-banner.js ujawnia gdy potrzeba.
 -->
 <div
   id="cookie-banner"
   role="region"
-  aria-label="Informacja o prywatności"
+  aria-label={t.regionAria}
   aria-hidden="true"
   hidden
+  lang={isEn ? 'en-GB' : 'pl'}
 >
   <!-- Panel szczegółowy (pojawia się nad kapsułką po kliknięciu "Prywatność") -->
   <div
@@ -23,18 +34,18 @@
     hidden
   >
     <div class="cb-info-header">
-      <span class="cb-info-title" id="cb-info-title">Prywatność na&nbsp;stronie</span>
+      <span class="cb-info-title" id="cb-info-title">{t.panelTitle}</span>
       <button
         class="cb-info-close"
         id="cb-info-close"
         type="button"
-        aria-label="Zamknij panel informacji"
+        aria-label={t.panelCloseAria}
       >×</button>
     </div>
     <p class="cb-info-text">
-      W&nbsp;przeglądarce zapamiętujemy zamknięcie tego&nbsp;komunikatu, aby nie wyświetlać go ponownie. Informacje o&nbsp;przetwarzaniu danych znajdziesz w&nbsp;polityce prywatności.
+      {t.panelText}
     </p>
-    <a class="cb-info-link" href="/polityka-prywatnosci/">Polityka prywatności <span aria-hidden="true">&rarr;</span></a>
+    <a class="cb-info-link" href={privacyHref}>{t.privacyLinkText} <span aria-hidden="true">&rarr;</span></a>
   </div>
 
   <!-- Kapsułka: [Prywatność] [Zamknij] -->
@@ -45,11 +56,11 @@
       class="cb-btn-privacy"
       aria-expanded="false"
       aria-controls="cb-info-panel"
-    >Prywatność</button>
+    >{t.btnPrivacy}</button>
     <button
       id="cookie-banner-close"
       type="button"
       class="cb-btn-close"
-    >Zamknij</button>
+    >{t.btnClose}</button>
   </div>
 </div>

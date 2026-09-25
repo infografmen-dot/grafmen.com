@@ -1,16 +1,25 @@
 ---
 import CtaArrow from './CtaArrow.astro';
+import { ui } from '../data/i18n/ui';
+
+interface Props {
+  lang?: 'pl' | 'en';
+}
+
+const { lang = 'pl' } = Astro.props;
+const isEn = lang === 'en';
+const t = ui[lang].ctaOrange;
 ---
-<section class="final-cta" id="kontakt" aria-labelledby="cta-title" lang="pl">
+<section class="final-cta" id="kontakt" aria-labelledby="cta-title" lang={isEn ? 'en-GB' : 'pl'}>
   <div class="home-inner final-cta-inner">
     <div>
-      <p class="home-kicker">ZACZNIJMY ROZMOWĘ</p>
-      <h2 id="cta-title" data-motion="heading-reveal">Porozmawiajmy<br>o&nbsp;projekcie<br>dla&nbsp;Twojej firmy.</h2>
+      <p class="home-kicker">{t.kicker}</p>
+      <h2 id="cta-title" data-motion="heading-reveal" set:html={t.heading}></h2>
     </div>
     <div class="final-cta-copy">
-      <p>Napisz, czego potrzebujesz. Po&nbsp;zapoznaniu&nbsp;się z&nbsp;zakresem przygotuję bezpłatną wycenę i&nbsp;zaproponuję kolejne kroki.</p>
-      <a class="cta-button" href="/kontakt/">
-        <span>Napisz po&nbsp;bezpłatną wycenę</span>
+      <p>{t.text}</p>
+      <a class="cta-button" href={t.href}>
+        <span>{t.button}</span>
         <CtaArrow />
       </a>
     </div>

@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CtaOrange from '../../../components/CtaOrange.astro';
+
+const title = "Krzysztof Krawczyk · freelance graphic designer | Grafmen";
+const description = "Krzysztof Krawczyk, graphic designer since 2005. Websites, brand identities, marketing collateral, and motion design. Direct communication and proven workflow.";
+---
+<BaseLayout title={title} description={description} currentNav="about" bodyClass="service-page" lang="en">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Krzysztof Krawczyk",
+      "jobTitle": "Graphic Designer & Web Specialist",
+      "url": "https://grafmen.com/en/about/"
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <!-- 1. HERO -->
+    <section class="service-hero about-hero">
+      <div class="home-inner about-hero-grid">
+        <div>
+          <p class="home-kicker">ABOUT ME / GRAFMEN</p>
+          <h1>Krzysztof Krawczyk.<br>Your designer, since&nbsp;2005.</h1>
+          <p class="home-lead">I started with logos for local businesses. Today, I craft websites, visual identities, advertising materials, and animations for clients across Poland and internationally.</p>
+        </div>
+        <figure class="about-portrait">
+          <picture>
+            <source srcset="/assets/krzysztof-krawczyk.webp" type="image/webp">
+            <img class="portrait-photo" src="/assets/krzysztof-krawczyk.png" alt="Krzysztof Krawczyk – freelance graphic designer at Grafmen" width="1122" height="1402" fetchpriority="high" decoding="async">
+          </picture>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2. SPOSÓB PRACY (Z ANCHOREM #how-i-work oraz #jak-pracuje) -->
+    <section class="home-section" id="how-i-work" aria-labelledby="how-i-work-title">
+      <span id="jak-pracuje" class="scroll-target" aria-hidden="true"></span>
+      <div class="home-inner">
+        <div class="how-intro">
+          <p class="home-kicker">WORKFLOW</p>
+          <h2 id="how-i-work-title">How I work</h2>
+          <p class="home-lead">I manage every project personally. From the first briefing to final file delivery, you communicate directly with me. Scope, pricing, and terms are agreed in detail before work begins.</p>
+        </div>
+
+        <ol class="how-steps-grid">
+          <li class="how-step">
+            <span class="process-number" aria-hidden="true">01</span>
+            <div>
+              <h3>Brief &amp; quotation</h3>
+              <p>You outline what your business needs and share any available materials. Based on this, I define the project scope, prepare a quotation, and propose a timeline. All details are confirmed via email.</p>
+            </div>
+          </li>
+          <li class="how-step">
+            <span class="process-number" aria-hidden="true">02</span>
+            <div>
+              <h3>Agreement &amp; commencement</h3>
+              <p>I commence work with new clients upon signing a formal agreement and payment of an initial deposit of 40% of the agreed fee. The agreement clearly defines deliverables, payment schedule, and copyright transfer.</p>
+            </div>
+          </li>
+          <li class="how-step">
+            <span class="process-number" aria-hidden="true">03</span>
+            <div>
+              <h3>Concepts &amp; revisions</h3>
+              <p>I prepare proposals according to the agreed brief. For logo design, I present one to three distinct concepts depending on our agreement. We select one for refinement. I gather your feedback and apply revisions within the agreed scope.</p>
+            </div>
+          </li>
+          <li class="how-step">
+            <span class="process-number" aria-hidden="true">04</span>
+            <div>
+              <h3>Approval &amp; handover</h3>
+              <p>Upon final sign-off, I prepare production-ready files in the agreed formats for digital use or commercial print. For websites, I transfer access credentials and maintenance documentation. Full rights and final files are delivered according to the agreement terms.</p>
+            </div>
+          </li>
+        </ol>
+
+        <!-- OGÓLNE ZASADY WSPÓŁPRACY -->
+        <div class="rules-block">
+          <h3 class="rules-block-title">General collaboration terms</h3>
+          <div class="rules-columns">
+            <div class="rule-item">
+              <h4>Materials &amp; licences</h4>
+              <p>Costs of commercial stock photography and premium typefaces are borne by the client. Their selection and pricing are agreed prior to purchase. I typically utilize high-quality open-source and free-to-use fonts. If you provide your own imagery, copy, logos, or assets, please provide them at project kickoff along with confirmation of usage rights.</p>
+            </div>
+            <div class="rule-item">
+              <h4>Out-of-scope changes</h4>
+              <p>The number of initial concepts and revision rounds is defined upfront. Additional deliverables or changes outside the agreed scope are quoted separately prior to implementation.</p>
+            </div>
+            <div class="rule-item">
+              <h4>Speculative work</h4>
+              <p>I do not produce unpaid speculative pitches or design samples prior to a paid engagement. You can thoroughly assess my design standards through my portfolio.</p>
+            </div>
+            <div class="rule-item">
+              <h4>Discontinuation</h4>
+              <p>If you do not accept a design concept and wish to discontinue the project, please inform me in writing at <a href="mailto:info@grafmen.com">info@grafmen.com</a>. Settlement terms, deposit handling, and handover of work completed to date are governed by the contract under applicable commercial law.</p>
+            </div>
+            <div class="rule-item rule-item-wide">
+              <h4>Pricing &amp; project acceptance</h4>
+              <p>Prices on the website are indicative. Final quotations and scopes are determined individually prior to contract signing. Project commencement requires my explicit confirmation.</p>
+            </div>
+          </div>
+          <p class="rules-note">The above terms represent general collaboration principles. Detailed legal terms for each project are governed by the executed agreement.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DOŚWIADCZENIE / DREWMAR CASE -->
+    <section class="home-section" aria-labelledby="case-drewmar-title">
+      <div class="home-inner compact-grid">
+        <div>
+          <p class="home-kicker">EXPERIENCE</p>
+          <h2 id="case-drewmar-title"><span class="mob-block">Collaboration</span> that spans a&nbsp;decade.</h2>
+          <p style="margin-top:28px"><a class="text-link" href="/en/portfolio/">View case studies <span>↗</span></a></p>
+        </div>
+        <div>
+          <p class="home-lead">For 10 years, I have supported Drewmar, a manufacturer of brushes and domestic cleaning sets, in designing websites and advertising materials. With each new project, I leverage deep knowledge of the brand, its catalogue, and existing assets.</p>
+          <article class="testimonial-card" style="margin-top:32px">
+            <blockquote>
+              <p>“Utmost professionalism, punctuality and consistency are qualities you will encounter when working with GRAFMEN. We have just completed another joint project, already have more planned, and I cannot imagine anyone else developing them for us. Krzysztof, our company’s growth and success are also your achievement — THANK YOU.”</p>
+              <span class="review-trans-note" style="display:block;font-size:12px;color:#71717a;margin-top:12px;font-style:italic">Translated from Polish</span>
+            </blockquote>
+            <footer>
+              <strong>Kazimierz Ogiński</strong>
+              <span>Drewmar</span>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CTA -->
+    <CtaOrange lang="en" />
+  </main>
+</BaseLayout>

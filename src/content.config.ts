@@ -13,6 +13,7 @@ const blogCollection = defineCollection({
     cover: z.string(),
     coverAlt: z.string(),
     draft: z.boolean().default(false),
+    lang: z.enum(['pl', 'en']).default('pl'),
   }),
 });
 

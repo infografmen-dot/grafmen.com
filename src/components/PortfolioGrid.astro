@@ -1,168 +1,197 @@
 ---
+interface Props {
+  lang?: 'pl' | 'en';
+}
+
+const { lang = 'pl' } = Astro.props;
+const isEn = lang === 'en';
+const portfolioHref = isEn ? '/en/portfolio/' : '/portfolio/';
 ---
-<section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
+<section class="portfolio" id="portfolio" aria-labelledby="portfolio-title" lang={isEn ? 'en-GB' : 'pl'}>
   <div class="portfolio-head">
     <div>
-      <p class="section-kicker">WYBRANE REALIZACJE</p>
-      <h2 id="portfolio-title" data-motion="heading-reveal">Realizacje, które<br>zatrzymują uwagę.</h2>
+      <p class="section-kicker">{isEn ? "SELECTED WORK" : "WYBRANE REALIZACJE"}</p>
+      <h2 id="portfolio-title" data-motion="heading-reveal">
+        {isEn ? <>Work that<br>gets noticed.</> : <>Realizacje, które<br>zatrzymują uwagę.</>}
+      </h2>
     </div>
     <div class="portfolio-summary">
-      <p class="portfolio-intro">Strony internetowe, identyfikacje wizualne, filmy. Zobacz wybrane projekty dla&nbsp;moich klientów.</p>
-      <a class="all" href="/portfolio/">Wszystkie realizacje <span aria-hidden="true">&rarr;</span></a>
+      <p class="portfolio-intro">
+        {isEn ? "Websites, visual identities, and video. Explore selected projects crafted for my clients." : "Strony internetowe, identyfikacje wizualne, filmy. Zobacz wybrane projekty dla\u00A0moich klientów."}
+      </p>
+      <a class="all" href={portfolioHref}>{isEn ? "All projects" : "Wszystkie realizacje"} <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
   <div class="motion-controls">
-    <button class="motion-toggle" type="button" aria-pressed="false" hidden>Wstrzymaj animacje</button>
+    <button class="motion-toggle" type="button" aria-pressed="false" hidden>{isEn ? "Pause animations" : "Wstrzymaj animacje"}</button>
   </div>
   <ol class="stage">
+    <!-- P1: DREWMAX -->
     <li class="work p1">
       <article class="project-card">
-        <a class="media-link" href="/portfolio/drewmax/" aria-label="Drewmax.pro · Zobacz case study">
+        <a class="media-link" href={isEn ? "/en/portfolio/drewmax/" : "/portfolio/drewmax/"} aria-label={isEn ? "Drewmax.pro · View case study" : "Drewmax.pro · Zobacz case study"}>
           <div class="media">
             <video class="portfolio-loop" muted loop playsinline preload="none" poster="/assets/motion/drewmax-poster.webp" aria-hidden="true" tabindex="-1">
               <source data-src="/assets/motion/drewmax.webm" type="video/webm">
               <source data-src="/assets/motion/drewmax.mp4" type="video/mp4">
             </video>
             <img class="project-image" src="/assets/portfolio/drewmax-site-en.png" alt="Drewmax.pro English website: navigation, hero heading and offer for brush manufacturer" loading="lazy" decoding="async" width="1907" height="1080">
-            <span class="project-action">Zobacz projekt <span aria-hidden="true">&rarr;</span></span>
+            <span class="project-action">{isEn ? "View project" : "Zobacz projekt"} <span aria-hidden="true">&rarr;</span></span>
           </div>
         </a>
         <div class="caption">
           <div class="caption-copy">
-            <p class="cat">01 / Strona WWW</p>
-            <h3 class="title"><a class="title-link" href="/portfolio/drewmax/">Drewmax.pro</a></h3>
-            <p class="project-description">Strona producenta szczotek i&nbsp;akcesoriów do&nbsp;sprzątania. Klient współpracuje ze&nbsp;mną od&nbsp;10 lat · od&nbsp;pierwszej strony po&nbsp;bieżące materiały reklamowe.</p>
+            <p class="cat">{isEn ? "01 / Website" : "01 / Strona WWW"}</p>
+            <h3 class="title"><a class="title-link" href={isEn ? "/en/portfolio/drewmax/" : "/portfolio/drewmax/"}>Drewmax.pro</a></h3>
+            <p class="project-description">
+              {isEn ? "Website for a brush and cleaning accessories manufacturer. The client has worked with me for 10 years — from their initial website to ongoing advertising collateral." : "Strona producenta szczotek i\u00A0akcesoriów do\u00A0sprzątania. Klient współpracuje ze\u00A0mną od\u00A010 lat · od\u00A0pierwszej strony po\u00A0bieżące materiały reklamowe."}
+            </p>
             <div class="project-ext-action">
-              <a class="project-ext-link" href="https://drewmax.pro/en/" target="_blank" rel="noopener noreferrer">Otwórz stronę <span aria-hidden="true">&#x2197;</span></a>
+              <a class="project-ext-link" href="https://drewmax.pro/en/" target="_blank" rel="noopener noreferrer">{isEn ? "Open website" : "Otwórz stronę"} <span aria-hidden="true">&#x2197;</span></a>
             </div>
           </div>
-          <a class="arr-link" href="/portfolio/drewmax/" aria-label="Drewmax.pro · Zobacz case study"><span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="arr-link" href={isEn ? "/en/portfolio/drewmax/" : "/portfolio/drewmax/"} aria-label={isEn ? "Drewmax.pro · View case study" : "Drewmax.pro · Zobacz case study"}><span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     </li>
 
+    <!-- P2: HIKER FILM -->
     <li class="work p2">
       <article class="project-card">
-        <a class="media-link" href="/portfolio/hiker/#film" aria-label="Film reklamowy Hiker · Zobacz case study">
+        <a class="media-link" href={isEn ? "/en/portfolio/hiker/#film" : "/portfolio/hiker/#film"} aria-label={isEn ? "Hiker promotional film · View case study" : "Film reklamowy Hiker · Zobacz case study"}>
           <div class="media">
             <video class="portfolio-loop" muted loop playsinline preload="none" poster="/assets/motion/hiker-film-poster.webp" aria-hidden="true" tabindex="-1">
               <source data-src="/assets/motion/hiker-film.webm" type="video/webm">
               <source data-src="/assets/motion/hiker-film.mp4" type="video/mp4">
             </video>
-            <img class="project-image" src="/assets/portfolio/film-hiker.png" alt="Kadr filmu Hiker: górska dolina i&nbsp;logo Wild Escape" loading="lazy" decoding="async" width="1280" height="720">
-            <span class="project-action">Zobacz projekt <span aria-hidden="true">&rarr;</span></span>
+            <img class="project-image" src="/assets/portfolio/film-hiker.png" alt={isEn ? "Hiker film still: mountain valley and Wild Escape logo" : "Kadr filmu Hiker: górska dolina i\u00A0logo Wild Escape"} loading="lazy" decoding="async" width="1280" height="720">
+            <span class="project-action">{isEn ? "Watch film" : "Zobacz projekt"} <span aria-hidden="true">&rarr;</span></span>
           </div>
         </a>
         <div class="caption">
           <div class="caption-copy">
-            <p class="cat">02 / Motion / video</p>
-            <h3 class="title"><a class="title-link" href="/portfolio/hiker/#film">Film reklamowy Hiker</a></h3>
-            <p class="project-description">Film reklamowy prezentujący markę Hiker w&nbsp;otoczeniu gór i&nbsp;przyrody.</p>
+            <p class="cat">{isEn ? "02 / Motion / video" : "02 / Motion / video"}</p>
+            <h3 class="title"><a class="title-link" href={isEn ? "/en/portfolio/hiker/#film" : "/portfolio/hiker/#film"}>{isEn ? "Hiker promotional film" : "Film reklamowy Hiker"}</a></h3>
+            <p class="project-description">
+              {isEn ? "A promotional film presenting the Hiker brand amidst mountain scenery and outdoor nature." : "Film reklamowy prezentujący markę Hiker w\u00A0otoczeniu gór i\u00A0przyrody."}
+            </p>
             <div class="project-ext-action">
-              <a class="project-ext-link" href="https://www.youtube.com/watch?v=WOaOxbPIIhs" target="_blank" rel="noopener noreferrer">Obejrzyj film <span aria-hidden="true">&#x2197;</span></a>
+              <a class="project-ext-link" href="https://www.youtube.com/watch?v=WOaOxbPIIhs" target="_blank" rel="noopener noreferrer">{isEn ? "Watch film" : "Obejrzyj film"} <span aria-hidden="true">&#x2197;</span></a>
             </div>
           </div>
-          <a class="arr-link" href="/portfolio/hiker/#film" aria-label="Film reklamowy Hiker · Zobacz case study"><span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="arr-link" href={isEn ? "/en/portfolio/hiker/#film" : "/portfolio/hiker/#film"} aria-label={isEn ? "Hiker promotional film · View case study" : "Film reklamowy Hiker · Zobacz case study"}><span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     </li>
 
+    <!-- P3: SZKOLA.BEST -->
     <li class="work p3">
       <article class="project-card">
-        <a class="media-link" href="/portfolio/szkola-best/" aria-label="szkola.best · Zobacz case study">
+        <a class="media-link" href={isEn ? "/en/portfolio/szkola-best/" : "/portfolio/szkola-best/"} aria-label={isEn ? "szkola.best · View case study" : "szkola.best · Zobacz case study"}>
           <div class="media">
             <video class="portfolio-loop" muted loop playsinline preload="none" poster="/assets/motion/best-poster.webp" aria-hidden="true" tabindex="-1">
               <source data-src="/assets/motion/best.webm" type="video/webm">
               <source data-src="/assets/motion/best.mp4" type="video/mp4">
             </video>
             <div class="site-preview">
-              <img class="project-image" src="/assets/portfolio/szkola-best.png" alt="Projekt strony Best English z&nbsp;ofertą kursów języka angielskiego" loading="lazy" decoding="async" width="1280" height="720">
+              <img class="project-image" src="/assets/portfolio/szkola-best.png" alt={isEn ? "Best English language school website design" : "Projekt strony Best English z\u00A0ofertą kursów języka angielskiego"} loading="lazy" decoding="async" width="1280" height="720">
             </div>
-            <span class="project-action">Zobacz projekt <span aria-hidden="true">&rarr;</span></span>
+            <span class="project-action">{isEn ? "View project" : "Zobacz projekt"} <span aria-hidden="true">&rarr;</span></span>
           </div>
         </a>
         <div class="caption">
           <div class="caption-copy">
-            <p class="cat">03 / Strona WWW</p>
-            <h3 class="title"><a class="title-link" href="/portfolio/szkola-best/">szkola.best</a></h3>
-            <p class="project-description">Strona szkoły języka angielskiego dla&nbsp;dzieci i&nbsp;młodzieży. Porządkuje ofertę kursów i&nbsp;prowadzi rodzica od&nbsp;pierwszego kontaktu do&nbsp;zapisu.</p>
+            <p class="cat">{isEn ? "03 / Website" : "03 / Strona WWW"}</p>
+            <h3 class="title"><a class="title-link" href={isEn ? "/en/portfolio/szkola-best/" : "/portfolio/szkola-best/"}>szkola.best</a></h3>
+            <p class="project-description">
+              {isEn ? "An English language school website for children and teenagers. It structures the course offer and guides parents smoothly from first enquiry to enrolment." : "Strona szkoły języka angielskiego dla\u00A0dzieci i\u00A0młodzieży. Porządkuje ofertę kursów i\u00A0prowadzi rodzica od\u00A0pierwszego kontaktu do\u00A0zapisu."}
+            </p>
             <div class="project-ext-action">
-              <a class="project-ext-link" href="https://szkola.best/" target="_blank" rel="noopener noreferrer">Otwórz stronę <span aria-hidden="true">&#x2197;</span></a>
+              <a class="project-ext-link" href="https://szkola.best/" target="_blank" rel="noopener noreferrer">{isEn ? "Open website" : "Otwórz stronę"} <span aria-hidden="true">&#x2197;</span></a>
             </div>
           </div>
-          <a class="arr-link" href="/portfolio/szkola-best/" aria-label="szkola.best · Zobacz case study"><span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="arr-link" href={isEn ? "/en/portfolio/szkola-best/" : "/portfolio/szkola-best/"} aria-label={isEn ? "szkola.best · View case study" : "szkola.best · Zobacz case study"}><span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     </li>
 
+    <!-- P4: HIKER BRANDING -->
     <li class="work p4">
       <article class="project-card">
-        <a class="media-link" href="/portfolio/hiker/#branding" aria-label="Branding Hiker · Zobacz case study">
+        <a class="media-link" href={isEn ? "/en/portfolio/hiker/#branding" : "/portfolio/hiker/#branding"} aria-label={isEn ? "Hiker branding · View case study" : "Branding Hiker · Zobacz case study"}>
           <div class="media">
             <video class="portfolio-loop" muted loop playsinline preload="none" poster="/assets/motion/hiker-brand-poster.webp" aria-hidden="true" tabindex="-1">
               <source data-src="/assets/motion/hiker-brand.webm" type="video/webm">
               <source data-src="/assets/motion/hiker-brand.mp4" type="video/mp4">
             </video>
-            <img class="project-image" data-parallax="photo" src="/assets/portfolio/hiker.webp" alt="Identyfikacja Hiker: logo, wizytówki i&nbsp;materiały firmowe" loading="lazy" decoding="async" width="1200" height="800">
-            <span class="project-action">Zobacz projekt <span aria-hidden="true">&rarr;</span></span>
+            <img class="project-image" src="/assets/portfolio/hiker.webp" alt={isEn ? "Hiker visual identity on business cards and stationery" : "Identyfikacja wizualna Hiker na wizytówkach i papierze firmowym"} loading="lazy" decoding="async" width="1400" height="920">
+            <span class="project-action">{isEn ? "View project" : "Zobacz projekt"} <span aria-hidden="true">&rarr;</span></span>
           </div>
         </a>
         <div class="caption">
           <div class="caption-copy">
-            <p class="cat">04 / Logo / branding</p>
-            <h3 class="title"><a class="title-link" href="/portfolio/hiker/#branding">Branding Hiker</a></h3>
-            <p class="project-description">Identyfikacja wizualna marki outdoorowej. System logo i&nbsp;materiałów buduje spójny obraz marki na&nbsp;szlaku i&nbsp;w&nbsp;kontakcie z&nbsp;klientem.</p>
+            <p class="cat">{isEn ? "04 / Logo / branding" : "04 / Logo / branding"}</p>
+            <h3 class="title"><a class="title-link" href={isEn ? "/en/portfolio/hiker/#branding" : "/portfolio/hiker/#branding"}>Hiker</a></h3>
+            <p class="project-description">
+              {isEn ? "Visual identity for an outdoor brand. The logo, colour scheme, and stationery establish a consistent brand image across touchpoints." : "Identyfikacja wizualna marki outdoorowej. Znak i\u00A0materiały firmowe tworzą spójny wizerunek marki."}
+            </p>
           </div>
-          <a class="arr-link" href="/portfolio/hiker/#branding" aria-label="Branding Hiker · Zobacz case study"><span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="arr-link" href={isEn ? "/en/portfolio/hiker/#branding" : "/portfolio/hiker/#branding"} aria-label={isEn ? "Hiker branding · View case study" : "Branding Hiker · Zobacz case study"}><span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     </li>
 
+    <!-- P5: DREW-ART -->
     <li class="work p5">
       <article class="project-card">
-        <a class="media-link" href="/portfolio/drew-art/" aria-label="Drew-Art · Zobacz case study">
+        <a class="media-link" href={isEn ? "/en/portfolio/drew-art/" : "/portfolio/drew-art/"} aria-label={isEn ? "Drew-Art · View case study" : "Drew-Art · Zobacz case study"}>
           <div class="media">
             <video class="portfolio-loop" muted loop playsinline preload="none" poster="/assets/motion/drew-art-poster.webp" aria-hidden="true" tabindex="-1">
               <source data-src="/assets/motion/drew-art.webm" type="video/webm">
               <source data-src="/assets/motion/drew-art.mp4" type="video/mp4">
             </video>
-            <img class="project-image" src="/assets/portfolio/drew-art.webp" alt="Projekt strony internetowej Drew-Art" loading="lazy" decoding="async" width="1200" height="800">
-            <span class="project-action">Zobacz projekt <span aria-hidden="true">&rarr;</span></span>
+            <img class="project-image" src="/assets/portfolio/drew-art.webp" alt={isEn ? "Drew-Art proposed website design" : "Projekt strony Drew-Art"} loading="lazy" decoding="async" width="1400" height="920">
+            <span class="project-action">{isEn ? "View project" : "Zobacz projekt"} <span aria-hidden="true">&rarr;</span></span>
           </div>
         </a>
         <div class="caption">
           <div class="caption-copy">
-            <p class="cat">05 / Strona WWW</p>
-            <h3 class="title"><a class="title-link" href="/portfolio/drew-art/">Drew-Art</a></h3>
-            <p class="project-description">Propozycja strony dla&nbsp;firmy z&nbsp;branży drzewnej. Układ porządkuje ofertę i&nbsp;pokazuje produkty w&nbsp;nowoczesnym, sprzedażowym kontekście.</p>
+            <p class="cat">{isEn ? "05 / Website" : "05 / Strona WWW"}</p>
+            <h3 class="title"><a class="title-link" href={isEn ? "/en/portfolio/drew-art/" : "/portfolio/drew-art/"}>Drew-Art</a></h3>
+            <p class="project-description">
+              {isEn ? "A website concept for a woodworking business. The layout structures the offer and presents products in a clear, modern commercial context." : "Propozycja strony dla\u00A0firmy z\u00A0branży drzewnej. Układ porządkuje ofertę i\u00A0pokazuje produkty w\u00A0nowoczesnym kontekście sprzedażowym."}
+            </p>
             <div class="project-ext-action">
-              <a class="project-ext-link" href="https://drew-art.com.pl" target="_blank" rel="noopener noreferrer">Otwórz stronę Drew-Art <span aria-hidden="true">&#x2197;</span></a>
+              <a class="project-ext-link" href="https://drew-art.com.pl" target="_blank" rel="noopener noreferrer">{isEn ? "Open website" : "Otwórz stronę"} <span aria-hidden="true">&#x2197;</span></a>
             </div>
           </div>
-          <a class="arr-link" href="/portfolio/drew-art/" aria-label="Drew-Art · Zobacz case study"><span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="arr-link" href={isEn ? "/en/portfolio/drew-art/" : "/portfolio/drew-art/"} aria-label={isEn ? "Drew-Art · View case study" : "Drew-Art · Zobacz case study"}><span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     </li>
 
+    <!-- P6: JD UBEZPIECZENIA -->
     <li class="work p6">
       <article class="project-card">
-        <a class="media-link" href="/portfolio/jd-ubezpieczenia/" aria-label="JD Ubezpieczenia · Zobacz case study">
+        <a class="media-link" href={isEn ? "/en/portfolio/jd-ubezpieczenia/" : "/portfolio/jd-ubezpieczenia/"} aria-label={isEn ? "JD Ubezpieczenia · View case study" : "JD Ubezpieczenia · Zobacz case study"}>
           <div class="media">
             <video class="portfolio-loop" muted loop playsinline preload="none" poster="/assets/motion/jd-poster.webp" aria-hidden="true" tabindex="-1">
               <source data-src="/assets/motion/jd.webm" type="video/webm">
               <source data-src="/assets/motion/jd.mp4" type="video/mp4">
             </video>
-            <img class="project-image" src="/assets/portfolio/jd-ubezpieczenia.webp" alt="Logo JD Ubezpieczenia · Joanna Dywan" loading="lazy" decoding="async" width="1200" height="800">
-            <span class="project-action">Zobacz projekt <span aria-hidden="true">&rarr;</span></span>
+            <img class="project-image" src="/assets/portfolio/jd-ubezpieczenia.webp" alt={isEn ? "JD Ubezpieczenia Joanna Dywan logo and branding" : "Logo JD Ubezpieczenia · Joanna Dywan"} loading="lazy" decoding="async" width="1400" height="920">
+            <span class="project-action">{isEn ? "View project" : "Zobacz projekt"} <span aria-hidden="true">&rarr;</span></span>
           </div>
         </a>
         <div class="caption">
           <div class="caption-copy">
-            <p class="cat">06 / Logo / branding</p>
-            <h3 class="title"><a class="title-link" href="/portfolio/jd-ubezpieczenia/">JD Ubezpieczenia</a></h3>
-            <p class="project-description">Logo i&nbsp;materiały firmowe dla&nbsp;marki ubezpieczeniowej. Identyfikacja łączy inicjały z&nbsp;motywem ochrony i&nbsp;porządkuje komunikację marki.</p>
+            <p class="cat">{isEn ? "06 / Logo / branding" : "06 / Logo / branding"}</p>
+            <h3 class="title"><a class="title-link" href={isEn ? "/en/portfolio/jd-ubezpieczenia/" : "/portfolio/jd-ubezpieczenia/"}>JD Ubezpieczenia</a></h3>
+            <p class="project-description">
+              {isEn ? "Logo and corporate stationery for an insurance advisory brand. The identity combines initials with a shield protection motif to build client confidence." : "Logo i\u00A0materiały firmowe dla\u00A0marki ubezpieczeniowej. Identyfikacja łączy inicjały z\u00A0motywem ochrony i\u00A0porządkuje komunikację marki."}
+            </p>
           </div>
-          <a class="arr-link" href="/portfolio/jd-ubezpieczenia/" aria-label="JD Ubezpieczenia · Zobacz case study"><span class="arr" aria-hidden="true">&rarr;</span></a>
+          <a class="arr-link" href={isEn ? "/en/portfolio/jd-ubezpieczenia/" : "/portfolio/jd-ubezpieczenia/"} aria-label={isEn ? "JD Ubezpieczenia · View case study" : "JD Ubezpieczenia · Zobacz case study"}><span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     </li>

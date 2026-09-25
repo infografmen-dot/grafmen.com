@@ -1,29 +1,58 @@
 ---
+interface Props {
+  lang?: 'pl' | 'en';
+}
+
+const { lang = 'pl' } = Astro.props;
+const isEn = lang === 'en';
 ---
-<section class="home-section faq-section" id="faq" aria-labelledby="faq-title" lang="pl">
+<section class="home-section faq-section" id="faq" aria-labelledby="faq-title" lang={isEn ? 'en-GB' : 'pl'}>
   <div class="home-inner faq-grid">
     <div class="home-section-intro">
       <p class="home-kicker">FAQ</p>
-      <h2 id="faq-title" data-motion="heading-reveal">Najczęstsze pytania.</h2>
-      <p class="home-lead">Masz inne pytanie? Napisz do&nbsp;mnie, chętnie wyjaśnię szczegóły.</p>
+      <h2 id="faq-title" data-motion="heading-reveal">{isEn ? "Frequently asked questions." : "Najczęstsze pytania."}</h2>
+      <p class="home-lead">{isEn ? "Have another question? Feel free to write to me — I’ll gladly explain the details." : "Masz inne pytanie? Napisz do\u00A0mnie, chętnie wyjaśnię szczegóły."}</p>
     </div>
     <div class="faq-list">
-      <details open>
-        <summary>Od&nbsp;czego zależy cena projektu?</summary>
-        <p>Od&nbsp;zakresu, liczby podstron lub materiałów oraz&nbsp;potrzebnych funkcji. Pakiety i&nbsp;ceny znajdziesz w&nbsp;ofercie <a href="/strony-www/#pakiety">stron WWW</a> oraz&nbsp;<a href="/branding/#pakiety">brandingu</a>.</p>
-      </details>
-      <details>
-        <summary>Czy mogę zamówić samo logo lub branding?</summary>
-        <p>Tak. Logo, identyfikacja wizualna i&nbsp;strona WWW są osobnymi usługami. Możesz też zamówić materiały do&nbsp;druku, grafiki do&nbsp;internetu, animacje lub wideo.</p>
-      </details>
-      <details>
-        <summary>Ile trwa realizacja?</summary>
-        <p>Termin zależy od&nbsp;zakresu projektu, gotowości materiałów i&nbsp;etapów akceptacji. Harmonogram ustalam przed rozpoczęciem pracy.</p>
-      </details>
-      <details>
-        <summary>Czy działasz poza Przemyślem?</summary>
-        <p>Tak. Pracuję zdalnie z&nbsp;firmami z&nbsp;całej Polski i&nbsp;z&nbsp;zagranicy. Ustalenia prowadzimy mailowo lub telefonicznie, a&nbsp;projekty udostępniam do&nbsp;akceptacji online.</p>
-      </details>
+      {isEn ? (
+        <>
+          <details open>
+            <summary>What does the project price depend on?</summary>
+            <p>It depends on the scope, number of subpages or marketing assets, and required features. You can explore packages and prices in the <a href="/en/websites/#packages">websites</a> and <a href="/en/branding/#packages">branding</a> sections.</p>
+          </details>
+          <details>
+            <summary>Can I commission just a logo or visual identity?</summary>
+            <p>Yes. Logo design, brand identity, and websites are separate services. You can also order print collateral, digital marketing assets, animations, or video.</p>
+          </details>
+          <details>
+            <summary>How long does a project take?</summary>
+            <p>The timeline depends on the project scope, availability of your materials, and review cycles. We agree on a clear schedule before any work begins.</p>
+          </details>
+          <details>
+            <summary>Do you work with clients outside Przemyśl?</summary>
+            <p>Yes. I work remotely with businesses across Poland and internationally. We communicate via email or phone, and all designs are presented for online approval.</p>
+          </details>
+        </>
+      ) : (
+        <>
+          <details open>
+            <summary>Od&nbsp;czego zależy cena projektu?</summary>
+            <p>Od&nbsp;zakresu, liczby podstron lub materiałów oraz&nbsp;potrzebnych funkcji. Pakiety i&nbsp;ceny znajdziesz w&nbsp;ofercie <a href="/strony-www/#pakiety">stron WWW</a> oraz&nbsp;<a href="/branding/#pakiety">brandingu</a>.</p>
+          </details>
+          <details>
+            <summary>Czy mogę zamówić samo logo lub branding?</summary>
+            <p>Tak. Logo, identyfikacja wizualna i&nbsp;strona WWW są osobnymi usługami. Możesz też zamówić materiały do&nbsp;druku, grafiki do&nbsp;internetu, animacje lub wideo.</p>
+          </details>
+          <details>
+            <summary>Ile trwa realizacja?</summary>
+            <p>Termin zależy od&nbsp;zakresu projektu, gotowości materiałów i&nbsp;etapów akceptacji. Harmonogram ustalam przed rozpoczęciem pracy.</p>
+          </details>
+          <details>
+            <summary>Czy działasz poza Przemyślem?</summary>
+            <p>Tak. Pracuję zdalnie z&nbsp;firmami z&nbsp;całej Polski i&nbsp;z&nbsp;zagranicy. Ustalenia prowadzimy mailowo lub telefonicznie, a&nbsp;projekty udostępniam do&nbsp;akceptacji online.</p>
+          </details>
+        </>
+      )}
     </div>
   </div>
 </section>

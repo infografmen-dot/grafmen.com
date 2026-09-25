@@ -1,18 +1,32 @@
 ---
 import CtaArrow from './CtaArrow.astro';
+import { ui } from '../data/i18n/ui';
 
 interface Props {
   currentNav?: 'home' | 'web' | 'brand' | 'work' | 'about' | 'blog' | 'contact';
+  lang?: 'pl' | 'en';
+  altLangUrl?: string;
 }
 
-const { currentNav } = Astro.props;
+const { currentNav, lang = 'pl', altLangUrl } = Astro.props;
 const isHome = currentNav === 'home';
+const isEn = lang === 'en';
+const t = ui[lang].nav;
+
+const homeHref = isEn ? '/en/' : '/';
+const webHref = isEn ? '/en/websites/' : '/strony-www/';
+const brandHref = isEn ? '/en/branding/' : '/branding/';
+const workHref = isEn ? '/en/portfolio/' : '/portfolio/';
+const aboutHref = isEn ? '/en/about/' : '/o-mnie/';
+const blogHref = isEn ? '/en/blog/' : '/blog/';
+const contactHref = isEn ? '/en/contact/' : '/kontakt/';
+
 const svgLogoSrc = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjAuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNvbXBvbmVudF8xN18zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiCgkgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTcxLjYgNTYuOCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTcxLjYgNTYuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJCS5zdDF7ZmlsbDojMTAxMDEwO30KPC9zdHlsZT4KPHBhdGggaWQ9IlBhdGhfMTA3OTciIGNsYXNzPSJzdDEiIGQ9Ik0yNy4xLDM5LjNjLTYuNiwwLTExLjctNC44LTExLjctMTEuMmMwLjEtNi4zLDUuMi0xMS4zLDExLjUtMTEuMmMzLjUsMCw2LjgsMS43LDguOSw0LjUKCWwtMy41LDJjLTEuNC0xLjYtMy41LTIuNi01LjYtMi41Yy0zLjgtMC4xLTcsMi45LTcuMSw2LjdjMCwwLjIsMCwwLjMsMCwwLjVjMCw0LjIsMyw3LjEsNy41LDcuMWMzLjEsMCw1LjMtMS4zLDYuMi0zLjhsMC4yLTAuNgoJaC02LjJ2LTMuNWgxMC4zdjEuNEMzNy43LDM1LjEsMzMuNSwzOS4zLDI3LjEsMzkuM3oiLz4KPHBhdGggaWQ9IlBhdGhfMTA3OTgiIGNsYXNzPSJzdDEiIGQ9Ik01OS42LDQ5LjJMNDguMiwzMS41SDQ1djcuNGgtNC4yVjE3LjNoOC41YzQsMCw3LjIsMy4yLDcuMiw3LjJjLTAuMSwyLjYtMS42LDQuOS0zLjksNi4xCglsLTAuNSwwLjJMNjQsNDkuMkg1OS42eiBNNDUsMjcuOWg0LjNjMS45LTAuMiwzLjItMS44LDMtMy43Yy0wLjItMS42LTEuNC0yLjktMy0zSDQ1VjI3Ljl6Ii8+CjxwYXRoIGlkPSJQYXRoXzEwNzk5IiBjbGFzcz0ic3QxIiBkPSJNNzQuNCwzOC45bC0xLjEtMy41aC05LjFsLTEuMSwzLjVoLTQuNmw3LjMtMjEuNWg1LjlMNzksMzguOUg3NC40eiBNNjUuNCwzMS41SDcybC0zLjMtMTAuMwoJTDY1LjQsMzEuNXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDAiIGNsYXNzPSJzdDEiIGQ9Ik04MSwzOC45VjcuNmgxMi43djRoLTguNVYyNmg4LjN2NGgtOC4zdjlMODEsMzguOXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDEiIGNsYXNzPSJzdDEiIGQ9Ik0xMTQsNDkuMlYyNC42bC02LjYsMTAuOGgwbC02LjYtMTAuOHYxNC4zaC00LjJWMTcuM2g0LjRsNi40LDEwLjRsNi40LTEwLjRoNC40djMxLjlMMTE0LDQ5LjIKCXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDIiIGNsYXNzPSJzdDEiIGQ9Ik0xMjIuMiwzOC45VjE3LjNoMTN2NGgtOC44VjI2aDh2My45aC04djQuOWg5djRMMTIyLjIsMzguOXoiLz4KPHBhdGggaWQ9IlBhdGhfMTA4MDMiIGNsYXNzPSJzdDEiIGQ9Ik0xNTIsMzguOWwtOS40LTEzLjJ2MTMuMmgtNC4yVjE3LjNoMy4xbDkuNCwxMy4yVjE3LjNoNC4ydjIxLjVMMTUyLDM4Ljl6Ii8+CjxyZWN0IGlkPSJSZWN0YW5nbGVfMTIwIiB4PSIxMDIuMiIgeT0iNy42IiBjbGFzcz0ic3QxIiB3aWR0aD0iNjIuOSIgaGVpZ2h0PSI0Ii8+CjxyZWN0IGlkPSJSZWN0YW5nbGVfMTIxIiB4PSI2LjUiIHk9IjcuNiIgY2xhc3M9InN0MSIgd2lkdGg9IjY2LjIiIGhlaWdodD0iNCIvPgo8cmVjdCBpZD0iUmVjdGFuZ2xlXzEyMiIgeD0iNjAiIHk9IjQ1LjIiIGNsYXNzPSJzdDEiIHdpZHRoPSI0NS43IiBoZWlnaHQ9IjQiLz4KPHJlY3QgaWQ9IlJlY3RhbmdsZV8xMjMiIHg9IjEyNi41IiB5PSI0NS4yIiBjbGFzcz0ic3QxIiB3aWR0aD0iMzYuNyIgaGVpZ2h0PSI0Ii8+CjxyZWN0IGlkPSJSZWN0YW5nbGVfMTI0IiB4PSI2LjUiIHk9IjQ1LjIiIGNsYXNzPSJzdDEiIHdpZHRoPSI0My42IiBoZWlnaHQ9IjQiLz4KPHJlY3QgaWQ9IlJlY3RhbmdsZV8xMjUiIHg9IjE2MS4xIiB5PSI3LjYiIGNsYXNzPSJzdDEiIHdpZHRoPSI0IiBoZWlnaHQ9IjQxLjYiLz4KPHJlY3QgaWQ9IlJlY3RhbmdsZV8xMjYiIHg9IjYuNSIgeT0iNy42IiBjbGFzcz0ic3QxIiB3aWR0aD0iNCIgaGVpZ2h0PSI0MS42Ii8+Cjwvc3ZnPgo=";
 ---
 <div class="site-header-shell">
   <div class="wrap">
     <header>
-      <a class="home-logo" href="/" aria-label="Grafmen · strona główna">
+      <a class="home-logo" href={homeHref} aria-label={t.homeAria}>
         {isHome ? (
           <>
             <video
@@ -40,38 +54,46 @@ const svgLogoSrc = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZG
           <img class="logo" src={svgLogoSrc} alt="Grafmen" width="142" height="47" />
         )}
       </a>
-      <nav id="main-nav" aria-label="Główna nawigacja">
-        <a data-nav="web" class={currentNav === 'web' ? 'active' : ''} aria-current={currentNav === 'web' ? 'page' : undefined} href="/strony-www/">
-          <span class="nav-flip"><span class="nav-flip-front">Strony WWW</span><span class="nav-flip-back" aria-hidden="true">Strony WWW</span></span>
+      <nav id="main-nav" aria-label={t.mainNavAria}>
+        <a data-nav="web" class={currentNav === 'web' ? 'active' : ''} aria-current={currentNav === 'web' ? 'page' : undefined} href={webHref}>
+          <span class="nav-flip"><span class="nav-flip-front">{t.web}</span><span class="nav-flip-back" aria-hidden="true">{t.web}</span></span>
         </a>
-        <a data-nav="brand" class={currentNav === 'brand' ? 'active' : ''} aria-current={currentNav === 'brand' ? 'page' : undefined} href="/branding/">
-          <span class="nav-flip"><span class="nav-flip-front">Branding</span><span class="nav-flip-back" aria-hidden="true">Branding</span></span>
+        <a data-nav="brand" class={currentNav === 'brand' ? 'active' : ''} aria-current={currentNav === 'brand' ? 'page' : undefined} href={brandHref}>
+          <span class="nav-flip"><span class="nav-flip-front">{t.brand}</span><span class="nav-flip-back" aria-hidden="true">{t.brand}</span></span>
         </a>
-        <a data-nav="work" class={currentNav === 'work' ? 'active' : ''} aria-current={currentNav === 'work' ? 'page' : undefined} href="/portfolio/">
-          <span class="nav-flip"><span class="nav-flip-front">Portfolio</span><span class="nav-flip-back" aria-hidden="true">Portfolio</span></span>
+        <a data-nav="work" class={currentNav === 'work' ? 'active' : ''} aria-current={currentNav === 'work' ? 'page' : undefined} href={workHref}>
+          <span class="nav-flip"><span class="nav-flip-front">{t.work}</span><span class="nav-flip-back" aria-hidden="true">{t.work}</span></span>
         </a>
-        <a data-nav="about" class={currentNav === 'about' ? 'active' : ''} aria-current={currentNav === 'about' ? 'page' : undefined} href="/o-mnie/">
-          <span class="nav-flip"><span class="nav-flip-front">O&nbsp;mnie</span><span class="nav-flip-back" aria-hidden="true">O&nbsp;mnie</span></span>
+        <a data-nav="about" class={currentNav === 'about' ? 'active' : ''} aria-current={currentNav === 'about' ? 'page' : undefined} href={aboutHref}>
+          <span class="nav-flip"><span class="nav-flip-front">{t.about}</span><span class="nav-flip-back" aria-hidden="true">{t.about}</span></span>
         </a>
-        <a data-nav="blog" class={currentNav === 'blog' ? 'active' : ''} aria-current={currentNav === 'blog' ? 'page' : undefined} href="/blog/">
-          <span class="nav-flip"><span class="nav-flip-front">Blog</span><span class="nav-flip-back" aria-hidden="true">Blog</span></span>
+        <a data-nav="blog" class={currentNav === 'blog' ? 'active' : ''} aria-current={currentNav === 'blog' ? 'page' : undefined} href={blogHref}>
+          <span class="nav-flip"><span class="nav-flip-front">{t.blog}</span><span class="nav-flip-back" aria-hidden="true">{t.blog}</span></span>
         </a>
-        <a data-nav="contact" class={`nav-contact ${currentNav === 'contact' ? 'active' : ''}`} aria-current={currentNav === 'contact' ? 'page' : undefined} href="/kontakt/">
-          <span class="nav-flip"><span class="nav-flip-front">Kontakt</span><span class="nav-flip-back" aria-hidden="true">Kontakt</span></span>
+        <a data-nav="contact" class={`nav-contact ${currentNav === 'contact' ? 'active' : ''}`} aria-current={currentNav === 'contact' ? 'page' : undefined} href={contactHref}>
+          <span class="nav-flip"><span class="nav-flip-front">{t.contact}</span><span class="nav-flip-back" aria-hidden="true">{t.contact}</span></span>
         </a>
       </nav>
       <div class="tools">
-        <div class="language-switch" role="group" aria-label="Język / Language">
-          <button type="button" data-language="pl" aria-pressed="true" aria-label="Polski">PL</button>
-          <span aria-hidden="true">/</span>
-          <button type="button" data-language="en" aria-pressed="false" aria-label="English">EN</button>
+        <div class="language-switch" role="group" aria-label={t.langSwitchAria}>
+          {isEn ? (
+            <a href={altLangUrl || '/'} class="lang-btn" aria-label={t.switchToPl}>PL</a>
+          ) : (
+            <span class="lang-btn is-active" aria-current="true">PL</span>
+          )}
+          <span aria-hidden="true" class="lang-sep">/</span>
+          {isEn ? (
+            <span class="lang-btn is-active" aria-current="true">EN</span>
+          ) : (
+            <a href={altLangUrl || '/en/'} class="lang-btn" aria-label={t.switchToEn}>EN</a>
+          )}
         </div>
         <span class="sep"></span>
-        <a class="quote" href="/kontakt/">
-          <span>Kontakt</span>
+        <a class="quote" href={contactHref}>
+          <span>{t.quote}</span>
           <CtaArrow />
         </a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Otwórz menu">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label={t.menuOpen}>
           <svg class="menu-toggle-svg" viewBox="0 0 32 32" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" fill="none" stroke="currentColor" aria-hidden="true">
             <path class="menu-toggle-path-top" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22" />
             <path class="menu-toggle-path-mid" d="M7 16 27 16" />
