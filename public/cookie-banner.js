@@ -1,10 +1,11 @@
 /**
  * cookie-banner.js — Grafmen
  *
- * Serwis nie używa cookies wymagających zgody RODO.
- * Panel informacyjny. Wybór zapamiętywany w localStorage.
+ * Komunikat informacyjny o prywatności (pill style).
+ * Zamknięcie komunikatu zapamiętywane w localStorage.
+ * Zamknięcie komunikatu nie oznacza zgody na jakiekolwiek technologie.
  *
- * API: window.gmCookies.reset() — ponownie pokazuje pasek
+ * API: window.gmCookies.reset() — ponownie pokazuje pasek i otwiera panel
  */
 
 (function () {
@@ -13,8 +14,8 @@
   var STORAGE_KEY = 'gm_cookies_dismissed';
 
   var banner = null;
-  var acceptBtn = null;
-  var infoBtn = null;
+  var privacyBtn = null;
+  var closeBtn = null;
   var infoPanel = null;
   var infoClose = null;
   var showTimer = null;
@@ -53,18 +54,17 @@
     }, 280);
   }
 
-  function accept() {
+  function dismiss() {
     saveDismissed();
     hideBanner();
   }
 
-  /* ── Panel Info ── */
+  /* ── Panel Prywatność ── */
   function openInfo() {
     if (!infoPanel) return;
     infoPanelOpen = true;
     infoPanel.removeAttribute('hidden');
-    if (infoBtn) infoBtn.setAttribute('aria-expanded', 'true');
-    /* focus na przycisk zamknięcia */
+    if (privacyBtn) privacyBtn.setAttribute('aria-expanded', 'true');
     setTimeout(function () {
       if (infoClose) infoClose.focus();
     }, 50);
@@ -74,9 +74,9 @@
     if (!infoPanel) return;
     infoPanelOpen = false;
     infoPanel.setAttribute('hidden', '');
-    if (infoBtn) {
-      infoBtn.setAttribute('aria-expanded', 'false');
-      infoBtn.focus();
+    if (privacyBtn) {
+      privacyBtn.setAttribute('aria-expanded', 'false');
+      privacyBtn.focus();
     }
   }
 
@@ -91,7 +91,7 @@
       if (infoPanelOpen) {
         closeInfo();
       } else {
-        accept();
+        dismiss();
       }
     }
   }
@@ -99,7 +99,8 @@
   /* ── Kliknięcie poza panelem Info ── */
   function onDocClick(e) {
     if (!infoPanelOpen) return;
-    if (infoPanel && !infoPanel.contains(e.target) && e.target !== infoBtn) {
+    if (e.target && e.target.closest && e.target.closest('.footer-cookies-btn')) return;
+    if (infoPanel && !infoPanel.contains(e.target) && e.target !== privacyBtn) {
       closeInfo();
     }
   }
@@ -114,18 +115,18 @@
 
   /* ── Inicjalizacja ── */
   function init() {
-    banner    = document.getElementById('cookie-banner');
-    acceptBtn = document.getElementById('cookie-banner-accept');
-    infoBtn   = document.getElementById('cookie-banner-info');
-    infoPanel = document.getElementById('cb-info-panel');
-    infoClose = document.getElementById('cb-info-close');
+    banner     = document.getElementById('cookie-banner');
+    privacyBtn = document.getElementById('cookie-banner-privacy') || document.getElementById('cookie-banner-info');
+    closeBtn   = document.getElementById('cookie-banner-close') || document.getElementById('cookie-banner-accept');
+    infoPanel  = document.getElementById('cb-info-panel');
+    infoClose  = document.getElementById('cb-info-close');
 
-    if (!banner || !acceptBtn) return;
+    if (!banner || !closeBtn) return;
 
-    acceptBtn.addEventListener('click', accept);
+    closeBtn.addEventListener('click', dismiss);
 
-    if (infoBtn)   infoBtn.addEventListener('click', toggleInfo);
-    if (infoClose) infoClose.addEventListener('click', closeInfo);
+    if (privacyBtn) privacyBtn.addEventListener('click', toggleInfo);
+    if (infoClose)  infoClose.addEventListener('click', closeInfo);
 
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('click', onDocClick);

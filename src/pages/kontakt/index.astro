@@ -62,15 +62,76 @@ const description = "Skontaktuj się z Krzysztofem Krawczykiem z Grafmen. Strony
                 <input name="email" type="email" autocomplete="email" required maxlength="200">
               </label>
             </div>
-            <label>Czego dotyczy projekt?
-              <select name="topic">
-                <option>Strona internetowa</option>
-                <option>Modernizacja strony</option>
-                <option>Logo i&nbsp;branding</option>
-                <option>Materiały firmowe</option>
-                <option>Inny projekt</option>
-              </select>
-            </label>
+            <div class="field-group" id="topic-field-group">
+              <label id="topic-label" for="contact-topic">Czego dotyczy projekt?</label>
+              <div class="custom-select-wrap" id="topic-select-wrap">
+                <select name="topic" id="contact-topic" class="native-select">
+                  <option value="Strona internetowa" selected>Strona internetowa</option>
+                  <option value="Modernizacja strony">Modernizacja strony</option>
+                  <option value="Logo i branding">Logo i&nbsp;branding</option>
+                  <option value="Materiały firmowe">Materiały firmowe</option>
+                  <option value="Inny projekt">Inny projekt</option>
+                </select>
+
+                <button
+                  type="button"
+                  class="custom-select-trigger"
+                  id="topic-trigger"
+                  aria-haspopup="listbox"
+                  aria-expanded="false"
+                  aria-labelledby="topic-label topic-value-display"
+                  aria-controls="topic-listbox"
+                >
+                  <span class="custom-select-value" id="topic-value-display">Strona internetowa</span>
+                  <span class="custom-select-arrow" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </button>
+
+                <ul
+                  id="topic-listbox"
+                  class="custom-select-menu"
+                  role="listbox"
+                  aria-labelledby="topic-label"
+                  tabindex="-1"
+                  hidden
+                >
+                  <li role="option" id="topic-opt-0" class="custom-select-opt is-selected" aria-selected="true" data-value="Strona internetowa" tabindex="-1">
+                    <span class="opt-text">Strona internetowa</span>
+                    <span class="opt-check" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                  </li>
+                  <li role="option" id="topic-opt-1" class="custom-select-opt" aria-selected="false" data-value="Modernizacja strony" tabindex="-1">
+                    <span class="opt-text">Modernizacja strony</span>
+                    <span class="opt-check" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                  </li>
+                  <li role="option" id="topic-opt-2" class="custom-select-opt" aria-selected="false" data-value="Logo i branding" tabindex="-1">
+                    <span class="opt-text">Logo i&nbsp;branding</span>
+                    <span class="opt-check" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                  </li>
+                  <li role="option" id="topic-opt-3" class="custom-select-opt" aria-selected="false" data-value="Materiały firmowe" tabindex="-1">
+                    <span class="opt-text">Materiały firmowe</span>
+                    <span class="opt-check" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                  </li>
+                  <li role="option" id="topic-opt-4" class="custom-select-opt" aria-selected="false" data-value="Inny projekt" tabindex="-1">
+                    <span class="opt-text">Inny projekt</span>
+                    <span class="opt-check" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                  </li>
+                </ul>
+                <div class="custom-select-backdrop" id="topic-select-backdrop" hidden></div>
+              </div>
+            </div>
             <label>Opisz swój projekt
               <textarea name="message" rows="6" required minlength="10" maxlength="3000" placeholder="Kilka zdań o&nbsp;firmie, zakresie i&nbsp;potrzebach"></textarea>
             </label>

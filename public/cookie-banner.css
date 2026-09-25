@@ -1,7 +1,6 @@
 /* ============================================================
    Cookie Banner — Grafmen — pill/capsule style
-   Wzorowany na Studio Ahremark: niski poziomy pasek w lewym
-   dolnym rogu, elementy w jednym wierszu.
+   Matowe szkło, zaokrąglenia 12px, dwa przyciski: [Prywatność] [Zamknij].
    ============================================================ */
 
 /* Kontener — wrapper dla pill + panelu info (absolute wewnątrz fixed) */
@@ -12,10 +11,9 @@
   bottom: max(24px, env(safe-area-inset-bottom, 0px));
   left: max(24px, env(safe-area-inset-left, 0px));
   z-index: 9000;
-  /* szerokość wynika z treści */
   display: inline-block;
 
-  /* animacja wejścia/wyjścia (brak mikroanimacji — JS toggle) */
+  /* animacja wejścia/wyjścia */
   opacity: 0;
   transform: translateY(8px);
   pointer-events: none;
@@ -34,13 +32,13 @@
   pointer-events: none;
 }
 
-/* ── Kapsułka / Pasek Cookies (matowe szkło) ── */
+/* ── Kapsułka / Pasek Prywatności (matowe szkło) ── */
 .cb-pill {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   height: 46px;
-  padding: 0 6px 0 16px;
+  padding: 0 6px;
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
@@ -58,26 +56,59 @@
   }
 }
 
-/* Etykieta "Cookies" */
-.cb-label {
-  font-size: 14px;
-  font-weight: 400;
-  color: #3b3b42;
-  padding-right: 6px;
-  user-select: none;
+/* Przycisk "Prywatność" — subtelny, interaktywny */
+.cb-btn-privacy,
+.cb-btn-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 34px;
+  padding: 0 12px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b4b54;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-/* Przycisk "Rozumiem" — zaokrąglenie 8px */
+.cb-btn-privacy:hover,
+.cb-btn-text:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #09090b;
+}
+
+.cb-btn-privacy[aria-expanded="true"],
+.cb-btn-text[aria-expanded="true"] {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--orange, #ff6400);
+  font-weight: 600;
+}
+
+.cb-btn-privacy:focus-visible,
+.cb-btn-text:focus-visible {
+  outline: 2px solid var(--orange, #ff6400);
+  outline-offset: 2px;
+}
+
+/* Przycisk "Zamknij" — zaokrąglenie 8px, białe tło */
+.cb-btn-close,
 .cb-btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 32px;
+  min-width: 44px;
+  height: 34px;
   padding: 0 14px;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 8px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
@@ -87,58 +118,31 @@
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
+.cb-btn-close:hover,
 .cb-btn-primary:hover {
   background: #f5f5f7;
-  border-color: rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.14);
 }
 
+.cb-btn-close:focus-visible,
 .cb-btn-primary:focus-visible {
   outline: 2px solid var(--orange, #ff6400);
   outline-offset: 2px;
 }
 
-/* Przycisk tekstowy "Info" */
-.cb-btn-text {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  height: 44px;
-  padding: 0 10px;
-  background: none;
-  border: none;
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 400;
-  color: #72727a;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: color 0.15s ease;
-  border-radius: 8px;
-}
-
-.cb-btn-text:hover {
-  color: var(--orange, #ff6400);
-}
-
-.cb-btn-text:focus-visible {
-  outline: 2px solid var(--orange, #ff6400);
-  outline-offset: 2px;
-}
-
-/* ── Panel Info (pojawia się nad kapsułką) ── */
+/* ── Panel Informacyjny (pojawia się nad kapsułką) ── */
 .cb-info-panel {
   position: absolute;
   bottom: calc(100% + 10px);
   left: 0;
-  width: 280px;
+  width: 300px;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-  padding: 14px 16px 16px;
+  padding: 16px;
   font-family: var(--font-body);
 }
 
@@ -163,12 +167,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   background: none;
   border: none;
   border-radius: 999px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1;
   color: #72727a;
   cursor: pointer;
@@ -190,30 +194,42 @@
   font-size: 13px;
   line-height: 1.55;
   color: #62626b;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
 }
 
 .cb-info-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 13px;
+  font-weight: 500;
   color: var(--orange, #ff6400);
   text-decoration: underline;
   text-underline-offset: 2px;
+  transition: color 0.15s ease;
 }
 
 .cb-info-link:hover {
   text-decoration: none;
+  color: #e05800;
+}
+
+.cb-info-link:focus-visible {
+  outline: 2px solid var(--orange, #ff6400);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ── Mobile ── */
 @media (max-width: 820px) {
   #cookie-banner {
-    /* nad przyciskiem back-to-top i mobilnym menu HOME */
+    /* nad dolnym paskiem fluid glass menu i przyciskiem powrotu */
     bottom: max(72px, calc(72px + env(safe-area-inset-bottom, 0px)));
     left: max(16px, env(safe-area-inset-left, 0px));
   }
 
   .cb-info-panel {
-    /* na małych ekranach panel może wychodzić poza lewą krawędź — ogranicz */
+    width: min(300px, calc(100vw - 32px));
     max-width: calc(100vw - 32px);
   }
 }

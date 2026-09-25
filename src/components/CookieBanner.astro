@@ -1,18 +1,19 @@
 ---
 ---
 <!--
-  CookieBanner — informacyjny pasek cookies (pill style)
-  Wzorowany na Studio Ahremark: jeden wiersz, kapsułka.
+  CookieBanner — informacyjny pasek prywatności (pill style)
+  Wzorowany na Studio Ahremark: matowe szkło, kapsułka w lewym dolnym rogu.
+  Dwa przyciski: [Prywatność] [Zamknij].
   Domyślnie hidden; cookie-banner.js ujawnia gdy potrzeba.
 -->
 <div
   id="cookie-banner"
   role="region"
-  aria-label="Informacja o cookies"
+  aria-label="Informacja o prywatności"
   aria-hidden="true"
   hidden
 >
-  <!-- Panel szczegółowy Info (pojawia się nad kapsułką po kliknięciu "Info") -->
+  <!-- Panel szczegółowy (pojawia się nad kapsułką po kliknięciu "Prywatność") -->
   <div
     class="cb-info-panel"
     id="cb-info-panel"
@@ -22,34 +23,33 @@
     hidden
   >
     <div class="cb-info-header">
-      <span class="cb-info-title" id="cb-info-title">Informacja o&nbsp;cookies</span>
+      <span class="cb-info-title" id="cb-info-title">Prywatność na&nbsp;stronie</span>
       <button
         class="cb-info-close"
         id="cb-info-close"
         type="button"
-        aria-label="Zamknij"
+        aria-label="Zamknij panel informacji"
       >×</button>
     </div>
     <p class="cb-info-text">
-      Zapamiętujemy zamknięcie tego&nbsp;komunikatu. Szczegóły znajdziesz w&nbsp;polityce prywatności.
+      W&nbsp;przeglądarce zapamiętujemy zamknięcie tego&nbsp;komunikatu, aby nie wyświetlać go ponownie. Informacje o&nbsp;przetwarzaniu danych znajdziesz w&nbsp;polityce prywatności.
     </p>
     <a class="cb-info-link" href="/polityka-prywatnosci/">Polityka prywatności <span aria-hidden="true">&rarr;</span></a>
   </div>
 
-  <!-- Kapsułka: Cookies [Rozumiem] [Info] -->
+  <!-- Kapsułka: [Prywatność] [Zamknij] -->
   <div class="cb-pill">
-    <span class="cb-label" aria-hidden="true">Cookies</span>
     <button
-      id="cookie-banner-accept"
+      id="cookie-banner-privacy"
       type="button"
-      class="cb-btn-primary"
-    >Rozumiem</button>
-    <button
-      id="cookie-banner-info"
-      type="button"
-      class="cb-btn-text"
+      class="cb-btn-privacy"
       aria-expanded="false"
       aria-controls="cb-info-panel"
-    >Info</button>
+    >Prywatność</button>
+    <button
+      id="cookie-banner-close"
+      type="button"
+      class="cb-btn-close"
+    >Zamknij</button>
   </div>
 </div>
