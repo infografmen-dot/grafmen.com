@@ -1126,7 +1126,6 @@
 
         // Wykluczenia kontrolek technicznych
         if (
-          el.closest('.language-switch') ||
           el.classList.contains('footer-cookies-btn') ||
           el.classList.contains('motion-toggle') ||
           el.classList.contains('menu-toggle') ||
@@ -1172,7 +1171,9 @@
         const textOnly = rawText;
 
         // Zapewnienie dostępności: czytnik otrzymuje jeden czysty pełny napis
-        el.setAttribute('aria-label', `${textOnly} ${arrow || ''}`.trim());
+        if (!el.hasAttribute('aria-label')) {
+          el.setAttribute('aria-label', `${textOnly} ${arrow || ''}`.trim());
+        }
 
         // Usuń poprzednią zawartość f3 jeśli istniała (np. przy przełączaniu języka)
         const oldClip = el.querySelector('.f3-clip');
@@ -1242,6 +1243,7 @@
 
       // 1. UNIVERSAL: menu i stopka – wszystkie strony
       document.querySelectorAll('#main-nav a').forEach(el => applyToElement(el, false, false));
+      document.querySelectorAll('.language-switch a').forEach(el => applyToElement(el, false, false));
       document.querySelectorAll('.footer-nav a, .footer-contact a, .social-links a').forEach(el => applyToElement(el, false, false));
       document.querySelectorAll('.tools .quote').forEach(el => applyToElement(el, false, true));
 

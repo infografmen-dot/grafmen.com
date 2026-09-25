@@ -32,6 +32,20 @@
 .language-switch button:not([aria-pressed="true"]):hover {
   color: var(--ink);
 }
+.language-switch a.f3-link {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  --f3-shadow: var(--orange, #ff6400);
+}
+.language-switch a.f3-link:hover {
+  color: #737d8d !important;
+}
+.language-switch a.f3-link .f3-clip {
+  display: inline-flex;
+  justify-content: center;
+  align-items: baseline;
+}
 .language-switch a.lang-btn:focus-visible,
 .language-switch button:focus-visible {
   outline: 2px solid var(--orange);
