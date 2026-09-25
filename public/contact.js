@@ -9,8 +9,6 @@
     const menu = selectWrap.querySelector('#topic-listbox');
     const options = Array.from(selectWrap.querySelectorAll('.custom-select-opt'));
 
-    const backdrop = selectWrap.querySelector('#topic-select-backdrop');
-
     if (nativeSelect && trigger && menu && options.length > 0) {
       // Uruchomienie trybu JS — ukrycie natywnego selecta dla wzroku, pokazanie custom triggera
       selectWrap.classList.add('js-select');
@@ -25,10 +23,6 @@
         trigger.setAttribute('aria-expanded', 'true');
         menu.removeAttribute('hidden');
         menu.classList.add('is-open');
-        if (backdrop) {
-          backdrop.removeAttribute('hidden');
-          backdrop.classList.add('is-active');
-        }
         highlightOption(highlightedIndex);
         options[highlightedIndex]?.scrollIntoView({ block: 'nearest' });
       }
@@ -39,10 +33,6 @@
         trigger.setAttribute('aria-expanded', 'false');
         menu.setAttribute('hidden', '');
         menu.classList.remove('is-open');
-        if (backdrop) {
-          backdrop.setAttribute('hidden', '');
-          backdrop.classList.remove('is-active');
-        }
         if (focusTrigger) {
           trigger.focus();
         }
@@ -157,13 +147,6 @@
             break;
         }
       });
-
-      if (backdrop) {
-        backdrop.addEventListener('click', (e) => {
-          e.preventDefault();
-          closeMenu(true);
-        });
-      }
 
       // Zamknięcie po kliknięciu poza komponentem
       document.addEventListener('click', (e) => {

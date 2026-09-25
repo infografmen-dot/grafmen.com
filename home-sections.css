@@ -65,16 +65,26 @@
 }
 @media(max-width:768px){
   .logo-cloud-section,
-  .logo-cloud-section.compact{padding:16px 0 18px}
-  .logo-cloud-kicker{margin:0 0 12px;font-size:11px}
-  .logo-cloud{height:68px}
-  .logo-cloud--cinematic{mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
-  .logo-track-group{gap:28px;padding-right:28px;animation-duration:42s}
-  .logo-item{height:64px;min-width:auto}
-  .logo-item img{max-height:44px;max-width:155px;width:auto;height:auto;object-fit:contain;opacity:.60;transform:none}
-  .logo-item img[src*="sourcetech"],
-  .logo-item img[src*="e-projektowanie"],
-  .logo-item img[src*="mpec"]{max-height:48px;max-width:105px}
+  .logo-cloud-section.compact{padding:18px 0 20px}
+  .logo-cloud-section .logo-cloud-kicker,
+  .home-section .logo-cloud-kicker{margin:0 0 10px;font-size:11px;letter-spacing:.14em;font-weight:600}
+  .logo-cloud{height:84px}
+  .logo-cloud--cinematic{mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%)}
+  .logo-track-group{gap:36px;padding-right:36px;animation-duration:38s}
+  .logo-item{height:82px;min-width:auto;display:flex;align-items:center;justify-content:center}
+  .logo-item img{max-height:48px;max-width:165px;width:auto;height:auto;object-fit:contain;filter:grayscale(100%);opacity:.68;transform:none}
+  .logo-item img[src*="e-projektowanie"]{max-height:74px;max-width:120px}
+  .logo-item img[src*="sourcetech"]{max-height:62px;max-width:85px}
+  .logo-item img[src*="mpec"]{max-height:56px;max-width:90px}
+  .logo-item img[src*="kancelaria-lampa"]{max-height:54px;max-width:125px}
+  .logo-item img[src*="quero"]{max-height:52px;max-width:150px}
+  .logo-item img[src*="pervita24"]{max-height:48px;max-width:155px}
+  .logo-item img[src*="resto"]{max-height:46px;max-width:155px}
+  .logo-item img[src*="infosekret"]{max-height:45px;max-width:160px}
+  .logo-item img[src*="drewmar"]{max-height:38px;max-width:165px}
+  .logo-item img[src*="salmax"]{max-height:36px;max-width:168px}
+  .logo-item img[src*="unitrans"]{max-height:44px;max-width:155px}
+  .logo-item img[src*="drewmax"]{max-height:46px;max-width:160px}
   .logo-item:hover img{transform:none}
 }
 .process-section{background:#f6f6f7;scroll-margin-top:32px}

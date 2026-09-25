@@ -9,7 +9,7 @@
   const sections = Array.from(allCandidates).filter(sec => {
     if (sec.matches(heroSelectors)) return false;
     if (sec.querySelector('[data-motion="heading-reveal"]')) return false;
-    if (sec.querySelector('.feature-grid, .package-grid, .process-steps, .how-steps-grid, .rules-columns, .proof-grid, .blog-list-grid, .project-gallery, .contact-brief, .faq-grid, .compact-grid, .branding-motion-callout')) return false;
+    if (sec.querySelector('.feature-grid, .package-grid, .process-steps, .how-steps-grid, .rules-columns, .proof-grid, .blog-list-grid, .project-gallery, .contact-brief, .faq-grid, .compact-grid, .branding-motion-callout, .logo-cloud')) return false;
     return true;
   });
   if (!sections.length) return;
