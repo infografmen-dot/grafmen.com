@@ -174,8 +174,8 @@
 
     const isEn = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
     const values = new FormData(form);
-    const accessKey = form.getAttribute('data-access-key') || '';
-    const isSimulation = form.getAttribute('data-simulate') === 'true' || !accessKey;
+    const accessKey = form.getAttribute('data-access-key') || (window.GrafmenWeb3Forms?.DEFAULT_ACCESS_KEY) || '';
+    const isSimulation = form.getAttribute('data-simulate') === 'true';
 
     if (submitBtn) {
       submitBtn.disabled = true;

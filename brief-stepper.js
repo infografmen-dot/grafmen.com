@@ -10,8 +10,8 @@
 
   const isEn = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
   const briefType = form.getAttribute('data-brief-type') || 'web'; // 'web' | 'branding'
-  const accessKey = form.getAttribute('data-access-key') || '';
-  const isSimulation = form.getAttribute('data-simulate') === 'true' || !accessKey;
+  const accessKey = form.getAttribute('data-access-key') || (window.GrafmenWeb3Forms?.DEFAULT_ACCESS_KEY) || '';
+  const isSimulation = form.getAttribute('data-simulate') === 'true';
 
   const steps = Array.from(form.querySelectorAll('.brief-step'));
   const totalInteractiveSteps = 3; // Kroki 1, 2, 3 (krok 4 to podsumowanie)

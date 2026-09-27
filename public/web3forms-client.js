@@ -5,8 +5,8 @@
  */
 
 window.GrafmenWeb3Forms = (() => {
-  // Domyślny placeholder klucza — w trybie symulacji lokalnej nie wykonuje zewnętrznych połączeń.
-  const DEFAULT_KEY_PLACEHOLDER = 'YOUR_ACCESS_KEY_HERE';
+  // Skonfigurowany klucz klienta Web3Forms dla serwisu Grafmen
+  const DEFAULT_ACCESS_KEY = '07f7fba2-8887-4403-903a-35ebd0631fa5';
 
   /**
    * Wysyłka danych formularza do Web3Forms API
@@ -48,9 +48,11 @@ window.GrafmenWeb3Forms = (() => {
       };
     }
 
+    const finalAccessKey = accessKey || DEFAULT_ACCESS_KEY;
+
     // 2. Przygotowanie payloadu zgodnego z dokumentacją Web3Forms
     const payload = {
-      access_key: accessKey || DEFAULT_KEY_PLACEHOLDER,
+      access_key: finalAccessKey,
       subject: subject || 'Grafmen | Wiadomość',
       from_name: fromName,
       name: name || '',
@@ -62,7 +64,7 @@ window.GrafmenWeb3Forms = (() => {
     };
 
     // 3. Sprawdzenie, czy klucz jest skonfigurowany, czy pracujemy w trybie symulacji
-    const isMockMode = simulate || !accessKey || accessKey === DEFAULT_KEY_PLACEHOLDER;
+    const isMockMode = simulate || !finalAccessKey || finalAccessKey === 'YOUR_ACCESS_KEY_HERE';
 
     if (isMockMode) {
       console.info('[Web3Forms Mock] Symulacja wysyłki lokalnej (brak rzeczywistego połączenia sieciowego):', payload);
@@ -114,6 +116,6 @@ window.GrafmenWeb3Forms = (() => {
 
   return {
     submitForm,
-    DEFAULT_KEY_PLACEHOLDER
+    DEFAULT_ACCESS_KEY
   };
 })();
