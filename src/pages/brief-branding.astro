@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Brief logo i identyfikacji wizualnej · wycena brandingu | Grafmen";
+const description = "Wypełnij krótki brief projektowy dla nowego logo lub brandingu. Określ zakres, zastosowania i preferowany styl. Przygotuję bezpłatną propozycję i wycenę.";
+---
+<BaseLayout title={title} description={description} bodyClass="service-page" canonicalPath="/brief-branding/">
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/brief.css" />
+    <script src="/web3forms-client.js" defer></script>
+    <script src="/brief-stepper.js" defer></script>
+  </Fragment>
+
+  <main id="main-content">
+    <div class="home-inner brief-page-wrap">
+      <div class="brief-container">
+        
+        <header class="brief-header">
+          <p class="home-kicker">BRIEF PROJEKTOWY / BRANDING I LOGO</p>
+          <h1>Zbudujmy silny wizerunek Twojej marki.</h1>
+          <p class="home-lead">Krótki, 3-krokowy brief pomoże określić założenia dla projektu logo lub pełnej identyfikacji wizualnej. Na jego podstawie przygotuję dopasowaną wycenę.</p>
+        </header>
+
+        <!-- Stepper Progress Bar -->
+        <div class="brief-stepper" aria-label="Postęp wypełniania briefu">
+          <div class="stepper-header">
+            <span class="stepper-step-indicator" id="stepper-step-indicator">Krok 1 z 3</span>
+            <span class="stepper-step-title" id="stepper-step-title">Marka i zakres</span>
+          </div>
+          <div class="stepper-progress-track" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">
+            <div class="stepper-progress-bar" id="stepper-progress-bar" style="width: 33%;"></div>
+          </div>
+        </div>
+
+        <!-- Form Card Box -->
+        <div class="brief-card-box">
+          <form id="brief-form" data-brief-type="branding" novalidate>
+            <!-- Honeypot antyspamowy -->
+            <input type="checkbox" name="botcheck" class="botcheck-field" tabindex="-1" autocomplete="off" style="display:none !important">
+
+            <!-- KROK 1: Marka i zakres -->
+            <fieldset class="brief-step is-active" data-step="0">
+              <legend class="step-legend">Krok 1: O marce i zakresie projektu</legend>
+              <p class="step-desc">Podstawowe założenia dotyczące nazwy, działalności i planowanego zakresu.</p>
+
+              <div class="brief-group">
+                <label class="brief-label" for="brand-name">Nazwa marki / firmy <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="brand-name" name="brand_name" class="brief-input" required placeholder="np. Hiker, Drewmax lub wpisz: Nazwa jeszcze nieustalona">
+                <p class="brief-hint">Jeśli jesteś na etapie wyboru nazwy, wpisz: <em>Nazwa jeszcze nieustalona</em>.</p>
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label" for="brand-overview">Czym zajmuje się marka i do kogo kieruje ofertę? <span class="req" aria-hidden="true">*</span></label>
+                <p class="brief-hint">1–2 zdania o charakterze działalności, produktach i profilu odbiorców.</p>
+                <textarea id="brand-overview" name="brand_overview" class="brief-textarea" rows="3" required placeholder="np. Tworzymy naturalne kosmetyki rzemieślnicze dla kobiet ceniących ekologiczny styl życia."></textarea>
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label">Planowany zakres prac <span class="req" aria-hidden="true">*</span></label>
+                <div class="tiles-grid" role="radiogroup" aria-required="true">
+                  <label class="tile-choice">
+                    <input type="radio" name="brand_scope" value="Nowe logo od zera" class="tile-input" checked>
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-label-wrap">
+                        <span class="tile-title">Nowe logo</span>
+                        <span class="tile-desc">Projekt od podstaw dla nowo powstającej firmy</span>
+                      </span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="brand_scope" value="Odświeżenie obecnego logo (redesign)" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-label-wrap">
+                        <span class="tile-title">Odświeżenie znaku</span>
+                        <span class="tile-desc">Lifting, unowocześnienie lub wektoryzacja</span>
+                      </span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="brand_scope" value="Logo i pełna identyfikacja wizualna" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-label-wrap">
+                        <span class="tile-title">Logo i identyfikacja</span>
+                        <span class="tile-desc">Znak, księga znaku, typografia, kolory i akcydensy</span>
+                      </span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="brand_scope" value="Potrzebuję pomocy w doborze zakresu" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-label-wrap">
+                        <span class="tile-title">Potrzebuję pomocy</span>
+                        <span class="tile-desc">Ustalimy, co będzie optymalne na start</span>
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- KROK 2: Zastosowania i styl -->
+            <fieldset class="brief-step" data-step="1" aria-hidden="true">
+              <legend class="step-legend">Krok 2: Zastosowania i preferencje</legend>
+              <p class="step-desc">Gdzie znak będzie wykorzystywany i jaki styl najbardziej Ci odpowiada.</p>
+
+              <div class="brief-group">
+                <label class="brief-label">Główne zastosowania znaku</label>
+                <div class="tiles-grid">
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Internet i social media" class="tile-input" checked>
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Internet i social media</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Druk (wizytówki, papier, foldery)" class="tile-input" checked>
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Materiały drukowane</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Opakowania i etykiety produktów" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Opakowania i etykiety</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Oznakowanie (szyldy, witryny, flota)" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Oznakowanie zewnętrzne</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Inne zastosowania" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Inne zastosowania</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label" for="brand-preferences">Inspiracje, preferencje i elementy, których unikać (opcjonalnie)</label>
+                <p class="brief-hint">Napisz, jakie cechy lub kolory Ci się podobają, jakie marki cenisz wizualnie lub czego zdecydowanie nie chcesz widzieć w projekcie.</p>
+                <textarea id="brand-preferences" name="preferences" class="brief-textarea" rows="3" placeholder="np. Podoba mi się minimalistyczny, czytelny styl. Unikamy zbyt jaskrawych kolorów i skomplikowanych gradientów."></textarea>
+              </div>
+            </fieldset>
+
+            <!-- KROK 3: Harmonogram, budżet i kontakt -->
+            <fieldset class="brief-step" data-step="2" aria-hidden="true">
+              <legend class="step-legend">Krok 3: Harmonogram, budżet i kontakt</legend>
+              <p class="step-desc">Określ oczekiwany czas i dane do przygotowania wyceny.</p>
+
+              <div class="brief-group">
+                <label class="brief-label">Orientacyjny termin</label>
+                <div class="tiles-grid" role="radiogroup">
+                  <label class="tile-choice">
+                    <input type="radio" name="timeline" value="W ciągu miesiąca" class="tile-input" checked>
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">W ciągu miesiąca</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="timeline" value="W ciągu 2–3 miesięcy" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">W ciągu 2–3 miesięcy</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="timeline" value="Jak najszybciej" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">Jak najszybciej</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="timeline" value="Do ustalenia" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">Do ustalenia</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label">Orientacyjny budżet na branding</label>
+                <div class="tiles-grid" role="radiogroup">
+                  <label class="tile-choice">
+                    <input type="radio" name="budget" value="1 000 – 2 000 zł" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">1 000 – 2 000 zł</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="budget" value="2 000 – 4 000 zł" class="tile-input" checked>
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">2 000 – 4 000 zł</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="budget" value="Powyżej 4 000 zł" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">Powyżej 4 000 zł</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="budget" value="Potrzebuję wyceny" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">Potrzebuję wyceny</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label" for="contact-name">Imię lub osoba kontaktowa <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="contact-name" name="contact_name" class="brief-input" required autocomplete="name" placeholder="Jan Kowalski">
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label" for="contact-email">Adres e-mail do odpowiedzi <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="contact-email" name="contact_email" class="brief-input" required autocomplete="email" placeholder="jan@twojafirma.pl">
+                
+                <div class="phone-toggle-wrap">
+                  <button type="button" class="phone-toggle-btn" id="toggle-phone-btn" aria-expanded="false">
+                    <span>+ Dodaj numer telefonu (opcjonalnie)</span>
+                  </button>
+                  <div class="phone-field-box" id="phone-field-box" hidden>
+                    <label class="brief-label" for="field-phone">Numer telefonu</label>
+                    <input type="tel" id="field-phone" name="contact_phone" class="brief-input" autocomplete="tel" placeholder="+48 600 000 000">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- KROK 4: Podsumowanie briefu -->
+            <fieldset class="brief-step" data-step="3" aria-hidden="true">
+              <legend class="step-legend">Krok 4: Podsumowanie briefu</legend>
+              <p class="step-desc">Przejrzyj podane informacje przed przesłaniem. Możesz edytować poszczególne sekcje.</p>
+
+              <!-- Dynamiczne podsumowanie wstawiane przez JS -->
+              <div id="brief-summary-target"></div>
+
+              <p class="form-privacy" style="margin-top:24px;font-size:14px;color:#71717a">
+                Wysłanie briefu jest bezpłatne i niezobowiązujące. Twoje dane posłużą wyłącznie do kontaktu i przygotowania wyceny. <a href="/polityka-prywatnosci/" style="color:inherit">Polityka prywatności</a>.
+              </p>
+            </fieldset>
+
+            <!-- Komunikaty statusu / błędów -->
+            <div id="brief-status-box" class="brief-status-box" role="status" aria-live="polite" hidden></div>
+
+            <!-- Dolny pasek nawigacji i przycisków -->
+            <div class="brief-actions">
+              <button type="button" class="btn-secondary" id="brief-btn-prev" style="display:none;">
+                <span aria-hidden="true">&larr;</span>
+                <span>Wstecz</span>
+              </button>
+
+              <button type="button" class="btn-primary" id="brief-btn-next">
+                <span>Dalej</span>
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+
+              <button type="submit" class="btn-primary" id="brief-btn-submit" style="display:none;">
+                <span>Wyślij brief</span>
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</BaseLayout>

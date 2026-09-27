@@ -18,6 +18,7 @@ const description = "Skontaktuj się z Krzysztofem Krawczykiem z Grafmen. Strony
         "telephone": "+48694179217"
       }
     })} />
+    <script src="/web3forms-client.js" defer></script>
     <script src="/contact.js" defer></script>
   </Fragment>
 
@@ -46,14 +47,19 @@ const description = "Skontaktuj się z Krzysztofem Krawczykiem z Grafmen. Strony
               <li>Jakiego projektu potrzebujesz.</li>
               <li>Czy masz już materiały i&nbsp;orientacyjny termin.</li>
             </ol>
-            <p>Nie musisz mieć gotowego briefu. Pomogę uporządkować najważniejsze informacje.</p>
+            <p>Wolisz ustrukturyzowany formularz? Wybierz krótki brief:</p>
+            <p style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+              <a class="text-link" href="/brief-strony-www/"><strong>&rarr; Brief strony internetowej</strong></a>
+              <a class="text-link" href="/brief-branding/"><strong>&rarr; Brief logo i brandingu</strong></a>
+            </p>
           </div>
         </div>
 
         <div class="contact-brief">
           <h2>Zapytaj o&nbsp;wycenę</h2>
-          <p id="mail-note">Wypełnij krótki brief. Przycisk otworzy Twój program pocztowy z&nbsp;przygotowaną wiadomością. Wyślesz ją samodzielnie z&nbsp;własnej skrzynki.</p>
-          <form id="contact-form" action="mailto:info@grafmen.com" method="get" aria-describedby="mail-note">
+          <p id="mail-note">Napisz kilka zdań o&nbsp;swoim projekcie. Wiadomość trafi bezpośrednio do&nbsp;mnie, a&nbsp;odpowiedź otrzymasz na&nbsp;podany adres e-mail.</p>
+          <form id="contact-form" action="mailto:info@grafmen.com" method="post" aria-describedby="mail-note">
+            <input type="checkbox" name="botcheck" class="botcheck-field" tabindex="-1" autocomplete="off" style="display:none !important">
             <div class="form-row">
               <label>Imię
                 <input name="name" autocomplete="given-name" required maxlength="100">
@@ -135,7 +141,7 @@ const description = "Skontaktuj się z Krzysztofem Krawczykiem z Grafmen. Strony
               <textarea name="message" rows="6" required minlength="10" maxlength="3000" placeholder="Kilka zdań o&nbsp;firmie, zakresie i&nbsp;potrzebach"></textarea>
             </label>
             <p class="form-privacy">Dane posłużą do&nbsp;odpowiedzi na&nbsp;Twoje zapytanie. <a href="/polityka-prywatnosci/">Polityka prywatności</a>.</p>
-            <button class="cta-button" type="submit">Wyślij e-mail <span aria-hidden="true">↗</span></button>
+            <button class="cta-button" type="submit">Wyślij wiadomość <span aria-hidden="true">&rarr;</span></button>
             <p id="contact-status" role="status" aria-live="polite"></p>
           </form>
           <noscript>

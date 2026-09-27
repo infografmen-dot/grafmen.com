@@ -18,6 +18,7 @@ const description = "Contact Krzysztof Krawczyk at Grafmen. Websites, logos, and
         "telephone": "+48694179217"
       }
     })} />
+    <script src="/web3forms-client.js" defer></script>
     <script src="/contact.js" defer></script>
   </Fragment>
 
@@ -46,14 +47,19 @@ const description = "Contact Krzysztof Krawczyk at Grafmen. Websites, logos, and
               <li>What type of project you need.</li>
               <li>Whether you have existing materials and an estimated timeline.</li>
             </ol>
-            <p>You don’t need a finalized brief. I will help structure the essential information.</p>
+            <p>Prefer a structured form? Select a guided brief:</p>
+            <p style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+              <a class="text-link" href="/en/brief-website/"><strong>&rarr; Website project brief</strong></a>
+              <a class="text-link" href="/en/brief-branding/"><strong>&rarr; Brand identity & logo brief</strong></a>
+            </p>
           </div>
         </div>
 
         <div class="contact-brief">
           <h2>Request a quote</h2>
-          <p id="mail-note">Fill in a brief outline. The button will open your email application with a pre-formatted message. You will send it yourself directly from your own inbox.</p>
-          <form id="contact-form" action="mailto:info@grafmen.com" method="get" aria-describedby="mail-note" data-lang="en">
+          <p id="mail-note">Write a few sentences about your project. The message is sent directly to me, and you will receive a response at your provided email.</p>
+          <form id="contact-form" action="mailto:info@grafmen.com" method="post" aria-describedby="mail-note" data-lang="en">
+            <input type="checkbox" name="botcheck" class="botcheck-field" tabindex="-1" autocomplete="off" style="display:none !important">
             <div class="form-row">
               <label>Name
                 <input name="name" autocomplete="given-name" required maxlength="100">
@@ -135,7 +141,7 @@ const description = "Contact Krzysztof Krawczyk at Grafmen. Websites, logos, and
               <textarea name="message" rows="6" required minlength="10" maxlength="3000" placeholder="A few sentences about your business, required scope, and goals"></textarea>
             </label>
             <p class="form-privacy">Your details are used solely to reply to your enquiry. <a href="/en/privacy-policy/">Privacy policy</a>.</p>
-            <button class="cta-button" type="submit">Compose email <span aria-hidden="true">↗</span></button>
+            <button class="cta-button" type="submit">Send message <span aria-hidden="true">&rarr;</span></button>
             <p id="contact-status" role="status" aria-live="polite"></p>
           </form>
           <noscript>

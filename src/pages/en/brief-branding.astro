@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Brand Identity & Logo Brief · Quote & Requirements | Grafmen";
+const description = "Fill in a short branding project brief for a new logo or visual identity. Outline your scope, applications, and aesthetic preferences. I will prepare a custom proposal.";
+---
+<BaseLayout title={title} description={description} bodyClass="service-page" lang="en" canonicalPath="/en/brief-branding/">
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/brief.css" />
+    <script src="/web3forms-client.js" defer></script>
+    <script src="/brief-stepper.js" defer></script>
+  </Fragment>
+
+  <main id="main-content">
+    <div class="home-inner brief-page-wrap">
+      <div class="brief-container">
+        
+        <header class="brief-header">
+          <p class="home-kicker">PROJECT BRIEF / BRANDING & LOGO</p>
+          <h1>Let’s build a distinctive identity for your brand.</h1>
+          <p class="home-lead">A short 3-step brief to define the foundation for your logo design or complete visual identity. I will review your requirements and provide an estimated quote.</p>
+        </header>
+
+        <!-- Stepper Progress Bar -->
+        <div class="brief-stepper" aria-label="Brief progress tracker">
+          <div class="stepper-header">
+            <span class="stepper-step-indicator" id="stepper-step-indicator">Step 1 of 3</span>
+            <span class="stepper-step-title" id="stepper-step-title">Brand & Scope</span>
+          </div>
+          <div class="stepper-progress-track" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">
+            <div class="stepper-progress-bar" id="stepper-progress-bar" style="width: 33%;"></div>
+          </div>
+        </div>
+
+        <!-- Form Card Box -->
+        <div class="brief-card-box">
+          <form id="brief-form" data-brief-type="branding" novalidate>
+            <!-- Anti-spam Honeypot -->
+            <input type="checkbox" name="botcheck" class="botcheck-field" tabindex="-1" autocomplete="off" style="display:none !important">
+
+            <!-- STEP 1: Brand & Scope -->
+            <fieldset class="brief-step is-active" data-step="0">
+              <legend class="step-legend">Step 1: Brand & Project Scope</legend>
+              <p class="step-desc">Core parameters regarding your brand name, audience, and required scope.</p>
+
+              <div class="brief-group">
+                <label class="brief-label" for="brand-name">Brand or company name <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="brand-name" name="brand_name" class="brief-input" required placeholder="e.g. Hiker, Drewmax or: Name not determined yet">
+                <p class="brief-hint">If you are still naming your venture, simply enter: <em>Name not determined yet</em>.</p>
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label" for="brand-overview">What does the brand do, and who is your audience? <span class="req" aria-hidden="true">*</span></label>
+                <p class="brief-hint">1–2 sentences about your offerings, positioning, and target clientele.</p>
+                <textarea id="brand-overview" name="brand_overview" class="brief-textarea" rows="3" required placeholder="e.g. We craft premium outdoor gear and apparel for active explorers and hiking enthusiasts."></textarea>
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label">Required branding scope <span class="req" aria-hidden="true">*</span></label>
+                <div class="tiles-grid" role="radiogroup" aria-required="true">
+                  <label class="tile-choice">
+                    <input type="radio" name="brand_scope" value="New logo design from scratch" class="tile-input" checked>
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-label-wrap">
+                        <span class="tile-title">New logo</span>
+                        <span class="tile-desc">Original mark for a new business or product</span>
+                      </span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="brand_scope" value="Logo redesign / refresh" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-label-wrap">
+                        <span class="tile-title">Logo refresh</span>
+                        <span class="tile-desc">Modernizing, lifting, or vectorizing existing mark</span>
+                      </span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="brand_scope" value="Logo and complete brand identity system" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-label-wrap">
+                        <span class="tile-title">Full brand identity</span>
+                        <span class="tile-desc">Mark, brand guidelines, typography, colors & stationery</span>
+                      </span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="brand_scope" value="Need help deciding the scope" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-label-wrap">
+                        <span class="tile-title">Need guidance</span>
+                        <span class="tile-desc">We will determine the optimal package for launch</span>
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- STEP 2: Applications & Style -->
+            <fieldset class="brief-step" data-step="1" aria-hidden="true">
+              <legend class="step-legend">Step 2: Applications & Style Preferences</legend>
+              <p class="step-desc">Where the identity will be applied and visual directions you appreciate.</p>
+
+              <div class="brief-group">
+                <label class="brief-label">Primary touchpoints & applications</label>
+                <div class="tiles-grid">
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Digital & Social media" class="tile-input" checked>
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Digital & Social media</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Print collateral (cards, stationery, folders)" class="tile-input" checked>
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Print materials</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Packaging & product labels" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Packaging & labels</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Signage (storefront, fleet, banners)" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Signage & fleet</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Other applications" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Other applications</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label" for="brand-preferences">Inspirations, preferences & elements to avoid (optional)</label>
+                <p class="brief-hint">Share references you admire, desired color moods, or specific styles you want to avoid.</p>
+                <textarea id="brand-preferences" name="preferences" class="brief-textarea" rows="3" placeholder="e.g. Clean, timeless typography and organic tones. We want to avoid generic clip-art symbols and loud neon gradients."></textarea>
+              </div>
+            </fieldset>
+
+            <!-- STEP 3: Timeline, Budget & Contact -->
+            <fieldset class="brief-step" data-step="2" aria-hidden="true">
+              <legend class="step-legend">Step 3: Timeline, Budget & Contact</legend>
+              <p class="step-desc">Provide estimated milestones and your contact details.</p>
+
+              <div class="brief-group">
+                <label class="brief-label">Estimated timeline</label>
+                <div class="tiles-grid" role="radiogroup">
+                  <label class="tile-choice">
+                    <input type="radio" name="timeline" value="Within 1 month" class="tile-input" checked>
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">Within 1 month</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="timeline" value="Within 2–3 months" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">Within 2–3 months</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="timeline" value="As soon as possible" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">As soon as possible</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="timeline" value="To be discussed" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">To be discussed</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label">Estimated branding budget</label>
+                <div class="tiles-grid" role="radiogroup">
+                  <label class="tile-choice">
+                    <input type="radio" name="budget" value="€300 – €600" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">€300 – €600</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="budget" value="€600 – €1,200" class="tile-input" checked>
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">€600 – €1,200</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="budget" value="€1,200+" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">€1,200+</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="budget" value="Need a quote" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">Need a quote</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label" for="contact-name">Name or contact person <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="contact-name" name="contact_name" class="brief-input" required autocomplete="name" placeholder="Morgan Smith">
+              </div>
+
+              <div class="brief-group">
+                <label class="brief-label" for="contact-email">Email address for the reply <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="contact-email" name="contact_email" class="brief-input" required autocomplete="email" placeholder="morgan@brand.com">
+                
+                <div class="phone-toggle-wrap">
+                  <button type="button" class="phone-toggle-btn" id="toggle-phone-btn" aria-expanded="false">
+                    <span>+ Add phone number (optional)</span>
+                  </button>
+                  <div class="phone-field-box" id="phone-field-box" hidden>
+                    <label class="brief-label" for="field-phone">Phone number</label>
+                    <input type="tel" id="field-phone" name="contact_phone" class="brief-input" autocomplete="tel" placeholder="+44 7000 000000">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- STEP 4: Review & Submit -->
+            <fieldset class="brief-step" data-step="3" aria-hidden="true">
+              <legend class="step-legend">Step 4: Review Your Brief</legend>
+              <p class="step-desc">Review your choices before sending. You can edit any section by clicking “Edit”.</p>
+
+              <!-- Dynamic summary injected by JS -->
+              <div id="brief-summary-target"></div>
+
+              <p class="form-privacy" style="margin-top:24px;font-size:14px;color:#71717a">
+                Submitting this brief is completely free and non-binding. Your details are used strictly to reply with a proposal. <a href="/en/privacy-policy/" style="color:inherit">Privacy policy</a>.
+              </p>
+            </fieldset>
+
+            <!-- Status & Error Notices -->
+            <div id="brief-status-box" class="brief-status-box" role="status" aria-live="polite" hidden></div>
+
+            <!-- Actions Bar -->
+            <div class="brief-actions">
+              <button type="button" class="btn-secondary" id="brief-btn-prev" style="display:none;">
+                <span aria-hidden="true">&larr;</span>
+                <span>Back</span>
+              </button>
+
+              <button type="button" class="btn-primary" id="brief-btn-next">
+                <span>Continue</span>
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+
+              <button type="submit" class="btn-primary" id="brief-btn-submit" style="display:none;">
+                <span>Send brief</span>
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</BaseLayout>

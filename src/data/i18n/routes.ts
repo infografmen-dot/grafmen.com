@@ -9,6 +9,8 @@ export const routePairs: { pl: string; en: string }[] = [
   { pl: '/portfolio/', en: '/en/portfolio/' },
   { pl: '/blog/', en: '/en/blog/' },
   { pl: '/blog/samo-logo-czy-identyfikacja-wizualna/', en: '/en/blog/logo-only-or-visual-identity/' },
+  { pl: '/brief-strony-www/', en: '/en/brief-website/' },
+  { pl: '/brief-branding/', en: '/en/brief-branding/' },
 ];
 
 export const portfolioSlugs = [
