@@ -81,32 +81,44 @@
       if (progressBar) {
         const pct = Math.round(((index + 1) / totalInteractiveSteps) * 100);
         progressBar.style.width = `${pct}%`;
+        progressBar.setAttribute('aria-valuenow', `${pct}`);
       }
     } else {
       // Summary step
       if (stepIndicator) {
-        stepIndicator.textContent = isEn ? 'Step 4 of 4' : 'Krok 4 z 4';
+        stepIndicator.textContent = isEn ? 'Summary' : 'Podsumowanie';
       }
       if (stepTitle) {
-        stepTitle.textContent = isEn ? 'Review & Submit' : 'Podsumowanie briefu';
+        stepTitle.textContent = currentTitles[index] || (isEn ? 'Review & Submit' : 'Podsumowanie briefu');
       }
       if (progressBar) {
         progressBar.style.width = '100%';
+        progressBar.setAttribute('aria-valuenow', '100');
       }
       renderSummary();
     }
 
-    // Buttons visibility
+    // Buttons visibility & dynamic labels
     if (btnPrev) {
       btnPrev.style.display = index === 0 ? 'none' : 'inline-flex';
     }
 
     if (index === steps.length - 1) {
-      // Na ekranie podsumowania
+      // Na ekranie podsumowania: ukryj przycisk "Dalej", pokaż przycisk wysyłki
       if (btnNext) btnNext.style.display = 'none';
       if (btnSubmit) btnSubmit.style.display = 'inline-flex';
     } else {
-      if (btnNext) btnNext.style.display = 'inline-flex';
+      if (btnNext) {
+        btnNext.style.display = 'inline-flex';
+        const nextTextSpan = btnNext.querySelector('span:not([aria-hidden])') || btnNext.firstElementChild;
+        if (nextTextSpan) {
+          if (index === 2) {
+            nextTextSpan.textContent = isEn ? 'Review your answers' : 'Przejdź do podsumowania';
+          } else {
+            nextTextSpan.textContent = isEn ? 'Next' : 'Dalej';
+          }
+        }
+      }
       if (btnSubmit) btnSubmit.style.display = 'none';
     }
 
