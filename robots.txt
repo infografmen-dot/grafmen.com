@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://grafmen.com/sitemap.xml
+Sitemap: https://grafmen.com/sitemap-index.xml
+
