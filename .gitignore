@@ -9,3 +9,4 @@ __pycache__/
 .astro/
 scripts/*.png
 scripts/*.json
+scripts/visual-qa/

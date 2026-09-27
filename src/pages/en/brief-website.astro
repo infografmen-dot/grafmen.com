@@ -15,13 +15,14 @@ const description = "Fill in a short, 3-step website project brief. Outline your
     <div class="home-inner brief-page-wrap">
       <div class="brief-container">
         
-        <header class="brief-header">
-          <p class="home-kicker">PROJECT BRIEF / WEBSITES</p>
-          <h1>Let’s define your new website requirements.</h1>
-          <p class="home-lead">A short 3-step form to help clarify your key needs. Your answers will be used to prepare a free, no-obligation proposal and quote.</p>
-        </header>
+        <!-- Intro: vertical, left-aligned, isolated from global header -->
+        <div class="brief-intro-block">
+          <p class="brief-intro-kicker">BRIEF / WEBSITES</p>
+          <h1 class="brief-intro-title">Tell me about your website.</h1>
+          <p class="brief-intro-lead">Answer a few questions. They will help me prepare the scope of work and an estimate.</p>
+        </div>
 
-        <!-- Stepper Progress Bar -->
+        <!-- Stepper progress tracker -->
         <div class="brief-stepper" aria-label="Brief progress tracker">
           <div class="stepper-header">
             <span class="stepper-step-indicator" id="stepper-step-indicator">Step 1 of 3</span>
@@ -32,7 +33,7 @@ const description = "Fill in a short, 3-step website project brief. Outline your
           </div>
         </div>
 
-        <!-- Form Card Box -->
+        <!-- Form card (white background, single subtle border, semantic fieldsets) -->
         <div class="brief-card-box">
           <form id="brief-form" data-brief-type="web" novalidate>
             <!-- Anti-spam Honeypot -->
@@ -45,14 +46,14 @@ const description = "Fill in a short, 3-step website project brief. Outline your
 
               <div class="brief-group">
                 <label class="brief-label">Project type <span class="req" aria-hidden="true">*</span></label>
-                <div class="tiles-grid" role="radiogroup" aria-required="true">
+                <div class="tiles-grid is-3" role="radiogroup" aria-required="true">
                   <label class="tile-choice">
-                    <input type="radio" name="project_type" value="New website" class="tile-input" checked>
+                    <input type="radio" name="project_type" value="New website" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">New website</span>
-                        <span class="tile-desc">Built from scratch for a new business or brand</span>
+                        <span class="tile-desc">Built from scratch for a new business</span>
                       </span>
                     </span>
                   </label>
@@ -63,7 +64,7 @@ const description = "Fill in a short, 3-step website project brief. Outline your
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Website redesign</span>
-                        <span class="tile-desc">Overhauling design, structure, and technology</span>
+                        <span class="tile-desc">Overhauling design and technology</span>
                       </span>
                     </span>
                   </label>
@@ -74,7 +75,7 @@ const description = "Fill in a short, 3-step website project brief. Outline your
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Need guidance</span>
-                        <span class="tile-desc">We will decide the best direction together</span>
+                        <span class="tile-desc">We will determine the direction together</span>
                       </span>
                     </span>
                   </label>
@@ -83,42 +84,41 @@ const description = "Fill in a short, 3-step website project brief. Outline your
 
               <div class="brief-group">
                 <label class="brief-label" for="company-overview">What does your company do, and who is your audience? <span class="req" aria-hidden="true">*</span></label>
-                <p class="brief-hint">1–2 sentences about your industry, key services/products, and target customers.</p>
-                <textarea id="company-overview" name="company_overview" class="brief-textarea" rows="3" required placeholder="e.g. We design custom furniture for residential clients and modern offices across Europe."></textarea>
+                <textarea id="company-overview" name="company_overview" class="brief-textarea" rows="3" required placeholder="e.g. We craft custom furniture for residential clients and modern offices across Europe."></textarea>
               </div>
 
               <div class="brief-group">
                 <label class="brief-label">Primary objective of the website</label>
                 <div class="tiles-grid" role="radiogroup">
                   <label class="tile-choice">
-                    <input type="radio" name="primary_goal" value="Lead generation & enquiries" class="tile-input" checked>
+                    <input type="radio" name="primary_goal" value="Lead generation & enquiries" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Lead generation</span>
-                        <span class="tile-desc">Encouraging enquiries and business contacts</span>
+                        <span class="tile-desc">Encouraging inquiries and quotes</span>
                       </span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="primary_goal" value="Showcase services & brand presence" class="tile-input">
+                    <input type="radio" name="primary_goal" value="Brand image & showcase" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
-                        <span class="tile-title">Brand showcase</span>
-                        <span class="tile-desc">Clear digital presence that builds trust</span>
+                        <span class="tile-title">Brand image</span>
+                        <span class="tile-desc">Professional showcase building trust</span>
                       </span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="primary_goal" value="Online sales or bookings" class="tile-input">
+                    <input type="radio" name="primary_goal" value="Online sales & ecommerce" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
-                        <span class="tile-title">E-commerce / Sales</span>
-                        <span class="tile-desc">Direct online sales or client reservations</span>
+                        <span class="tile-title">Online sales</span>
+                        <span class="tile-desc">Product catalog or online ordering</span>
                       </span>
                     </span>
                   </label>
@@ -129,7 +129,7 @@ const description = "Fill in a short, 3-step website project brief. Outline your
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Other goal</span>
-                        <span class="tile-desc">Custom or industry-specific requirements</span>
+                        <span class="tile-desc">Custom or industry-specific scope</span>
                       </span>
                     </span>
                   </label>
@@ -139,50 +139,50 @@ const description = "Fill in a short, 3-step website project brief. Outline your
 
             <!-- STEP 2: Features & Materials -->
             <fieldset class="brief-step" data-step="1" aria-hidden="true">
-              <legend class="step-legend">Step 2: Required Features & Assets</legend>
-              <p class="step-desc">Select the elements you expect on the website.</p>
+              <legend class="step-legend">Step 2: Features & Materials</legend>
+              <p class="step-desc">Select elements that should be included in your project.</p>
 
               <div class="brief-group">
-                <label class="brief-label">Required features</label>
-                <p class="brief-hint">Feature selection helps understand project scope. It does not imply that every feature is included in standard package pricing.</p>
+                <label class="brief-label">Required website features</label>
+                <p class="brief-hint">Helps identify needs – exact features are confirmed in the final quote.</p>
                 <div class="tiles-grid">
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="features" value="Service & Offer presentation" class="tile-input" checked>
+                    <input type="checkbox" name="features" value="Service & offer presentation" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Service presentation</span>
+                      <span class="tile-title">Services & offer</span>
                     </span>
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="features" value="Portfolio / Case studies" class="tile-input">
+                    <input type="checkbox" name="features" value="Portfolio & case studies" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Portfolio / Case studies</span>
+                      <span class="tile-title">Portfolio & cases</span>
                     </span>
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="features" value="Blog / News" class="tile-input">
+                    <input type="checkbox" name="features" value="Blog & articles" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Blog / News</span>
+                      <span class="tile-title">Blog & news</span>
                     </span>
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="features" value="Online shop" class="tile-input">
+                    <input type="checkbox" name="features" value="E-commerce store" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Online store</span>
+                      <span class="tile-title">E-commerce store</span>
                     </span>
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="features" value="Bookings / Calendar" class="tile-input">
+                    <input type="checkbox" name="features" value="Booking & calendar" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Bookings / Calendar</span>
+                      <span class="tile-title">Booking / calendar</span>
                     </span>
                   </label>
 
@@ -190,41 +190,33 @@ const description = "Fill in a short, 3-step website project brief. Outline your
                     <input type="checkbox" name="features" value="Multilingual support" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Multilingual versions</span>
-                    </span>
-                  </label>
-
-                  <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="features" value="Not sure / To discuss" class="tile-input">
-                    <span class="tile-body">
-                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Not sure / To discuss</span>
+                      <span class="tile-title">Multilingual (e.g. EN/PL)</span>
                     </span>
                   </label>
                 </div>
               </div>
 
               <div class="brief-group">
-                <label class="brief-label">Available assets</label>
+                <label class="brief-label">Available project assets</label>
                 <div class="tiles-grid">
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="assets" value="Logo / Brand identity" class="tile-input" checked>
+                    <input type="checkbox" name="assets" value="Logo & visual identity" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Logo / Branding</span>
+                      <span class="tile-title">Logo & branding</span>
                     </span>
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="assets" value="Written website copy" class="tile-input">
+                    <input type="checkbox" name="assets" value="Ready website copy" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Ready copy / texts</span>
+                      <span class="tile-title">Website copy</span>
                     </span>
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="assets" value="High quality photos & imagery" class="tile-input">
+                    <input type="checkbox" name="assets" value="High quality photos & graphics" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Photos & imagery</span>
@@ -232,7 +224,7 @@ const description = "Fill in a short, 3-step website project brief. Outline your
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="assets" value="Need help preparing assets" class="tile-input">
+                    <input type="checkbox" name="assets" value="Need help with materials" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Need help with assets</span>
@@ -242,49 +234,48 @@ const description = "Fill in a short, 3-step website project brief. Outline your
               </div>
 
               <div class="brief-group">
-                <label class="brief-label" for="web-references">Current website URL or reference links (optional)</label>
-                <p class="brief-hint">If you have an existing site or websites you admire, paste the links here.</p>
-                <input type="text" id="web-references" name="references" class="brief-input" placeholder="e.g. https://currentsite.com, https://inspiration.com">
+                <label class="brief-label" for="web-references">Current website or design inspiration (optional)</label>
+                <input type="text" id="web-references" name="references" class="brief-input" placeholder="e.g. https://currentsite.com or links to websites you like">
               </div>
             </fieldset>
 
             <!-- STEP 3: Timeline, Budget & Contact -->
             <fieldset class="brief-step" data-step="2" aria-hidden="true">
               <legend class="step-legend">Step 3: Timeline, Budget & Contact</legend>
-              <p class="step-desc">Final step: provide your timeline expectations and contact details for the proposal.</p>
+              <p class="step-desc">Final step: specify timeline and contact details for the proposal.</p>
 
               <div class="brief-group">
                 <label class="brief-label">Estimated timeline</label>
                 <div class="tiles-grid" role="radiogroup">
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="Within 1–2 months" class="tile-input" checked>
+                    <input type="radio" name="timeline" value="As soon as possible (1-2 weeks)" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">Within 1–2 months</span>
+                      <span class="tile-title">ASAP (1–2 weeks)</span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="Within 3–6 months" class="tile-input">
+                    <input type="radio" name="timeline" value="Within 1 month" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">Within 3–6 months</span>
+                      <span class="tile-title">Within 1 month</span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="As soon as possible" class="tile-input">
+                    <input type="radio" name="timeline" value="Within 2-3 months" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">As soon as possible</span>
+                      <span class="tile-title">Within 2–3 months</span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="To be discussed" class="tile-input">
+                    <input type="radio" name="timeline" value="Flexible" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">To be discussed</span>
+                      <span class="tile-title">Flexible timeline</span>
                     </span>
                   </label>
                 </div>
@@ -302,7 +293,7 @@ const description = "Fill in a short, 3-step website project brief. Outline your
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="€1,000 – €2,000" class="tile-input" checked>
+                    <input type="radio" name="budget" value="€1,000 – €2,000" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-title">€1,000 – €2,000</span>
@@ -310,18 +301,18 @@ const description = "Fill in a short, 3-step website project brief. Outline your
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="€2,000+" class="tile-input">
+                    <input type="radio" name="budget" value="Above €2,000" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">€2,000+</span>
+                      <span class="tile-title">Above €2,000</span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="Need a quote" class="tile-input">
+                    <input type="radio" name="budget" value="To be discussed" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">Need a quote</span>
+                      <span class="tile-title">To be discussed</span>
                     </span>
                   </label>
                 </div>
@@ -329,12 +320,12 @@ const description = "Fill in a short, 3-step website project brief. Outline your
 
               <div class="brief-group">
                 <label class="brief-label" for="contact-name">Name or contact person <span class="req" aria-hidden="true">*</span></label>
-                <input type="text" id="contact-name" name="contact_name" class="brief-input" required autocomplete="name" placeholder="Alex Morgan">
+                <input type="text" id="contact-name" name="contact_name" class="brief-input" required autocomplete="name" placeholder="e.g. John Doe">
               </div>
 
               <div class="brief-group">
-                <label class="brief-label" for="contact-email">Email address for the reply <span class="req" aria-hidden="true">*</span></label>
-                <input type="email" id="contact-email" name="contact_email" class="brief-input" required autocomplete="email" placeholder="alex@company.com">
+                <label class="brief-label" for="contact-email">Email address for response <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="contact-email" name="contact_email" class="brief-input" required autocomplete="email" placeholder="e.g. john@yourcompany.com">
                 
                 <div class="phone-toggle-wrap">
                   <button type="button" class="phone-toggle-btn" id="toggle-phone-btn" aria-expanded="false">
@@ -350,21 +341,21 @@ const description = "Fill in a short, 3-step website project brief. Outline your
 
             <!-- STEP 4: Review & Submit -->
             <fieldset class="brief-step" data-step="3" aria-hidden="true">
-              <legend class="step-legend">Step 4: Review Your Brief</legend>
-              <p class="step-desc">Please review your answers before submitting. Click “Edit” on any section to make adjustments.</p>
+              <legend class="step-legend">Step 4: Review & Submit</legend>
+              <p class="step-desc">Review your answers before sending. Click "Edit" on any section if needed.</p>
 
               <!-- Dynamic summary injected by JS -->
               <div id="brief-summary-target"></div>
 
               <p class="form-privacy" style="margin-top:24px;font-size:14px;color:#71717a">
-                Submitting this brief is completely non-binding. Your details are used strictly to reply and prepare your quote. <a href="/en/privacy-policy/" style="color:inherit">Privacy policy</a>.
+                Submitting this brief is free and comes with no obligations. Your data will only be used to contact you and prepare an estimate. <a href="/en/privacy-policy/" style="color:inherit;text-decoration:underline">Privacy policy</a>.
               </p>
             </fieldset>
 
-            <!-- Status & Error Notices -->
+            <!-- Status and feedback notices -->
             <div id="brief-status-box" class="brief-status-box" role="status" aria-live="polite" hidden></div>
 
-            <!-- Actions Bar -->
+            <!-- Action buttons -->
             <div class="brief-actions">
               <button type="button" class="btn-secondary" id="brief-btn-prev" style="display:none;">
                 <span aria-hidden="true">&larr;</span>

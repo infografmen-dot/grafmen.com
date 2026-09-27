@@ -85,10 +85,10 @@
     } else {
       // Summary step
       if (stepIndicator) {
-        stepIndicator.textContent = isEn ? 'Final Step' : 'Krok końcowy';
+        stepIndicator.textContent = isEn ? 'Step 4 of 4' : 'Krok 4 z 4';
       }
       if (stepTitle) {
-        stepTitle.textContent = currentTitles[3];
+        stepTitle.textContent = isEn ? 'Review & Submit' : 'Podsumowanie briefu';
       }
       if (progressBar) {
         progressBar.style.width = '100%';
@@ -141,36 +141,62 @@
   // Validation before proceeding to next step
   function validateStep(index) {
     clearStatus();
+    form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+
     const activeStep = steps[index];
     if (!activeStep) return true;
+
+    const markFieldInvalid = (field, msg) => {
+      if (field) {
+        field.classList.add('is-invalid');
+        field.focus();
+        field.addEventListener('input', () => {
+          field.classList.remove('is-invalid');
+          clearStatus();
+        }, { once: true });
+      }
+      showError(msg);
+      return false;
+    };
+
+    const markGroupInvalid = (group, msg, firstInput) => {
+      if (group) {
+        group.classList.add('is-invalid');
+        firstInput?.focus();
+        group.addEventListener('change', () => {
+          group.classList.remove('is-invalid');
+          clearStatus();
+        }, { once: true });
+      }
+      showError(msg);
+      return false;
+    };
 
     // Krok 1 walidacja
     if (index === 0) {
       if (briefType === 'web') {
         const typeSelected = activeStep.querySelector('input[name="project_type"]:checked');
         if (!typeSelected) {
-          showError(isEn ? 'Please choose the project type.' : 'Wybierz rodzaj projektu.');
-          activeStep.querySelector('input[name="project_type"]')?.focus();
-          return false;
+          const group = activeStep.querySelector('.tiles-grid[role="radiogroup"]') || activeStep.querySelector('.tiles-grid');
+          return markGroupInvalid(group, isEn ? 'Please choose the project type.' : 'Wybierz rodzaj projektu.', activeStep.querySelector('input[name="project_type"]'));
         }
         const descField = activeStep.querySelector('textarea[name="company_overview"]');
         if (descField && !descField.value.trim()) {
-          showError(isEn ? 'Please describe what your business does.' : 'Napisz krótko, czym zajmuje się Twoja firma.');
-          descField.focus();
-          return false;
+          return markFieldInvalid(descField, isEn ? 'Please describe what your business does.' : 'Napisz krótko, czym zajmuje się Twoja firma.');
         }
       } else if (briefType === 'branding') {
-        const scopeSelected = activeStep.querySelector('input[name="brand_scope"]:checked');
-        if (!scopeSelected) {
-          showError(isEn ? 'Please select the branding scope.' : 'Wybierz zakres projektu.');
-          activeStep.querySelector('input[name="brand_scope"]')?.focus();
-          return false;
+        const nameField = activeStep.querySelector('input[name="brand_name"]');
+        if (nameField && !nameField.value.trim()) {
+          return markFieldInvalid(nameField, isEn ? 'Please enter your brand name (or type: Not decided yet).' : 'Podaj nazwę marki lub wpisz: Nazwa jeszcze nieustalona.');
         }
         const descField = activeStep.querySelector('textarea[name="brand_overview"]');
         if (descField && !descField.value.trim()) {
-          showError(isEn ? 'Please describe what your brand offers.' : 'Napisz krótko, czym zajmuje się marka.');
-          descField.focus();
-          return false;
+          return markFieldInvalid(descField, isEn ? 'Please describe what your brand offers.' : 'Napisz krótko, czym zajmuje się marka.');
+        }
+        const scopeSelected = activeStep.querySelector('input[name="brand_scope"]:checked');
+        if (!scopeSelected) {
+          const group = activeStep.querySelector('.tiles-grid[role="radiogroup"]') || activeStep.querySelector('.tiles-grid');
+          return markGroupInvalid(group, isEn ? 'Please select the branding scope.' : 'Wybierz planowany zakres prac.', activeStep.querySelector('input[name="brand_scope"]'));
         }
       }
     }
@@ -179,28 +205,23 @@
     if (index === 2) {
       const nameField = activeStep.querySelector('input[name="contact_name"]');
       if (nameField && !nameField.value.trim()) {
-        showError(isEn ? 'Please provide your name or contact person.' : 'Podaj imię lub osobę kontaktową.');
-        nameField.focus();
-        return false;
+        return markFieldInvalid(nameField, isEn ? 'Please provide your name or contact person.' : 'Podaj imię lub osobę kontaktową.');
       }
       const emailField = activeStep.querySelector('input[name="contact_email"]');
       if (emailField) {
         const val = emailField.value.trim();
         if (!val) {
-          showError(isEn ? 'Please enter your email address.' : 'Podaj swój adres e-mail.');
-          emailField.focus();
-          return false;
+          return markFieldInvalid(emailField, isEn ? 'Please enter your email address.' : 'Podaj swój adres e-mail.');
         }
         if (!emailField.checkValidity() || !val.includes('@')) {
-          showError(isEn ? 'Please provide a valid email address.' : 'Wpisz poprawny adres e-mail.');
-          emailField.focus();
-          return false;
+          return markFieldInvalid(emailField, isEn ? 'Please provide a valid email address.' : 'Wpisz poprawny adres e-mail.');
         }
       }
     }
 
     return true;
   }
+
 
   // Render dynamic summary in step 4
   function renderSummary() {

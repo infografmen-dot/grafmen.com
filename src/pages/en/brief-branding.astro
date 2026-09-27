@@ -15,13 +15,14 @@ const description = "Fill in a short branding project brief for a new logo or vi
     <div class="home-inner brief-page-wrap">
       <div class="brief-container">
         
-        <header class="brief-header">
-          <p class="home-kicker">PROJECT BRIEF / BRANDING & LOGO</p>
-          <h1>Let’s build a distinctive identity for your brand.</h1>
-          <p class="home-lead">A short 3-step brief to define the foundation for your logo design or complete visual identity. I will review your requirements and provide an estimated quote.</p>
-        </header>
+        <!-- Intro: vertical, left-aligned, isolated from global header -->
+        <div class="brief-intro-block">
+          <p class="brief-intro-kicker">BRIEF / BRANDING</p>
+          <h1 class="brief-intro-title">Tell me about your brand.</h1>
+          <p class="brief-intro-lead">Answer a few questions. They will help me prepare the scope of work and an estimate.</p>
+        </div>
 
-        <!-- Stepper Progress Bar -->
+        <!-- Stepper progress tracker -->
         <div class="brief-stepper" aria-label="Brief progress tracker">
           <div class="stepper-header">
             <span class="stepper-step-indicator" id="stepper-step-indicator">Step 1 of 3</span>
@@ -32,7 +33,7 @@ const description = "Fill in a short branding project brief for a new logo or vi
           </div>
         </div>
 
-        <!-- Form Card Box -->
+        <!-- Form card (white background, single subtle border, semantic fieldsets) -->
         <div class="brief-card-box">
           <form id="brief-form" data-brief-type="branding" novalidate>
             <!-- Anti-spam Honeypot -->
@@ -45,13 +46,12 @@ const description = "Fill in a short branding project brief for a new logo or vi
 
               <div class="brief-group">
                 <label class="brief-label" for="brand-name">Brand or company name <span class="req" aria-hidden="true">*</span></label>
-                <input type="text" id="brand-name" name="brand_name" class="brief-input" required placeholder="e.g. Hiker, Drewmax or: Name not determined yet">
+                <input type="text" id="brand-name" name="brand_name" class="brief-input" required placeholder="e.g. Hiker, Drewmax">
                 <p class="brief-hint">If you are still naming your venture, simply enter: <em>Name not determined yet</em>.</p>
               </div>
 
               <div class="brief-group">
                 <label class="brief-label" for="brand-overview">What does the brand do, and who is your audience? <span class="req" aria-hidden="true">*</span></label>
-                <p class="brief-hint">1–2 sentences about your offerings, positioning, and target clientele.</p>
                 <textarea id="brand-overview" name="brand_overview" class="brief-textarea" rows="3" required placeholder="e.g. We craft premium outdoor gear and apparel for active explorers and hiking enthusiasts."></textarea>
               </div>
 
@@ -59,12 +59,12 @@ const description = "Fill in a short branding project brief for a new logo or vi
                 <label class="brief-label">Required branding scope <span class="req" aria-hidden="true">*</span></label>
                 <div class="tiles-grid" role="radiogroup" aria-required="true">
                   <label class="tile-choice">
-                    <input type="radio" name="brand_scope" value="New logo design from scratch" class="tile-input" checked>
+                    <input type="radio" name="brand_scope" value="New logo design from scratch" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">New logo</span>
-                        <span class="tile-desc">Original mark for a new business or product</span>
+                        <span class="tile-desc">Original mark for a new brand or product</span>
                       </span>
                     </span>
                   </label>
@@ -86,7 +86,7 @@ const description = "Fill in a short branding project brief for a new logo or vi
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Full brand identity</span>
-                        <span class="tile-desc">Mark, brand guidelines, typography, colors & stationery</span>
+                        <span class="tile-desc">Mark, brand guide, typography, and colors</span>
                       </span>
                     </span>
                   </label>
@@ -97,7 +97,7 @@ const description = "Fill in a short branding project brief for a new logo or vi
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Need guidance</span>
-                        <span class="tile-desc">We will determine the optimal package for launch</span>
+                        <span class="tile-desc">We will determine the optimal package together</span>
                       </span>
                     </span>
                   </label>
@@ -114,7 +114,7 @@ const description = "Fill in a short branding project brief for a new logo or vi
                 <label class="brief-label">Primary touchpoints & applications</label>
                 <div class="tiles-grid">
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="applications" value="Digital & Social media" class="tile-input" checked>
+                    <input type="checkbox" name="applications" value="Digital & Social media" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Digital & Social media</span>
@@ -122,7 +122,7 @@ const description = "Fill in a short branding project brief for a new logo or vi
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="applications" value="Print collateral (cards, stationery, folders)" class="tile-input" checked>
+                    <input type="checkbox" name="applications" value="Print collateral (cards, stationery)" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Print materials</span>
@@ -130,7 +130,7 @@ const description = "Fill in a short branding project brief for a new logo or vi
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="applications" value="Packaging & product labels" class="tile-input">
+                    <input type="checkbox" name="applications" value="Packaging & labels" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Packaging & labels</span>
@@ -138,10 +138,18 @@ const description = "Fill in a short branding project brief for a new logo or vi
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="applications" value="Signage (storefront, fleet, banners)" class="tile-input">
+                    <input type="checkbox" name="applications" value="Signage & fleet" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Signage & fleet</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Merchandise & apparel" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Merchandise & apparel</span>
                     </span>
                   </label>
 
@@ -156,22 +164,29 @@ const description = "Fill in a short branding project brief for a new logo or vi
               </div>
 
               <div class="brief-group">
-                <label class="brief-label" for="brand-preferences">Inspirations, preferences & elements to avoid (optional)</label>
-                <p class="brief-hint">Share references you admire, desired color moods, or specific styles you want to avoid.</p>
-                <textarea id="brand-preferences" name="preferences" class="brief-textarea" rows="3" placeholder="e.g. Clean, timeless typography and organic tones. We want to avoid generic clip-art symbols and loud neon gradients."></textarea>
+                <label class="brief-label" for="brand-preferences">Inspirations, preferences & things to avoid (optional)</label>
+                <textarea id="brand-preferences" name="preferences" class="brief-textarea" rows="3" placeholder="e.g. Minimalist, modern style with earthy tones. Avoid loud gradients or overly intricate symbols."></textarea>
               </div>
             </fieldset>
 
             <!-- STEP 3: Timeline, Budget & Contact -->
             <fieldset class="brief-step" data-step="2" aria-hidden="true">
               <legend class="step-legend">Step 3: Timeline, Budget & Contact</legend>
-              <p class="step-desc">Provide estimated milestones and your contact details.</p>
+              <p class="step-desc">Specify expected timeframe and contact info for your proposal.</p>
 
               <div class="brief-group">
                 <label class="brief-label">Estimated timeline</label>
                 <div class="tiles-grid" role="radiogroup">
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="Within 1 month" class="tile-input" checked>
+                    <input type="radio" name="timeline" value="Within 2 weeks" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">Within 2 weeks</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="timeline" value="Within 1 month" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-title">Within 1 month</span>
@@ -187,18 +202,10 @@ const description = "Fill in a short branding project brief for a new logo or vi
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="As soon as possible" class="tile-input">
+                    <input type="radio" name="timeline" value="Flexible timeline" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">As soon as possible</span>
-                    </span>
-                  </label>
-
-                  <label class="tile-choice">
-                    <input type="radio" name="timeline" value="To be discussed" class="tile-input">
-                    <span class="tile-body">
-                      <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">To be discussed</span>
+                      <span class="tile-title">Flexible timeline</span>
                     </span>
                   </label>
                 </div>
@@ -208,34 +215,34 @@ const description = "Fill in a short branding project brief for a new logo or vi
                 <label class="brief-label">Estimated branding budget</label>
                 <div class="tiles-grid" role="radiogroup">
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="€300 – €600" class="tile-input">
+                    <input type="radio" name="budget" value="€300 – €700" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">€300 – €600</span>
+                      <span class="tile-title">€300 – €700</span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="€600 – €1,200" class="tile-input" checked>
+                    <input type="radio" name="budget" value="€700 – €1,500" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">€600 – €1,200</span>
+                      <span class="tile-title">€700 – €1,500</span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="€1,200+" class="tile-input">
+                    <input type="radio" name="budget" value="Above €1,500" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">€1,200+</span>
+                      <span class="tile-title">Above €1,500</span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="Need a quote" class="tile-input">
+                    <input type="radio" name="budget" value="To be discussed" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">Need a quote</span>
+                      <span class="tile-title">To be discussed</span>
                     </span>
                   </label>
                 </div>
@@ -243,12 +250,12 @@ const description = "Fill in a short branding project brief for a new logo or vi
 
               <div class="brief-group">
                 <label class="brief-label" for="contact-name">Name or contact person <span class="req" aria-hidden="true">*</span></label>
-                <input type="text" id="contact-name" name="contact_name" class="brief-input" required autocomplete="name" placeholder="Morgan Smith">
+                <input type="text" id="contact-name" name="contact_name" class="brief-input" required autocomplete="name" placeholder="e.g. John Doe">
               </div>
 
               <div class="brief-group">
-                <label class="brief-label" for="contact-email">Email address for the reply <span class="req" aria-hidden="true">*</span></label>
-                <input type="email" id="contact-email" name="contact_email" class="brief-input" required autocomplete="email" placeholder="morgan@brand.com">
+                <label class="brief-label" for="contact-email">Email address for response <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="contact-email" name="contact_email" class="brief-input" required autocomplete="email" placeholder="e.g. john@yourcompany.com">
                 
                 <div class="phone-toggle-wrap">
                   <button type="button" class="phone-toggle-btn" id="toggle-phone-btn" aria-expanded="false">
@@ -264,21 +271,21 @@ const description = "Fill in a short branding project brief for a new logo or vi
 
             <!-- STEP 4: Review & Submit -->
             <fieldset class="brief-step" data-step="3" aria-hidden="true">
-              <legend class="step-legend">Step 4: Review Your Brief</legend>
-              <p class="step-desc">Review your choices before sending. You can edit any section by clicking “Edit”.</p>
+              <legend class="step-legend">Step 4: Review & Submit</legend>
+              <p class="step-desc">Review your answers before sending. Click "Edit" on any section if needed.</p>
 
               <!-- Dynamic summary injected by JS -->
               <div id="brief-summary-target"></div>
 
               <p class="form-privacy" style="margin-top:24px;font-size:14px;color:#71717a">
-                Submitting this brief is completely free and non-binding. Your details are used strictly to reply with a proposal. <a href="/en/privacy-policy/" style="color:inherit">Privacy policy</a>.
+                Submitting this brief is free and comes with no obligations. Your data will only be used to contact you and prepare an estimate. <a href="/en/privacy-policy/" style="color:inherit;text-decoration:underline">Privacy policy</a>.
               </p>
             </fieldset>
 
-            <!-- Status & Error Notices -->
+            <!-- Status and feedback notices -->
             <div id="brief-status-box" class="brief-status-box" role="status" aria-live="polite" hidden></div>
 
-            <!-- Actions Bar -->
+            <!-- Action buttons -->
             <div class="brief-actions">
               <button type="button" class="btn-secondary" id="brief-btn-prev" style="display:none;">
                 <span aria-hidden="true">&larr;</span>

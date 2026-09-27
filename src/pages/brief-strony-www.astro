@@ -15,13 +15,14 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
     <div class="home-inner brief-page-wrap">
       <div class="brief-container">
         
-        <header class="brief-header">
-          <p class="home-kicker">BRIEF PROJEKTOWY / STRONY WWW</p>
-          <h1>Ustalmy założenia Twojej nowej strony.</h1>
-          <p class="home-lead">Krótki, 3-krokowy formularz pomoże sprecyzować najważniejsze potrzeby. Odpowiedzi posłużą do przygotowania bezpłatnej, niezobowiązującej wyceny.</p>
-        </header>
+        <!-- Wprowadzenie: pionowy układ, wyrównany do lewej, bez kolizji z headerem globalnym -->
+        <div class="brief-intro-block">
+          <p class="brief-intro-kicker">BRIEF / STRONY WWW</p>
+          <h1 class="brief-intro-title">Opowiedz mi o swojej stronie.</h1>
+          <p class="brief-intro-lead">Odpowiedz na kilka pytań. Pomogą mi przygotować zakres prac i wycenę.</p>
+        </div>
 
-        <!-- Stepper Progress Bar -->
+        <!-- Wskaźnik postępu (stepper) -->
         <div class="brief-stepper" aria-label="Postęp wypełniania briefu">
           <div class="stepper-header">
             <span class="stepper-step-indicator" id="stepper-step-indicator">Krok 1 z 3</span>
@@ -32,7 +33,7 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
           </div>
         </div>
 
-        <!-- Form Card Box -->
+        <!-- Główny formularz (białe tło, delikatne obramowanie, semantyczny fieldset) -->
         <div class="brief-card-box">
           <form id="brief-form" data-brief-type="web" novalidate>
             <!-- Honeypot antyspamowy -->
@@ -45,14 +46,14 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
 
               <div class="brief-group">
                 <label class="brief-label">Rodzaj projektu <span class="req" aria-hidden="true">*</span></label>
-                <div class="tiles-grid" role="radiogroup" aria-required="true">
+                <div class="tiles-grid is-3" role="radiogroup" aria-required="true">
                   <label class="tile-choice">
-                    <input type="radio" name="project_type" value="Nowa strona internetowa" class="tile-input" checked>
+                    <input type="radio" name="project_type" value="Nowa strona internetowa" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Nowa strona internetowa</span>
-                        <span class="tile-desc">Projekt od zera dla nowej firmy lub marki</span>
+                        <span class="tile-desc">Projekt od podstaw dla nowej działalności</span>
                       </span>
                     </span>
                   </label>
@@ -63,7 +64,7 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Modernizacja obecnej strony</span>
-                        <span class="tile-desc">Przebudowa wyglądu, układu i technologii</span>
+                        <span class="tile-desc">Przebudowa wyglądu i technologii</span>
                       </span>
                     </span>
                   </label>
@@ -83,7 +84,6 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
 
               <div class="brief-group">
                 <label class="brief-label" for="company-overview">Czym zajmuje się Twoja firma i dla kogo pracuje? <span class="req" aria-hidden="true">*</span></label>
-                <p class="brief-hint">1–2 zdania o branży, głównych usługach lub produktach oraz docelowych klientach.</p>
                 <textarea id="company-overview" name="company_overview" class="brief-textarea" rows="3" required placeholder="np. Produkujemy meble na wymiar dla klientów indywidualnych i biur na terenie Podkarpacia."></textarea>
               </div>
 
@@ -91,12 +91,12 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
                 <label class="brief-label">Główny cel strony internetowej</label>
                 <div class="tiles-grid" role="radiogroup">
                   <label class="tile-choice">
-                    <input type="radio" name="primary_goal" value="Pozyskiwanie zapytań i klientów" class="tile-input" checked>
+                    <input type="radio" name="primary_goal" value="Pozyskiwanie zapytań i klientów" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Pozyskiwanie zapytań</span>
-                        <span class="tile-desc">Zachęcenie do kontaktu lub przesłania zapytania</span>
+                        <span class="tile-desc">Zachęcenie do kontaktu lub wyceny</span>
                       </span>
                     </span>
                   </label>
@@ -107,7 +107,7 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Wizerunek i oferta</span>
-                        <span class="tile-desc">Przejrzysta wizytówka budująca wiarygodność</span>
+                        <span class="tile-desc">Przejrzysta wizytówka budująca zaufanie</span>
                       </span>
                     </span>
                   </label>
@@ -118,7 +118,7 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Sprzedaż online</span>
-                        <span class="tile-desc">Katalog produktów z możliwością zamówienia</span>
+                        <span class="tile-desc">Katalog produktów z opcją zamówienia</span>
                       </span>
                     </span>
                   </label>
@@ -144,10 +144,10 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
 
               <div class="brief-group">
                 <label class="brief-label">Potrzebne funkcje na stronie</label>
-                <p class="brief-hint">Wybór funkcji służy wstępnemu rozpoznaniu potrzeb. Nie oznacza, że każda funkcja mieści się w cenie standardowego pakietu.</p>
+                <p class="brief-hint">Wstępne rozeznanie potrzeb – zakres doprecyzujemy w wycenie.</p>
                 <div class="tiles-grid">
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="features" value="Prezentacja oferty i usług" class="tile-input" checked>
+                    <input type="checkbox" name="features" value="Prezentacja oferty i usług" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Prezentacja oferty</span>
@@ -187,18 +187,10 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="features" value="Wiele wersji językowych" class="tile-input">
+                    <input type="checkbox" name="features" value="Wersje językowe (np. EN)" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Wersje językowe (np. EN)</span>
-                    </span>
-                  </label>
-
-                  <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="features" value="Nie wiem / do ustalenia" class="tile-input">
-                    <span class="tile-body">
-                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Nie wiem / do ustalenia</span>
                     </span>
                   </label>
                 </div>
@@ -208,7 +200,7 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
                 <label class="brief-label">Posiadane materiały wyjściowe</label>
                 <div class="tiles-grid">
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="assets" value="Logo / identyfikacja wizualna" class="tile-input" checked>
+                    <input type="checkbox" name="assets" value="Logo / identyfikacja wizualna" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Logo / branding</span>
@@ -224,7 +216,7 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="assets" value="Dobrej jakości zdjęcia i grafiki" class="tile-input">
+                    <input type="checkbox" name="assets" value="Zdjęcia i grafiki" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Zdjęcia i grafiki</span>
@@ -235,56 +227,55 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
                     <input type="checkbox" name="assets" value="Potrzebuję pomocy w przygotowaniu materiałów" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                      <span class="tile-title">Potrzebuję pomocy w materiałach</span>
+                      <span class="tile-title">Potrzebuję pomocy</span>
                     </span>
                   </label>
                 </div>
               </div>
 
               <div class="brief-group">
-                <label class="brief-label" for="web-references">Adres obecnej strony lub linki do inspiracji (opcjonalnie)</label>
-                <p class="brief-hint">Jeśli posiadasz stronę lub podobają Ci się konkretne serwisy internetowe, wklej linki.</p>
-                <input type="text" id="web-references" name="references" class="brief-input" placeholder="np. https://mojastrona.pl, https://przyklad.com">
+                <label class="brief-label" for="web-references">Adres obecnej strony lub inspiracje (opcjonalnie)</label>
+                <input type="text" id="web-references" name="references" class="brief-input" placeholder="np. https://mojastrona.pl lub linki do stron, które Ci się podobają">
               </div>
             </fieldset>
 
             <!-- KROK 3: Harmonogram, budżet i kontakt -->
             <fieldset class="brief-step" data-step="2" aria-hidden="true">
               <legend class="step-legend">Krok 3: Harmonogram, budżet i kontakt</legend>
-              <p class="step-desc">Ostatni krok: określ ramy czasowe oraz dane do przygotowania wyceny.</p>
+              <p class="step-desc">Określ ramy czasowe oraz dane do przygotowania wyceny.</p>
 
               <div class="brief-group">
                 <label class="brief-label">Orientacyjny termin realizacji</label>
                 <div class="tiles-grid" role="radiogroup">
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="W ciągu 1–2 miesięcy" class="tile-input" checked>
+                    <input type="radio" name="timeline" value="Jak najszybciej (1–2 tygodnie)" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">W ciągu 1–2 miesięcy</span>
+                      <span class="tile-title">Jak najszybciej (1–2 tyg.)</span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="W ciągu 3–6 miesięcy" class="tile-input">
+                    <input type="radio" name="timeline" value="W ciągu miesiąca" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">W ciągu 3–6 miesięcy</span>
+                      <span class="tile-title">W ciągu miesiąca</span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="Jak najszybciej" class="tile-input">
+                    <input type="radio" name="timeline" value="W ciągu 2–3 miesięcy" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">Jak najszybciej</span>
+                      <span class="tile-title">W ciągu 2–3 miesięcy</span>
                     </span>
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="Do ustalenia" class="tile-input">
+                    <input type="radio" name="timeline" value="Elastyczny termin" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">Do ustalenia</span>
+                      <span class="tile-title">Elastyczny termin</span>
                     </span>
                   </label>
                 </div>
@@ -302,7 +293,7 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="3 000 – 6 000 zł" class="tile-input" checked>
+                    <input type="radio" name="budget" value="3 000 – 6 000 zł" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-title">3 000 – 6 000 zł</span>
@@ -318,10 +309,10 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="Potrzebuję wyceny" class="tile-input">
+                    <input type="radio" name="budget" value="Do ustalenia po wycenie" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">Potrzebuję wyceny</span>
+                      <span class="tile-title">Do ustalenia po wycenie</span>
                     </span>
                   </label>
                 </div>
@@ -329,12 +320,12 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
 
               <div class="brief-group">
                 <label class="brief-label" for="contact-name">Imię lub osoba kontaktowa <span class="req" aria-hidden="true">*</span></label>
-                <input type="text" id="contact-name" name="contact_name" class="brief-input" required autocomplete="name" placeholder="Jan Kowalski">
+                <input type="text" id="contact-name" name="contact_name" class="brief-input" required autocomplete="name" placeholder="np. Jan Kowalski">
               </div>
 
               <div class="brief-group">
                 <label class="brief-label" for="contact-email">Adres e-mail do odpowiedzi <span class="req" aria-hidden="true">*</span></label>
-                <input type="email" id="contact-email" name="contact_email" class="brief-input" required autocomplete="email" placeholder="jan@twojafirma.pl">
+                <input type="email" id="contact-email" name="contact_email" class="brief-input" required autocomplete="email" placeholder="np. jan@twojafirma.pl">
                 
                 <div class="phone-toggle-wrap">
                   <button type="button" class="phone-toggle-btn" id="toggle-phone-btn" aria-expanded="false">
@@ -357,7 +348,7 @@ const description = "Wypełnij krótki, 3-krokowy brief strony internetowej. Okr
               <div id="brief-summary-target"></div>
 
               <p class="form-privacy" style="margin-top:24px;font-size:14px;color:#71717a">
-                Wysłanie briefu jest niezobowiązujące. Twoje dane posłużą wyłącznie do przygotowania odpowiedzi i wyceny. <a href="/polityka-prywatnosci/" style="color:inherit">Polityka prywatności</a>.
+                Wysłanie briefu jest bezpłatne i niezobowiązujące. Twoje dane posłużą wyłącznie do kontaktu i przygotowania wyceny. <a href="/polityka-prywatnosci/" style="color:inherit;text-decoration:underline">Polityka prywatności</a>.
               </p>
             </fieldset>
 

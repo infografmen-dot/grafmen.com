@@ -15,13 +15,14 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
     <div class="home-inner brief-page-wrap">
       <div class="brief-container">
         
-        <header class="brief-header">
-          <p class="home-kicker">BRIEF PROJEKTOWY / BRANDING I LOGO</p>
-          <h1>Zbudujmy silny wizerunek Twojej marki.</h1>
-          <p class="home-lead">Krótki, 3-krokowy brief pomoże określić założenia dla projektu logo lub pełnej identyfikacji wizualnej. Na jego podstawie przygotuję dopasowaną wycenę.</p>
-        </header>
+        <!-- Wprowadzenie: pionowy układ, wyrównany do lewej, bez kolizji z headerem globalnym -->
+        <div class="brief-intro-block">
+          <p class="brief-intro-kicker">BRIEF / BRANDING</p>
+          <h1 class="brief-intro-title">Opowiedz mi o swojej marce.</h1>
+          <p class="brief-intro-lead">Odpowiedz na kilka pytań. Pomogą mi przygotować zakres prac i wycenę.</p>
+        </div>
 
-        <!-- Stepper Progress Bar -->
+        <!-- Wskaźnik postępu (stepper) -->
         <div class="brief-stepper" aria-label="Postęp wypełniania briefu">
           <div class="stepper-header">
             <span class="stepper-step-indicator" id="stepper-step-indicator">Krok 1 z 3</span>
@@ -32,7 +33,7 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
           </div>
         </div>
 
-        <!-- Form Card Box -->
+        <!-- Główny formularz (białe tło, delikatne obramowanie, semantyczny fieldset) -->
         <div class="brief-card-box">
           <form id="brief-form" data-brief-type="branding" novalidate>
             <!-- Honeypot antyspamowy -->
@@ -45,13 +46,12 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
 
               <div class="brief-group">
                 <label class="brief-label" for="brand-name">Nazwa marki / firmy <span class="req" aria-hidden="true">*</span></label>
-                <input type="text" id="brand-name" name="brand_name" class="brief-input" required placeholder="np. Hiker, Drewmax lub wpisz: Nazwa jeszcze nieustalona">
+                <input type="text" id="brand-name" name="brand_name" class="brief-input" required placeholder="np. Hiker, Drewmax">
                 <p class="brief-hint">Jeśli jesteś na etapie wyboru nazwy, wpisz: <em>Nazwa jeszcze nieustalona</em>.</p>
               </div>
 
               <div class="brief-group">
                 <label class="brief-label" for="brand-overview">Czym zajmuje się marka i do kogo kieruje ofertę? <span class="req" aria-hidden="true">*</span></label>
-                <p class="brief-hint">1–2 zdania o charakterze działalności, produktach i profilu odbiorców.</p>
                 <textarea id="brand-overview" name="brand_overview" class="brief-textarea" rows="3" required placeholder="np. Tworzymy naturalne kosmetyki rzemieślnicze dla kobiet ceniących ekologiczny styl życia."></textarea>
               </div>
 
@@ -59,12 +59,12 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
                 <label class="brief-label">Planowany zakres prac <span class="req" aria-hidden="true">*</span></label>
                 <div class="tiles-grid" role="radiogroup" aria-required="true">
                   <label class="tile-choice">
-                    <input type="radio" name="brand_scope" value="Nowe logo od zera" class="tile-input" checked>
+                    <input type="radio" name="brand_scope" value="Nowe logo od zera" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Nowe logo</span>
-                        <span class="tile-desc">Projekt od podstaw dla nowo powstającej firmy</span>
+                        <span class="tile-desc">Projekt od podstaw dla nowej marki</span>
                       </span>
                     </span>
                   </label>
@@ -86,7 +86,7 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Logo i identyfikacja</span>
-                        <span class="tile-desc">Znak, księga znaku, typografia, kolory i akcydensy</span>
+                        <span class="tile-desc">Znak, księga znaku, typografia i kolory</span>
                       </span>
                     </span>
                   </label>
@@ -97,7 +97,7 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-label-wrap">
                         <span class="tile-title">Potrzebuję pomocy</span>
-                        <span class="tile-desc">Ustalimy, co będzie optymalne na start</span>
+                        <span class="tile-desc">Wspólnie ustalimy optymalny zakres</span>
                       </span>
                     </span>
                   </label>
@@ -114,7 +114,7 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
                 <label class="brief-label">Główne zastosowania znaku</label>
                 <div class="tiles-grid">
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="applications" value="Internet i social media" class="tile-input" checked>
+                    <input type="checkbox" name="applications" value="Internet i social media" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Internet i social media</span>
@@ -122,7 +122,7 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
                   </label>
 
                   <label class="tile-choice is-checkbox">
-                    <input type="checkbox" name="applications" value="Druk (wizytówki, papier, foldery)" class="tile-input" checked>
+                    <input type="checkbox" name="applications" value="Druk (wizytówki, papier, foldery)" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
                       <span class="tile-title">Materiały drukowane</span>
@@ -146,6 +146,14 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
                   </label>
 
                   <label class="tile-choice is-checkbox">
+                    <input type="checkbox" name="applications" value="Gadżety i odzież firmowa" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                      <span class="tile-title">Gadżety i odzież</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice is-checkbox">
                     <input type="checkbox" name="applications" value="Inne zastosowania" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"><svg class="tile-check-icon" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
@@ -156,9 +164,8 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
               </div>
 
               <div class="brief-group">
-                <label class="brief-label" for="brand-preferences">Inspiracje, preferencje i elementy, których unikać (opcjonalnie)</label>
-                <p class="brief-hint">Napisz, jakie cechy lub kolory Ci się podobają, jakie marki cenisz wizualnie lub czego zdecydowanie nie chcesz widzieć w projekcie.</p>
-                <textarea id="brand-preferences" name="preferences" class="brief-textarea" rows="3" placeholder="np. Podoba mi się minimalistyczny, czytelny styl. Unikamy zbyt jaskrawych kolorów i skomplikowanych gradientów."></textarea>
+                <label class="brief-label" for="brand-preferences">Inspiracje, preferencje i elementy niepożądane (opcjonalnie)</label>
+                <textarea id="brand-preferences" name="preferences" class="brief-textarea" rows="3" placeholder="np. Styl minimalistyczny, stonowane kolory ziemi. Unikać jaskrawych odcieni i skomplikowanych symboli."></textarea>
               </div>
             </fieldset>
 
@@ -168,10 +175,18 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
               <p class="step-desc">Określ oczekiwany czas i dane do przygotowania wyceny.</p>
 
               <div class="brief-group">
-                <label class="brief-label">Orientacyjny termin</label>
+                <label class="brief-label">Orientacyjny termin realizacji</label>
                 <div class="tiles-grid" role="radiogroup">
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="W ciągu miesiąca" class="tile-input" checked>
+                    <input type="radio" name="timeline" value="Do 2 tygodni" class="tile-input">
+                    <span class="tile-body">
+                      <span class="tile-indicator" aria-hidden="true"></span>
+                      <span class="tile-title">Do 2 tygodni</span>
+                    </span>
+                  </label>
+
+                  <label class="tile-choice">
+                    <input type="radio" name="timeline" value="W ciągu miesiąca" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-title">W ciągu miesiąca</span>
@@ -187,18 +202,10 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="timeline" value="Jak najszybciej" class="tile-input">
+                    <input type="radio" name="timeline" value="Elastyczny termin" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">Jak najszybciej</span>
-                    </span>
-                  </label>
-
-                  <label class="tile-choice">
-                    <input type="radio" name="timeline" value="Do ustalenia" class="tile-input">
-                    <span class="tile-body">
-                      <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">Do ustalenia</span>
+                      <span class="tile-title">Elastyczny termin</span>
                     </span>
                   </label>
                 </div>
@@ -216,7 +223,7 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="2 000 – 4 000 zł" class="tile-input" checked>
+                    <input type="radio" name="budget" value="2 000 – 4 000 zł" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
                       <span class="tile-title">2 000 – 4 000 zł</span>
@@ -232,10 +239,10 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
                   </label>
 
                   <label class="tile-choice">
-                    <input type="radio" name="budget" value="Potrzebuję wyceny" class="tile-input">
+                    <input type="radio" name="budget" value="Do ustalenia po wycenie" class="tile-input">
                     <span class="tile-body">
                       <span class="tile-indicator" aria-hidden="true"></span>
-                      <span class="tile-title">Potrzebuję wyceny</span>
+                      <span class="tile-title">Do ustalenia po wycenie</span>
                     </span>
                   </label>
                 </div>
@@ -243,12 +250,12 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
 
               <div class="brief-group">
                 <label class="brief-label" for="contact-name">Imię lub osoba kontaktowa <span class="req" aria-hidden="true">*</span></label>
-                <input type="text" id="contact-name" name="contact_name" class="brief-input" required autocomplete="name" placeholder="Jan Kowalski">
+                <input type="text" id="contact-name" name="contact_name" class="brief-input" required autocomplete="name" placeholder="np. Jan Kowalski">
               </div>
 
               <div class="brief-group">
                 <label class="brief-label" for="contact-email">Adres e-mail do odpowiedzi <span class="req" aria-hidden="true">*</span></label>
-                <input type="email" id="contact-email" name="contact_email" class="brief-input" required autocomplete="email" placeholder="jan@twojafirma.pl">
+                <input type="email" id="contact-email" name="contact_email" class="brief-input" required autocomplete="email" placeholder="np. jan@twojafirma.pl">
                 
                 <div class="phone-toggle-wrap">
                   <button type="button" class="phone-toggle-btn" id="toggle-phone-btn" aria-expanded="false">
@@ -271,7 +278,7 @@ const description = "Wypełnij krótki brief projektowy dla nowego logo lub bran
               <div id="brief-summary-target"></div>
 
               <p class="form-privacy" style="margin-top:24px;font-size:14px;color:#71717a">
-                Wysłanie briefu jest bezpłatne i niezobowiązujące. Twoje dane posłużą wyłącznie do kontaktu i przygotowania wyceny. <a href="/polityka-prywatnosci/" style="color:inherit">Polityka prywatności</a>.
+                Wysłanie briefu jest bezpłatne i niezobowiązujące. Twoje dane posłużą wyłącznie do kontaktu i przygotowania wyceny. <a href="/polityka-prywatnosci/" style="color:inherit;text-decoration:underline">Polityka prywatności</a>.
               </p>
             </fieldset>
 
