@@ -35,8 +35,9 @@ function formatDate(date: Date) {
 }
 
 const isDraft = post.data.draft;
+const altLangUrl = post.data.translationSlug ? `/blog/${post.data.translationSlug}/` : '/blog/';
 ---
-<BaseLayout title={title} description={description} currentNav="blog" bodyClass="service-page" ogType="article" ogImage={ogImage} lang="en">
+<BaseLayout title={title} description={description} currentNav="blog" bodyClass="service-page" ogType="article" ogImage={ogImage} lang="en" altLangUrl={altLangUrl}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",

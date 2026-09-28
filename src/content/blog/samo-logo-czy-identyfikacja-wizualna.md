@@ -7,6 +7,7 @@ pubDate: 2026-09-21
 cover: "/assets/portfolio/hiker.webp"
 coverAlt: "Identyfikacja wizualna marki Hiker na materiałach firmowych"
 draft: false
+translationSlug: "logo-only-or-visual-identity"
 ---
 
 Gdy przedsiębiorca decyduje się na odświeżenie wizerunku lub startuje z nową działalnością, pierwsze pytanie brzmi zazwyczaj: *„Ile kosztuje logo?”*. W praktyce okazuje się jednak, że sam znak graficzny to dopiero początek. Kiedy wystarczy samo logo, a kiedy firma potrzebuje pełnej identyfikacji wizualnej? 

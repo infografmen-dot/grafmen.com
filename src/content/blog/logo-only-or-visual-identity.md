@@ -8,6 +8,7 @@ cover: "/assets/portfolio/hiker.webp"
 coverAlt: "Hiker visual identity on business materials"
 draft: false
 lang: "en"
+translationSlug: "samo-logo-czy-identyfikacja-wizualna"
 ---
 
 When a business owner decides to refresh their image or launches a new venture, the first question is usually: *“How much does a logo cost?”*. In practice, however, a standalone graphic mark is only the beginning. When is a logo on its own sufficient, and when does a company require a comprehensive visual identity?
