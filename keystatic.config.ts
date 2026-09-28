@@ -85,12 +85,19 @@ export default config({
           description: 'Niestandardowy opis do meta tagu description. Jeśli pusty, użyty zostanie krótki opis',
           multiline: true,
         }),
+        ogImage: fields.image({
+          label: 'Grafika do udostępniania (opcjonalna)',
+          description: 'Niestandardowa grafika dla mediów społecznościowych (og:image). Przy pustym polu wykorzystywane jest zdjęcie główne artykułu',
+          directory: 'public/assets/blog',
+          publicPath: '/assets/blog/',
+        }),
         translationSlug: fields.text({
           label: 'Slug powiązanego tłumaczenia (opcjonalnie)',
           description: 'Podaj slug artykułu w drugim języku tylko jeśli tłumaczenie rzeczywiście istnieje',
         }),
         content: fields.markdoc({
           label: 'Treść artykułu',
+          description: 'Główne sekcje artykułu oznaczaj jako H2, podsekcje jako H3. Tytuł H1 jest dodawany automatycznie',
           extension: 'md',
           options: {
             heading: [2, 3, 4],

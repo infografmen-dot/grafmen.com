@@ -24,7 +24,9 @@ const { Content } = await render(post);
 const title = post.data.seoTitle ? `${post.data.seoTitle} | Grafmen Blog` : `${post.data.title} | Grafmen Blog`;
 const description = post.data.seoDescription || post.data.description;
 const coverSrc = post.data.cover.startsWith('/') ? post.data.cover : `/${post.data.cover}`;
-const ogImage = `https://grafmen.com${coverSrc}`;
+const rawOgImage = post.data.ogImage || post.data.cover;
+const ogImageSrc = rawOgImage.startsWith('/') ? rawOgImage : `/${rawOgImage}`;
+const ogImage = `https://grafmen.com${ogImageSrc}`;
 
 function formatDate(date: Date) {
   return date.toLocaleDateString('en-GB', {
