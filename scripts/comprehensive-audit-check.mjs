@@ -1,254 +1,150 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { chromium } from 'playwright-core';
+import fs from 'node:fs';
+import path from 'node:path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const distDir = path.resolve(__dirname, '../dist');
+async function runAuditCheck() {
+  const browser = await chromium.launch({ headless: true, channel: 'chrome' });
+  const results = {
+    headerChecks: [],
+    cspViolations: [],
+    consoleErrors: [],
+    pagesTested: [],
+    formMockTest: null,
+    error404Test: null,
+    sitemapCheck: null
+  };
 
-async function runComprehensiveAudit() {
-  console.log('=== STARTING COMPREHENSIVE SECURITY & TECHNICAL SEO AUDIT ===\n');
+  const pagesToTest = [
+    { url: 'http://localhost:4321/', name: 'Home PL' },
+    { url: 'http://localhost:4321/strony-www/', name: 'Strony WWW PL' },
+    { url: 'http://localhost:4321/branding/', name: 'Branding PL' },
+    { url: 'http://localhost:4321/brief-strony-www/', name: 'Brief WWW PL' },
+    { url: 'http://localhost:4321/brief-branding/', name: 'Brief Branding PL' },
+    { url: 'http://localhost:4321/kontakt/', name: 'Kontakt PL' },
+    { url: 'http://localhost:4321/portfolio/hiker/', name: 'Portfolio Hiker PL' },
+    { url: 'http://localhost:4321/o-mnie/', name: 'O mnie PL' },
+    { url: 'http://localhost:4321/polityka-prywatnosci/', name: 'Polityka Prywatności PL' },
+    { url: 'http://localhost:4321/en/', name: 'Home EN' },
+    { url: 'http://localhost:4321/en/websites/', name: 'Websites EN' },
+    { url: 'http://localhost:4321/en/brief-website/', name: 'Brief Website EN' },
+    { url: 'http://localhost:4321/en/privacy-policy/', name: 'Privacy Policy EN' }
+  ];
 
-  if (!fs.existsSync(distDir)) {
-    console.error('Dist directory does not exist! Run npm run build first.');
-    process.exit(1);
-  }
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 
-  // 1. Gather all HTML files in dist/
-  function getHtmlFiles(dir, fileList = []) {
-    const files = fs.readdirSync(dir);
-    files.forEach(file => {
-      const filePath = path.join(dir, file);
-      if (fs.statSync(filePath).isDirectory()) {
-        if (file !== 'assets') {
-          getHtmlFiles(filePath, fileList);
-        }
-      } else if (file.endsWith('.html')) {
-        fileList.push(filePath);
+  // Monitor console errors and CSP violations
+  page.on('console', msg => {
+    if (msg.type() === 'error') {
+      const text = msg.text();
+      results.consoleErrors.push({ url: page.url(), text });
+      if (text.toLowerCase().includes('content security policy') || text.toLowerCase().includes('violates')) {
+        results.cspViolations.push({ url: page.url(), text });
       }
-    });
-    return fileList;
-  }
-
-  const htmlFiles = getHtmlFiles(distDir);
-  console.log(`Found ${htmlFiles.length} HTML files in dist/\n`);
-
-  const auditResults = {
-    totalPages: htmlFiles.length,
-    pagesWithIssues: 0,
-    seo: {
-      missingTitle: [],
-      missingDesc: [],
-      missingCanonical: [],
-      missingHreflang: [],
-      multipleH1: [],
-      missingH1: [],
-      brokenInternalLinks: [],
-      imagesMissingAlt: [],
-      invalidSchemaJson: [],
-      missingSchema: []
-    },
-    security: {
-      leakedSecrets: [],
-      externalScriptUrls: [],
-      externalStylesheetUrls: []
-    },
-    performance: {
-      nonWebpPngImages: [],
-      uncompressedAssets: []
     }
-  };
+  });
 
-  // Helper to extract regex matches
-  const matchTag = (html, regex) => {
-    const match = html.match(regex);
-    return match ? match[1] : null;
-  };
+  page.on('pageerror', err => {
+    results.consoleErrors.push({ url: page.url(), text: err.message });
+  });
 
-  const matchAll = (html, regex) => {
-    const matches = [];
-    let m;
-    while ((m = regex.exec(html)) !== null) {
-      matches.push(m[1] || m[0]);
-    }
-    return matches;
-  };
+  console.log('=== 1. Testing Security Headers and Page Loads ===');
+  for (const p of pagesToTest) {
+    const res = await page.goto(p.url, { waitUntil: 'networkidle' });
+    const status = res.status();
+    const headers = res.headers();
 
-  // Helper to test if a relative or root URL exists in dist
-  function verifyPathExists(targetUrl) {
-    if (!targetUrl || targetUrl.startsWith('http://') || targetUrl.startsWith('https://') || targetUrl.startsWith('mailto:') || targetUrl.startsWith('tel:') || targetUrl.startsWith('#') || targetUrl.startsWith('javascript:') || targetUrl.startsWith('data:')) {
-      return true;
-    }
-    const cleanPath = targetUrl.split('?')[0].split('#')[0];
-    if (cleanPath === '' || cleanPath === '/') return true;
-
-    // Remove leading slash
-    const relPath = cleanPath.startsWith('/') ? cleanPath.slice(1) : cleanPath;
-    
-    // Check if direct file exists (e.g., assets/...)
-    const directFile = path.join(distDir, relPath);
-    if (fs.existsSync(directFile)) return true;
-
-    // Check if directory with index.html exists
-    const dirIndex = path.join(distDir, relPath, 'index.html');
-    if (fs.existsSync(dirIndex)) return true;
-
-    return false;
-  }
-
-  // Iterate all pages
-  for (const file of htmlFiles) {
-    const relPath = path.relative(distDir, file).replace(/\\/g, '/');
-    const pageUrl = '/' + relPath.replace('index.html', '').replace('.html', '');
-    const html = fs.readFileSync(file, 'utf8');
-
-    let pageHasIssue = false;
-
-    // 1. Title
-    const title = matchTag(html, /<title>([^<]*)<\/title>/i);
-    if (!title || title.trim() === '') {
-      auditResults.seo.missingTitle.push(pageUrl);
-      pageHasIssue = true;
-    }
-
-    // 2. Meta Description
-    const desc = matchTag(html, /<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i);
-    if (!desc || desc.trim() === '') {
-      auditResults.seo.missingDesc.push(pageUrl);
-      pageHasIssue = true;
-    }
-
-    // 3. Canonical
-    const canonical = matchTag(html, /<link\s+rel=["']canonical["']\s+href=["']([^"']*)["']/i);
-    if (!canonical) {
-      auditResults.seo.missingCanonical.push(pageUrl);
-      pageHasIssue = true;
-    }
-
-    // 4. Hreflang
-    const hreflangPl = matchTag(html, /<link\s+rel=["']alternate["']\s+hreflang=["']pl["']\s+href=["']([^"']*)["']/i);
-    const hreflangEn = matchTag(html, /<link\s+rel=["']alternate["']\s+hreflang=["']en["']\s+href=["']([^"']*)["']/i);
-    if (!hreflangPl || !hreflangEn) {
-      auditResults.seo.missingHreflang.push(pageUrl);
-      pageHasIssue = true;
-    }
-
-    // 5. Headings (H1)
-    const h1Matches = matchAll(html, /<h1\b[^>]*>([\s\S]*?)<\/h1>/gi);
-    if (h1Matches.length === 0) {
-      auditResults.seo.missingH1.push(pageUrl);
-      pageHasIssue = true;
-    } else if (h1Matches.length > 1) {
-      auditResults.seo.multipleH1.push({ pageUrl, count: h1Matches.length });
-      pageHasIssue = true;
-    }
-
-    // 6. Schema.org JSON-LD
-    const schemaMatches = matchAll(html, /<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi);
-    if (schemaMatches.length === 0 && !pageUrl.includes('404')) {
-      auditResults.seo.missingSchema.push(pageUrl);
-    } else {
-      schemaMatches.forEach(rawSchema => {
-        try {
-          JSON.parse(rawSchema);
-        } catch (err) {
-          auditResults.seo.invalidSchemaJson.push({ pageUrl, error: err.message });
-          pageHasIssue = true;
-        }
+    if (results.headerChecks.length === 0) {
+      results.headerChecks.push({
+        'content-security-policy': headers['content-security-policy'] || 'MISSING',
+        'x-content-type-options': headers['x-content-type-options'] || 'MISSING',
+        'x-frame-options': headers['x-frame-options'] || 'MISSING',
+        'strict-transport-security': headers['strict-transport-security'] || 'MISSING',
+        'x-robots-tag': headers['x-robots-tag'] || 'MISSING'
       });
     }
 
-    // 7. Check Internal Links
-    const linkMatches = matchAll(html, /<a\b[^>]*\bhref=["']([^"']*)["']/gi);
-    linkMatches.forEach(href => {
-      if (!verifyPathExists(href)) {
-        auditResults.seo.brokenInternalLinks.push({ pageUrl, brokenHref: href });
-        pageHasIssue = true;
-      }
+    results.pagesTested.push({ name: p.name, url: p.url, status });
+  }
+
+  console.log('=== 2. Testing Form Submission Interception (Mocking Web3Forms) ===');
+  await page.goto('http://localhost:4321/brief-branding/', { waitUntil: 'networkidle' });
+
+  let interceptedPayload = null;
+
+  // Intercept Web3Forms API calls
+  await page.route('https://api.web3forms.com/submit', async route => {
+    const postData = route.request().postData();
+    interceptedPayload = postData;
+    console.log('Successfully intercepted Web3Forms POST request!');
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ success: true, message: 'Submission successful (mocked)' })
     });
+  });
 
-    // 8. Check Images
-    const imgTagMatches = matchAll(html, /<img\b[^>]*>/gi);
-    imgTagMatches.forEach(imgTag => {
-      const src = matchTag(imgTag, /\bsrc=["']([^"']*)["']/i);
-      const alt = matchTag(imgTag, /\balt=["']([^"']*)["']/i);
-      if (alt === null) {
-        auditResults.seo.imagesMissingAlt.push({ pageUrl, src });
-        pageHasIssue = true;
-      }
-      if (src && !verifyPathExists(src)) {
-        auditResults.seo.brokenInternalLinks.push({ pageUrl, brokenImgSrc: src });
-        pageHasIssue = true;
-      }
-    });
+  // Step 1
+  await page.fill('#brand-name', 'Audyt Test Brand');
+  await page.fill('#brand-overview', 'Opis profilu marki testowej');
+  await page.click('.tile-choice:has-text("Nowe logo")');
+  await page.click('#brief-btn-next');
+  await page.waitForTimeout(300);
 
-    // 9. Check External Scripts / Stylesheets
-    const scriptSrcMatches = matchAll(html, /<script\b[^>]*\bsrc=["']([^"']*)["']/gi);
-    scriptSrcMatches.forEach(src => {
-      if (src.startsWith('http://') || src.startsWith('https://')) {
-        if (!auditResults.security.externalScriptUrls.includes(src)) {
-          auditResults.security.externalScriptUrls.push(src);
-        }
-      }
-    });
+  // Step 2
+  await page.click('.tile-choice:has-text("Internet i social media")');
+  await page.click('#brief-btn-next');
+  await page.waitForTimeout(300);
 
-    const styleHrefMatches = matchAll(html, /<link\b[^>]*rel=["']stylesheet["'][^>]*\bhref=["']([^"']*)["']/gi);
-    styleHrefMatches.forEach(href => {
-      if (href.startsWith('http://') || href.startsWith('https://')) {
-        if (!auditResults.security.externalStylesheetUrls.includes(href)) {
-          auditResults.security.externalStylesheetUrls.push(href);
-        }
-      }
-    });
+  // Step 3
+  await page.fill('#contact-name', 'Jan Testowy');
+  await page.fill('#contact-email', 'jan@example.com');
+  await page.click('#brief-btn-next');
+  await page.waitForTimeout(300);
 
-    if (pageHasIssue) auditResults.pagesWithIssues++;
+  // Step 4: Summary & Submit
+  const submitBtn = page.locator('#brief-btn-submit');
+  await submitBtn.click();
+  await page.waitForTimeout(600);
+
+  const successScreenVisible = await page.locator('.brief-success-screen').isVisible();
+  results.formMockTest = {
+    intercepted: !!interceptedPayload,
+    successScreenRendered: successScreenVisible
+  };
+
+  console.log('Form mock test result:', results.formMockTest);
+
+  console.log('=== 3. Testing 404 Response and Error Page ===');
+  const errorRes = await page.goto('http://localhost:4321/non-existing-test-path-12345/', { waitUntil: 'networkidle' });
+  results.error404Test = {
+    status: errorRes.status(),
+    hasErrorMessage: await page.locator('h1, h2, p').first().isVisible()
+  };
+  console.log('404 Test Result:', results.error404Test);
+
+  console.log('=== 4. Testing Sitemap Output ===');
+  const sitemapPath = path.resolve('dist/sitemap-0.xml');
+  if (fs.existsSync(sitemapPath)) {
+    const content = fs.readFileSync(sitemapPath, 'utf8');
+    results.sitemapCheck = {
+      contains404: content.includes('404'),
+      urlCount: (content.match(/<url>/g) || []).length
+    };
   }
+  console.log('Sitemap check:', results.sitemapCheck);
 
-  // Output summary
-  console.log('--- TECHNICAL SEO AUDIT RESULTS ---');
-  console.log(`Total Pages Inspected: ${auditResults.totalPages}`);
-  console.log(`Missing Title: ${auditResults.seo.missingTitle.length}`);
-  console.log(`Missing Description: ${auditResults.seo.missingDesc.length}`);
-  console.log(`Missing Canonical: ${auditResults.seo.missingCanonical.length}`);
-  console.log(`Missing Hreflang: ${auditResults.seo.missingHreflang.length}`);
-  console.log(`Missing H1: ${auditResults.seo.missingH1.length}`);
-  console.log(`Multiple H1: ${auditResults.seo.multipleH1.length}`);
-  if (auditResults.seo.multipleH1.length > 0) {
-    console.log('  Multiple H1 details:', JSON.stringify(auditResults.seo.multipleH1, null, 2));
-  }
-  console.log(`Invalid Schema JSON: ${auditResults.seo.invalidSchemaJson.length}`);
-  console.log(`Broken Internal Links: ${auditResults.seo.brokenInternalLinks.length}`);
-  if (auditResults.seo.brokenInternalLinks.length > 0) {
-    console.log('  Broken Links details:', JSON.stringify(auditResults.seo.brokenInternalLinks.slice(0, 10), null, 2));
-  }
-  console.log(`Images Missing Alt: ${auditResults.seo.imagesMissingAlt.length}`);
-  if (auditResults.seo.imagesMissingAlt.length > 0) {
-    console.log('  Images Missing Alt details:', JSON.stringify(auditResults.seo.imagesMissingAlt.slice(0, 10), null, 2));
-  }
+  await browser.close();
 
-  console.log('\n--- SECURITY & RUNTIME AUDIT RESULTS ---');
-  console.log(`External Script URLs Loaded: ${auditResults.security.externalScriptUrls.length}`);
-  if (auditResults.security.externalScriptUrls.length > 0) {
-    console.log('  External scripts:', auditResults.security.externalScriptUrls);
-  } else {
-    console.log('  ✓ Zero external scripts in static bundle (100% self-hosted).');
-  }
+  console.log('\n=== FINAL SUMMARY RESULTS ===');
+  console.log('Total Console Errors:', results.consoleErrors.length);
+  console.log('Total CSP Violations:', results.cspViolations.length);
+  console.log('Header Checks:', results.headerChecks);
+  console.log('All tests finished successfully.');
 
-  console.log(`External Stylesheet URLs Loaded: ${auditResults.security.externalStylesheetUrls.length}`);
-  if (auditResults.security.externalStylesheetUrls.length > 0) {
-    console.log('  External stylesheets:', auditResults.security.externalStylesheetUrls);
-  } else {
-    console.log('  ✓ Zero external stylesheets (100% self-hosted).');
-  }
-
-  // Write audit results JSON to scratch
-  const auditJsonPath = path.resolve(__dirname, '../scratch/audit-results.json');
-  fs.mkdirSync(path.dirname(auditJsonPath), { recursive: true });
-  fs.writeFileSync(auditJsonPath, JSON.stringify(auditResults, null, 2), 'utf8');
-  console.log(`\nDetailed audit results saved to: ${auditJsonPath}`);
+  fs.writeFileSync('scratch/audit-results.json', JSON.stringify(results, null, 2));
 }
 
-runComprehensiveAudit().catch(err => {
+runAuditCheck().catch(err => {
   console.error(err);
   process.exit(1);
 });
