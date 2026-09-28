@@ -1,0 +1,32 @@
+{
+  "totalPages": 66,
+  "pagesWithIssues": 0,
+  "seo": {
+    "missingTitle": [],
+    "missingDesc": [],
+    "missingCanonical": [],
+    "missingHreflang": [],
+    "multipleH1": [],
+    "missingH1": [],
+    "brokenInternalLinks": [],
+    "imagesMissingAlt": [],
+    "invalidSchemaJson": [],
+    "missingSchema": [
+      "/brief-branding/",
+      "/brief-strony-www/",
+      "/en/brief-branding/",
+      "/en/brief-website/",
+      "/en/privacy-policy/",
+      "/polityka-prywatnosci/"
+    ]
+  },
+  "security": {
+    "leakedSecrets": [],
+    "externalScriptUrls": [],
+    "externalStylesheetUrls": []
+  },
+  "performance": {
+    "nonWebpPngImages": [],
+    "uncompressedAssets": []
+  }
+}

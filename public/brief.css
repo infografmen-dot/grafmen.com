@@ -476,43 +476,91 @@ legend.step-legend {
 .btn-secondary {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 13px 22px;
-  border: 1px solid #aaaab1;
+  justify-content: center;
+  gap: 12px;
+  height: 52px;
+  min-height: 52px;
+  padding: 0 22px;
+  border: 1px solid #d4d8de;
   border-radius: 8px;
   background: #ffffff;
   color: var(--ink, #09090b);
-  font: inherit;
+  font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 15px;
   font-weight: 500;
+  line-height: 1;
   cursor: pointer;
-  transition: border-color 0.18s, background-color 0.18s;
+  transition: border-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.btn-secondary:hover:not(:disabled) {
-  border-color: #71717a;
+.btn-secondary span[aria-hidden="true"] {
+  display: inline-block;
+  font-size: 15px;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-secondary:hover:not(:disabled),
+.btn-secondary:focus-visible:not(:disabled) {
+  border-color: #09090b;
   background: #f4f4f5;
+  color: var(--orange, #ff6400);
+}
+
+.btn-secondary:hover:not(:disabled) span[aria-hidden="true"],
+.btn-secondary:focus-visible:not(:disabled) span[aria-hidden="true"] {
+  transform: translateX(-4px);
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--orange, #ff6400);
+  outline-offset: 2px;
 }
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 13px 26px;
+  justify-content: center;
+  gap: 18px;
+  height: 52px;
+  min-height: 52px;
+  padding: 0 24px;
   border: none;
   border-radius: 8px;
-  background: var(--ink, #09090b);
+  background: #09090b;
   color: #ffffff;
-  font: inherit;
-  font-size: 15.5px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 15px;
   font-weight: 600;
+  line-height: 1;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.15s, opacity 0.2s;
+  transition: background-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s;
   margin-left: auto;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.btn-primary:hover:not(:disabled) {
-  background: var(--orange, #ff6400);
+.btn-primary span[aria-hidden="true"] {
+  display: inline-block;
+  font-size: 16px;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-primary:hover:not(:disabled),
+.btn-primary:focus-visible:not(:disabled) {
+  background: #1a1a1f;
+  color: var(--orange, #ff6400);
+}
+
+.btn-primary:hover:not(:disabled) span[aria-hidden="true"],
+.btn-primary:focus-visible:not(:disabled) span[aria-hidden="true"] {
+  transform: translateX(4px);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--orange, #ff6400);
+  outline-offset: 2px;
 }
 
 .btn-primary:disabled,
@@ -655,22 +703,31 @@ legend.step-legend {
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  gap: 8px;
-  padding: 13px 26px;
-  background: var(--ink, #09090b);
+  gap: 18px;
+  height: 52px;
+  min-height: 52px;
+  padding: 0 24px;
+  background: #0b0b0d;
   color: #ffffff;
+  font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 15px;
   font-weight: 600;
-  border-radius: 999px;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+  border: 0;
+  transition: background 0.2s ease;
   flex-shrink: 0;
 }
 
-.packages-brief-callout-btn:hover {
-  background: var(--orange, #ff6400);
+.packages-brief-callout-btn:hover,
+.packages-brief-callout-btn:focus-visible {
+  background: #1a1a1f;
   color: #ffffff;
-  transform: translateY(-1px);
+}
+
+.packages-brief-callout-btn:focus-visible {
+  outline: 2px solid var(--orange, #ff6400);
+  outline-offset: 2px;
 }
 
 /* --- RESPONSIVENESS & SAFE MARGINS --- */

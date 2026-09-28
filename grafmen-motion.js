@@ -1248,7 +1248,7 @@
       document.querySelectorAll('.tools .quote').forEach(el => applyToElement(el, false, true));
 
       // 2. PRZYCISKI CTA (ciemne przyciski i formularz kontaktowy)
-      document.querySelectorAll('.hero .actions .btn.dark, .service-hero .btn.dark, .final-cta .cta-button, .contact-brief .cta-button, button.cta-button, .project-film-section .cta-button').forEach(el => applyToElement(el, false, true));
+      document.querySelectorAll('.hero .actions .btn.dark, .service-hero .btn.dark, .final-cta .cta-button, .contact-brief .cta-button, button.cta-button, .project-film-section .cta-button, .packages-brief-callout-btn').forEach(el => applyToElement(el, false, true));
 
       // 3. POMARAŃCZOWY PANEL MODERNIZACJI (podstrona strony-www i modernizacja)
       document.querySelectorAll('.modernizacja-panel .btn').forEach(el => applyToElement(el, false, true));

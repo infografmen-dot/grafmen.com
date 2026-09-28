@@ -595,7 +595,8 @@ html.lenis,html.lenis body{height:auto}
 /* Spector-style dual sliding arrow microinteraction */
 .quote > span:not(.cta-arrow-box),
 .btn.dark > span:not(.cta-arrow-box),
-.cta-button > span:not(.cta-arrow-box) {
+.cta-button > span:not(.cta-arrow-box),
+.packages-brief-callout-btn > span:not(.cta-arrow-box) {
   display: inline-block;
   transform: none !important;
   transition: none !important;
@@ -638,7 +639,9 @@ html.lenis,html.lenis body{height:auto}
 .btn.dark:hover .cta-arrow-primary,
 .btn.dark:focus-visible .cta-arrow-primary,
 .cta-button:hover .cta-arrow-primary,
-.cta-button:focus-visible .cta-arrow-primary {
+.cta-button:focus-visible .cta-arrow-primary,
+.packages-brief-callout-btn:hover .cta-arrow-primary,
+.packages-brief-callout-btn:focus-visible .cta-arrow-primary {
   transform: translateX(150%);
 }
 .quote:hover .cta-arrow-secondary,
@@ -646,7 +649,9 @@ html.lenis,html.lenis body{height:auto}
 .btn.dark:hover .cta-arrow-secondary,
 .btn.dark:focus-visible .cta-arrow-secondary,
 .cta-button:hover .cta-arrow-secondary,
-.cta-button:focus-visible .cta-arrow-secondary {
+.cta-button:focus-visible .cta-arrow-secondary,
+.packages-brief-callout-btn:hover .cta-arrow-secondary,
+.packages-brief-callout-btn:focus-visible .cta-arrow-secondary {
   transform: translateX(0);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -796,10 +801,11 @@ a.f3-link {
   --f3-arrow-shadow: #ff7a29;
 }
 
-/* Czarne CTA (.quote, .btn.dark, .cta-button) – biały tekst → pomarańczowy */
+/* Czarne CTA (.quote, .btn.dark, .cta-button, .packages-brief-callout-btn) – biały tekst → pomarańczowy */
 .quote.f3-link,
 .btn.dark.f3-link,
-.cta-button.f3-link {
+.cta-button.f3-link,
+.packages-brief-callout-btn.f3-link {
   background-color: #09090b !important;
   color: #ffffff !important;
   --f3-shadow: var(--orange, #ff6400) !important;
@@ -865,7 +871,8 @@ a.f3-link {
 /* Ukrycie .cta-arrow-box gdy F3 aktywny */
 .quote.f3-link .cta-arrow-box,
 .btn.dark.f3-link .cta-arrow-box,
-.cta-button.f3-link .cta-arrow-box {
+.cta-button.f3-link .cta-arrow-box,
+.packages-brief-callout-btn.f3-link .cta-arrow-box {
   display: none !important;
 }
 
@@ -899,7 +906,8 @@ body.home-page header nav .nav-flip-back {
 a.f3-link:focus-visible,
 .quote.f3-link:focus-visible,
 .btn.dark.f3-link:focus-visible,
-.cta-button.f3-link:focus-visible {
+.cta-button.f3-link:focus-visible,
+.packages-brief-callout-btn.f3-link:focus-visible {
   outline: 2px solid var(--orange, #ff6400) !important;
   outline-offset: 3px !important;
   border-radius: 4px;
