@@ -702,13 +702,19 @@ html.lenis,html.lenis body{height:auto}
 
 /* 1. Kontener linku */
 .f3-link {
-  display: inline-flex !important;
+  display: inline-flex;
   align-items: center;
   position: relative;
   text-decoration: none !important;
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;   /* nie kurczy się w kontenerze flex */
+}
+
+.f3-link[hidden],
+.f3-link[style*="display: none"],
+.f3-link[style*="display:none"] {
+  display: none !important;
 }
 
 /* 2. Maska pionowa – ukrywa shadow, padding chroni ostatni znak i grot */
