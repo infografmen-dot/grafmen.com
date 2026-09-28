@@ -14,6 +14,9 @@ const blogCollection = defineCollection({
     coverAlt: z.string(),
     draft: z.boolean().default(false),
     lang: z.enum(['pl', 'en']).default('pl'),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
+    translationSlug: z.string().optional(),
   }),
 });
 

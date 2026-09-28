@@ -1109,4 +1109,43 @@ article header.post-header,
   }
 }
 
+.draft-preview-banner {
+  background: #fffbeb;
+  border-bottom: 1px solid #fef3c7;
+  padding: 14px 0;
+  margin-bottom: 24px;
+}
+.draft-badge-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+  color: #78350f;
+}
+.draft-indicator {
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  background: #fde68a;
+  color: #78350f;
+  padding: 4px 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.draft-badge-box p {
+  margin: 0;
+  color: #92400e;
+  line-height: 1.5;
+}
+.draft-badge-box code {
+  background: #fef3c7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+
 
