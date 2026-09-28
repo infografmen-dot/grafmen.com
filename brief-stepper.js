@@ -98,26 +98,53 @@
       renderSummary();
     }
 
-    // Buttons visibility & dynamic labels
+    // Buttons visibility & dynamic labels with F3 support
+    const applyF3 = (el) => {
+      if (el && typeof window.__applyFutureThreeToElement === 'function') {
+        window.__applyFutureThreeToElement(el, false, true);
+      }
+    };
+
     if (btnPrev) {
       btnPrev.style.display = index === 0 ? 'none' : 'inline-flex';
+      if (index > 0) {
+        const prevText = isEn ? 'Back' : 'Wstecz';
+        btnPrev.setAttribute('data-f3-raw', prevText);
+        btnPrev.setAttribute('data-f3-arrow', '←');
+        btnPrev.setAttribute('data-f3-arrow-pos', 'left');
+        const prevSpan = btnPrev.querySelector('span:not([aria-hidden])');
+        if (prevSpan) prevSpan.textContent = prevText;
+        applyF3(btnPrev);
+      }
     }
 
     if (index === steps.length - 1) {
       // Na ekranie podsumowania: ukryj przycisk "Dalej", pokaż przycisk wysyłki
       if (btnNext) btnNext.style.display = 'none';
-      if (btnSubmit) btnSubmit.style.display = 'inline-flex';
+      if (btnSubmit) {
+        btnSubmit.style.display = 'inline-flex';
+        const submitText = isEn ? 'Send brief' : 'Wyślij brief';
+        btnSubmit.setAttribute('data-f3-raw', submitText);
+        btnSubmit.setAttribute('data-f3-arrow', '→');
+        btnSubmit.setAttribute('data-f3-arrow-pos', 'right');
+        const submitSpan = btnSubmit.querySelector('span:not([aria-hidden])');
+        if (submitSpan) submitSpan.textContent = submitText;
+        applyF3(btnSubmit);
+      }
     } else {
       if (btnNext) {
         btnNext.style.display = 'inline-flex';
+        const nextText = index === 2
+          ? (isEn ? 'Review your answers' : 'Przejdź do podsumowania')
+          : (isEn ? 'Next' : 'Dalej');
+        btnNext.setAttribute('data-f3-raw', nextText);
+        btnNext.setAttribute('data-f3-arrow', '→');
+        btnNext.setAttribute('data-f3-arrow-pos', 'right');
         const nextTextSpan = btnNext.querySelector('span:not([aria-hidden])') || btnNext.firstElementChild;
         if (nextTextSpan) {
-          if (index === 2) {
-            nextTextSpan.textContent = isEn ? 'Review your answers' : 'Przejdź do podsumowania';
-          } else {
-            nextTextSpan.textContent = isEn ? 'Next' : 'Dalej';
-          }
+          nextTextSpan.textContent = nextText;
         }
+        applyF3(btnNext);
       }
       if (btnSubmit) btnSubmit.style.display = 'none';
     }

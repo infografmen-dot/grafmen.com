@@ -801,15 +801,37 @@ a.f3-link {
   --f3-arrow-shadow: #ff7a29;
 }
 
-/* Czarne CTA (.quote, .btn.dark, .cta-button, .packages-brief-callout-btn) – biały tekst → pomarańczowy */
+/* Czarne CTA (.quote, .btn.dark, .cta-button, .packages-brief-callout-btn, .btn-primary) – biały tekst → pomarańczowy */
 .quote.f3-link,
 .btn.dark.f3-link,
 .cta-button.f3-link,
-.packages-brief-callout-btn.f3-link {
+.packages-brief-callout-btn.f3-link,
+.btn-primary.f3-link {
   background-color: #09090b !important;
   color: #ffffff !important;
   --f3-shadow: var(--orange, #ff6400) !important;
   --f3-arrow-shadow: var(--orange, #ff6400) !important;
+}
+
+/* Jasne CTA (.btn-secondary) – ciemny tekst → pomarańczowy */
+.btn-secondary.f3-link {
+  background-color: #ffffff !important;
+  color: #09090b !important;
+  --f3-shadow: var(--orange, #ff6400) !important;
+  --f3-arrow-shadow: var(--orange, #ff6400) !important;
+}
+.btn-secondary.f3-link:hover,
+.btn-secondary.f3-link:focus-visible {
+  background-color: #f4f4f5 !important;
+  border-color: #09090b !important;
+}
+.btn-primary.f3-link:hover,
+.btn-primary.f3-link:focus-visible {
+  background-color: #1a1a1f !important;
+}
+.f3-arrow--left {
+  margin-left: 0 !important;
+  margin-right: 0.35em !important;
 }
 
 /* Linki pakietów – pomarańczowy → ciemny */
@@ -907,10 +929,12 @@ a.f3-link:focus-visible,
 .quote.f3-link:focus-visible,
 .btn.dark.f3-link:focus-visible,
 .cta-button.f3-link:focus-visible,
-.packages-brief-callout-btn.f3-link:focus-visible {
+.packages-brief-callout-btn.f3-link:focus-visible,
+.btn-primary.f3-link:focus-visible,
+.btn-secondary.f3-link:focus-visible {
   outline: 2px solid var(--orange, #ff6400) !important;
   outline-offset: 3px !important;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 /* prefers-reduced-motion: zmiana koloru zamiast przesunięcia */

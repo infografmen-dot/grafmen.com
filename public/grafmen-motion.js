@@ -1137,6 +1137,7 @@
 
         // Pobierz czysty tekst i strzałkę z elementu
         let arrow = el.getAttribute('data-f3-arrow') || null;
+        let arrowPosition = el.getAttribute('data-f3-arrow-pos') || 'right';
         let rawText = el.getAttribute('data-f3-raw');
 
         if (!rawText) {
@@ -1144,38 +1145,49 @@
           if (flipFront) {
             rawText = flipFront.textContent.replace(/\s+/g, ' ').trim();
           } else {
-            // Wykryj strzałkę na końcu (w tekście głównym lub w spanach aria-hidden)
+            // Wykryj strzałkę na początku lub końcu (w tekście głównym lub w spanach aria-hidden)
             const fullText = (el.textContent || '').replace(/\s+/g, ' ').trim();
-            const arrowMatch = fullText.match(/\s*([→↗\u2192\u2197\u21B3])$/);
-            if (arrowMatch) {
-              arrow = arrowMatch[1];
+            const leftArrowMatch = fullText.match(/^([←\u2190])\s*/);
+            const rightArrowMatch = fullText.match(/\s*([→↗\u2192\u2197\u21B3])$/);
+
+            if (leftArrowMatch) {
+              arrow = leftArrowMatch[1];
+              arrowPosition = 'left';
+            } else if (rightArrowMatch) {
+              arrow = rightArrowMatch[1];
+              arrowPosition = 'right';
             } else if (isCta) {
               arrow = '→';
+              arrowPosition = 'right';
             }
 
             // Pobierz tekst bez zbędnych grafik SVG i kontenerów cta-arrow
             const clone = el.cloneNode(true);
             clone.querySelectorAll('svg, .cta-arrow-box, .cta-arrow').forEach(n => n.remove());
             rawText = (clone.textContent || '').replace(/\s+/g, ' ').trim();
-            if (arrow && rawText.endsWith(arrow)) {
+            if (arrow && arrowPosition === 'left' && rawText.startsWith(arrow)) {
+              rawText = rawText.slice(arrow.length).trim();
+            } else if (arrow && arrowPosition === 'right' && rawText.endsWith(arrow)) {
               rawText = rawText.slice(0, -arrow.length).trim();
             }
           }
           if (!rawText) return;
           el.setAttribute('data-f3-raw', rawText);
-          if (arrow) el.setAttribute('data-f3-arrow', arrow);
+          if (arrow) {
+            el.setAttribute('data-f3-arrow', arrow);
+            el.setAttribute('data-f3-arrow-pos', arrowPosition);
+          }
         } else if (!arrow && isCta) {
           arrow = '→';
+          arrowPosition = 'right';
         }
 
         const textOnly = rawText;
 
         // Zapewnienie dostępności: czytnik otrzymuje jeden czysty pełny napis
-        if (!el.hasAttribute('aria-label')) {
-          el.setAttribute('aria-label', `${textOnly} ${arrow || ''}`.trim());
-        }
+        el.setAttribute('aria-label', arrowPosition === 'left' ? `${arrow || ''} ${textOnly}`.trim() : `${textOnly} ${arrow || ''}`.trim());
 
-        // Usuń poprzednią zawartość f3 jeśli istniała (np. przy przełączaniu języka)
+        // Usuń poprzednią zawartość f3 jeśli istniała (np. przy przełączaniu języka lub kroku briefu)
         const oldClip = el.querySelector('.f3-clip');
         if (oldClip) oldClip.remove();
 
@@ -1185,6 +1197,20 @@
         const clip = document.createElement('span');
         clip.className = 'f3-clip';
         clip.setAttribute('aria-hidden', 'true');
+
+        if (arrow && arrowPosition === 'left') {
+          const arrowSpan = document.createElement('span');
+          arrowSpan.className = 'f3-arrow f3-arrow--left';
+          arrowSpan.style.setProperty('--char', charIndex);
+          arrowSpan.textContent = arrow;
+          clip.appendChild(arrowSpan);
+          charIndex++;
+
+          const space = document.createElement('span');
+          space.className = 'f3-space';
+          space.innerHTML = '&nbsp;';
+          clip.appendChild(space);
+        }
 
         words.forEach((word, wIdx) => {
           if (wIdx > 0) {
@@ -1210,7 +1236,7 @@
           clip.appendChild(wordSpan);
         });
 
-        if (arrow) {
+        if (arrow && arrowPosition === 'right') {
           const arrowSpan = document.createElement('span');
           arrowSpan.className = 'f3-arrow';
           arrowSpan.style.setProperty('--char', charIndex);
@@ -1239,6 +1265,8 @@
         el.dataset.f3Ready = 'true';
       };
 
+      window.__applyFutureThreeToElement = applyToElement;
+
       const isHomePage = document.body.classList.contains('home-page');
 
       // 1. UNIVERSAL: menu i stopka – wszystkie strony
@@ -1247,8 +1275,8 @@
       document.querySelectorAll('.footer-nav a, .footer-contact a, .social-links a').forEach(el => applyToElement(el, false, false));
       document.querySelectorAll('.tools .quote').forEach(el => applyToElement(el, false, true));
 
-      // 2. PRZYCISKI CTA (ciemne przyciski i formularz kontaktowy)
-      document.querySelectorAll('.hero .actions .btn.dark, .service-hero .btn.dark, .final-cta .cta-button, .contact-brief .cta-button, button.cta-button, .project-film-section .cta-button, .packages-brief-callout-btn').forEach(el => applyToElement(el, false, true));
+      // 2. PRZYCISKI CTA (ciemne przyciski, briefy i formularz kontaktowy)
+      document.querySelectorAll('.hero .actions .btn.dark, .service-hero .btn.dark, .final-cta .cta-button, .contact-brief .cta-button, button.cta-button, .project-film-section .cta-button, .packages-brief-callout-btn, .btn-primary, .btn-secondary').forEach(el => applyToElement(el, false, true));
 
       // 3. POMARAŃCZOWY PANEL MODERNIZACJI (podstrona strony-www i modernizacja)
       document.querySelectorAll('.modernizacja-panel .btn').forEach(el => applyToElement(el, false, true));
