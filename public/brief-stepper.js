@@ -60,10 +60,18 @@
   function showStep(index) {
     if (index < 0 || index >= steps.length) return;
 
+    form.classList.add('has-stepped');
+
     steps.forEach((step, idx) => {
       const isActive = idx === index;
+      step.style.animation = '';
       step.classList.toggle('is-active', isActive);
       step.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+      if (isActive) {
+        step.addEventListener('animationend', () => {
+          step.style.animation = 'none';
+        }, { once: true });
+      }
     });
 
     currentStepIndex = index;

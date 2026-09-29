@@ -373,47 +373,31 @@
     }
 
     // 6. SCROLL REVEAL FOR DUŻE H2 (data-motion="heading-reveal")
-    // Działa spójnie na homepage i podstronach dla wszystkich nagłówków z data-motion="heading-reveal"
-    if (typeof ScrollTrigger !== 'undefined' && typeof SplitText !== 'undefined') {
+    // Zgodnie ze standardem: animacja całych bloków bez rozbijania na wiersze i litery
+    if (typeof ScrollTrigger !== 'undefined') {
       const headingReveals = document.querySelectorAll('[data-motion="heading-reveal"]');
-      const isDesktopMotion = window.matchMedia('(hover: hover) and (pointer: fine)').matches && !Boolean(navigator.connection?.saveData);
-
       headingReveals.forEach(h2 => {
         if (h2.dataset.motionDone) return;
         h2.dataset.motionDone = 'true';
 
-        // Podział nagłówka na linie
-        const split = new SplitText(h2, { type: 'lines', linesClass: 'gf-line-inner' });
-        if (!split.lines || !split.lines.length) return;
-
-        // Czytelne, spokojne odsłanianie wierszy:
-        // - wejście od dołu o około 24 px
-        // - opacity 0 -> 1
-        // - delikatne rozmycie do 3 px -> 0 na desktopie (na mobile brak rozmycia)
-        // - czas około 0,8 sekundy
-        // - odstęp między wierszami około 0,08 sekundy
-        // - płynne wyhamowanie (power2.out)
-        // - start, gdy góra nagłówka dochodzi do około 80% wysokości okna
-        gsap.fromTo(split.lines,
+        gsap.fromTo(h2,
           {
-            y: 24,
+            y: MOTION_CONFIG.block.y,
             opacity: 0,
-            filter: isDesktopMotion ? 'blur(3px)' : 'none'
+            force3D: true
           },
           {
             y: 0,
             opacity: 1,
-            filter: isDesktopMotion ? 'blur(0px)' : 'none',
-            duration: 0.8,
-            stagger: 0.08,
-            ease: 'power2.out',
+            duration: MOTION_CONFIG.block.duration,
+            ease: MOTION_CONFIG.block.ease,
             scrollTrigger: {
               trigger: h2,
-              start: 'top 80%',
+              start: MOTION_CONFIG.block.start, // 'top 88%'
               once: true
             },
             onComplete: () => {
-              gsap.set(split.lines, { clearProps: 'all' });
+              gsap.set(h2, { clearProps: 'opacity,transform' });
             }
           }
         );
@@ -473,17 +457,15 @@
       }
     }
 
-    // 8. POMARAŃCZOWE ETYKIETY SEKCJI (Odsłanianie maską na szerokości tekstu + przesunięcie z lewej)
+    // 8. POMARAŃCZOWE ETYKIETY SEKCJI (Wyłanianie z lewej w osi X)
     if (typeof ScrollTrigger !== 'undefined') {
       const kickers = document.querySelectorAll(
-        '.home-section .home-kicker, .portfolio-head .section-kicker, .logo-cloud-kicker, .service-hero .home-kicker, .modernisation-callout .home-kicker'
+        '.home-section .home-kicker, .portfolio-head .section-kicker, .logo-cloud-kicker, .service-hero .home-kicker, .modernisation-callout .home-kicker, .project-heading .home-kicker, .brief-intro .home-kicker, .brief-intro-kicker'
       );
-      const isSamplePage = window.location.pathname.includes('strony-www');
       kickers.forEach(kicker => {
-        if (kicker.closest('.hero') || (isSamplePage && kicker.closest('.service-hero, .service-features, .process-section')) || kicker.dataset.kickerDone) return;
+        if (kicker.closest('.hero') || kicker.dataset.kickerDone) return;
         kicker.dataset.kickerDone = 'true';
 
-        // Ograniczenie maskowania ściśle do szerokości tekstu (inline-block), by nie animować pustej przestrzeni
         let inner = kicker.querySelector('.kicker-inner');
         if (!inner) {
           inner = document.createElement('span');
@@ -499,18 +481,18 @@
         gsap.fromTo(inner,
           {
             clipPath: 'inset(0 100% 0 0)',
-            x: -18,
+            x: MOTION_CONFIG.block.x,
             opacity: 0.7
           },
           {
             clipPath: 'inset(0 0% 0 0)',
             x: 0,
             opacity: 1,
-            duration: 0.65,
-            ease: 'power2.out',
+            duration: MOTION_CONFIG.block.duration,
+            ease: MOTION_CONFIG.block.ease,
             scrollTrigger: {
               trigger: kicker,
-              start: 'top 82%',
+              start: MOTION_CONFIG.block.start,
               once: true
             },
             onComplete: () => {
@@ -530,16 +512,16 @@
         const summaryItems = portSummary.querySelectorAll('.portfolio-intro, .all');
         if (summaryItems.length) {
           gsap.fromTo(summaryItems,
-            { opacity: 0, y: 16 },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
             {
               opacity: 1,
               y: 0,
-              duration: 0.6,
+              duration: MOTION_CONFIG.block.duration,
               stagger: 0.08,
-              ease: 'power2.out',
+              ease: MOTION_CONFIG.block.ease,
               scrollTrigger: {
                 trigger: portSummary,
-                start: 'top 82%',
+                start: MOTION_CONFIG.block.start,
                 once: true
               },
               onComplete: () => {
@@ -550,104 +532,52 @@
         }
       }
 
-      // 9b. Podpisy wszystkich realizacji (własny ScrollTrigger na .caption, mask reveal tytułu)
+      // 9b. Podpisy wszystkich realizacji (własny ScrollTrigger na .caption, wejście od dołu jako spójna grupa)
       const captions = document.querySelectorAll('.portfolio .stage .work .caption');
       captions.forEach(caption => {
         if (caption.dataset.motionDone) return;
         caption.dataset.motionDone = 'true';
 
-        const cat = caption.querySelector('.cat');
-        const title = caption.querySelector('.title');
-        const desc = caption.querySelector('.project-description');
-        const actions = caption.querySelectorAll('.project-ext-action, .arr-link');
+        const captionItems = caption.querySelectorAll('.cat, .title, .project-description, .project-ext-action, .arr-link');
 
-        // Maska overflow-hidden na tytule do odsłaniania wierszami od dołu
-        let titleInner = null;
-        if (title) {
-          title.style.overflow = 'hidden';
-          title.style.display = 'block';
-          let inner = title.querySelector('.title-inner');
-          if (!inner) {
-            inner = document.createElement('span');
-            inner.className = 'title-inner';
-            inner.style.display = 'inline-block';
-            inner.style.willChange = 'transform, opacity';
-            while (title.firstChild) {
-              inner.appendChild(title.firstChild);
+        gsap.fromTo(captionItems,
+          { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+          {
+            opacity: 1,
+            y: 0,
+            duration: MOTION_CONFIG.block.duration,
+            stagger: 0.08,
+            ease: MOTION_CONFIG.block.ease,
+            scrollTrigger: {
+              trigger: caption,
+              start: MOTION_CONFIG.block.start,
+              once: true
+            },
+            onComplete: () => {
+              gsap.set(captionItems, { clearProps: 'all' });
             }
-            title.appendChild(inner);
           }
-          titleInner = inner;
-        }
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: caption,
-            start: 'top 82%',
-            once: true
-          },
-          onComplete: () => {
-            if (cat) gsap.set(cat, { clearProps: 'all' });
-            if (title) {
-              gsap.set(title, { clearProps: 'overflow,display' });
-              if (titleInner) gsap.set(titleInner, { clearProps: 'all' });
-            }
-            if (desc) gsap.set(desc, { clearProps: 'all' });
-            if (actions.length) gsap.set(actions, { clearProps: 'all' });
-          }
-        });
-
-        if (cat) {
-          tl.fromTo(cat,
-            { opacity: 0, y: 14 },
-            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
-            0
-          );
-        }
-
-        if (titleInner) {
-          tl.fromTo(titleInner,
-            { opacity: 0, y: 22 },
-            { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' },
-            0.05
-          );
-        }
-
-        if (desc) {
-          tl.fromTo(desc,
-            { opacity: 0, y: 18 },
-            { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' },
-            0.12
-          );
-        }
-
-        if (actions.length) {
-          tl.fromTo(actions,
-            { opacity: 0, y: 16 },
-            { opacity: 1, y: 0, duration: 0.55, stagger: 0.06, ease: 'power2.out' },
-            0.18
-          );
-        }
+        );
       });
 
-      // 9c. Krótkie wprowadzenia i leady na pozostałych podstronach
+      // 9c. Krótkie wprowadzenia i leady na podstronach
       const subpageIntros = document.querySelectorAll(
         '.service-hero-bottom .home-lead, .packages-intro .home-lead, .how-intro .home-lead, .testimonials-intro .home-lead'
       );
       subpageIntros.forEach(intro => {
-        if (intro.dataset.motionDone || (window.location.pathname.includes('strony-www') && intro.closest('.service-hero-bottom'))) return;
+        if (intro.dataset.motionDone) return;
         intro.dataset.motionDone = 'true';
 
         gsap.fromTo(intro,
-          { opacity: 0, y: 16 },
+          { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
           {
             opacity: 1,
             y: 0,
-            duration: 0.6,
-            ease: 'power2.out',
+            duration: MOTION_CONFIG.block.duration,
+            ease: MOTION_CONFIG.block.ease,
             scrollTrigger: {
               trigger: intro,
-              start: 'top 85%',
+              start: MOTION_CONFIG.block.start,
               once: true
             },
             onComplete: () => {
@@ -681,26 +611,26 @@
         const leftTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: contactDetails,
-            start: 'top 82%',
+            start: MOTION_CONFIG.block.start,
             once: true
           },
           onComplete: () => {
-            gsap.set([directContacts, contactNext], { clearProps: 'all' });
+            gsap.set([directContacts, contactNext].filter(Boolean), { clearProps: 'all' });
           }
         });
 
         if (directContacts.length) {
           leftTimeline.fromTo(directContacts,
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.65, stagger: 0.08, ease: 'power2.out' },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, stagger: MOTION_CONFIG.block.stagger, ease: MOTION_CONFIG.block.ease },
             0
           );
         }
         if (contactNext) {
           leftTimeline.fromTo(contactNext,
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' },
-            0.15
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            MOTION_CONFIG.block.stagger
           );
         }
       }
@@ -711,7 +641,7 @@
         const rightTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: contactBrief,
-            start: 'top 82%',
+            start: MOTION_CONFIG.block.start,
             once: true
           },
           onComplete: () => {
@@ -722,22 +652,23 @@
 
         if (briefHeader.length) {
           rightTimeline.fromTo(briefHeader,
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out' },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, stagger: MOTION_CONFIG.block.stagger, ease: MOTION_CONFIG.block.ease },
             0
           );
         }
         if (contactForm) {
           rightTimeline.fromTo(contactForm,
-            { opacity: 0, y: 22 },
-            { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' },
-            0.15
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            MOTION_CONFIG.block.stagger
           );
         }
       }
     }
 
-    // 10b. UJEDNOLICONE AKSAMITNE ANIMACJE WEJŚCIA DLA BLOKÓW NA PODSTRONACH
+    // 10b. UJEDNOLICONE AKSAMITNE ANIMACJE WEJŚCIA DLA CAŁEGO SERWISU
+    // Zgodne ze standardem próbki: 38px desktop / 26px mobile, 1000ms, cubic-bezier(0.22, 0.61, 0.36, 1)
     if (typeof ScrollTrigger !== 'undefined') {
       const animGroup = (containerSel, itemSel, options = {}) => {
         try {
@@ -748,10 +679,11 @@
             const items = container.querySelectorAll(itemSel);
             if (!items.length) return;
 
-            const yDist = options.y ?? 18;
-            const dur = options.duration ?? 0.95;
-            const stag = options.stagger ?? 0.12;
-            const startPos = options.start ?? 'top 82%';
+            const yDist = options.y ?? MOTION_CONFIG.block.y;
+            const dur = options.duration ?? MOTION_CONFIG.block.duration;
+            const stag = options.stagger ?? MOTION_CONFIG.block.stagger;
+            const startPos = options.start ?? MOTION_CONFIG.block.start;
+            const easeVal = options.ease ?? MOTION_CONFIG.block.ease;
 
             gsap.fromTo(items,
               { opacity: 0, y: yDist, force3D: true },
@@ -760,7 +692,7 @@
                 y: 0,
                 duration: dur,
                 stagger: stag,
-                ease: 'power3.out',
+                ease: easeVal,
                 scrollTrigger: {
                   trigger: container,
                   start: startPos,
@@ -784,9 +716,10 @@
             if (el.dataset.entranceDone) return;
             el.dataset.entranceDone = 'true';
 
-            const yDist = options.y ?? 18;
-            const dur = options.duration ?? 0.85;
-            const startPos = options.start ?? 'top 82%';
+            const yDist = options.y ?? MOTION_CONFIG.block.y;
+            const dur = options.duration ?? MOTION_CONFIG.block.duration;
+            const startPos = options.start ?? MOTION_CONFIG.block.start;
+            const easeVal = options.ease ?? MOTION_CONFIG.block.ease;
 
             gsap.fromTo(el,
               { opacity: 0, y: yDist, force3D: true },
@@ -794,7 +727,7 @@
                 opacity: 1,
                 y: 0,
                 duration: dur,
-                ease: 'power3.out',
+                ease: easeVal,
                 scrollTrigger: {
                   trigger: el,
                   start: startPos,
@@ -811,486 +744,424 @@
         }
       };
 
-      const isWebsitesPage = window.location.pathname.includes('strony-www');
+      // 1. HERO PODSTRON (.service-hero na Strony WWW, Branding, Modernizacja, Oferta, Kontakt, O mnie, Blog, EN)
+      const serviceHeroes = document.querySelectorAll('.service-hero');
+      serviceHeroes.forEach(hero => {
+        if (hero.dataset.sampleHeroDone) return;
+        hero.dataset.sampleHeroDone = 'true';
 
-      // 1. Hero visuals na pozostałych podstronach (na /strony-www/ obsługiwane w dedykowanej sekwencji hero)
-      if (!isWebsitesPage) {
-        animSingle('.service-hero-visual', { y: 20, duration: 0.9, start: 'top 85%' });
-      }
-      animGroup('.branding-hero-composition', '.branding-visual-item', { y: 20, duration: 0.9, stagger: 0.12, start: 'top 85%' });
-      animSingle('.about-portrait', { y: 20, duration: 0.9, start: 'top 85%' });
-      animSingle('.project-cover', { y: 20, duration: 0.9, start: 'top 85%' });
-      animSingle('.post-cover-wrap', { y: 20, duration: 0.9, start: 'top 85%' });
+        const kicker = hero.querySelector('.home-kicker');
+        const lead = hero.querySelector('.service-hero-bottom .home-lead') || hero.querySelector('.home-lead');
+        const btn = hero.querySelector('.service-hero-bottom .btn') || hero.querySelector('.btn');
+        const visual = hero.querySelector('.service-hero-visual');
+        const visualImg = visual?.querySelector('img');
 
-      // =========================================================================
-      // PRÓBKA SPÓJNYCH ANIMACJI WEJŚCIA I PARALAKSY DLA /strony-www/
-      // Zakres: Hero (teksty + zdjęcie) -> Zakres usługi -> Modernizacja -> Współpraca
-      // Parametry: translateY: 48px -> 0 (mobile: 32px), czas: 1000ms,
-      // easing: cubic-bezier(0.22, 0.61, 0.36, 1), start: 'top 88%', stagger: 120ms
-      // =========================================================================
-      if (isWebsitesPage) {
-        // A. HERO: Wejście kicker (z lewej), opisu i przycisku (od dołu), kontenera zdjęcia (od dołu)
-        // DUŻY NAGŁÓWEK H1: animowany wyłącznie przez Sekcję 5 (kolorowe prostokąty hero-wipe-brand/fg),
-        // wyłączony z masek i przesunięć Y nowego systemu.
-        const hero = document.querySelector('.service-hero');
-        if (hero && !hero.dataset.sampleHeroDone) {
-          hero.dataset.sampleHeroDone = 'true';
+        if (lead) lead.dataset.motionDone = 'true';
 
-          const kicker = hero.querySelector('.home-kicker');
-          const lead = hero.querySelector('.service-hero-bottom .home-lead');
-          const btn = hero.querySelector('.service-hero-bottom .btn');
-          const visual = hero.querySelector('.service-hero-visual');
-          const visualImg = visual?.querySelector('img');
-
-          if (lead) lead.dataset.motionDone = 'true';
-
-          const heroTl = gsap.timeline({
-            delay: 0.05,
-            onComplete: () => {
-              const toClean = [lead, btn, visual].filter(Boolean);
-              gsap.set(toClean, { clearProps: 'opacity,transform' });
-              if (kicker) {
-                const inner = kicker.querySelector('.kicker-inner');
-                if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
-              }
+        const heroTl = gsap.timeline({
+          delay: 0.05,
+          onComplete: () => {
+            const toClean = [lead, btn, visual].filter(Boolean);
+            gsap.set(toClean, { clearProps: 'opacity,transform' });
+            if (kicker) {
+              const inner = kicker.querySelector('.kicker-inner');
+              if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
             }
-          });
-
-          // Kicker wyłania się z lewej (oryginalny kierunek)
-          if (kicker) {
-            animKickerLeft(kicker, heroTl, 0);
           }
+        });
 
-          // Opis i przycisk wchodzą od dołu jako całe bloki (bez rozbijania na litery czy wiersze)
-          let contentPos = 0.15;
-          if (lead) {
-            heroTl.fromTo(lead,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              contentPos
-            );
-            contentPos += MOTION_CONFIG.block.stagger;
-          }
-
-          if (btn) {
-            heroTl.fromTo(btn,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              contentPos
-            );
-          }
-
-          if (visual) {
-            // Kontener zdjęcia wchodzi spokojnie od dołu
-            heroTl.fromTo(visual,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              0.2
-            );
-          }
-
-          // PARALAKSA GŁÓWNEGO ZDJĘCIA: zmniejszona do 0.08, desktop only, zapas skali 1.12
-          if (visual && visualImg && !isMobileMotion) {
-            visual.classList.add('has-parallax');
-            gsap.set(visualImg, { scale: 1.12, transformOrigin: 'center center' });
-            gsap.fromTo(visualImg,
-              { yPercent: 4 },
-              {
-                yPercent: -4,
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: visual,
-                  start: 'top bottom',
-                  end: 'bottom top',
-                  scrub: true
-                }
-              }
-            );
-          }
+        if (kicker) {
+          animKickerLeft(kicker, heroTl, 0);
         }
 
-        // B. ZAKRES USŁUGI: .service-features#zakres
-        const featuresSec = document.querySelector('.service-features#zakres');
-        if (featuresSec && !featuresSec.dataset.entranceDone) {
-          featuresSec.dataset.entranceDone = 'true';
-
-          const kicker = featuresSec.querySelector('.home-kicker');
-          const heading = featuresSec.querySelector('h2');
-          const features = Array.from(featuresSec.querySelectorAll('.feature-grid .service-feature'));
-          const callout = featuresSec.querySelector('.feature-callout-link');
-          const isInitiallyVisible = featuresSec.getBoundingClientRect().top < (window.innerHeight * 0.88);
-
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: featuresSec,
-              start: MOTION_CONFIG.block.start, // 'top 88%'
-              once: MOTION_CONFIG.block.once
-            },
-            onComplete: () => {
-              const allElements = [heading, ...features, callout].filter(Boolean);
-              gsap.set(allElements, { clearProps: 'opacity,transform' });
-              if (kicker) {
-                const inner = kicker.querySelector('.kicker-inner');
-                if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
-              }
-            }
-          });
-
-          let timelinePos = 0;
-          if (kicker) {
-            animKickerLeft(kicker, tl, timelinePos);
-            timelinePos += MOTION_CONFIG.block.stagger;
-          }
-
-          // Nagłówek H2 jako cały blok (bez masek i bez rozbijania na wiersze)
-          if (heading) {
-            tl.fromTo(heading,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              timelinePos
-            );
-            timelinePos += MOTION_CONFIG.block.stagger;
-          }
-
-          if (features.length) {
-            tl.fromTo(features,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              {
-                opacity: 1,
-                y: 0,
-                duration: MOTION_CONFIG.block.duration,
-                stagger: MOTION_CONFIG.block.stagger,
-                ease: MOTION_CONFIG.block.ease
-              },
-              timelinePos
-            );
-            timelinePos += (features.length - 1) * MOTION_CONFIG.block.stagger + MOTION_CONFIG.block.stagger;
-          }
-
-          if (callout) {
-            tl.fromTo(callout,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              timelinePos
-            );
-          }
-
-          if (window.location.hash === '#zakres' || isInitiallyVisible) {
-            tl.play();
-          }
+        let contentPos = 0.15;
+        if (lead) {
+          heroTl.fromTo(lead,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            contentPos
+          );
+          contentPos += MOTION_CONFIG.block.stagger;
         }
 
-        // C. BLOK MODERNIZACJI: .modernizacja-panel
-        const modPanel = document.querySelector('.service-page .modernizacja-panel');
-        if (modPanel && !modPanel.dataset.entranceDone) {
-          modPanel.dataset.entranceDone = 'true';
-
-          const content = modPanel.querySelector('.modernizacja-panel-content');
-          const action = modPanel.querySelector('.modernizacja-panel-action');
-          const isInitiallyVisible = modPanel.getBoundingClientRect().top < (window.innerHeight * 0.88);
-
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: modPanel,
-              start: MOTION_CONFIG.block.start, // 'top 88%'
-              once: MOTION_CONFIG.block.once
-            },
-            onComplete: () => {
-              gsap.set([content, action].filter(Boolean), { clearProps: 'opacity,transform' });
-            }
-          });
-
-          if (content) {
-            tl.fromTo(content,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              0
-            );
-          }
-          if (action) {
-            tl.fromTo(action,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              MOTION_CONFIG.block.stagger
-            );
-          }
-
-          if (isInitiallyVisible) {
-            tl.play();
-          }
+        if (btn) {
+          heroTl.fromTo(btn,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            contentPos
+          );
         }
 
-        // D. PROCES WSPÓŁPRACY: .process-section#jak-to-dziala
-        const procSec = document.querySelector('.service-page .process-section#jak-to-dziala');
-        if (procSec && !procSec.dataset.entranceDone) {
-          procSec.dataset.entranceDone = 'true';
+        if (visual) {
+          heroTl.fromTo(visual,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            0.2
+          );
+        }
 
-          const kicker = procSec.querySelector('.home-kicker');
-          const heading = procSec.querySelector('h2#process-title');
-          const lead = procSec.querySelector('.process-intro .home-lead');
-          const inputItem = procSec.querySelector('.process-input');
-          const steps = Array.from(procSec.querySelectorAll('.process-steps li'));
-          const ownership = procSec.querySelector('.process-ownership');
-
-          // 1. Lewa kolumna: Intro (kicker z lewej, nagłówek H2, opis i dane na start jako całe bloki)
-          const introContainer = procSec.querySelector('.process-intro') || procSec;
-          const introTl = gsap.timeline({
-            scrollTrigger: {
-              trigger: introContainer,
-              start: MOTION_CONFIG.block.start, // 'top 88%'
-              once: MOTION_CONFIG.block.once
-            },
-            onComplete: () => {
-              const toClean = [heading, lead, inputItem].filter(Boolean);
-              gsap.set(toClean, { clearProps: 'opacity,transform' });
-              if (kicker) {
-                const inner = kicker.querySelector('.kicker-inner');
-                if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
-              }
-            }
-          });
-
-          let introPos = 0;
-          if (kicker) {
-            animKickerLeft(kicker, introTl, introPos);
-            introPos += MOTION_CONFIG.block.stagger;
-          }
-
-          if (heading) {
-            introTl.fromTo(heading,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              introPos
-            );
-            introPos += MOTION_CONFIG.block.stagger;
-          }
-
-          if (lead) {
-            introTl.fromTo(lead,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              introPos
-            );
-            introPos += MOTION_CONFIG.block.stagger;
-          }
-
-          if (inputItem) {
-            introTl.fromTo(inputItem,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              introPos
-            );
-          }
-
-          if (window.location.hash === '#jak-to-dziala' || introContainer.getBoundingClientRect().top < (window.innerHeight * 0.88)) {
-            introTl.play();
-          }
-
-          // 2. Prawa kolumna: Etapy współpracy (.process-steps li) - osobny trigger dla płynnego wejścia
-          const stepsContainer = procSec.querySelector('.process-steps');
-          if (stepsContainer && steps.length) {
-            const stepsTl = gsap.timeline({
+        // Paralaksa: tylko duże zdjęcia w .service-hero-visual na desktopie
+        if (visual && visualImg && !isMobileMotion) {
+          visual.classList.add('has-parallax');
+          gsap.set(visualImg, { scale: 1.12, transformOrigin: 'center center' });
+          gsap.fromTo(visualImg,
+            { yPercent: 4 },
+            {
+              yPercent: -4,
+              ease: 'none',
               scrollTrigger: {
-                trigger: stepsContainer,
-                start: MOTION_CONFIG.block.start, // 'top 88%'
-                once: MOTION_CONFIG.block.once
-              },
-              onComplete: () => {
-                gsap.set(steps, { clearProps: 'opacity,transform' });
+                trigger: visual,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
               }
-            });
-
-            stepsTl.fromTo(steps,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              {
-                opacity: 1,
-                y: 0,
-                duration: MOTION_CONFIG.block.duration,
-                stagger: MOTION_CONFIG.block.stagger,
-                ease: MOTION_CONFIG.block.ease
-              },
-              0
-            );
-
-            if (stepsContainer.getBoundingClientRect().top < (window.innerHeight * 0.88)) {
-              stepsTl.play();
             }
-          }
-
-          // 3. Podsumowanie własności (.process-ownership)
-          if (ownership) {
-            const ownTl = gsap.timeline({
-              scrollTrigger: {
-                trigger: ownership,
-                start: MOTION_CONFIG.block.start, // 'top 88%'
-                once: MOTION_CONFIG.block.once
-              },
-              onComplete: () => {
-                gsap.set(ownership, { clearProps: 'opacity,transform' });
-              }
-            });
-
-            ownTl.fromTo(ownership,
-              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
-              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
-              0
-            );
-
-            if (ownership.getBoundingClientRect().top < (window.innerHeight * 0.88)) {
-              ownTl.play();
-            }
-          }
+          );
         }
-      }
+      });
 
-      // 2. Karty usług i nagłówki na pozostałych podstronach (np. .branding-scope na Branding)
-      const serviceFeaturesSecs = document.querySelectorAll('.service-features:not(#zakres), .branding-scope');
+      // 2. KARTY WSPÓŁPRACY NA HOMEPAGE (.collab-cards .collab-card)
+      animGroup('.collab-cards', '.collab-card');
+      animSingle('.collab-meta-link');
+
+      // 3. OPINIE KLIENTÓW NA HOMEPAGE (.testimonial-grid .testimonial-card)
+      animGroup('.testimonial-grid', '.testimonial-card');
+
+      // 4. KARTY USŁUG I ZAKRES (.service-features, .branding-scope)
+      const serviceFeaturesSecs = document.querySelectorAll('.service-features, .branding-scope');
       serviceFeaturesSecs.forEach(sec => {
         if (sec.dataset.entranceDone) return;
         sec.dataset.entranceDone = 'true';
+
+        const kicker = sec.querySelector('.home-kicker');
         const heading = sec.querySelector('h2');
-        const features = sec.querySelectorAll('.feature-grid .service-feature');
+        const features = Array.from(sec.querySelectorAll('.feature-grid .service-feature'));
+        const callout = sec.querySelector('.feature-callout-link');
+        const isInitiallyVisible = sec.getBoundingClientRect().top < (window.innerHeight * 0.88);
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sec,
-            start: 'top 82%',
+            start: MOTION_CONFIG.block.start,
             once: true
           },
           onComplete: () => {
-            if (heading) gsap.set(heading, { clearProps: 'opacity,transform' });
-            if (features.length) gsap.set(features, { clearProps: 'opacity,transform' });
+            const allElements = [heading, ...features, callout].filter(Boolean);
+            gsap.set(allElements, { clearProps: 'opacity,transform' });
+            if (kicker) {
+              const inner = kicker.querySelector('.kicker-inner');
+              if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
+            }
           }
         });
 
+        let timelinePos = 0;
+        if (kicker) {
+          animKickerLeft(kicker, tl, timelinePos);
+          timelinePos += MOTION_CONFIG.block.stagger;
+        }
+
         if (heading) {
           tl.fromTo(heading,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
-            0
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            timelinePos
           );
+          timelinePos += MOTION_CONFIG.block.stagger;
         }
 
         if (features.length) {
           tl.fromTo(features,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.95, stagger: 0.12, ease: 'power3.out' },
-            heading ? 0.12 : 0
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            {
+              opacity: 1,
+              y: 0,
+              duration: MOTION_CONFIG.block.duration,
+              stagger: MOTION_CONFIG.block.stagger,
+              ease: MOTION_CONFIG.block.ease
+            },
+            timelinePos
           );
+          timelinePos += (features.length - 1) * MOTION_CONFIG.block.stagger + MOTION_CONFIG.block.stagger;
+        }
+
+        if (callout) {
+          tl.fromTo(callout,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            timelinePos
+          );
+        }
+
+        if (isInitiallyVisible) {
+          tl.play();
         }
       });
 
-      // 3. Poziomy panel modernizacji i Motion/wideo na pozostałych podstronach
-      if (!isWebsitesPage) {
-        animSingle('.modernizacja-panel', { y: 20, duration: 0.9, start: 'top 82%' });
-      }
-      animSingle('.branding-motion-callout', { y: 20, duration: 0.9, start: 'top 82%' });
+      // 5. POZIOMY PANEL MODERNIZACJI I CALLOUTY MOTION
+      const modPanels = document.querySelectorAll('.modernizacja-panel, .branding-motion-callout');
+      modPanels.forEach(modPanel => {
+        if (modPanel.dataset.entranceDone) return;
+        modPanel.dataset.entranceDone = 'true';
 
-      // 4. Proces współpracy na pozostałych podstronach
-      const processSecs = document.querySelectorAll('.process-section:not(#jak-to-dziala)');
-      processSecs.forEach(sec => {
-        if (sec.dataset.entranceDone) return;
-        sec.dataset.entranceDone = 'true';
-        const heading = sec.querySelector('h2');
-        const introItems = sec.querySelectorAll('.process-intro .home-lead, .process-input');
-        const steps = sec.querySelectorAll('.process-steps li');
-        const ownership = sec.querySelector('.process-ownership');
+        const content = modPanel.querySelector('.modernizacja-panel-content') || modPanel.querySelector(':scope > div:first-child');
+        const action = modPanel.querySelector('.modernizacja-panel-action') || modPanel.querySelector('.btn') || modPanel.querySelector('a');
+        const isInitiallyVisible = modPanel.getBoundingClientRect().top < (window.innerHeight * 0.88);
 
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: sec,
-            start: 'top 82%',
+            trigger: modPanel,
+            start: MOTION_CONFIG.block.start,
             once: true
           },
           onComplete: () => {
-            if (heading) gsap.set(heading, { clearProps: 'opacity,transform' });
-            if (introItems.length) gsap.set(introItems, { clearProps: 'opacity,transform' });
-            if (steps.length) gsap.set(steps, { clearProps: 'opacity,transform' });
-            if (ownership) gsap.set(ownership, { clearProps: 'opacity,transform' });
+            gsap.set([content, action].filter(Boolean), { clearProps: 'opacity,transform' });
           }
         });
 
-        if (heading) {
-          tl.fromTo(heading,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+        if (content) {
+          tl.fromTo(content,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
             0
           );
         }
-
-        if (introItems.length) {
-          tl.fromTo(introItems,
-            { opacity: 0, y: 16, force3D: true },
-            { opacity: 1, y: 0, duration: 0.85, stagger: 0.08, ease: 'power3.out' },
-            0.08
+        if (action) {
+          tl.fromTo(action,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            MOTION_CONFIG.block.stagger
           );
         }
 
-        if (steps.length) {
-          tl.fromTo(steps,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out' },
-            0.12
-          );
-        }
-
-        if (ownership) {
-          tl.fromTo(ownership,
-            { opacity: 0, y: 16, force3D: true },
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
-            '+=0.05'
-          );
+        if (isInitiallyVisible) {
+          tl.play();
         }
       });
 
-      // 5. Pakiety ofertowe (Strony WWW i Branding)
+      // 6. PROCES WSPÓŁPRACY (.process-section na wszystkich stronach)
+      const procSecs = document.querySelectorAll('.process-section');
+      procSecs.forEach(procSec => {
+        if (procSec.dataset.entranceDone) return;
+        procSec.dataset.entranceDone = 'true';
+
+        const kicker = procSec.querySelector('.home-kicker');
+        const heading = procSec.querySelector('h2');
+        const lead = procSec.querySelector('.process-intro .home-lead');
+        const inputItem = procSec.querySelector('.process-input');
+        const steps = Array.from(procSec.querySelectorAll('.process-steps li'));
+        const ownership = procSec.querySelector('.process-ownership');
+
+        const introContainer = procSec.querySelector('.process-intro') || procSec;
+        const introTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: introContainer,
+            start: MOTION_CONFIG.block.start,
+            once: true
+          },
+          onComplete: () => {
+            const toClean = [heading, lead, inputItem].filter(Boolean);
+            gsap.set(toClean, { clearProps: 'opacity,transform' });
+            if (kicker) {
+              const inner = kicker.querySelector('.kicker-inner');
+              if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
+            }
+          }
+        });
+
+        let introPos = 0;
+        if (kicker) {
+          animKickerLeft(kicker, introTl, introPos);
+          introPos += MOTION_CONFIG.block.stagger;
+        }
+
+        if (heading) {
+          introTl.fromTo(heading,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            introPos
+          );
+          introPos += MOTION_CONFIG.block.stagger;
+        }
+
+        if (lead) {
+          introTl.fromTo(lead,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            introPos
+          );
+          introPos += MOTION_CONFIG.block.stagger;
+        }
+
+        if (inputItem) {
+          introTl.fromTo(inputItem,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            introPos
+          );
+        }
+
+        if (introContainer.getBoundingClientRect().top < (window.innerHeight * 0.88)) {
+          introTl.play();
+        }
+
+        // Kroki procesu: osobny trigger
+        const stepsContainer = procSec.querySelector('.process-steps');
+        if (stepsContainer && steps.length) {
+          const stepsTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: stepsContainer,
+              start: MOTION_CONFIG.block.start,
+              once: true
+            },
+            onComplete: () => {
+              gsap.set(steps, { clearProps: 'opacity,transform' });
+            }
+          });
+
+          stepsTl.fromTo(steps,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            {
+              opacity: 1,
+              y: 0,
+              duration: MOTION_CONFIG.block.duration,
+              stagger: MOTION_CONFIG.block.stagger,
+              ease: MOTION_CONFIG.block.ease
+            },
+            0
+          );
+
+          if (stepsContainer.getBoundingClientRect().top < (window.innerHeight * 0.88)) {
+            stepsTl.play();
+          }
+        }
+
+        if (ownership) {
+          const ownTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ownership,
+              start: MOTION_CONFIG.block.start,
+              once: true
+            },
+            onComplete: () => {
+              gsap.set(ownership, { clearProps: 'opacity,transform' });
+            }
+          });
+
+          ownTl.fromTo(ownership,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            0
+          );
+
+          if (ownership.getBoundingClientRect().top < (window.innerHeight * 0.88)) {
+            ownTl.play();
+          }
+        }
+      });
+
+      // 7. PAKIETY OFERTOWE (.packages-section na wszystkich stronach)
       const packagesSecs = document.querySelectorAll('.packages-section');
       packagesSecs.forEach(sec => {
         if (sec.dataset.entranceDone) return;
         sec.dataset.entranceDone = 'true';
+
+        const kicker = sec.querySelector('.home-kicker');
         const heading = sec.querySelector('h2');
-        const lead = sec.querySelector('.packages-intro .home-lead');
-        const cards = sec.querySelectorAll('.package-grid .package-card');
+        const lead = sec.querySelector('.packages-intro .home-lead') || sec.querySelector('.home-lead');
+        const cards = Array.from(sec.querySelectorAll('.package-grid .package-card'));
+        const linksRow = sec.querySelector('.package-links-row');
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sec,
-            start: 'top 82%',
+            start: MOTION_CONFIG.block.start,
             once: true
           },
           onComplete: () => {
-            if (heading) gsap.set(heading, { clearProps: 'opacity,transform' });
-            if (lead) gsap.set(lead, { clearProps: 'opacity,transform' });
-            if (cards.length) gsap.set(cards, { clearProps: 'opacity,transform' });
+            const toClean = [heading, lead, ...cards, linksRow].filter(Boolean);
+            gsap.set(toClean, { clearProps: 'opacity,transform' });
+            if (kicker) {
+              const inner = kicker.querySelector('.kicker-inner');
+              if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
+            }
           }
         });
 
+        let pos = 0;
+        if (kicker) {
+          animKickerLeft(kicker, tl, pos);
+          pos += MOTION_CONFIG.block.stagger;
+        }
+
         if (heading) {
           tl.fromTo(heading,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
-            0
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            pos
           );
+          pos += MOTION_CONFIG.block.stagger;
         }
 
         if (lead) {
           tl.fromTo(lead,
-            { opacity: 0, y: 16, force3D: true },
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
-            0.08
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            pos
           );
+          pos += MOTION_CONFIG.block.stagger;
         }
 
         if (cards.length) {
           tl.fromTo(cards,
-            { opacity: 0, y: 20, force3D: true },
-            { opacity: 1, y: 0, duration: 0.95, stagger: 0.12, ease: 'power3.out' },
-            0.12
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            {
+              opacity: 1,
+              y: 0,
+              duration: MOTION_CONFIG.block.duration,
+              stagger: MOTION_CONFIG.block.stagger,
+              ease: MOTION_CONFIG.block.ease
+            },
+            pos
+          );
+          pos += (cards.length - 1) * MOTION_CONFIG.block.stagger + MOTION_CONFIG.block.stagger;
+        }
+
+        if (linksRow) {
+          tl.fromTo(linksRow,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            pos
           );
         }
       });
 
-      // 6. FAQ na podstronie Strony WWW (#faq .faq-grid)
+      // 7b. CALLOUT BRIEFU W PAKIECIE (.packages-brief-callout na /strony-www/, /branding/ i EN)
+      const briefCallouts = document.querySelectorAll('.packages-brief-callout');
+      briefCallouts.forEach(callout => {
+        if (callout.dataset.entranceDone) return;
+        callout.dataset.entranceDone = 'true';
+
+        gsap.fromTo(callout,
+          { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+          {
+            opacity: 1,
+            y: 0,
+            duration: MOTION_CONFIG.block.duration,
+            ease: MOTION_CONFIG.block.ease,
+            scrollTrigger: {
+              trigger: callout,
+              start: MOTION_CONFIG.block.start, // 'top 88%'
+              once: true
+            },
+            onComplete: () => {
+              gsap.set(callout, { clearProps: 'opacity,transform' });
+            }
+          }
+        );
+      });
+
+      // 8. FAQ (#faq .faq-grid)
       const faqSec = document.querySelector('#faq .faq-grid');
       if (faqSec && !faqSec.dataset.entranceDone) {
         faqSec.dataset.entranceDone = 'true';
@@ -1300,7 +1171,7 @@
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: faqSec,
-            start: 'top 82%',
+            start: MOTION_CONFIG.block.start,
             once: true
           },
           onComplete: () => {
@@ -1311,34 +1182,34 @@
 
         if (heading) {
           tl.fromTo(heading,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
             0
           );
         }
 
         if (faqItems.length) {
           tl.fromTo(faqItems,
-            { opacity: 0, y: 16, force3D: true },
-            { opacity: 1, y: 0, duration: 0.85, stagger: 0.06, ease: 'power3.out' },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, stagger: 0.08, ease: MOTION_CONFIG.block.ease },
             heading ? 0.1 : 0
           );
         }
       }
 
-      // 7. Sekcje compact-grid na podstronach (Case Studies: Potrzeba, Zakres, Rezultat oraz O mnie: Doświadczenie)
-      const compactGrids = document.querySelectorAll('.project-detail .compact-grid, section[aria-labelledby="case-drewmar-title"] .compact-grid');
+      // 9. DWUKOLUMNOWE SEKCJE COMPACT-GRID (Case Studies, O mnie, Modernizacja)
+      const compactGrids = document.querySelectorAll('.project-detail .compact-grid, .modernisation-callout, section[aria-labelledby="case-drewmar-title"] .compact-grid');
       compactGrids.forEach(grid => {
         if (grid.dataset.entranceDone) return;
         grid.dataset.entranceDone = 'true';
 
         const heading = grid.querySelector('h2');
-        const contentItems = grid.querySelectorAll('.bio-copy > *, .scope-list > li, .testimonial-card, .home-lead, :scope > div:last-child > p');
+        const contentItems = grid.querySelectorAll('.bio-copy > *, .scope-list > li, .testimonial-card, .home-lead, :scope > div:last-child > p, .callout-grid p');
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: grid,
-            start: 'top 82%',
+            start: MOTION_CONFIG.block.start,
             once: true
           },
           onComplete: () => {
@@ -1349,27 +1220,29 @@
 
         if (heading) {
           tl.fromTo(heading,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
             0
           );
         }
 
         if (contentItems.length) {
           tl.fromTo(contentItems,
-            { opacity: 0, y: 16, force3D: true },
-            { opacity: 1, y: 0, duration: 0.85, stagger: 0.08, ease: 'power3.out' },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, stagger: 0.08, ease: MOTION_CONFIG.block.ease },
             heading ? 0.1 : 0
           );
         }
       });
 
-      // 8. Dowody i relacje (Strony WWW i Branding)
-      animGroup('.proof-grid', '.proof-item', { y: 18, duration: 0.85, stagger: 0.08, start: 'top 85%' });
-      animSingle('.relationship-story', { y: 18, duration: 0.85, start: 'top 85%' });
-      animSingle('.branding-portfolio-link-wrap', { y: 16, duration: 0.8, start: 'top 88%' });
+      // 10. DOWODY, RELACJE I POZOSTAŁE KAFELKI
+      animGroup('.proof-grid', '.proof-item');
+      animSingle('.relationship-story');
+      animSingle('.branding-portfolio-link-wrap');
+      animGroup('.branding-hero-composition', '.branding-visual-item');
+      animSingle('.about-portrait');
 
-      // 9. Listing portfolio: okładki realizacji wchodzą płynnie
+      // 11. LISTING PORTFOLIO: OKŁADKI REALIZACJI
       const portfolioWorks = document.querySelectorAll('.portfolio .stage .work');
       portfolioWorks.forEach(work => {
         if (work.dataset.entranceDone) return;
@@ -1377,15 +1250,15 @@
         const media = work.querySelector('.media-link');
         if (media) {
           gsap.fromTo(media,
-            { opacity: 0, y: 20, force3D: true },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
             {
               opacity: 1,
               y: 0,
-              duration: 0.95,
-              ease: 'power3.out',
+              duration: MOTION_CONFIG.block.duration,
+              ease: MOTION_CONFIG.block.ease,
               scrollTrigger: {
                 trigger: media,
-                start: 'top 85%',
+                start: MOTION_CONFIG.block.start,
                 once: true
               },
               onComplete: () => {
@@ -1396,53 +1269,113 @@
         }
       });
 
-      // 10. Strony case study portfolio (/portfolio/[slug]/)
-      animGroup('.project-gallery', 'figure', { y: 20, duration: 0.9, stagger: 0.1, start: 'top 85%' });
-      animSingle('.project-film-media figure', { y: 20, duration: 0.9, start: 'top 85%' });
-      animGroup('.project-next', 'a', { y: 16, duration: 0.8, stagger: 0.06, start: 'top 88%' });
+      // 12. PODSTRONY CASE STUDY PORTFOLIO (/portfolio/[slug]/)
+      const projectHeading = document.querySelector('.project-heading');
+      if (projectHeading && !projectHeading.dataset.entranceDone) {
+        projectHeading.dataset.entranceDone = 'true';
+        const kicker = projectHeading.querySelector('.home-kicker');
+        const h1 = projectHeading.querySelector('h1');
+        const lead = projectHeading.querySelector('.home-lead');
+        const breadcrumbs = projectHeading.querySelector('.breadcrumbs');
 
-      // 11. O mnie (/o-mnie/): Sposób pracy i Zasady współpracy
+        const tl = gsap.timeline({
+          delay: 0.05,
+          onComplete: () => {
+            gsap.set([breadcrumbs, h1, lead].filter(Boolean), { clearProps: 'opacity,transform' });
+            if (kicker) {
+              const inner = kicker.querySelector('.kicker-inner');
+              if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
+            }
+          }
+        });
+
+        if (breadcrumbs) {
+          tl.fromTo(breadcrumbs,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            0
+          );
+        }
+        if (kicker) {
+          animKickerLeft(kicker, tl, 0.08);
+        }
+        if (h1) {
+          tl.fromTo(h1,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            0.15
+          );
+        }
+        if (lead) {
+          tl.fromTo(lead,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            0.22
+          );
+        }
+      }
+
+      animSingle('.project-cover');
+      animGroup('.project-gallery', 'figure');
+      animSingle('.project-film-media figure');
+      animGroup('.project-next', 'a', { stagger: 0.08 });
+
+      // 13. O MNIE (/o-mnie/): SPOSÓB PRACY I ZASADY WSPÓŁPRACY
       const howSec = document.querySelector('#jak-pracuje');
       if (howSec && !howSec.dataset.entranceDone) {
         howSec.dataset.entranceDone = 'true';
+        const kicker = howSec.querySelector('.home-kicker');
         const heading = howSec.querySelector('.how-intro h2');
         const lead = howSec.querySelector('.how-intro .home-lead');
-        const steps = howSec.querySelectorAll('.how-steps-grid .how-step');
+        const steps = Array.from(howSec.querySelectorAll('.how-steps-grid .how-step'));
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: howSec,
-            start: 'top 82%',
+            start: MOTION_CONFIG.block.start,
             once: true
           },
           onComplete: () => {
-            if (heading) gsap.set(heading, { clearProps: 'opacity,transform' });
-            if (lead) gsap.set(lead, { clearProps: 'opacity,transform' });
-            if (steps.length) gsap.set(steps, { clearProps: 'opacity,transform' });
+            gsap.set([heading, lead, ...steps].filter(Boolean), { clearProps: 'opacity,transform' });
+            if (kicker) {
+              const inner = kicker.querySelector('.kicker-inner');
+              if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
+            }
           }
         });
 
+        let pos = 0;
+        if (kicker) {
+          animKickerLeft(kicker, tl, pos);
+          pos += MOTION_CONFIG.block.stagger;
+        }
         if (heading) {
           tl.fromTo(heading,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
-            0
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            pos
           );
+          pos += MOTION_CONFIG.block.stagger;
         }
-
         if (lead) {
           tl.fromTo(lead,
-            { opacity: 0, y: 16, force3D: true },
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
-            0.08
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            pos
           );
+          pos += MOTION_CONFIG.block.stagger;
         }
-
         if (steps.length) {
           tl.fromTo(steps,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.95, stagger: 0.12, ease: 'power3.out' },
-            0.12
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            {
+              opacity: 1,
+              y: 0,
+              duration: MOTION_CONFIG.block.duration,
+              stagger: MOTION_CONFIG.block.stagger,
+              ease: MOTION_CONFIG.block.ease
+            },
+            pos
           );
         }
       }
@@ -1451,50 +1384,53 @@
       if (rulesSec && !rulesSec.dataset.entranceDone) {
         rulesSec.dataset.entranceDone = 'true';
         const title = rulesSec.querySelector('.rules-block-title');
-        const rules = rulesSec.querySelectorAll('.rules-columns .rule-item');
+        const rules = Array.from(rulesSec.querySelectorAll('.rules-columns .rule-item'));
         const note = rulesSec.querySelector('.rules-note');
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: rulesSec,
-            start: 'top 82%',
+            start: MOTION_CONFIG.block.start,
             once: true
           },
           onComplete: () => {
-            if (title) gsap.set(title, { clearProps: 'opacity,transform' });
-            if (rules.length) gsap.set(rules, { clearProps: 'opacity,transform' });
-            if (note) gsap.set(note, { clearProps: 'opacity,transform' });
+            gsap.set([title, ...rules, note].filter(Boolean), { clearProps: 'opacity,transform' });
           }
         });
 
         if (title) {
           tl.fromTo(title,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
             0
           );
         }
-
         if (rules.length) {
           tl.fromTo(rules,
-            { opacity: 0, y: 18, force3D: true },
-            { opacity: 1, y: 0, duration: 0.95, stagger: 0.12, ease: 'power3.out' },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            {
+              opacity: 1,
+              y: 0,
+              duration: MOTION_CONFIG.block.duration,
+              stagger: MOTION_CONFIG.block.stagger,
+              ease: MOTION_CONFIG.block.ease
+            },
             title ? 0.12 : 0
           );
         }
-
         if (note) {
           tl.fromTo(note,
-            { opacity: 0, y: 14, force3D: true },
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
             '+=0.05'
           );
         }
       }
 
-      // 12. Blog (/blog/ oraz /blog/[slug]/)
-      animSingle('.blog-featured-card', { y: 20, duration: 0.95, start: 'top 82%' });
-      animGroup('.blog-list-grid', '.blog-card', { y: 20, duration: 0.95, stagger: 0.12, start: 'top 82%' });
+      // 14. BLOG (/blog/ oraz /blog/[slug]/)
+      animSingle('.blog-featured-card');
+      animGroup('.blog-list-grid', '.blog-card');
+      animSingle('.post-cover-wrap');
 
       const singlePostContent = document.querySelector('.post-layout-wrap .post-content');
       if (singlePostContent && !singlePostContent.dataset.entranceDone) {
@@ -1502,15 +1438,15 @@
         const postBlocks = singlePostContent.querySelectorAll(':scope > p, :scope > h2, :scope > ul, :scope > ol, :scope > blockquote, :scope > figure');
         postBlocks.forEach(block => {
           gsap.fromTo(block,
-            { opacity: 0, y: 16, force3D: true },
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
             {
               opacity: 1,
               y: 0,
-              duration: 0.8,
-              ease: 'power3.out',
+              duration: MOTION_CONFIG.block.duration,
+              ease: MOTION_CONFIG.block.ease,
               scrollTrigger: {
                 trigger: block,
-                start: 'top 88%',
+                start: MOTION_CONFIG.block.start,
                 once: true
               },
               onComplete: () => {
@@ -1519,6 +1455,59 @@
             }
           );
         });
+      }
+
+      // 15. FORMULARZE I KARTY BRIEFU (.brief-intro-block, .brief-stepper, .brief-card-box)
+      const briefIntroBlock = document.querySelector('.brief-intro-block, .brief-intro');
+      if (briefIntroBlock && !briefIntroBlock.dataset.entranceDone) {
+        briefIntroBlock.dataset.entranceDone = 'true';
+        const title = briefIntroBlock.querySelector('.brief-intro-title');
+        const lead = briefIntroBlock.querySelector('.brief-intro-lead, .brief-intro-desc');
+        const stepper = document.querySelector('.brief-stepper');
+        const cardBox = document.querySelector('.brief-card-box');
+
+        const tl = gsap.timeline({
+          delay: 0.1,
+          onComplete: () => {
+            gsap.set([title, lead, stepper, cardBox].filter(Boolean), { clearProps: 'opacity,transform' });
+          }
+        });
+
+        let pos = 0;
+        if (title) {
+          tl.fromTo(title,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            pos
+          );
+          pos += MOTION_CONFIG.block.stagger;
+        }
+
+        if (lead) {
+          tl.fromTo(lead,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            pos
+          );
+          pos += MOTION_CONFIG.block.stagger;
+        }
+
+        if (stepper) {
+          tl.fromTo(stepper,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            pos
+          );
+          pos += MOTION_CONFIG.block.stagger;
+        }
+
+        if (cardBox) {
+          tl.fromTo(cardBox,
+            { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+            { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+            pos
+          );
+        }
       }
     }
 
