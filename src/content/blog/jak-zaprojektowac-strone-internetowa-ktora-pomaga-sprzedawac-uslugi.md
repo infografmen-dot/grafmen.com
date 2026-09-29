@@ -19,7 +19,8 @@ seoDescription: >-
 ogImage: >-
   /assets/blog/jak-zaprojektowac-strone-internetowa-ktora-pomaga-sprzedawac-uslugi/ogImage.jpg
 ---
-Ładna strona sama w sobie nie wystarczy. Na wielu firmowych stronach trudno było szybko znaleźć dwie rzeczy: czym zajmuje się firma i jak się z nią skontaktować. Zwykle brakowało im jasnej ścieżki, która pomaga użytkownikowi podjąć decyzję. Często brakuje na nich jasnej ścieżki, która pomaga użytkownikowi podjąć decyzję.
+
+Dobra strona prowadzi odwiedzającego od poznania oferty do kontaktu. Pomagają w tym konkretne informacje, uporządkowana nawigacja i widoczne przyciski. Warto więc sprawdzić, czy układ Twojej witryny ułatwia klientowi wykonanie kolejnego kroku.
 
 ## Czego szuka klient
 

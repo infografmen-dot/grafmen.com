@@ -184,7 +184,7 @@
 
     /* Typografia: Desktop Token Scale */
     --type-display:clamp(66px,6.05vw,92px);
-    --type-display-lh:1.02;
+    --type-display-lh:0.98;
     --type-display-ls:-0.050em;
     --type-display-weight:750;
 
