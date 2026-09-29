@@ -35,6 +35,85 @@
       gsap.registerPlugin(SplitText);
     }
 
+    // =========================================================================
+    // WSPÓLNY STANDARD ANIMACJI WEJŚCIA (Referencja spokoju: WeCreate)
+    // Parametry standardu: translateY: 24px -> 0, opacity: 0 -> 1, duration: 600ms,
+    // easing: cubic-bezier(0.22, 0.61, 0.36, 1), start: 'top 85%', once: true, stagger: ~80ms
+    // =========================================================================
+    const createCubicBezier = (p1x, p1y, p2x, p2y) => {
+      const cx = 3 * p1x, bx = 3 * (p2x - p1x) - cx, ax = 1 - cx - bx;
+      const cy = 3 * p1y, by = 3 * (p2y - p1y) - cy, ay = 1 - cy - by;
+      const sampleCurveX = (t) => ((ax * t + bx) * t + cx) * t;
+      const sampleCurveY = (t) => ((ay * t + by) * t + cy) * t;
+      const sampleCurveDerivativeX = (t) => (3 * ax * t + 2 * bx) * t + cx;
+      const solveCurveX = (x) => {
+        let t2 = x;
+        for (let i = 0; i < 8; i++) {
+          const x2 = sampleCurveX(t2) - x;
+          if (Math.abs(x2) < 1e-4) return t2;
+          const d2 = sampleCurveDerivativeX(t2);
+          if (Math.abs(d2) < 1e-4) break;
+          t2 = t2 - x2 / d2;
+        }
+        return t2;
+      };
+      return (t) => {
+        if (t <= 0) return 0;
+        if (t >= 1) return 1;
+        return sampleCurveY(solveCurveX(t));
+      };
+    };
+
+    const MOTION_EASE_CALM = createCubicBezier(0.22, 0.61, 0.36, 1);
+    const isMobileMotion = window.matchMedia('(max-width: 900px)').matches || !window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    const MOTION_CONFIG = {
+      block: {
+        y: isMobileMotion ? 26 : 38,   // Zmniejszone o ~20% (komputer: 38px, telefon: 26px)
+        x: isMobileMotion ? -12 : -15, // Zmniejszone o ~20% w osi X dla wejść z lewej
+        opacityFrom: 0,
+        opacityTo: 1,
+        duration: 1.0,                 // 1000ms
+        ease: MOTION_EASE_CALM,        // cubic-bezier(0.22, 0.61, 0.36, 1)
+        stagger: 0.12,                 // 120ms w małych grupach
+        start: 'top 88%',
+        once: true
+      }
+    };
+
+    // Helper: zachowanie oryginalnego kierunku wyłaniania etykiet z lewej (w osi X)
+    const animKickerLeft = (kicker, timeline, position = 0) => {
+      if (!kicker) return;
+      kicker.dataset.kickerDone = 'true';
+      let inner = kicker.querySelector('.kicker-inner');
+      if (!inner) {
+        inner = document.createElement('span');
+        inner.className = 'kicker-inner';
+        inner.style.display = 'inline-block';
+        inner.style.willChange = 'clip-path, transform';
+        while (kicker.firstChild) {
+          inner.appendChild(kicker.firstChild);
+        }
+        kicker.appendChild(inner);
+      }
+
+      timeline.fromTo(inner,
+        {
+          clipPath: 'inset(0 100% 0 0)',
+          x: MOTION_CONFIG.block.x,
+          opacity: 0.7
+        },
+        {
+          clipPath: 'inset(0 0% 0 0)',
+          x: 0,
+          opacity: 1,
+          duration: MOTION_CONFIG.block.duration,
+          ease: MOTION_CONFIG.block.ease
+        },
+        position
+      );
+    };
+
     // 4. HOMEPAGE HERO ENTRANCE (Kinetic Horizontal Wipe Reveal)
     const hero = document.querySelector('.hero');
     const heroH1 = hero?.querySelector('h1');
@@ -399,8 +478,9 @@
       const kickers = document.querySelectorAll(
         '.home-section .home-kicker, .portfolio-head .section-kicker, .logo-cloud-kicker, .service-hero .home-kicker, .modernisation-callout .home-kicker'
       );
+      const isSamplePage = window.location.pathname.includes('strony-www');
       kickers.forEach(kicker => {
-        if (kicker.closest('.hero') || kicker.dataset.kickerDone) return;
+        if (kicker.closest('.hero') || (isSamplePage && kicker.closest('.service-hero, .service-features, .process-section')) || kicker.dataset.kickerDone) return;
         kicker.dataset.kickerDone = 'true';
 
         // Ograniczenie maskowania ściśle do szerokości tekstu (inline-block), by nie animować pustej przestrzeni
@@ -555,7 +635,7 @@
         '.service-hero-bottom .home-lead, .packages-intro .home-lead, .how-intro .home-lead, .testimonials-intro .home-lead'
       );
       subpageIntros.forEach(intro => {
-        if (intro.dataset.motionDone) return;
+        if (intro.dataset.motionDone || (window.location.pathname.includes('strony-www') && intro.closest('.service-hero-bottom'))) return;
         intro.dataset.motionDone = 'true';
 
         gsap.fromTo(intro,
@@ -731,15 +811,340 @@
         }
       };
 
-      // 1. Hero visuals na podstronach
-      animSingle('.service-hero-visual', { y: 20, duration: 0.9, start: 'top 85%' });
+      const isWebsitesPage = window.location.pathname.includes('strony-www');
+
+      // 1. Hero visuals na pozostałych podstronach (na /strony-www/ obsługiwane w dedykowanej sekwencji hero)
+      if (!isWebsitesPage) {
+        animSingle('.service-hero-visual', { y: 20, duration: 0.9, start: 'top 85%' });
+      }
       animGroup('.branding-hero-composition', '.branding-visual-item', { y: 20, duration: 0.9, stagger: 0.12, start: 'top 85%' });
       animSingle('.about-portrait', { y: 20, duration: 0.9, start: 'top 85%' });
       animSingle('.project-cover', { y: 20, duration: 0.9, start: 'top 85%' });
       animSingle('.post-cover-wrap', { y: 20, duration: 0.9, start: 'top 85%' });
 
-      // 2. Karty usług i nagłówki (.service-features na Stronach WWW oraz .branding-scope na Branding)
-      const serviceFeaturesSecs = document.querySelectorAll('.service-features, .branding-scope');
+      // =========================================================================
+      // PRÓBKA SPÓJNYCH ANIMACJI WEJŚCIA I PARALAKSY DLA /strony-www/
+      // Zakres: Hero (teksty + zdjęcie) -> Zakres usługi -> Modernizacja -> Współpraca
+      // Parametry: translateY: 48px -> 0 (mobile: 32px), czas: 1000ms,
+      // easing: cubic-bezier(0.22, 0.61, 0.36, 1), start: 'top 88%', stagger: 120ms
+      // =========================================================================
+      if (isWebsitesPage) {
+        // A. HERO: Wejście kicker (z lewej), opisu i przycisku (od dołu), kontenera zdjęcia (od dołu)
+        // DUŻY NAGŁÓWEK H1: animowany wyłącznie przez Sekcję 5 (kolorowe prostokąty hero-wipe-brand/fg),
+        // wyłączony z masek i przesunięć Y nowego systemu.
+        const hero = document.querySelector('.service-hero');
+        if (hero && !hero.dataset.sampleHeroDone) {
+          hero.dataset.sampleHeroDone = 'true';
+
+          const kicker = hero.querySelector('.home-kicker');
+          const lead = hero.querySelector('.service-hero-bottom .home-lead');
+          const btn = hero.querySelector('.service-hero-bottom .btn');
+          const visual = hero.querySelector('.service-hero-visual');
+          const visualImg = visual?.querySelector('img');
+
+          if (lead) lead.dataset.motionDone = 'true';
+
+          const heroTl = gsap.timeline({
+            delay: 0.05,
+            onComplete: () => {
+              const toClean = [lead, btn, visual].filter(Boolean);
+              gsap.set(toClean, { clearProps: 'opacity,transform' });
+              if (kicker) {
+                const inner = kicker.querySelector('.kicker-inner');
+                if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
+              }
+            }
+          });
+
+          // Kicker wyłania się z lewej (oryginalny kierunek)
+          if (kicker) {
+            animKickerLeft(kicker, heroTl, 0);
+          }
+
+          // Opis i przycisk wchodzą od dołu jako całe bloki (bez rozbijania na litery czy wiersze)
+          let contentPos = 0.15;
+          if (lead) {
+            heroTl.fromTo(lead,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              contentPos
+            );
+            contentPos += MOTION_CONFIG.block.stagger;
+          }
+
+          if (btn) {
+            heroTl.fromTo(btn,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              contentPos
+            );
+          }
+
+          if (visual) {
+            // Kontener zdjęcia wchodzi spokojnie od dołu
+            heroTl.fromTo(visual,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              0.2
+            );
+          }
+
+          // PARALAKSA GŁÓWNEGO ZDJĘCIA: zmniejszona do 0.08, desktop only, zapas skali 1.12
+          if (visual && visualImg && !isMobileMotion) {
+            visual.classList.add('has-parallax');
+            gsap.set(visualImg, { scale: 1.12, transformOrigin: 'center center' });
+            gsap.fromTo(visualImg,
+              { yPercent: 4 },
+              {
+                yPercent: -4,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: visual,
+                  start: 'top bottom',
+                  end: 'bottom top',
+                  scrub: true
+                }
+              }
+            );
+          }
+        }
+
+        // B. ZAKRES USŁUGI: .service-features#zakres
+        const featuresSec = document.querySelector('.service-features#zakres');
+        if (featuresSec && !featuresSec.dataset.entranceDone) {
+          featuresSec.dataset.entranceDone = 'true';
+
+          const kicker = featuresSec.querySelector('.home-kicker');
+          const heading = featuresSec.querySelector('h2');
+          const features = Array.from(featuresSec.querySelectorAll('.feature-grid .service-feature'));
+          const callout = featuresSec.querySelector('.feature-callout-link');
+          const isInitiallyVisible = featuresSec.getBoundingClientRect().top < (window.innerHeight * 0.88);
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: featuresSec,
+              start: MOTION_CONFIG.block.start, // 'top 88%'
+              once: MOTION_CONFIG.block.once
+            },
+            onComplete: () => {
+              const allElements = [heading, ...features, callout].filter(Boolean);
+              gsap.set(allElements, { clearProps: 'opacity,transform' });
+              if (kicker) {
+                const inner = kicker.querySelector('.kicker-inner');
+                if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
+              }
+            }
+          });
+
+          let timelinePos = 0;
+          if (kicker) {
+            animKickerLeft(kicker, tl, timelinePos);
+            timelinePos += MOTION_CONFIG.block.stagger;
+          }
+
+          // Nagłówek H2 jako cały blok (bez masek i bez rozbijania na wiersze)
+          if (heading) {
+            tl.fromTo(heading,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              timelinePos
+            );
+            timelinePos += MOTION_CONFIG.block.stagger;
+          }
+
+          if (features.length) {
+            tl.fromTo(features,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              {
+                opacity: 1,
+                y: 0,
+                duration: MOTION_CONFIG.block.duration,
+                stagger: MOTION_CONFIG.block.stagger,
+                ease: MOTION_CONFIG.block.ease
+              },
+              timelinePos
+            );
+            timelinePos += (features.length - 1) * MOTION_CONFIG.block.stagger + MOTION_CONFIG.block.stagger;
+          }
+
+          if (callout) {
+            tl.fromTo(callout,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              timelinePos
+            );
+          }
+
+          if (window.location.hash === '#zakres' || isInitiallyVisible) {
+            tl.play();
+          }
+        }
+
+        // C. BLOK MODERNIZACJI: .modernizacja-panel
+        const modPanel = document.querySelector('.service-page .modernizacja-panel');
+        if (modPanel && !modPanel.dataset.entranceDone) {
+          modPanel.dataset.entranceDone = 'true';
+
+          const content = modPanel.querySelector('.modernizacja-panel-content');
+          const action = modPanel.querySelector('.modernizacja-panel-action');
+          const isInitiallyVisible = modPanel.getBoundingClientRect().top < (window.innerHeight * 0.88);
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: modPanel,
+              start: MOTION_CONFIG.block.start, // 'top 88%'
+              once: MOTION_CONFIG.block.once
+            },
+            onComplete: () => {
+              gsap.set([content, action].filter(Boolean), { clearProps: 'opacity,transform' });
+            }
+          });
+
+          if (content) {
+            tl.fromTo(content,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              0
+            );
+          }
+          if (action) {
+            tl.fromTo(action,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              MOTION_CONFIG.block.stagger
+            );
+          }
+
+          if (isInitiallyVisible) {
+            tl.play();
+          }
+        }
+
+        // D. PROCES WSPÓŁPRACY: .process-section#jak-to-dziala
+        const procSec = document.querySelector('.service-page .process-section#jak-to-dziala');
+        if (procSec && !procSec.dataset.entranceDone) {
+          procSec.dataset.entranceDone = 'true';
+
+          const kicker = procSec.querySelector('.home-kicker');
+          const heading = procSec.querySelector('h2#process-title');
+          const lead = procSec.querySelector('.process-intro .home-lead');
+          const inputItem = procSec.querySelector('.process-input');
+          const steps = Array.from(procSec.querySelectorAll('.process-steps li'));
+          const ownership = procSec.querySelector('.process-ownership');
+
+          // 1. Lewa kolumna: Intro (kicker z lewej, nagłówek H2, opis i dane na start jako całe bloki)
+          const introContainer = procSec.querySelector('.process-intro') || procSec;
+          const introTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: introContainer,
+              start: MOTION_CONFIG.block.start, // 'top 88%'
+              once: MOTION_CONFIG.block.once
+            },
+            onComplete: () => {
+              const toClean = [heading, lead, inputItem].filter(Boolean);
+              gsap.set(toClean, { clearProps: 'opacity,transform' });
+              if (kicker) {
+                const inner = kicker.querySelector('.kicker-inner');
+                if (inner) gsap.set(inner, { clearProps: 'clipPath,transform,opacity' });
+              }
+            }
+          });
+
+          let introPos = 0;
+          if (kicker) {
+            animKickerLeft(kicker, introTl, introPos);
+            introPos += MOTION_CONFIG.block.stagger;
+          }
+
+          if (heading) {
+            introTl.fromTo(heading,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              introPos
+            );
+            introPos += MOTION_CONFIG.block.stagger;
+          }
+
+          if (lead) {
+            introTl.fromTo(lead,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              introPos
+            );
+            introPos += MOTION_CONFIG.block.stagger;
+          }
+
+          if (inputItem) {
+            introTl.fromTo(inputItem,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              introPos
+            );
+          }
+
+          if (window.location.hash === '#jak-to-dziala' || introContainer.getBoundingClientRect().top < (window.innerHeight * 0.88)) {
+            introTl.play();
+          }
+
+          // 2. Prawa kolumna: Etapy współpracy (.process-steps li) - osobny trigger dla płynnego wejścia
+          const stepsContainer = procSec.querySelector('.process-steps');
+          if (stepsContainer && steps.length) {
+            const stepsTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: stepsContainer,
+                start: MOTION_CONFIG.block.start, // 'top 88%'
+                once: MOTION_CONFIG.block.once
+              },
+              onComplete: () => {
+                gsap.set(steps, { clearProps: 'opacity,transform' });
+              }
+            });
+
+            stepsTl.fromTo(steps,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              {
+                opacity: 1,
+                y: 0,
+                duration: MOTION_CONFIG.block.duration,
+                stagger: MOTION_CONFIG.block.stagger,
+                ease: MOTION_CONFIG.block.ease
+              },
+              0
+            );
+
+            if (stepsContainer.getBoundingClientRect().top < (window.innerHeight * 0.88)) {
+              stepsTl.play();
+            }
+          }
+
+          // 3. Podsumowanie własności (.process-ownership)
+          if (ownership) {
+            const ownTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: ownership,
+                start: MOTION_CONFIG.block.start, // 'top 88%'
+                once: MOTION_CONFIG.block.once
+              },
+              onComplete: () => {
+                gsap.set(ownership, { clearProps: 'opacity,transform' });
+              }
+            });
+
+            ownTl.fromTo(ownership,
+              { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
+              { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
+              0
+            );
+
+            if (ownership.getBoundingClientRect().top < (window.innerHeight * 0.88)) {
+              ownTl.play();
+            }
+          }
+        }
+      }
+
+      // 2. Karty usług i nagłówki na pozostałych podstronach (np. .branding-scope na Branding)
+      const serviceFeaturesSecs = document.querySelectorAll('.service-features:not(#zakres), .branding-scope');
       serviceFeaturesSecs.forEach(sec => {
         if (sec.dataset.entranceDone) return;
         sec.dataset.entranceDone = 'true';
@@ -775,12 +1180,14 @@
         }
       });
 
-      // 3. Poziomy panel modernizacji (Strony WWW) i Motion/wideo (Branding)
-      animSingle('.modernizacja-panel', { y: 20, duration: 0.9, start: 'top 82%' });
+      // 3. Poziomy panel modernizacji i Motion/wideo na pozostałych podstronach
+      if (!isWebsitesPage) {
+        animSingle('.modernizacja-panel', { y: 20, duration: 0.9, start: 'top 82%' });
+      }
       animSingle('.branding-motion-callout', { y: 20, duration: 0.9, start: 'top 82%' });
 
-      // 4. Proces współpracy (.process-section na Stronach WWW)
-      const processSecs = document.querySelectorAll('.process-section');
+      // 4. Proces współpracy na pozostałych podstronach
+      const processSecs = document.querySelectorAll('.process-section:not(#jak-to-dziala)');
       processSecs.forEach(sec => {
         if (sec.dataset.entranceDone) return;
         sec.dataset.entranceDone = 'true';
