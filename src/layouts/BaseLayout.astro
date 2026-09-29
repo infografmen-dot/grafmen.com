@@ -33,6 +33,11 @@ const htmlLang = isEn ? 'en-GB' : 'pl';
 const ogLocale = isEn ? 'en_GB' : 'pl_PL';
 const canonicalUrl = new URL(canonicalPath, 'https://grafmen.com').toString();
 
+// Blokuj indeksowanie na adresach roboczych (vercel.app, localhost).
+// Na produkcji (grafmen.com) hostname = 'grafmen.com' → robots normalnie.
+const hostname = Astro.url.hostname;
+const isRobotsBlocked = hostname !== 'grafmen.com';
+
 const computedAltLangUrl = customAltLangUrl || getAltLangUrl(canonicalPath, lang);
 const plUrl = isEn ? new URL(computedAltLangUrl, 'https://grafmen.com').toString() : canonicalUrl;
 const enUrl = isEn ? canonicalUrl : new URL(computedAltLangUrl, 'https://grafmen.com').toString();
@@ -45,6 +50,7 @@ const enUrl = isEn ? canonicalUrl : new URL(computedAltLangUrl, 'https://grafmen
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonicalUrl}>
+  {isRobotsBlocked && <meta name="robots" content="noindex, nofollow">}
   <link rel="alternate" hreflang="pl" href={plUrl}>
   <link rel="alternate" hreflang="en" href={enUrl}>
   <link rel="alternate" hreflang="x-default" href={plUrl}>
@@ -101,6 +107,7 @@ const enUrl = isEn ? canonicalUrl : new URL(computedAltLangUrl, 'https://grafmen
   <script src="/portfolio-motion.js" defer></script>
   <script src="/homepage-motion.js" defer></script>
   <script src="/cookie-banner.js" defer></script>
+  <script src="/faq-accordion.js" defer></script>
 
   <slot name="head" />
 </head>

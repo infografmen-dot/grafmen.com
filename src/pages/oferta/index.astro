@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaOrange from '../../components/CtaOrange.astro';
+import CtaArrow from '../../components/CtaArrow.astro';
+
+const title = "Oferta: Strony WWW, Branding i Modernizacja | Grafmen";
+const description = "Kompleksowa oferta projektowa Grafmen: tworzenie stron internetowych, identyfikacja wizualna oraz modernizacja witryn firmowych. Sprawdź zakres usług.";
+---
+<BaseLayout title={title} description={description} bodyClass="service-page">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Usługi projektowe Grafmen",
+      "url": "https://grafmen.com/oferta/",
+      "provider": {
+        "@type": "Person",
+        "name": "Krzysztof Krawczyk",
+        "url": "https://grafmen.com/o-mnie/"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Katalog usług Grafmen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tworzenie stron internetowych",
+              "url": "https://grafmen.com/strony-www/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Identyfikacja wizualna i branding",
+              "url": "https://grafmen.com/branding/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Modernizacja stron WWW",
+              "url": "https://grafmen.com/modernizacja/"
+            }
+          }
+        ]
+      }
+    })} />
+  </Fragment>
+
+  <main id="main-content">
+    <!-- 1. HERO -->
+    <section class="service-hero">
+      <div class="home-inner">
+        <p class="home-kicker">OFERTA / GRAFMEN</p>
+        <h1>Usługi projektowe dla firm, które chcą wyglądać profesjonalnie.</h1>
+        <div class="service-hero-bottom">
+          <p class="home-lead">Projektuję strony internetowe, tworzę spójną identyfikację wizualną oraz modernizuję istniejące witryny. Wybierz obszar, który najlepiej odpowiada aktualnym potrzebom Twojej firmy.</p>
+          <div><a class="btn dark" href="/kontakt/"><span>Zapytaj o&nbsp;wycenę</span> <CtaArrow /></a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. GŁÓWNE USŁUGI -->
+    <section class="home-section" id="uslugi">
+      <div class="home-inner">
+        <p class="home-kicker">OBSZARY WSPÓŁPRACY</p>
+        <h2>W czym mogę pomóc Twojej firmie</h2>
+        
+        <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 48px;">
+          <!-- Karta 1: Strony WWW -->
+          <article class="service-feature" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="item-number">01</span>
+              <h3>Strony internetowe</h3>
+              <p>Nowoczesne, czytelne i&nbsp;szybkie strony dla firm usługowych i&nbsp;produktowych. Przejrzysta struktura oferty, prosta droga do kontaktu i&nbsp;pełna responsywność.</p>
+              <ul style="list-style: none; padding: 0; margin: 20px 0; font-size: 0.95rem; color: #555; line-height: 1.6;">
+                <li>✓ Projekt dopasowany do branży</li>
+                <li>✓ Skrócona ścieżka do wysłania zapytania</li>
+                <li>✓ Optymalizacja mobilna i techniczna</li>
+              </ul>
+            </div>
+            <div style="margin-top: 24px;">
+              <a class="btn" href="/strony-www/" style="width: 100%; text-align: center; justify-content: center;">
+                <span>Zobacz ofertę stron WWW</span> <CtaArrow />
+              </a>
+            </div>
+          </article>
+
+          <!-- Karta 2: Branding -->
+          <article class="service-feature" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="item-number">02</span>
+              <h3>Branding i&nbsp;logo</h3>
+              <p>Kompleksowa identyfikacja wizualna, która buduje zaufanie i&nbsp;wyróżnia markę. Projekt logo, kolorystyka, typografia oraz zestaw materiałów firmowych.</p>
+              <ul style="list-style: none; padding: 0; margin: 20px 0; font-size: 0.95rem; color: #555; line-height: 1.6;">
+                <li>✓ Unikalny znak graficzny (logo)</li>
+                <li>✓ Księga znaku i wytyczne stosowania</li>
+                <li>✓ Akcydensy i materiały do druku / digitalu</li>
+              </ul>
+            </div>
+            <div style="margin-top: 24px;">
+              <a class="btn" href="/branding/" style="width: 100%; text-align: center; justify-content: center;">
+                <span>Zobacz ofertę brandingu</span> <CtaArrow />
+              </a>
+            </div>
+          </article>
+
+          <!-- Karta 3: Modernizacja -->
+          <article class="service-feature" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="item-number">03</span>
+              <h3>Modernizacja stron WWW</h3>
+              <p>Odświeżenie wyglądu, poprawa ergonomii i&nbsp;uporządkowanie treści w&nbsp;istniejącym serwisie. Gdy strona przestała spełniać swoje zadanie lub jest przestarzała.</p>
+              <ul style="list-style: none; padding: 0; margin: 20px 0; font-size: 0.95rem; color: #555; line-height: 1.6;">
+                <li>✓ Nowy, profesjonalny układ graficzny</li>
+                <li>✓ Dostosowanie do smartfonów (RWD)</li>
+                <li>✓ Poprawa szybkości i wygody obsługi</li>
+              </ul>
+            </div>
+            <div style="margin-top: 24px;">
+              <a class="btn" href="/modernizacja/" style="width: 100%; text-align: center; justify-content: center;">
+                <span>Zobacz panel modernizacji</span> <CtaArrow />
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CTA -->
+    <CtaOrange />
+  </main>
+</BaseLayout>

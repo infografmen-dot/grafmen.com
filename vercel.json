@@ -13,6 +13,7 @@
     { "source": "/modernizacja.html", "destination": "/modernizacja/", "permanent": true },
     { "source": "/kontakt.html", "destination": "/kontakt/", "permanent": true },
     { "source": "/portfolio.html", "destination": "/portfolio/", "permanent": true },
+    { "source": "/oferta.html", "destination": "/oferta/", "permanent": true },
     { "source": "/blog.html", "destination": "/blog/", "permanent": true },
     { "source": "/polityka-prywatnosci.html", "destination": "/polityka-prywatnosci/", "permanent": true },
     { "source": "/brief.html", "destination": "/brief-strony-www/", "permanent": true },
@@ -26,14 +27,10 @@
     { "source": "/kontakt-przemysl-podkarpacie-polska/", "destination": "/kontakt/", "permanent": true },
     { "source": "/logo-hiker", "destination": "/portfolio/hiker/", "permanent": true },
     { "source": "/logo-hiker/", "destination": "/portfolio/hiker/", "permanent": true },
-    { "source": "/film-hiker", "destination": "/portfolio/hiker/", "permanent": true },
-    { "source": "/film-hiker/", "destination": "/portfolio/hiker/", "permanent": true },
     { "source": "/strona_drew_art", "destination": "/portfolio/drew-art/", "permanent": true },
     { "source": "/strona_drew_art/", "destination": "/portfolio/drew-art/", "permanent": true },
     { "source": "/katalog_drew_art", "destination": "/portfolio/katalog-drew-art/", "permanent": true },
     { "source": "/katalog_drew_art/", "destination": "/portfolio/katalog-drew-art/", "permanent": true },
-    { "source": "/katalog_piotrus_pan", "destination": "/portfolio/montessori/", "permanent": true },
-    { "source": "/katalog_piotrus_pan/", "destination": "/portfolio/montessori/", "permanent": true },
     { "source": "/kancelaria_lampa_logo", "destination": "/portfolio/kancelaria-lampa/", "permanent": true },
     { "source": "/kancelaria_lampa_logo/", "destination": "/portfolio/kancelaria-lampa/", "permanent": true },
     { "source": "/portfolio_identyfikacja_wizualna_logo_te_solutions", "destination": "/portfolio/te-solutions/", "permanent": true },
@@ -42,20 +39,10 @@
     { "source": "/gazetki_reklamowe/", "destination": "/portfolio/gazetka-drewmar/", "permanent": true },
     { "source": "/portfolio_logo_mpec_przemysl", "destination": "/portfolio/mpec-przemysl/", "permanent": true },
     { "source": "/portfolio_logo_mpec_przemysl/", "destination": "/portfolio/mpec-przemysl/", "permanent": true },
-    { "source": "/portfolio_logo_unitrans", "destination": "/portfolio/unitrans-katalog/", "permanent": true },
-    { "source": "/portfolio_logo_unitrans/", "destination": "/portfolio/unitrans-katalog/", "permanent": true },
     { "source": "/portfolio_logo_self-invest", "destination": "/portfolio/self-invest/", "permanent": true },
     { "source": "/portfolio_logo_self-invest/", "destination": "/portfolio/self-invest/", "permanent": true },
     { "source": "/portfolio_katalog_targi_drewmar", "destination": "/portfolio/katalog-targowy-drewmar/", "permanent": true },
     { "source": "/portfolio_katalog_targi_drewmar/", "destination": "/portfolio/katalog-targowy-drewmar/", "permanent": true },
-    { "source": "/portfolio_pervita24_logo", "destination": "/portfolio/broszura-pervita24/", "permanent": true },
-    { "source": "/portfolio_pervita24_logo/", "destination": "/portfolio/broszura-pervita24/", "permanent": true },
-    { "source": "/portfolio/piotrus-pan.html", "destination": "/portfolio/montessori/", "permanent": true },
-    { "source": "/portfolio/piotrus-pan", "destination": "/portfolio/montessori/", "permanent": true },
-    { "source": "/portfolio/piotrus-pan/", "destination": "/portfolio/montessori/", "permanent": true },
-    { "source": "/portfolio/unitrans.html", "destination": "/portfolio/unitrans-katalog/", "permanent": true },
-    { "source": "/portfolio/unitrans", "destination": "/portfolio/unitrans-katalog/", "permanent": true },
-    { "source": "/portfolio/unitrans/", "destination": "/portfolio/unitrans-katalog/", "permanent": true },
     { "source": "/portfolio/gazetki-reklamowe.html", "destination": "/portfolio/gazetka-drewmar/", "permanent": true },
     { "source": "/portfolio/gazetki-reklamowe", "destination": "/portfolio/gazetka-drewmar/", "permanent": true },
     { "source": "/portfolio/gazetki-reklamowe/", "destination": "/portfolio/gazetka-drewmar/", "permanent": true },
@@ -74,7 +61,9 @@
     { "source": "/en/privacy-policy.html", "destination": "/en/privacy-policy/", "permanent": true },
     { "source": "/en/brief-website.html", "destination": "/en/brief-website/", "permanent": true },
     { "source": "/en/brief-branding.html", "destination": "/en/brief-branding/", "permanent": true },
-    { "source": "/en/portfolio/:slug.html", "destination": "/en/portfolio/:slug/", "permanent": true }
+    { "source": "/en/portfolio/:slug.html", "destination": "/en/portfolio/:slug/", "permanent": true },
+    { "source": "/film-hiker", "destination": "/portfolio/hiker/", "permanent": true },
+    { "source": "/film-hiker/", "destination": "/portfolio/hiker/", "permanent": true }
   ],
   "headers": [
     {
@@ -97,7 +86,15 @@
         { "key": "X-Frame-Options", "value": "DENY" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        { "type": "host", "value": "grafmen-com.vercel.app" }
+      ],
+      "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     }

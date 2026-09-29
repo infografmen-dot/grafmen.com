@@ -153,13 +153,20 @@
 .faq-grid{display:grid;grid-template-columns:5fr 7fr;gap:100px;align-items:start}
 .faq-list{border-top:1px solid #cacacf}
 .faq-list details{border-bottom:1px solid #cacacf}
-.faq-list summary{position:relative;padding:24px 48px 24px 0;cursor:pointer;list-style:none;font-family:var(--font-heading);font-size:var(--type-h3);line-height:var(--type-h3-lh);font-weight:var(--type-h3-weight);letter-spacing:var(--type-h3-ls)}
+.faq-list summary{position:relative;padding:24px 48px 24px 0;cursor:pointer;list-style:none;font-family:var(--font-heading);font-size:var(--type-h3);line-height:var(--type-h3-lh);font-weight:var(--type-h3-weight);letter-spacing:var(--type-h3-ls);display:flex;align-items:center;justify-content:space-between}
 .faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary::after{content:"+";position:absolute;right:0;top:21px;color:#ff6400;font-family:var(--font-body);font-size:24px;font-weight:400}
-.faq-list details[open] summary::after{content:"−"}
+/* Fallback icon (no-JS): plain text +/− via ::after */
+.faq-list summary:not(.faq-summary-js)::after{content:"+";position:absolute;right:0;top:21px;color:#ff6400;font-family:var(--font-body);font-size:24px;font-weight:400}
+.faq-list details[open] summary:not(.faq-summary-js)::after{content:"\2212"}
+/* JS-enhanced: ::after hidden, icon injected as SVG */
+.faq-list summary.faq-summary-js::after{display:none}
+/* Body wrapper */
+.faq-list .faq-body{will-change:height}
 .faq-list details p{max-width:650px;margin:-4px 48px 24px 0;color:#62626b}
 .faq-list details p a{color:var(--orange);text-decoration:underline;text-underline-offset:3px}
 .faq-list details p a:hover{text-decoration:none}
+/* Keyboard focus on summary */
+.faq-list summary:focus-visible{outline:3px solid #ff7a29;outline-offset:4px;border-radius:2px}
 .final-cta{padding:104px 0;background:#ff6400;color:#09090b}
 .final-cta .home-kicker{color:#09090b}
 .final-cta h2{max-width:720px}

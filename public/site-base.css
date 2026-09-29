@@ -184,7 +184,7 @@
 
     /* Typografia: Desktop Token Scale */
     --type-display:clamp(66px,6.05vw,92px);
-    --type-display-lh:0.94;
+    --type-display-lh:1.02;
     --type-display-ls:-0.050em;
     --type-display-weight:750;
 
@@ -318,7 +318,8 @@
     left:calc(50% - 50vw);
     width:clamp(0px,calc((100vw - 1280px) / 2 - 56px),280px);
     pointer-events:none;
-    opacity:.48;
+    opacity:0;
+    animation:heroEchoFadeIn 5.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
     background-image:url("assets/cubes-bg.png");
     background-repeat:no-repeat;
     background-position:right bottom;
@@ -339,6 +340,8 @@
     width:100vw;
     transform:translateX(-50%);
     pointer-events:none;
+    opacity:0;
+    animation:heroCubesFadeIn 5.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
     background-image:url("assets/cubes-bg.png");
     background-repeat:no-repeat;
     background-position:right bottom;
@@ -365,12 +368,22 @@
     width:clamp(300px, 45vw, 620px);
     pointer-events:none;
     overflow:hidden;
+    opacity:0;
+    animation:heroCubesFadeIn 5.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
     -webkit-mask-image:linear-gradient(to left,rgba(0,0,0,0) 0%,rgba(0,0,0,.08) 6%,rgba(0,0,0,.8) 22%,#000 40%),
                        linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
     mask-image:linear-gradient(to left,rgba(0,0,0,0) 0%,rgba(0,0,0,.08) 6%,rgba(0,0,0,.8) 22%,#000 40%),
                linear-gradient(to bottom,transparent,#000 8%,#000 88%,transparent);
     -webkit-mask-composite:source-in;
     mask-composite:intersect;
+  }
+  @keyframes heroEchoFadeIn{
+    from{opacity:0}
+    to{opacity:.48}
+  }
+  @keyframes heroCubesFadeIn{
+    from{opacity:0}
+    to{opacity:1}
   }
   .hero-cubes-vid{
     position:absolute;
@@ -386,7 +399,11 @@
   /* Hide video wrap on narrow desktops where it would overlap text */
   @media(max-width:1199px){.hero-cubes-video{display:none}}
   /* prefers-reduced-motion: hide video, show only static cubes */
-  @media(prefers-reduced-motion:reduce){.hero-cubes-video{display:none}}
+  @media(prefers-reduced-motion:reduce){
+    .hero::before{opacity:.48;animation:none}
+    .cube-field{opacity:1;animation:none}
+    .hero-cubes-video{display:none;animation:none}
+  }
   /* Pause button – accessible 44x44px touch target with discreet 14px icon */
   .hero-cubes-pause{
     position:absolute;

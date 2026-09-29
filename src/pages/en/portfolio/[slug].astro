@@ -5,6 +5,8 @@ import CtaOrange from '../../../components/CtaOrange.astro';
 import imageManifest from '../../../data/image-manifest.json';
 import { portfolioEn } from '../../../data/i18n/portfolio-en';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const orderedSlugs = [
     'drewmax', 'szkola-best', 'hiker', 'drew-art', 'jd-ubezpieczenia',

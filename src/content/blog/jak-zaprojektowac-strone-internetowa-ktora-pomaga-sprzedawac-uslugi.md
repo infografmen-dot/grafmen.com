@@ -8,7 +8,7 @@ category: Strony internetowe
 author: Krzysztof Krawczyk
 pubDate: 2026-09-28
 cover: >-
-  /assets/blog/jak-zaprojektowac-strone-internetowa-ktora-pomaga-sprzedawac-uslugi/cover.png
+  /assets/blog/jak-zaprojektowac-strone-internetowa-ktora-pomaga-sprzedawac-uslugi/cover.jpg
 coverAlt: Strona internetowa firmy z widocznym przyciskiem kontaktu i czytelnym menu
 draft: false
 lang: pl
@@ -16,8 +16,10 @@ seoTitle: Jak sprawić, by strona firmowa przyciągała klientów
 seoDescription: >-
   Ładna strona to za mało. Sprawdź, jak jasno pokazać ofertę, skrócić drogę do
   kontaktu i zadbać o spójność, żeby klient nie zamykał witryny.
+ogImage: >-
+  /assets/blog/jak-zaprojektowac-strone-internetowa-ktora-pomaga-sprzedawac-uslugi/ogImage.jpg
 ---
-Często brakuje na nich jasnej ścieżki, która pomaga użytkownikowi podjąć decyzję.
+Ładna strona sama w sobie nie wystarczy. Na wielu firmowych stronach trudno było szybko znaleźć dwie rzeczy: czym zajmuje się firma i jak się z nią skontaktować. Zwykle brakowało im jasnej ścieżki, która pomaga użytkownikowi podjąć decyzję. Często brakuje na nich jasnej ścieżki, która pomaga użytkownikowi podjąć decyzję.
 
 ## Czego szuka klient
 

@@ -11,4 +11,5 @@ scripts/*.png
 scripts/*.json
 scripts/visual-qa/
 public/test-screenshots/
+scratch/
 
