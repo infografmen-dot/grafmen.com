@@ -1,9 +1,14 @@
 /* ============================================================
-   Cookie Banner — Grafmen — pill/capsule style
-   Matowe szkło, zaokrąglenia 12px, dwa przyciski: [Prywatność] [Zamknij].
+   Cookie Banner — Grafmen — Zwarta Karta Prywatności
+   Matowe szkło, zaokrąglenia 12px, font Outfit, szerokość ok. 300px.
+   Tekst u góry, pod spodem przyciski: [Dowiedz się więcej] [Zamknij].
    ============================================================ */
 
-/* Kontener — wrapper dla pill + panelu info (absolute wewnątrz fixed) */
+/* Główny kontener — pozycjonowany w lewym dolnym rogu */
+#cookie-banner[hidden] {
+  display: none !important;
+}
+
 #cookie-banner {
   position: fixed;
   bottom: 24px;
@@ -13,7 +18,7 @@
   z-index: 9000;
   display: inline-block;
 
-  /* animacja wejścia/wyjścia */
+  /* Płynna animacja pojawiania się i znikania */
   opacity: 0;
   transform: translateY(8px);
   pointer-events: none;
@@ -32,73 +37,90 @@
   pointer-events: none;
 }
 
-/* ── Kapsułka / Pasek Prywatności (matowe szkło) ── */
-.cb-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  height: 46px;
-  padding: 0 6px;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+/* ── Zwarta Karta Prywatności (półprzezroczyste białe matowe szkło 50%) ── */
+.cb-card {
+  position: relative;
+  display: block;
+  width: 300px;
+  box-sizing: border-box;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.50);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 12px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08),
+              0 1px 3px rgba(0, 0, 0, 0.04);
   font-family: var(--font-body);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
-  white-space: nowrap;
+  text-align: left;
 }
 
 /* Fallback dla przeglądarek bez obsługi backdrop-filter */
 @supports not ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
-  .cb-pill {
-    background: rgba(250, 250, 252, 0.96);
+  .cb-card {
+    background: rgba(255, 255, 255, 0.95);
   }
 }
 
-/* Przycisk "Prywatność" — subtelny, interaktywny */
-.cb-btn-privacy,
-.cb-btn-text {
+/* Tekst widoczny od razu na karcie */
+.cb-card-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.45;
+  color: #18181b;
+  margin: 0 0 12px 0;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+/* Kontener przycisków w jednym rzędzie */
+.cb-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Przycisk lewy: "Dowiedz się więcej" / "Learn more" */
+.cb-btn-privacy {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 44px;
   height: 34px;
   padding: 0 12px;
-  background: none;
-  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
-  color: #4b4b54;
+  color: #27272a;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
-.cb-btn-privacy:hover,
-.cb-btn-text:hover {
-  background: rgba(0, 0, 0, 0.04);
+.cb-btn-privacy:hover {
+  background: rgba(0, 0, 0, 0.09);
   color: #09090b;
 }
 
-.cb-btn-privacy[aria-expanded="true"],
-.cb-btn-text[aria-expanded="true"] {
-  background: rgba(0, 0, 0, 0.06);
+.cb-btn-privacy[aria-expanded="true"] {
+  background: rgba(255, 100, 0, 0.12);
   color: var(--orange, #ff6400);
   font-weight: 600;
+  border-color: rgba(255, 100, 0, 0.35);
 }
 
-.cb-btn-privacy:focus-visible,
-.cb-btn-text:focus-visible {
+.cb-btn-privacy:focus-visible {
   outline: 2px solid var(--orange, #ff6400);
   outline-offset: 2px;
 }
 
-/* Przycisk "Zamknij" — zaokrąglenie 8px, białe tło */
-.cb-btn-close,
-.cb-btn-primary {
+/* Przycisk prawy: "Zamknij" / "Close" */
+.cb-btn-close {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -106,44 +128,46 @@
   height: 34px;
   padding: 0 14px;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.10);
   border-radius: 8px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
   color: #09090b;
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.cb-btn-close:hover,
-.cb-btn-primary:hover {
-  background: #f5f5f7;
-  border-color: rgba(0, 0, 0, 0.14);
+.cb-btn-close:hover {
+  background: #f4f4f5;
+  border-color: rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.cb-btn-close:focus-visible,
-.cb-btn-primary:focus-visible {
+.cb-btn-close:focus-visible {
   outline: 2px solid var(--orange, #ff6400);
   outline-offset: 2px;
 }
 
-/* ── Panel Informacyjny (pojawia się nad kapsułką) ── */
+/* ── Panel Informacyjny (rozwijany tuż nad kartą) ── */
 .cb-info-panel {
   position: absolute;
   bottom: calc(100% + 10px);
   left: 0;
   width: 300px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.80);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 12px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12),
+              0 2px 6px rgba(0, 0, 0, 0.04);
   padding: 16px;
   font-family: var(--font-body);
+  text-align: left;
 }
 
 .cb-info-panel[hidden] {
@@ -158,9 +182,11 @@
 }
 
 .cb-info-title {
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: 14px;
   font-weight: 600;
   color: #09090b;
+  letter-spacing: -0.01em;
 }
 
 .cb-info-close {
@@ -174,14 +200,14 @@
   border-radius: 999px;
   font-size: 18px;
   line-height: 1;
-  color: #72727a;
+  color: #71717a;
   cursor: pointer;
   flex-shrink: 0;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
 .cb-info-close:hover {
-  background: #f1f1f3;
+  background: rgba(0, 0, 0, 0.06);
   color: #09090b;
 }
 
@@ -191,9 +217,10 @@
 }
 
 .cb-info-text {
+  font-family: var(--font-body);
   font-size: 13px;
-  line-height: 1.55;
-  color: #62626b;
+  line-height: 1.5;
+  color: #52525b;
   margin: 0 0 12px;
 }
 
@@ -201,6 +228,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
   color: var(--orange, #ff6400);
@@ -223,11 +251,12 @@
 /* ── Mobile ── */
 @media (max-width: 820px) {
   #cookie-banner {
-    /* nad dolnym paskiem fluid glass menu i przyciskiem powrotu */
+    /* Pozycja nad dolnym paskiem mobilnego menu (min. 16px od lewej krawędzi) */
     bottom: max(72px, calc(72px + env(safe-area-inset-bottom, 0px)));
     left: max(16px, env(safe-area-inset-left, 0px));
   }
 
+  .cb-card,
   .cb-info-panel {
     width: min(300px, calc(100vw - 32px));
     max-width: calc(100vw - 32px);

@@ -14,10 +14,16 @@
   "deliverables": [
     "Opracowanie makiety i layoutu stron w kwadratowym formacie 210×210 mm.",
     "Przygotowanie siatki modułowej dla zdjęć produktów, opisów i tabel wymiarowych.",
-    "Skład DTP z precyzyjnym przygotowaniem plików produkcyjnych do druku offsetowego.",
-    "Wizualizacje 3D katalogu do prezentacji w materiałach cyfrowych."
+    "Skład DTP z precyzyjnym przygotowaniem plików produkcyjnych do druku offsetowego."
   ],
   "gallery": [
+    {
+      "src": "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_3.webp",
+      "alt": "Rozkładówka katalogu Drew-Art z zamiataczami i zmiotkami",
+      "caption": "Kategoria zamiataczy i zmiotek z kodami produktów i specyfikacją.",
+      "width": 1024,
+      "height": 790
+    },
     {
       "src": "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2.webp",
       "alt": "Rozkładówka katalogu Drew-Art",
@@ -26,22 +32,28 @@
       "height": 1750
     },
     {
+      "src": "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_5.webp",
+      "alt": "Rozkładówka katalogu Drew-Art ze szczotkami do obuwia i ubrań",
+      "caption": "Prezentacja asortymentu szczotek do obuwia i odzieży.",
+      "width": 1024,
+      "height": 790
+    },
+    {
       "src": "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4.webp",
       "alt": "Prezentacja produktów w katalogu",
-      "caption": "Wizualizacja produktów w naturalnym otoczeniu.",
+      "caption": "Wizualizacja produktów.",
       "width": 2266,
       "height": 1750
     }
   ],
   "result_title": "Wielostronicowy katalog produktów.",
   "result": [
-    "Przygotowano wielostronicowy katalog produktowy w formacie kwadratowym, porządkujący asortyment mebli z litego drewna."
+    "Przygotowano wielostronicowy katalog produktowy w formacie kwadratowym, porządkujący asortyment zmiotek i zamiataczy."
   ],
   "testimonial": "",
   "testimonial_author": "",
   "external_url": "",
   "external_label": "",
   "next_url": "../montessori/index.html",
-  "next_title": "Montessori.com.pl",
-  "missing_gallery_slots": 1
+  "next_title": "Montessori.com.pl"
 }

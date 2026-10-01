@@ -36,6 +36,7 @@ export interface UiDictionary {
   };
   cookieBanner: {
     regionAria: string;
+    bannerText: string;
     panelTitle: string;
     panelCloseAria: string;
     panelText: string;
@@ -82,7 +83,7 @@ export const ui: Record<'pl' | 'en', UiDictionary> = {
       faq: 'FAQ',
       blog: 'Blog',
       privacy: 'Polityka prywatności',
-      cookiesBtn: 'Ustawienia cookies',
+      cookiesBtn: 'Informacja o\u00A0prywatności',
       webServices: 'Strony WWW',
       redesign: 'Modernizacja WWW',
       branding: 'Branding',
@@ -91,11 +92,12 @@ export const ui: Record<'pl' | 'en', UiDictionary> = {
     },
     cookieBanner: {
       regionAria: 'Informacja o prywatności',
+      bannerText: 'Twoja prywatność: sprawdź, jak przetwarzam dane na\u00A0tej stronie.',
       panelTitle: 'Prywatność na\u00A0stronie',
       panelCloseAria: 'Zamknij panel informacji',
-      panelText: 'W\u00A0przeglądarce zapamiętujemy zamknięcie tego\u00A0komunikatu, aby nie wyświetlać go ponownie. Informacje o\u00A0przetwarzaniu danych znajdziesz w\u00A0polityce prywatności.',
+      panelText: 'Dane z\u00A0formularzy wykorzystuję do\u00A0obsługi Twojego zapytania. Osadzone filmy YouTube łączą się z\u00A0usługą Google po\u00A0ich uruchomieniu. Zamknięcie tego komunikatu zapamiętuję w\u00A0Twojej przeglądarce. Szczegóły znajdziesz w\u00A0polityce prywatności.',
       privacyLinkText: 'Polityka prywatności',
-      btnPrivacy: 'Prywatność',
+      btnPrivacy: 'Dowiedz się więcej',
       btnClose: 'Zamknij',
     },
     ctaOrange: {
@@ -135,7 +137,7 @@ export const ui: Record<'pl' | 'en', UiDictionary> = {
       faq: 'FAQ',
       blog: 'Blog',
       privacy: 'Privacy policy',
-      cookiesBtn: 'Cookie settings',
+      cookiesBtn: 'Privacy notice',
       webServices: 'Websites',
       redesign: 'Website redesign',
       branding: 'Branding',
@@ -144,11 +146,12 @@ export const ui: Record<'pl' | 'en', UiDictionary> = {
     },
     cookieBanner: {
       regionAria: 'Privacy notice',
-      panelTitle: 'Privacy on this website',
+      bannerText: 'Your privacy: see how I process data on this website.',
+      panelTitle: 'Website privacy',
       panelCloseAria: 'Close information panel',
-      panelText: 'We remember closing this notice in your browser so that it does not show again. Full details on personal data processing can be found in the privacy policy.',
+      panelText: 'I use form data to handle your enquiry. Embedded YouTube videos connect to Google services once played. Dismissing this notice is saved in your browser. Details can be found in the privacy policy.',
       privacyLinkText: 'Privacy policy',
-      btnPrivacy: 'Privacy',
+      btnPrivacy: 'Learn more',
       btnClose: 'Close',
     },
     ctaOrange: {

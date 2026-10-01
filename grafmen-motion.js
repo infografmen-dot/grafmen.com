@@ -90,6 +90,7 @@
         inner = document.createElement('span');
         inner.className = 'kicker-inner';
         inner.style.display = 'inline-block';
+        inner.style.color = 'inherit';
         inner.style.willChange = 'clip-path, transform';
         while (kicker.firstChild) {
           inner.appendChild(kicker.firstChild);
@@ -136,6 +137,7 @@
         const fgRects = heroH1.querySelectorAll('.hero-wipe-fg');
 
         const eyebrowInner = hero.querySelector('.eyebrow .hero-mask-inner') || hero.querySelector('.eyebrow');
+        const contactInner = hero.querySelector('.hero-contact .hero-mask-inner') || hero.querySelector('.hero-contact');
         const metaTop = hero.querySelector('.meta01-top');
         const metaInners = hero.querySelectorAll('.meta01-inner');
         const miniInners = hero.querySelectorAll('.hero-bottom .mini .hero-mask-inner');
@@ -149,7 +151,7 @@
         failsafeTimer = setTimeout(() => {
           gsap.set(heroH1.querySelectorAll('.hero-line-inner'), { clearProps: 'all', opacity: 1 });
           gsap.set(heroH1.querySelectorAll('.hero-wipe-brand, .hero-wipe-fg'), { clearProps: 'all', scaleX: 0 });
-          gsap.set([eyebrowInner, leadText, actionBtn, centerIndicator], { clearProps: 'all', opacity: 1, y: 0 });
+          gsap.set([eyebrowInner, contactInner, leadText, actionBtn, centerIndicator], { clearProps: 'all', opacity: 1, y: 0 });
           if (metaTop) gsap.set(metaTop, { clearProps: 'all', scaleX: 1 });
           if (metaInners.length) gsap.set(metaInners, { clearProps: 'all', opacity: 1, y: 0 });
           if (miniInners.length) gsap.set(miniInners, { clearProps: 'all', opacity: 1, y: 0 });
@@ -158,6 +160,7 @@
         gsap.set(lineInners, { opacity: 0 });
         gsap.set([brandRects, fgRects], { scaleX: 0, transformOrigin: 'left' });
         if (eyebrowInner) gsap.set(eyebrowInner, { y: 14, opacity: 0 });
+        if (contactInner) gsap.set(contactInner, { y: 14, opacity: 0 });
         if (leadText) gsap.set(leadText, { y: 12, opacity: 0 });
         if (actionBtn) gsap.set(actionBtn, { y: 12, opacity: 0 });
         if (metaTop) gsap.set(metaTop, { scaleX: 0, transformOrigin: 'left' });
@@ -170,15 +173,23 @@
           onComplete: () => {
             if (failsafeTimer) clearTimeout(failsafeTimer);
             gsap.set([lineInners, brandRects, fgRects], { clearProps: 'all' });
-            gsap.set([eyebrowInner, leadText, actionBtn, metaTop, centerIndicator], { clearProps: 'all' });
+            gsap.set([eyebrowInner, contactInner, leadText, actionBtn, metaTop, centerIndicator], { clearProps: 'all' });
             if (metaInners.length) gsap.set(metaInners, { clearProps: 'all' });
             if (miniInners.length) gsap.set(miniInners, { clearProps: 'all' });
           }
         });
 
-        // 1. Eyebrow odsłania się płynnie od dołu w masce
+        // 1. Eyebrow i kontakt odsłaniają się płynnie od dołu w masce
         if (eyebrowInner) {
           tl.to(eyebrowInner, {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: 'power3.out'
+          }, 0.15);
+        }
+        if (contactInner) {
+          tl.to(contactInner, {
             y: 0,
             opacity: 1,
             duration: 0.7,
@@ -471,6 +482,7 @@
           inner = document.createElement('span');
           inner.className = 'kicker-inner';
           inner.style.display = 'inline-block';
+          inner.style.color = 'inherit';
           inner.style.willChange = 'clip-path, transform';
           while (kicker.firstChild) {
             inner.appendChild(kicker.firstChild);
@@ -797,25 +809,6 @@
             { opacity: 0, y: MOTION_CONFIG.block.y, force3D: true },
             { opacity: 1, y: 0, duration: MOTION_CONFIG.block.duration, ease: MOTION_CONFIG.block.ease },
             0.2
-          );
-        }
-
-        // Paralaksa: tylko duże zdjęcia w .service-hero-visual na desktopie
-        if (visual && visualImg && !isMobileMotion) {
-          visual.classList.add('has-parallax');
-          gsap.set(visualImg, { scale: 1.12, transformOrigin: 'center center' });
-          gsap.fromTo(visualImg,
-            { yPercent: 4 },
-            {
-              yPercent: -4,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: visual,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true
-              }
-            }
           );
         }
       });

@@ -127,12 +127,12 @@ export const portfolioEn: Record<string, ProjectEn> = {
 
   "drew-art": {
     title: "Drew-Art",
-    description: "Website concept for a woodworking business. The layout organizes the product range and presents items in a modern commercial setting.",
+    description: "Website for a brush and cleaning tool manufacturer. The layout organizes the product range and presents items in a modern commercial setting.",
     category: "Website",
-    cover_alt: "Drew-Art website proposal",
+    cover_alt: "Drew-Art website design presenting company offer",
     brief_title: "Presenting timber craftsmanship in a modern format.",
     brief: [
-      "Drew-Art operates in the woodworking sector, manufacturing high-grade wooden products and household accessories.",
+      "Drew-Art manufactures brushes and cleaning accessories, combining traditional wooden craftsmanship with modern production standards.",
       "The project objective was to organize an extensive product range into a functional, aesthetic layout highlighting natural wood quality."
     ],
     deliverables: [
@@ -149,7 +149,7 @@ export const portfolioEn: Record<string, ProjectEn> = {
     ],
     result_title: "Showcasing timber craftsmanship online.",
     result: [
-      "A structured website design presenting the product line and handcrafted detailing of wooden homeware."
+      "A clear website design that structures a wide product range and presents the artisanal quality of manufacturing."
     ],
     external_label: "Open Drew-Art website"
   },
@@ -204,17 +204,25 @@ export const portfolioEn: Record<string, ProjectEn> = {
     ],
     gallery: [
       {
+        alt: "Drew-Art catalogue spread featuring brooms and brushes",
+        caption: "Brooms and hand brushes section with product codes and specifications."
+      },
+      {
         alt: "Drew-Art catalogue inner spread",
         caption: "Inner editorial spread showcasing brushware range."
       },
       {
-        alt: "Drew-Art catalogue cover layout",
-        caption: "Square format catalogue cover."
+        alt: "Drew-Art catalogue spread displaying shoe and clothing brushes",
+        caption: "Shoe and clothing brush assortment display."
+      },
+      {
+        alt: "Drew-Art product presentation spread",
+        caption: "Product showcase."
       }
     ],
     result_title: "Multi-page product catalogue.",
     result: [
-      "Delivered a print-ready, multi-page publication enabling B2B buyers to quickly navigate the product assortment."
+      "Delivered a print-ready, multi-page publication in square format, structuring the assortment of brooms and hand brushes."
     ]
   },
 

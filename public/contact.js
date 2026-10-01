@@ -216,7 +216,8 @@
             statusEl.textContent = isEn
               ? 'Enquiry received! Thank you for getting in touch. I will respond to your message shortly.'
               : 'Wiadomość została przyjęta! Dziękuję za kontakt. Odpowiem na Twoją wiadomość najszybciej, jak to możliwe.';
-            statusEl.style.color = '#059669';
+            statusEl.style.color = 'var(--orange, #ff6400)';
+            statusEl.style.fontWeight = '500';
           }
           form.reset();
         } else {

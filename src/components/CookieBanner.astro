@@ -11,10 +11,10 @@ const t = ui[lang].cookieBanner;
 const privacyHref = isEn ? '/en/privacy-policy/' : '/polityka-prywatnosci/';
 ---
 <!--
-  CookieBanner — informacyjny pasek prywatności (pill style)
-  Wzorowany na Studio Ahremark: matowe szkło, kapsułka w lewym dolnym rogu.
-  Dwa przyciski: [Prywatność / Privacy] [Zamknij / Close].
-  Domyślnie hidden; cookie-banner.js ujawnia gdy potrzeba.
+  CookieBanner — zwarta karta informacyjna o prywatności
+  Matowe szkło, lewy dolny róg, prostokątna karta z zaokrąglonymi narożnikami.
+  Tekst na górze karty, pod nim przyciski: [Dowiedz się więcej] [Zamknij].
+  Domyślnie hidden; cookie-banner.js ujawnia, gdy potrzeba.
 -->
 <div
   id="cookie-banner"
@@ -24,7 +24,7 @@ const privacyHref = isEn ? '/en/privacy-policy/' : '/polityka-prywatnosci/';
   hidden
   lang={isEn ? 'en-GB' : 'pl'}
 >
-  <!-- Panel szczegółowy (pojawia się nad kapsułką po kliknięciu "Prywatność") -->
+  <!-- Panel szczegółowy (otwierany nad kartą po kliknięciu "Dowiedz się więcej") -->
   <div
     class="cb-info-panel"
     id="cb-info-panel"
@@ -48,19 +48,22 @@ const privacyHref = isEn ? '/en/privacy-policy/' : '/polityka-prywatnosci/';
     <a class="cb-info-link" href={privacyHref}>{t.privacyLinkText} <span aria-hidden="true">&rarr;</span></a>
   </div>
 
-  <!-- Kapsułka: [Prywatność] [Zamknij] -->
-  <div class="cb-pill">
-    <button
-      id="cookie-banner-privacy"
-      type="button"
-      class="cb-btn-privacy"
-      aria-expanded="false"
-      aria-controls="cb-info-panel"
-    >{t.btnPrivacy}</button>
-    <button
-      id="cookie-banner-close"
-      type="button"
-      class="cb-btn-close"
-    >{t.btnClose}</button>
+  <!-- Karta prywatności: treść widoczna od razu + przyciski -->
+  <div class="cb-card">
+    <p class="cb-card-text">{t.bannerText}</p>
+    <div class="cb-card-actions">
+      <button
+        id="cookie-banner-privacy"
+        type="button"
+        class="cb-btn-privacy"
+        aria-expanded="false"
+        aria-controls="cb-info-panel"
+      >{t.btnPrivacy}</button>
+      <button
+        id="cookie-banner-close"
+        type="button"
+        class="cb-btn-close"
+      >{t.btnClose}</button>
+    </div>
   </div>
 </div>

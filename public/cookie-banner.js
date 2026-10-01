@@ -1,11 +1,11 @@
 /**
  * cookie-banner.js — Grafmen
  *
- * Komunikat informacyjny o prywatności (pill style).
+ * Zwarta karta informacyjna o prywatności.
  * Zamknięcie komunikatu zapamiętywane w localStorage.
  * Zamknięcie komunikatu nie oznacza zgody na jakiekolwiek technologie.
  *
- * API: window.gmCookies.reset() — ponownie pokazuje pasek i otwiera panel
+ * API: window.gmCookies.reset() — ponownie pokazuje kartę i otwiera panel szczegółów
  */
 
 (function () {
@@ -20,6 +20,7 @@
   var infoClose = null;
   var showTimer = null;
   var infoPanelOpen = false;
+  var lastTrigger = null;
 
   /* ── Storage ── */
   function isDismissed() {
@@ -45,6 +46,17 @@
   function hideBanner() {
     if (!banner) return;
     closeInfo();
+
+    // Zarządzanie fokusem przed ukryciem — fokus nie może pozostać na elemencie hidden
+    if (banner.contains(document.activeElement)) {
+      if (lastTrigger && typeof lastTrigger.focus === 'function' && document.body.contains(lastTrigger)) {
+        lastTrigger.focus();
+      } else if (document.activeElement && typeof document.activeElement.blur === 'function') {
+        document.activeElement.blur();
+      }
+    }
+    lastTrigger = null;
+
     banner.classList.remove('cb-visible');
     banner.classList.add('cb-hiding');
     banner.setAttribute('aria-hidden', 'true');
@@ -59,7 +71,7 @@
     hideBanner();
   }
 
-  /* ── Panel Prywatność ── */
+  /* ── Panel Szczegółów Prywatności ── */
   function openInfo() {
     if (!infoPanel) return;
     infoPanelOpen = true;
@@ -76,7 +88,9 @@
     infoPanel.setAttribute('hidden', '');
     if (privacyBtn) {
       privacyBtn.setAttribute('aria-expanded', 'false');
-      privacyBtn.focus();
+      if (banner && !banner.hasAttribute('hidden') && banner.getAttribute('aria-hidden') !== 'true') {
+        privacyBtn.focus();
+      }
     }
   }
 
@@ -107,6 +121,7 @@
 
   /* ── Publiczne API ── */
   function reset() {
+    lastTrigger = document.activeElement;
     clearDismissed();
     clearTimeout(showTimer);
     showBanner();

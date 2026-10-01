@@ -1029,6 +1029,38 @@
     ],
     "srcset": "/assets/portfolio/full/Mockup_Brochure_21x21_1-360w.webp 360w, /assets/portfolio/full/Mockup_Brochure_21x21_1-480w.webp 480w, /assets/portfolio/full/Mockup_Brochure_21x21_1-800w.webp 800w, /assets/portfolio/full/Mockup_Brochure_21x21_1-1200w.webp 1200w, /assets/portfolio/full/Mockup_Brochure_21x21_1.webp 1750w"
   },
+  "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_3.webp": {
+    "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_3.webp",
+    "width": 1024,
+    "height": 790,
+    "aspectRatio": 1.2962,
+    "isVertical": false,
+    "sizeKb": 47,
+    "variants": [
+      {
+        "width": 360,
+        "height": 278,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_3-360w.webp",
+        "sizeKb": 7,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 370,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_3-480w.webp",
+        "sizeKb": 11,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 617,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_3-800w.webp",
+        "sizeKb": 21,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_3-360w.webp 360w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_3-480w.webp 480w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_3-800w.webp 800w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_3.webp 1024w"
+  },
   "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2.webp": {
     "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2.webp",
     "width": 1750,
@@ -1067,6 +1099,38 @@
       }
     ],
     "srcset": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-360w.webp 360w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-480w.webp 480w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-800w.webp 800w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2-1200w.webp 1200w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_2.webp 1750w"
+  },
+  "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_5.webp": {
+    "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_5.webp",
+    "width": 1024,
+    "height": 790,
+    "aspectRatio": 1.2962,
+    "isVertical": false,
+    "sizeKb": 55,
+    "variants": [
+      {
+        "width": 360,
+        "height": 278,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_5-360w.webp",
+        "sizeKb": 9,
+        "format": "webp"
+      },
+      {
+        "width": 480,
+        "height": 370,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_5-480w.webp",
+        "sizeKb": 14,
+        "format": "webp"
+      },
+      {
+        "width": 800,
+        "height": 617,
+        "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_5-800w.webp",
+        "sizeKb": 26,
+        "format": "webp"
+      }
+    ],
+    "srcset": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_5-360w.webp 360w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_5-480w.webp 480w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_5-800w.webp 800w, /assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_5.webp 1024w"
   },
   "assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4.webp": {
     "src": "/assets/portfolio/katalog-drew-art/Mockup_Brochure_21x21_4.webp",

@@ -28,16 +28,16 @@
     ['.portfolio .all', 'View all projects <span aria-hidden="true">↗</span>'],
     ['.p1 .cat', '01 / Website'],
     ['.p2 .cat', '02 / Motion / video'],
-    ['.p3 .cat', '03 / Website'],
-    ['.p4 .cat', '04 / Logo / branding'],
+    ['.p3 .cat', '03 / Logo / branding'],
+    ['.p4 .cat', '04 / Website'],
     ['.p5 .cat', '05 / Website'],
     ['.p6 .cat', '06 / Logo / branding'],
     ['.p2 .title', 'Hiker promotional film'],
     ['.p1 .project-description', 'A website for a brush and cleaning accessories manufacturer. A ten-year collaboration, from the first website to ongoing advertising materials.'],
     ['.p2 .project-description', 'A promotional film presenting the Hiker brand in a mountain landscape.'],
-    ['.p3 .project-description', 'An English school website for children and teenagers. It organises the course offer and guides parents from first contact to enrolment.'],
-    ['.p4 .project-description', 'Visual identity for an outdoor brand. The logo and branded materials create a consistent visual identity.'],
-    ['.p5 .project-description', 'A proposed website for a woodworking business. The layout organises the offer and presents the products in a clear, modern setting.'],
+    ['.p3 .project-description', 'Visual identity for an outdoor brand. The logo and branded materials create a consistent visual identity.'],
+    ['.p4 .project-description', 'An English school website for children and teenagers. It organises the course offer and guides parents from first contact to enrolment.'],
+    ['.p5 .project-description', 'Website for a brush and cleaning tool manufacturer. The layout organises the offer and presents the products in a clear, modern setting.'],
     ['.p6 .project-description', 'A logo and business materials for an insurance brand. The identity combines initials with a symbol of protection to create consistent brand communication.'],
     ['.project-action', 'View project <span aria-hidden="true">↗</span>'],
   ];
@@ -51,9 +51,9 @@
   const imageAlts = [
     'Drewmax.pro English website: navigation, headline and manufacturer offer',
     'Hiker film still: a mountain valley and the Wild Escape logo',
-    'Best English website with English language courses',
     'Hiker identity: logo, business cards and branded stationery',
-    'Proposed Drew-Art website',
+    'Best English website with English language courses',
+    'Drew-Art website',
     'JD Ubezpieczenia logo — Joanna Dywan',
   ];
   const images = [...document.querySelectorAll('.portfolio .project-image')].map((element, i) => ({ element, pl: element.alt, en: imageAlts[i] }));

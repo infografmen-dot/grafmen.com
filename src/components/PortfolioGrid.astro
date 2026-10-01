@@ -84,8 +84,34 @@ const portfolioHref = isEn ? '/en/portfolio/' : '/portfolio/';
       </article>
     </li>
 
-    <!-- P3: SZKOLA.BEST -->
+    <!-- P3: HIKER BRANDING -->
     <li class="work p3">
+      <article class="project-card">
+        <a class="media-link" href={isEn ? "/en/portfolio/hiker/#branding" : "/portfolio/hiker/#branding"} aria-label={isEn ? "Hiker branding · View case study" : "Branding Hiker · Zobacz case study"}>
+          <div class="media">
+            <video class="portfolio-loop" muted loop playsinline preload="none" poster="/assets/motion/hiker-brand-poster.webp" aria-hidden="true" tabindex="-1">
+              <source data-src="/assets/motion/hiker-brand.webm" type="video/webm">
+              <source data-src="/assets/motion/hiker-brand.mp4" type="video/mp4">
+            </video>
+            <img class="project-image" src="/assets/portfolio/hiker.webp" alt={isEn ? "Hiker visual identity on business cards and stationery" : "Identyfikacja wizualna Hiker na wizytówkach i papierze firmowym"} loading="lazy" decoding="async" width="1400" height="920">
+            <span class="project-action">{isEn ? "View project" : "Zobacz projekt"} <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+        <div class="caption">
+          <div class="caption-copy">
+            <p class="cat">{isEn ? "03 / Logo / branding" : "03 / Logo / branding"}</p>
+            <h3 class="title"><a class="title-link" href={isEn ? "/en/portfolio/hiker/#branding" : "/portfolio/hiker/#branding"}>Hiker</a></h3>
+            <p class="project-description">
+              {isEn ? "Visual identity for an outdoor brand. The logo, colour scheme, and stationery establish a consistent brand image across touchpoints." : "Identyfikacja wizualna marki outdoorowej. Znak i\u00A0materiały firmowe tworzą spójny wizerunek marki."}
+            </p>
+          </div>
+          <a class="arr-link" href={isEn ? "/en/portfolio/hiker/#branding" : "/portfolio/hiker/#branding"} aria-label={isEn ? "Hiker branding · View case study" : "Branding Hiker · Zobacz case study"}><span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </li>
+
+    <!-- P4: SZKOLA.BEST -->
+    <li class="work p4">
       <article class="project-card">
         <a class="media-link" href={isEn ? "/en/portfolio/szkola-best/" : "/portfolio/szkola-best/"} aria-label={isEn ? "szkola.best · View case study" : "szkola.best · Zobacz case study"}>
           <div class="media">
@@ -101,7 +127,7 @@ const portfolioHref = isEn ? '/en/portfolio/' : '/portfolio/';
         </a>
         <div class="caption">
           <div class="caption-copy">
-            <p class="cat">{isEn ? "03 / Website" : "03 / Strona WWW"}</p>
+            <p class="cat">{isEn ? "04 / Website" : "04 / Strona WWW"}</p>
             <h3 class="title"><a class="title-link" href={isEn ? "/en/portfolio/szkola-best/" : "/portfolio/szkola-best/"}>szkola.best</a></h3>
             <p class="project-description">
               {isEn ? "An English language school website for children and teenagers. It structures the course offer and guides parents smoothly from first enquiry to enrolment." : "Strona szkoły języka angielskiego dla\u00A0dzieci i\u00A0młodzieży. Porządkuje ofertę kursów i\u00A0prowadzi rodzica od\u00A0pierwszego kontaktu do\u00A0zapisu."}
@@ -115,32 +141,6 @@ const portfolioHref = isEn ? '/en/portfolio/' : '/portfolio/';
       </article>
     </li>
 
-    <!-- P4: HIKER BRANDING -->
-    <li class="work p4">
-      <article class="project-card">
-        <a class="media-link" href={isEn ? "/en/portfolio/hiker/#branding" : "/portfolio/hiker/#branding"} aria-label={isEn ? "Hiker branding · View case study" : "Branding Hiker · Zobacz case study"}>
-          <div class="media">
-            <video class="portfolio-loop" muted loop playsinline preload="none" poster="/assets/motion/hiker-brand-poster.webp" aria-hidden="true" tabindex="-1">
-              <source data-src="/assets/motion/hiker-brand.webm" type="video/webm">
-              <source data-src="/assets/motion/hiker-brand.mp4" type="video/mp4">
-            </video>
-            <img class="project-image" src="/assets/portfolio/hiker.webp" alt={isEn ? "Hiker visual identity on business cards and stationery" : "Identyfikacja wizualna Hiker na wizytówkach i papierze firmowym"} loading="lazy" decoding="async" width="1400" height="920">
-            <span class="project-action">{isEn ? "View project" : "Zobacz projekt"} <span aria-hidden="true">&rarr;</span></span>
-          </div>
-        </a>
-        <div class="caption">
-          <div class="caption-copy">
-            <p class="cat">{isEn ? "04 / Logo / branding" : "04 / Logo / branding"}</p>
-            <h3 class="title"><a class="title-link" href={isEn ? "/en/portfolio/hiker/#branding" : "/portfolio/hiker/#branding"}>Hiker</a></h3>
-            <p class="project-description">
-              {isEn ? "Visual identity for an outdoor brand. The logo, colour scheme, and stationery establish a consistent brand image across touchpoints." : "Identyfikacja wizualna marki outdoorowej. Znak i\u00A0materiały firmowe tworzą spójny wizerunek marki."}
-            </p>
-          </div>
-          <a class="arr-link" href={isEn ? "/en/portfolio/hiker/#branding" : "/portfolio/hiker/#branding"} aria-label={isEn ? "Hiker branding · View case study" : "Branding Hiker · Zobacz case study"}><span class="arr" aria-hidden="true">&rarr;</span></a>
-        </div>
-      </article>
-    </li>
-
     <!-- P5: DREW-ART -->
     <li class="work p5">
       <article class="project-card">
@@ -150,7 +150,7 @@ const portfolioHref = isEn ? '/en/portfolio/' : '/portfolio/';
               <source data-src="/assets/motion/drew-art.webm" type="video/webm">
               <source data-src="/assets/motion/drew-art.mp4" type="video/mp4">
             </video>
-            <img class="project-image" src="/assets/portfolio/drew-art.webp" alt={isEn ? "Drew-Art proposed website design" : "Projekt strony Drew-Art"} loading="lazy" decoding="async" width="1400" height="920">
+            <img class="project-image" src="/assets/portfolio/drew-art.webp" alt={isEn ? "Drew-Art website design" : "Projekt strony Drew-Art"} loading="lazy" decoding="async" width="1400" height="920">
             <span class="project-action">{isEn ? "View project" : "Zobacz projekt"} <span aria-hidden="true">&rarr;</span></span>
           </div>
         </a>
@@ -159,7 +159,7 @@ const portfolioHref = isEn ? '/en/portfolio/' : '/portfolio/';
             <p class="cat">{isEn ? "05 / Website" : "05 / Strona WWW"}</p>
             <h3 class="title"><a class="title-link" href={isEn ? "/en/portfolio/drew-art/" : "/portfolio/drew-art/"}>Drew-Art</a></h3>
             <p class="project-description">
-              {isEn ? "A website concept for a woodworking business. The layout structures the offer and presents products in a clear, modern commercial context." : "Propozycja strony dla\u00A0firmy z\u00A0branży drzewnej. Układ porządkuje ofertę i\u00A0pokazuje produkty w\u00A0nowoczesnym kontekście sprzedażowym."}
+              {isEn ? "A website for a brush and cleaning tool manufacturer. The layout structures the offer and presents products in a clear, modern commercial context." : "Strona internetowa dla\u00A0producenta szczotek i\u00A0narzędzi do\u00A0sprzątania. Układ porządkuje ofertę i\u00A0pokazuje produkty w\u00A0nowoczesnym kontekście sprzedażowym."}
             </p>
             <div class="project-ext-action">
               <a class="project-ext-link" href="https://drew-art.com.pl" target="_blank" rel="noopener noreferrer">{isEn ? "Open website" : "Otwórz stronę"} <span aria-hidden="true">&#x2197;</span></a>

@@ -38,7 +38,8 @@ body.menu-open{overflow:hidden}
 .service-feature p{color:#62626b;margin:0}
 .service-feature .item-number{color:var(--orange)}
 .dark-section{background:#101010;color:white}
-.dark-section .home-kicker,.dark-section .service-feature p,.dark-section .compact-grid p:not(.home-lead){color:#b4b4bd}
+.dark-section .home-kicker{color:var(--orange)}
+.dark-section .service-feature p,.dark-section .compact-grid p:not(.home-lead){color:#b4b4bd}
 .dark-section .home-lead{color:#fff}
 .dark-section .service-feature{border-color:#45454d}
 .dark-section .item-number{color:#ff8538}
@@ -589,6 +590,7 @@ section[id]{scroll-margin-top:var(--sticky-header-offset)}
   height: auto;
   display: block;
   object-fit: cover;
+  object-position: top center;
 }
 @media (min-width: 901px) and (hover: hover) and (pointer: fine) {
   .service-hero-visual.has-parallax img {

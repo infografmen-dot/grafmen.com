@@ -8,8 +8,8 @@ import node from '@astrojs/node';
 import path from 'node:path';
 
 // Mount Keystatic and Node server adapter only in local development server.
-// For static production builds, strictly use output: 'static' and trailingSlash: 'always'.
-const isBuild = process.argv.includes('build') || process.env.SKIP_KEYSTATIC === 'true';
+// For static production builds and preview, strictly use output: 'static' and trailingSlash: 'always'.
+const isBuild = process.argv.includes('build') || process.argv.includes('preview') || process.env.SKIP_KEYSTATIC === 'true';
 
 export default defineConfig({
   site: 'https://grafmen.com',
