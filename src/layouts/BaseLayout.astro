@@ -47,6 +47,15 @@ const enUrl = isEn ? canonicalUrl : new URL(computedAltLangUrl, 'https://grafmen
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script is:inline>
+    document.documentElement.classList.add('js');
+  </script>
+  <noscript>
+    <style>
+      .hero-line-inner { opacity: 1 !important; }
+      .hero-wipe-brand, .hero-wipe-fg { display: none !important; }
+    </style>
+  </noscript>
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonicalUrl}>

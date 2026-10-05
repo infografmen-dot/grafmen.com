@@ -11,6 +11,7 @@
     // 1. Accessibility: check prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
+      document.documentElement.classList.add('hero-motion-done');
       // Respect accessibility setting: immediate display, no overrides
       return;
     }
@@ -25,6 +26,7 @@
 
     // 3. Verify GSAP availability
     if (typeof gsap === 'undefined') {
+      document.documentElement.classList.add('hero-motion-done');
       return;
     }
 
@@ -129,6 +131,7 @@
         if (failsafeTimer) {
           clearTimeout(failsafeTimer);
         }
+        document.documentElement.classList.remove('hero-motion-done');
 
         // Fresh dynamic queries for resilience against DOM updates
         const heroLines = heroH1.querySelectorAll('.hero-line');
@@ -149,6 +152,7 @@
 
         // Failsafe watchdog: guarantees full text visibility after 2.2s even under heavy tab throttling or errors
         failsafeTimer = setTimeout(() => {
+          document.documentElement.classList.add('hero-motion-done');
           gsap.set(heroH1.querySelectorAll('.hero-line-inner'), { clearProps: 'all', opacity: 1 });
           gsap.set(heroH1.querySelectorAll('.hero-wipe-brand, .hero-wipe-fg'), { clearProps: 'all', scaleX: 0 });
           gsap.set([eyebrowInner, contactInner, leadText, actionBtn, centerIndicator], { clearProps: 'all', opacity: 1, y: 0 });
@@ -172,6 +176,7 @@
           defaults: { ease: 'power3.inOut' },
           onComplete: () => {
             if (failsafeTimer) clearTimeout(failsafeTimer);
+            document.documentElement.classList.add('hero-motion-done');
             gsap.set([lineInners, brandRects, fgRects], { clearProps: 'all' });
             gsap.set([eyebrowInner, contactInner, leadText, actionBtn, metaTop, centerIndicator], { clearProps: 'all' });
             if (metaInners.length) gsap.set(metaInners, { clearProps: 'all' });
@@ -1695,8 +1700,11 @@
 
     // Odświeżenie pozycji przy powrocie z pamięci podręcznej przeglądarki (bfcache)
     window.addEventListener('pageshow', (e) => {
-      if (e.persisted && typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.refresh();
+      if (e.persisted) {
+        document.documentElement.classList.add('hero-motion-done');
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
       }
     });
   };

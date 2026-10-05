@@ -1,37 +1,28 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const now = new Date();
-const dateStr = '2026-10-01';
-const timeStr = '21:16';
+const dateStr = '2026-10-05';
+const timeStr = '20:10';
 
 const summaryText = `
-## [Podsumowanie Sesji] Grafmen.com: Aktualizacja case study i galerii Drew-Art oraz optymalizacje kart portfolio
+## [Podsumowanie Sesji] Grafmen.com: Naprawa pierwszego renderu Hero H1 (eliminacja FOUC) oraz uzupełnienie oferty o social media i banery HTML5
 
 - **Data i godzina:** ${dateStr} ${timeStr}
 - **Projekt:** Grafmen.com (\`d:\\www\\grafmen\\aero\`)
-- **Status publikacji:** Praca lokalna (zgodnie z regułą Local-Only Work Rule, bez pusha i bez publikacji Vercel).
+- **Status publikacji:** Praca lokalna przetestowana w 100%. Gotowe do wysyłki na GitHub.
 - **Zrealizowane zadania:**
-  1. **Rozszerzenie galerii projektu Katalog Drew-Art (\`/portfolio/katalog-drew-art/\`):**
-     - Dodano 2 nowe rozkładówki przekazane przez użytkownika:
-       - \`Mockup_Brochure_21x21_3.webp\` (strony 6–7: zamiatacze i zmiotki),
-       - \`Mockup_Brochure_21x21_5.webp\` (strony 16–17: szczotki do obuwia i ubrań).
-     - Zoptymalizowano obrazy do WebP (jakość 90) oraz wygenerowano responsywne warianty (\`360w\`, \`480w\`, \`800w\`, \`1024w\`) w \`image-manifest.json\`.
-     - Galeria powiększona z 2 do 4 pełnych rozkładówek.
-  2. **Aktualizacja treści i korekty case study Katalog Drew-Art:**
-     - W sekcji *Zakres* usunięto pozycję: *„Wizualizacje 3D katalogu do prezentacji w materiałach cyfrowych.”*
-     - W podpisie pod 4. zdjęciem w galerii skrócono podpis do: *„Wizualizacja produktów.”* (usunięto *„w naturalnym otoczeniu”*).
-     - W sekcji *Rezultat* zaktualizowano tekst na: *„Przygotowano wielostronicowy katalog produktowy w formacie kwadratowym, porządkujący asortyment zmiotek i zamiataczy.”* (zamiast mebli drewnianych).
-     - Zsynchronizowano zmiany w wersji polskiej (\`src/content/portfolio/katalog-drew-art.json\`, \`content/portfolio/katalog-drew-art.json\`) oraz angielskiej (\`src/data/i18n/portfolio-en.ts\`).
-  3. **Weryfikacja zdjęcia okładkowego:**
-     - Zgodnie z dyspozycją użytkownika przywrócono oryginalny kadr i format okładki katalogu (\`Mockup_Brochure_21x21_1.webp\`, 1750×1750 px).
-  4. **Wcześniejsze ustalenia sesji:**
-     - Zamiana miejsc kart w siatce portfolio: Hiker na pozycji 03 (po lewej, duża), szkola.best na pozycji 04 (po prawej, mniejsza) – zachowano na stronie głównej i w \`/portfolio/\` (PL i EN).
-     - Aktualizacja tekstów dla projektu strony WWW Drew-Art (producent szczotek i akcesoriów do sprzątania).
-     - Płynny szklany panel banera cookies na wzór szkola.best.
-  5. **Weryfikacja jakościowa:**
-     - \`npm run build\` zakończony sukcesem (69 stron zbudowanych bez błędów).
-     - Testy i zrzuty ekranu w headless Chrome potwierdziły poprawność układu i typografii.
+  1. **Eliminacja flashu widocznego tekstu H1 przy pierwszym renderze (Hero Entrance Wipe Reveal):**
+     - Zdiagnozowano przyczynę: \`.hero-line-inner\` w domyślnym CSS miało \`opacity: 1\`, przez co przed załadowaniem GSAP i fontów (do 350ms) H1 był w pełni widoczny, po czym gwałtownie znikał przed rozpoczęciem animacji.
+     - Wprowadzono stan początkowy w CSS: \`html.js:not(.hero-motion-done) .hero .hero-line-inner { opacity: 0; }\`.
+     - W \`src/layouts/BaseLayout.astro\` dodano synchroniczny inline script dodający klasę \`js\` przed pierwszym paintem oraz fallback \`<noscript>\` wymuszający \`opacity: 1 !important\`.
+     - W \`grafmen-motion.js\` (\`public/\` i root) zsynchronizowano dodawanie klasy \`hero-motion-done\` z zakończeniem osi czasu GSAP (\`onComplete\`), watchdogiem failsafe (2.2s), \`prefers-reduced-motion\` oraz \`pageshow\` dla pamięci podręcznej przeglądarki (bfcache).
+     - Przeprowadzono testy klatka po klatce w Playwright (0ms, 50ms, 300ms, 650ms, 1800ms) – potwierdzono całkowity brak flashu, prawidłowy start wipe reveal, wzorcowe działanie na mobile oraz fallbacki.
+  2. **Korekta i uzupełnienie komunikacji usług (social media, banery HTML5):**
+     - **Homepage Hero (PL i EN):** dopisano grafiki reklamowe i social media, sformatowano akapit w dokładnie dwa wiersze na desktopie.
+     - **Sekcja Współpraca / Collaboration (PL i EN):** doprecyzowano zakres od grafik social media po banery HTML5, druk, animacje i wideo.
+     - **Podstrona Branding (PL i EN):** zaktualizowano kafel 02 (grafika reklamowa, social media i druk) oraz nagłówek kafla 03 (motion, wideo i banery HTML5).
+  3. **Weryfikacja jakościowa:**
+     - Zbudowano 69 podstron statycznych (\`npm run build\`) bez żadnych błędów.
 `;
 
 // 1. Daily Note
@@ -55,7 +46,7 @@ if (fs.existsSync(projectsPath)) {
   let content = fs.readFileSync(projectsPath, 'utf8');
   const projectMarker = '## Projekt: Grafmen.com';
   const entry = `
-- **Aktualizacja (${dateStr} ${timeStr})**: Dodano nowe rozkładówki do case study Katalog Drew-Art (zamiatacze, szczotki do ubrań), zaktualizowano zakres i teksty (usunięto wizualizacje 3D, doprecyzowano asortyment zamiataczy i zmiotek, przywrócono oryginalny kadr okładki). Build 69 stron OK.
+- **Aktualizacja (${dateStr} ${timeStr})**: Naprawiono pierwszy render animacji Hero H1 (eliminacja FOUC/flashu tekstu przed startem GSAP wipe reveal za pomocą stanu początkowego w CSS i inline JS tagu, pełny fallback No-JS i reduced-motion, testy klatka po klatce Playwright PASS). Uzupełniono treści o grafiki social media i banery HTML5 (PL i EN w 2 wierszach). Build 69 stron OK.
 `;
   const idx = content.indexOf(projectMarker);
   if (idx !== -1) {
@@ -69,7 +60,7 @@ if (fs.existsSync(projectsPath)) {
 // 3. Log
 const logPath = 'H:\\ai\\2Brain\\log.md';
 if (fs.existsSync(logPath)) {
-  const logLine = `- [${dateStr} ${timeStr}] **Grafmen.com**: Aktualizacja case study Katalog Drew-Art (nowe rozkładówki WebP w galerii, korekty tekstowe w zakresie i rezultacie, przywrócenie oryginalnej okładki, zamiana kart Hiker/BEST, build 69 stron PASS).\n`;
+  const logLine = `- [${dateStr} ${timeStr}] **Grafmen.com**: Naprawa renderu animacji Hero H1 (brak FOUC przed GSAP wipe reveal, fallback No-JS/reduced-motion), uzupełnienie oferty o social media i banery HTML5 w PL i EN, weryfikacja Playwright, build 69 stron PASS.\n`;
   fs.appendFileSync(logPath, logLine, 'utf8');
   console.log('✅ Zaktualizowano log.md');
 }
