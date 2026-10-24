@@ -63,7 +63,19 @@
     { "source": "/en/brief-branding.html", "destination": "/en/brief-branding/", "permanent": true },
     { "source": "/en/portfolio/:slug.html", "destination": "/en/portfolio/:slug/", "permanent": true },
     { "source": "/film-hiker", "destination": "/portfolio/hiker/", "permanent": true },
-    { "source": "/film-hiker/", "destination": "/portfolio/hiker/", "permanent": true }
+    { "source": "/film-hiker/", "destination": "/portfolio/hiker/", "permanent": true },
+    { "source": "/logo_jd-ubezpieczenia", "destination": "/portfolio/jd-ubezpieczenia/", "permanent": true },
+    { "source": "/logo_jd-ubezpieczenia/", "destination": "/portfolio/jd-ubezpieczenia/", "permanent": true },
+    { "source": "/portfolio_gearexpert", "destination": "/portfolio/gearexpert/", "permanent": true },
+    { "source": "/portfolio_gearexpert/", "destination": "/portfolio/gearexpert/", "permanent": true },
+    { "source": "/logo-piworob", "destination": "/portfolio/piworob/", "permanent": true },
+    { "source": "/logo-piworob/", "destination": "/portfolio/piworob/", "permanent": true },
+    { "source": "/portfolio_montessori", "destination": "/portfolio/montessori/", "permanent": true },
+    { "source": "/portfolio_montessori/", "destination": "/portfolio/montessori/", "permanent": true },
+    { "source": "/portfolio_wizualizacja_pobudka", "destination": "/portfolio/pobudka/", "permanent": true },
+    { "source": "/portfolio_wizualizacja_pobudka/", "destination": "/portfolio/pobudka/", "permanent": true },
+    { "source": "/portfolio_broszura_pervita24", "destination": "/portfolio/broszura-pervita24/", "permanent": true },
+    { "source": "/portfolio_broszura_pervita24/", "destination": "/portfolio/broszura-pervita24/", "permanent": true }
   ],
   "headers": [
     {
