@@ -38,6 +38,29 @@ export default defineConfig({
           'https://grafmen.com/api/keystatic/'
         ];
         return !excludedErrorPaths.some((p) => page === p || page.startsWith(p));
+      },
+      serialize: (item) => {
+        const url = item.url;
+        const lastmod = new Date().toISOString();
+        const highPriorityPl = [
+          'https://grafmen.com/strony-www/',
+          'https://grafmen.com/branding/',
+          'https://grafmen.com/modernizacja/',
+          'https://grafmen.com/oferta/',
+          'https://grafmen.com/portfolio/',
+          'https://grafmen.com/o-mnie/',
+          'https://grafmen.com/kontakt/',
+        ];
+        if (url === 'https://grafmen.com/') {
+          return { ...item, lastmod, priority: 1.0 };
+        }
+        if (highPriorityPl.includes(url)) {
+          return { ...item, lastmod, priority: 0.9 };
+        }
+        if (!url.includes('/en/')) {
+          return { ...item, lastmod, priority: 0.8 };
+        }
+        return { ...item, lastmod, priority: 0.6 };
       }
     })
   ],

@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /comments/feed/
+Disallow: /wp-content/themes/
 
 Sitemap: https://grafmen.com/sitemap-index.xml
 

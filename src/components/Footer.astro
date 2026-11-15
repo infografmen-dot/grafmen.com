@@ -21,7 +21,7 @@ const redesignHref = isEn ? '/en/redesign/' : '/modernizacja/';
 const brandingHref = isEn ? '/en/branding/' : '/branding/';
 const contactHref = isEn ? '/en/contact/' : '/kontakt/';
 const privacyHref = isEn ? '/en/privacy-policy/' : '/polityka-prywatnosci/';
-const homeAnchor = '#top';
+const homeAnchor = isEn ? '/en/' : '/';
 ---
 <footer class="site-footer" lang={isEn ? 'en-GB' : 'pl'}>
   <div class="home-inner footer-main">
@@ -42,6 +42,7 @@ const homeAnchor = '#top';
     </div>
     <div class="footer-nav">
       <p class="footer-label">{t.servicesLabel}</p>
+      {!isEn && <a href="/oferta/">Pełna oferta</a>}
       <a href={webServicesHref}>{t.webServices}</a>
       <a href={redesignHref}>{t.redesign}</a>
       <a href={brandingHref}>{t.branding}</a>
