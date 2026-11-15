@@ -28,6 +28,7 @@ export interface UiDictionary {
     blog: string;
     privacy: string;
     cookiesBtn: string;
+    allServices: string;
     webServices: string;
     redesign: string;
     branding: string;
@@ -84,6 +85,7 @@ export const ui: Record<'pl' | 'en', UiDictionary> = {
       blog: 'Blog',
       privacy: 'Polityka prywatności',
       cookiesBtn: 'Informacja o\u00A0prywatności',
+      allServices: 'Pełna oferta',
       webServices: 'Strony WWW',
       redesign: 'Modernizacja WWW',
       branding: 'Branding',
@@ -138,6 +140,7 @@ export const ui: Record<'pl' | 'en', UiDictionary> = {
       blog: 'Blog',
       privacy: 'Privacy policy',
       cookiesBtn: 'Privacy notice',
+      allServices: 'All services',
       webServices: 'Websites',
       redesign: 'Website redesign',
       branding: 'Branding',
